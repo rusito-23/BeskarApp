@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  ExpenseApp
+//  Beskar
 //
 //  Created by Igor on 28/01/2021.
 //
@@ -18,17 +18,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Properties
 
-    lazy var window: UIWindow? = {
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = coordinator.presenter
-        return window
-    }()
-
-    private lazy var coordinator: Coordinator = {
-        let navigationController = UINavigationController()
-        let coordinator = MainCoordinator(presenter: navigationController)
-        return coordinator
-    }()
+    var window: UIWindow?
+    private var coordinator: Coordinator!
 
     // MARK: - AppDelegate Conformance
 
@@ -38,7 +29,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
 
         // Start Main Navigation
-        window?.makeKeyAndVisible()
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        coordinator = MainCoordinator(window: window)
         coordinator.start()
 
         return true

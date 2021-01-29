@@ -9,25 +9,27 @@
 /* Begin PBXBuildFile section */
 		783222DC25C378EF00D466ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DB25C378EF00D466ED /* AppDelegate.swift */; };
 		783222DE25C378EF00D466ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DD25C378EF00D466ED /* SceneDelegate.swift */; };
-		783222E025C378EF00D466ED /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DF25C378EF00D466ED /* MainViewController.swift */; };
+		783222E025C378EF00D466ED /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DF25C378EF00D466ED /* TabViewController.swift */; };
 		783222E525C378F000D466ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783222E425C378F000D466ED /* Assets.xcassets */; };
 		783222E825C378F000D466ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 783222E625C378F000D466ED /* LaunchScreen.storyboard */; };
-		783222FA25C37A4000D466ED /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222F925C37A4000D466ED /* AppCoordinator.swift */; };
 		783222FF25C37A6B00D466ED /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222FE25C37A6B00D466ED /* Coordinator.swift */; };
 		7832230325C37BC800D466ED /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832230225C37BC800D466ED /* MainCoordinator.swift */; };
+		7832230D25C38BAF00D466ED /* UIColor+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832230C25C38BAF00D466ED /* UIColor+Beskar.swift */; };
+		7832231725C38CBE00D466ED /* BeskarNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832231625C38CBE00D466ED /* BeskarNamespace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		783222D825C378EF00D466ED /* ExpenseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		783222D825C378EF00D466ED /* Beskar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beskar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783222DB25C378EF00D466ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		783222DD25C378EF00D466ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		783222DF25C378EF00D466ED /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		783222DF25C378EF00D466ED /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		783222E425C378F000D466ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		783222E725C378F000D466ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		783222E925C378F000D466ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		783222F925C37A4000D466ED /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		783222FE25C37A6B00D466ED /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7832230225C37BC800D466ED /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		7832230C25C38BAF00D466ED /* UIColor+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Beskar.swift"; sourceTree = "<group>"; };
+		7832231625C38CBE00D466ED /* BeskarNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarNamespace.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +46,8 @@
 		783222CF25C378EF00D466ED = {
 			isa = PBXGroup;
 			children = (
-				783222DA25C378EF00D466ED /* ExpenseApp */,
+				783222F425C3794000D466ED /* Resources */,
+				783222F225C3791E00D466ED /* Sources */,
 				783222D925C378EF00D466ED /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,25 +55,15 @@
 		783222D925C378EF00D466ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				783222D825C378EF00D466ED /* ExpenseApp.app */,
+				783222D825C378EF00D466ED /* Beskar.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		783222DA25C378EF00D466ED /* ExpenseApp */ = {
-			isa = PBXGroup;
-			children = (
-				783222F425C3794000D466ED /* Resources */,
-				783222F325C3793500D466ED /* Support */,
-				783222F225C3791E00D466ED /* Sources */,
-			);
-			path = ExpenseApp;
 			sourceTree = "<group>";
 		};
 		783222F125C3791700D466ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				783222DF25C378EF00D466ED /* MainViewController.swift */,
+				783222DF25C378EF00D466ED /* TabViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -78,38 +71,31 @@
 		783222F225C3791E00D466ED /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				783222F625C3796800D466ED /* AppCoordinator */,
+				783222F625C3796800D466ED /* Base */,
+				7832230B25C38B2900D466ED /* BeskarUI */,
 				783222FD25C37A6000D466ED /* Coordinator */,
 				783222F125C3791700D466ED /* Controller */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		783222F325C3793500D466ED /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				783222E925C378F000D466ED /* Info.plist */,
-			);
-			name = Support;
-			sourceTree = "<group>";
-		};
 		783222F425C3794000D466ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				783222E925C378F000D466ED /* Info.plist */,
 				783222E625C378F000D466ED /* LaunchScreen.storyboard */,
 				783222E425C378F000D466ED /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		783222F625C3796800D466ED /* AppCoordinator */ = {
+		783222F625C3796800D466ED /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				783222F925C37A4000D466ED /* AppCoordinator.swift */,
 				783222DB25C378EF00D466ED /* AppDelegate.swift */,
 				783222DD25C378EF00D466ED /* SceneDelegate.swift */,
 			);
-			path = AppCoordinator;
+			path = Base;
 			sourceTree = "<group>";
 		};
 		783222FD25C37A6000D466ED /* Coordinator */ = {
@@ -121,12 +107,21 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		7832230B25C38B2900D466ED /* BeskarUI */ = {
+			isa = PBXGroup;
+			children = (
+				7832231625C38CBE00D466ED /* BeskarNamespace.swift */,
+				7832230C25C38BAF00D466ED /* UIColor+Beskar.swift */,
+			);
+			path = BeskarUI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		783222D725C378EF00D466ED /* ExpenseApp */ = {
+		783222D725C378EF00D466ED /* Beskar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 783222EC25C378F000D466ED /* Build configuration list for PBXNativeTarget "ExpenseApp" */;
+			buildConfigurationList = 783222EC25C378F000D466ED /* Build configuration list for PBXNativeTarget "Beskar" */;
 			buildPhases = (
 				783222D425C378EF00D466ED /* Sources */,
 				783222D525C378EF00D466ED /* Frameworks */,
@@ -136,9 +131,9 @@
 			);
 			dependencies = (
 			);
-			name = ExpenseApp;
-			productName = ExpenseApp;
-			productReference = 783222D825C378EF00D466ED /* ExpenseApp.app */;
+			name = Beskar;
+			productName = Beskar;
+			productReference = 783222D825C378EF00D466ED /* Beskar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -155,7 +150,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 783222D325C378EF00D466ED /* Build configuration list for PBXProject "ExpenseApp" */;
+			buildConfigurationList = 783222D325C378EF00D466ED /* Build configuration list for PBXProject "Beskar" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -168,7 +163,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				783222D725C378EF00D466ED /* ExpenseApp */,
+				783222D725C378EF00D466ED /* Beskar */,
 			);
 		};
 /* End PBXProject section */
@@ -190,12 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				783222FA25C37A4000D466ED /* AppCoordinator.swift in Sources */,
 				7832230325C37BC800D466ED /* MainCoordinator.swift in Sources */,
-				783222E025C378EF00D466ED /* MainViewController.swift in Sources */,
+				783222E025C378EF00D466ED /* TabViewController.swift in Sources */,
 				783222FF25C37A6B00D466ED /* Coordinator.swift in Sources */,
 				783222DC25C378EF00D466ED /* AppDelegate.swift in Sources */,
+				7832231725C38CBE00D466ED /* BeskarNamespace.swift in Sources */,
 				783222DE25C378EF00D466ED /* SceneDelegate.swift in Sources */,
+				7832230D25C38BAF00D466ED /* UIColor+Beskar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,12 +332,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V67S6WRV9Z;
-				INFOPLIST_FILE = ExpenseApp/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rusito23.ExpenseApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rusito23.Beskar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -355,12 +351,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V67S6WRV9Z;
-				INFOPLIST_FILE = ExpenseApp/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rusito23.ExpenseApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rusito23.Beskar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,7 +366,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		783222D325C378EF00D466ED /* Build configuration list for PBXProject "ExpenseApp" */ = {
+		783222D325C378EF00D466ED /* Build configuration list for PBXProject "Beskar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				783222EA25C378F000D466ED /* Debug */,
@@ -379,7 +375,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		783222EC25C378F000D466ED /* Build configuration list for PBXNativeTarget "ExpenseApp" */ = {
+		783222EC25C378F000D466ED /* Build configuration list for PBXNativeTarget "Beskar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				783222ED25C378F000D466ED /* Debug */,

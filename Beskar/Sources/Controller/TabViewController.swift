@@ -1,17 +1,16 @@
 //
 //  ViewController.swift
-//  ExpenseApp
+//  Beskar
 //
 //  Created by Igor on 28/01/2021.
 //
 
 import UIKit
 
-final class MainViewController: UIViewController {
+final class TabViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
-        // Do any additional setup after loading the view.
     }
 }
 

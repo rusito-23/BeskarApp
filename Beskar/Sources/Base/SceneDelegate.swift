@@ -1,23 +1,18 @@
 //
 //  SceneDelegate.swift
-//  ExpenseApp
+//  Beskar
 //
 //  Created by Igor on 28/01/2021.
 //
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     // MARK: - Properties
 
     var window: UIWindow?
-
-    private lazy var coordinator: Coordinator = {
-        let navigationController = UINavigationController()
-        let coordinator = MainCoordinator(presenter: navigationController)
-        return coordinator
-    }()
+    private var coordinator: Coordinator!
 
     // MARK: - Scene Delegate Conformance
 
@@ -26,10 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
+
+        // Start Main Navigation
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = coordinator.presenter
-        window?.makeKeyAndVisible()
+        let window = UIWindow(windowScene: windowScene)
+        self.window = window
+        self.coordinator = MainCoordinator(window: window)
         coordinator.start()
     }
 
