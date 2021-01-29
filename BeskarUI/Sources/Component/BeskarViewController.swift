@@ -8,7 +8,7 @@
 
 import UIKit
 
-// MARK: - BeskarViewController
+// MARK: - View Controller
 
 open class BeskarViewController: UIViewController {
 
@@ -20,7 +20,7 @@ open class BeskarViewController: UIViewController {
     }
 }
 
-// MARK: - BeskarTabBarController
+// MARK: - Tab Bar Controller
 
 open class BeskarTabBarController: UITabBarController {
 

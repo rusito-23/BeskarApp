@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// The Main Coordinator is started when the app loads
 final class MainCoordinator: Coordinator {
 
     // MARK: - Properties
@@ -33,7 +34,6 @@ final class MainCoordinator: Coordinator {
     func start() {
         window.rootViewController = presenter
         window.makeKeyAndVisible()
-
         presenter.present(viewController, animated: true)
     }
 
