@@ -4,4 +4,7 @@
    <FileRef
       location = "container:Beskar/Beskar.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:BeskarUI/BeskarUI.xcodeproj">
+   </FileRef>
 </Workspace>

@@ -14,9 +14,23 @@
 		783222E825C378F000D466ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 783222E625C378F000D466ED /* LaunchScreen.storyboard */; };
 		783222FF25C37A6B00D466ED /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222FE25C37A6B00D466ED /* Coordinator.swift */; };
 		7832230325C37BC800D466ED /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832230225C37BC800D466ED /* MainCoordinator.swift */; };
-		7832230D25C38BAF00D466ED /* UIColor+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832230C25C38BAF00D466ED /* UIColor+Beskar.swift */; };
-		7832231725C38CBE00D466ED /* BeskarNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832231625C38CBE00D466ED /* BeskarNamespace.swift */; };
+		7832236425C44B9800D466ED /* BeskarUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7832236325C44B9800D466ED /* BeskarUI.framework */; };
+		7832236525C44B9800D466ED /* BeskarUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7832236325C44B9800D466ED /* BeskarUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7832236625C44B9800D466ED /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7832236525C44B9800D466ED /* BeskarUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		783222D825C378EF00D466ED /* Beskar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beskar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,8 +42,7 @@
 		783222E925C378F000D466ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		783222FE25C37A6B00D466ED /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7832230225C37BC800D466ED /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		7832230C25C38BAF00D466ED /* UIColor+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Beskar.swift"; sourceTree = "<group>"; };
-		7832231625C38CBE00D466ED /* BeskarNamespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarNamespace.swift; sourceTree = "<group>"; };
+		7832236325C44B9800D466ED /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7832236425C44B9800D466ED /* BeskarUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +63,7 @@
 				783222F425C3794000D466ED /* Resources */,
 				783222F225C3791E00D466ED /* Sources */,
 				783222D925C378EF00D466ED /* Products */,
+				7832236225C44B9700D466ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				783222F625C3796800D466ED /* Base */,
-				7832230B25C38B2900D466ED /* BeskarUI */,
 				783222FD25C37A6000D466ED /* Coordinator */,
 				783222F125C3791700D466ED /* Controller */,
 			);
@@ -107,13 +121,12 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		7832230B25C38B2900D466ED /* BeskarUI */ = {
+		7832236225C44B9700D466ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7832231625C38CBE00D466ED /* BeskarNamespace.swift */,
-				7832230C25C38BAF00D466ED /* UIColor+Beskar.swift */,
+				7832236325C44B9800D466ED /* BeskarUI.framework */,
 			);
-			path = BeskarUI;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +139,7 @@
 				783222D425C378EF00D466ED /* Sources */,
 				783222D525C378EF00D466ED /* Frameworks */,
 				783222D625C378EF00D466ED /* Resources */,
+				7832236625C44B9800D466ED /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,9 +203,7 @@
 				783222E025C378EF00D466ED /* TabViewController.swift in Sources */,
 				783222FF25C37A6B00D466ED /* Coordinator.swift in Sources */,
 				783222DC25C378EF00D466ED /* AppDelegate.swift in Sources */,
-				7832231725C38CBE00D466ED /* BeskarNamespace.swift in Sources */,
 				783222DE25C378EF00D466ED /* SceneDelegate.swift in Sources */,
-				7832230D25C38BAF00D466ED /* UIColor+Beskar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

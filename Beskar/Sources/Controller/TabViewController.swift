@@ -6,11 +6,11 @@
 //
 
 import UIKit
+import BeskarUI
 
-final class TabViewController: UITabBarController {
+final class TabViewController: BeskarTabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
     }
 }
 
