@@ -12,13 +12,9 @@ public final class BeskarPasswordField: BeskarField {
     // MARK: - Constants
 
     private struct Constants {
-        struct Image {
-            struct Name {
-                static let visible = "eye"
-                static let invisible = "eye.slash"
-            }
-
-            static let size: CGFloat = 25
+        struct ImageName {
+            static let visible = "eye"
+            static let invisible = "eye.slash"
         }
     }
 
@@ -26,8 +22,8 @@ public final class BeskarPasswordField: BeskarField {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        isSecureTextEntry = true
-        textContentType = .password
+        textField.isSecureTextEntry = true
+        textField.textContentType = .password
         setUpVisibilityToggle()
     }
 
@@ -36,9 +32,9 @@ public final class BeskarPasswordField: BeskarField {
     private func setPasswordToggleImage(_ button: UIButton) {
         button.setImage(
             UIImage(
-                systemName: isSecureTextEntry ?
-                    Constants.Image.Name.invisible :
-                    Constants.Image.Name.visible
+                systemName: textField.isSecureTextEntry ?
+                    Constants.ImageName.invisible :
+                    Constants.ImageName.visible
             )?.withTintColor(UIColor.beskar.primary),
             for: .normal
         )
@@ -56,10 +52,10 @@ public final class BeskarPasswordField: BeskarField {
         )
 
         button.frame = CGRect(
-            x: frame.size.width - Constants.Image.size,
+            x: frame.size.width - Dimension.medium.rawValue,
             y: .zero,
-            width: Constants.Image.size,
-            height: Constants.Image.size
+            width: Dimension.medium.rawValue,
+            height: Dimension.medium.rawValue
         )
 
         button.addTarget(
@@ -68,12 +64,12 @@ public final class BeskarPasswordField: BeskarField {
             for: .touchUpInside
         )
 
-        rightView = button
-        rightViewMode = .always
+        textField.rightView = button
+        textField.rightViewMode = .always
     }
 
-    @objc private func togglePasswordView(_ sender: Any) {
-        isSecureTextEntry = !isSecureTextEntry
-        setPasswordToggleImage(sender as! UIButton)
+    @objc private func togglePasswordView(_ sender: UIButton) {
+        textField.isSecureTextEntry = !textField.isSecureTextEntry
+        setPasswordToggleImage(sender)
     }
 }

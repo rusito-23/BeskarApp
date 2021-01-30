@@ -15,6 +15,7 @@
 		7829281B25C5BF6700F41574 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829281A25C5BF6700F41574 /* Dimensions.swift */; };
 		7829282125C5CEE600F41574 /* BeskarField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282025C5CEE600F41574 /* BeskarField.swift */; };
 		7829282525C5D06700F41574 /* BeskarPasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282425C5D06700F41574 /* BeskarPasswordField.swift */; };
+		7829282825C5FE9300F41574 /* BeskarTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282725C5FE9300F41574 /* BeskarTextField.swift */; };
 		7832236025C44B3300D466ED /* BeskarUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7832235E25C44B3300D466ED /* BeskarUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		7829281A25C5BF6700F41574 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
 		7829282025C5CEE600F41574 /* BeskarField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarField.swift; sourceTree = "<group>"; };
 		7829282425C5D06700F41574 /* BeskarPasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarPasswordField.swift; sourceTree = "<group>"; };
+		7829282725C5FE9300F41574 /* BeskarTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarTextField.swift; sourceTree = "<group>"; };
 		7832234325C446BF00D466ED /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7832235C25C44B3300D466ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7832235E25C44B3300D466ED /* BeskarUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeskarUI.h; sourceTree = "<group>"; };
@@ -46,10 +48,9 @@
 		782927D025C48F7300F41574 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				782927D125C48F8800F41574 /* BeskarViewController.swift */,
-				7829281125C5B4B500F41574 /* BeskarLabel.swift */,
-				7829282025C5CEE600F41574 /* BeskarField.swift */,
-				7829282425C5D06700F41574 /* BeskarPasswordField.swift */,
+				7829282A25C5FEA100F41574 /* Controller */,
+				7829282B25C5FEA900F41574 /* Field */,
+				7829282C25C5FEB500F41574 /* Label */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -62,6 +63,32 @@
 				7829281A25C5BF6700F41574 /* Dimensions.swift */,
 			);
 			path = System;
+			sourceTree = "<group>";
+		};
+		7829282A25C5FEA100F41574 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				782927D125C48F8800F41574 /* BeskarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7829282B25C5FEA900F41574 /* Field */ = {
+			isa = PBXGroup;
+			children = (
+				7829282025C5CEE600F41574 /* BeskarField.swift */,
+				7829282425C5D06700F41574 /* BeskarPasswordField.swift */,
+				7829282725C5FE9300F41574 /* BeskarTextField.swift */,
+			);
+			path = Field;
+			sourceTree = "<group>";
+		};
+		7829282C25C5FEB500F41574 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				7829281125C5B4B500F41574 /* BeskarLabel.swift */,
+			);
+			path = Label;
 			sourceTree = "<group>";
 		};
 		7832233925C446BF00D466ED = {
@@ -182,6 +209,7 @@
 				782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */,
 				782927D225C48F8800F41574 /* BeskarViewController.swift in Sources */,
 				7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */,
+				7829282825C5FE9300F41574 /* BeskarTextField.swift in Sources */,
 				7829282525C5D06700F41574 /* BeskarPasswordField.swift in Sources */,
 				7829281225C5B4B500F41574 /* BeskarLabel.swift in Sources */,
 				782927C725C4520F00F41574 /* UIColor+Beskar.swift in Sources */,

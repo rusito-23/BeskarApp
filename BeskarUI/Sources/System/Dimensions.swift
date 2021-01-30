@@ -31,3 +31,9 @@ public struct Border {
         case extraSmall = 5.0
     }
 }
+
+public enum Dimension: CGFloat {
+    case large = 100.0
+    case medium = 50.0
+    case small = 25.0
+}

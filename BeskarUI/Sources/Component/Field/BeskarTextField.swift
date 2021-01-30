@@ -1,5 +1,5 @@
 //
-//  BeskarField.swift
+//  BeskarTextField.swift
 //  BeskarUI
 //
 //  Created by Igor on 30/01/2021.
@@ -7,19 +7,16 @@
 
 import UIKit
 
-open class BeskarField: UITextField {
+open class BeskarTextField: UITextField {
 
     // MARK: - Constants
 
-    private struct Constants {
-        static let height: CGFloat = 50.0
-        static let padding = UIEdgeInsets(
-            top: .zero,
-            left: Spacing.medium.rawValue,
-            bottom: .zero,
-            right: Spacing.medium.rawValue
-        )
-    }
+    static let padding = UIEdgeInsets(
+        top: .zero,
+        left: Spacing.medium.rawValue,
+        bottom: .zero,
+        right: Spacing.medium.rawValue
+    )
 
     // MARK: - Initializers
 
@@ -47,21 +44,24 @@ open class BeskarField: UITextField {
 
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: Constants.height)
+            heightAnchor.constraint(
+                equalToConstant: Dimension.medium.rawValue
+            )
         ])
     }
 
     // MARK: - Text Rect
 
     public override func textRect(forBounds bounds: CGRect) -> CGRect {
-        bounds.inset(by: Constants.padding)
+        bounds.inset(by: Self.padding)
     }
 
     public override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        bounds.inset(by: Constants.padding)
+        bounds.inset(by: Self.padding)
     }
 
     public override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        bounds.inset(by: Constants.padding)
+        bounds.inset(by: Self.padding)
     }
 }
+

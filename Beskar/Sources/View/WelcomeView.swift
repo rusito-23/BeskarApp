@@ -12,25 +12,25 @@ final class WelcomeView: UIView {
 
     // MARK: - Subviews
 
-    private lazy var titleLabel = BeskarLabel(
+    lazy var titleLabel = BeskarLabel(
         size: .large,
         color: UIColor.beskar.primary
     )
 
-    private lazy var subtitleLabel = BeskarLabel(
+    lazy var subtitleLabel = BeskarLabel(
         size: .typeMedium,
         color: UIColor.beskar.secondary
     )
 
-    private lazy var passwordField: UITextField = {
+    lazy var passwordField: BeskarField = {
         let field = BeskarPasswordField()
-        field.placeholder = "Password"
+        field.textField.placeholder = "Password"
         return field
     }()
 
-    private lazy var repeatPasswordField: UITextField = {
+    lazy var repeatPasswordField: BeskarField = {
         let field = BeskarPasswordField()
-        field.placeholder = "Repeat password"
+        field.textField.placeholder = "Repeat password"
         return field
     }()
 
@@ -94,7 +94,7 @@ final class WelcomeView: UIView {
         NSLayoutConstraint.activate([
             passwordField.topAnchor.constraint(
                 equalTo: subtitleLabel.bottomAnchor,
-                constant: Spacing.medium.rawValue
+                constant: Spacing.large.rawValue
             ),
             passwordField.leadingAnchor.constraint(
                 equalTo: layoutMarginsGuide.leadingAnchor,

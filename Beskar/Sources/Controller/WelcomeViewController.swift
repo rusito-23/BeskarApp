@@ -20,4 +20,7 @@ final class WelcomeViewController: BeskarViewController {
         view = welcomeView
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }
