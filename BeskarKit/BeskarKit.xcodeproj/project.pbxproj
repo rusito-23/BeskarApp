@@ -7,29 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927C425C4520F00F41574 /* BeskarNamespace.swift */; };
-		782927C725C4520F00F41574 /* UIColor+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927C525C4520F00F41574 /* UIColor+Beskar.swift */; };
-		782927D225C48F8800F41574 /* BeskarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927D125C48F8800F41574 /* BeskarViewController.swift */; };
-		7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829280D25C5AF3E00F41574 /* UIFont+Beskar.swift */; };
-		7829281225C5B4B500F41574 /* BeskarLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829281125C5B4B500F41574 /* BeskarLabel.swift */; };
-		7829281B25C5BF6700F41574 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829281A25C5BF6700F41574 /* Spacing.swift */; };
-		7832236025C44B3300D466ED /* BeskarUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7832235E25C44B3300D466ED /* BeskarUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		782927EE25C50B5C00F41574 /* BeskarKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 782927EC25C50B5C00F41574 /* BeskarKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		782927C425C4520F00F41574 /* BeskarNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeskarNamespace.swift; sourceTree = "<group>"; };
-		782927C525C4520F00F41574 /* UIColor+Beskar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Beskar.swift"; sourceTree = "<group>"; };
-		782927D125C48F8800F41574 /* BeskarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarViewController.swift; sourceTree = "<group>"; };
-		7829280D25C5AF3E00F41574 /* UIFont+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Beskar.swift"; sourceTree = "<group>"; };
-		7829281125C5B4B500F41574 /* BeskarLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarLabel.swift; sourceTree = "<group>"; };
-		7829281A25C5BF6700F41574 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
-		7832234325C446BF00D466ED /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7832235C25C44B3300D466ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7832235E25C44B3300D466ED /* BeskarUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeskarUI.h; sourceTree = "<group>"; };
+		782927E925C50B5C00F41574 /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		782927EC25C50B5C00F41574 /* BeskarKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeskarKit.h; sourceTree = "<group>"; };
+		782927ED25C50B5C00F41574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7832234025C446BF00D466ED /* Frameworks */ = {
+		782927E625C50B5C00F41574 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,108 +27,86 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		782927D025C48F7300F41574 /* Component */ = {
+		782927DF25C50B5C00F41574 = {
 			isa = PBXGroup;
 			children = (
-				782927D125C48F8800F41574 /* BeskarViewController.swift */,
-				7829281125C5B4B500F41574 /* BeskarLabel.swift */,
-			);
-			path = Component;
-			sourceTree = "<group>";
-		};
-		7829281925C5BF3A00F41574 /* System */ = {
-			isa = PBXGroup;
-			children = (
-				782927C525C4520F00F41574 /* UIColor+Beskar.swift */,
-				7829280D25C5AF3E00F41574 /* UIFont+Beskar.swift */,
-				7829281A25C5BF6700F41574 /* Spacing.swift */,
-			);
-			path = System;
-			sourceTree = "<group>";
-		};
-		7832233925C446BF00D466ED = {
-			isa = PBXGroup;
-			children = (
-				7832235B25C44B3300D466ED /* Resources */,
-				7832235D25C44B3300D466ED /* Sources */,
-				7832234425C446BF00D466ED /* Products */,
+				782927F625C50B7500F41574 /* Resources */,
+				782927F525C50B6B00F41574 /* Sources */,
+				782927EA25C50B5C00F41574 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		7832234425C446BF00D466ED /* Products */ = {
+		782927EA25C50B5C00F41574 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7832234325C446BF00D466ED /* BeskarUI.framework */,
+				782927E925C50B5C00F41574 /* BeskarKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7832235B25C44B3300D466ED /* Resources */ = {
+		782927F525C50B6B00F41574 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				7832235C25C44B3300D466ED /* Info.plist */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		7832235D25C44B3300D466ED /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				7829281925C5BF3A00F41574 /* System */,
-				782927D025C48F7300F41574 /* Component */,
-				782927C425C4520F00F41574 /* BeskarNamespace.swift */,
-				7832235E25C44B3300D466ED /* BeskarUI.h */,
+				782927EC25C50B5C00F41574 /* BeskarKit.h */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		782927F625C50B7500F41574 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				782927ED25C50B5C00F41574 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		7832233E25C446BF00D466ED /* Headers */ = {
+		782927E425C50B5C00F41574 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7832236025C44B3300D466ED /* BeskarUI.h in Headers */,
+				782927EE25C50B5C00F41574 /* BeskarKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7832234225C446BF00D466ED /* BeskarUI */ = {
+		782927E825C50B5C00F41574 /* BeskarKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7832234B25C446BF00D466ED /* Build configuration list for PBXNativeTarget "BeskarUI" */;
+			buildConfigurationList = 782927F125C50B5C00F41574 /* Build configuration list for PBXNativeTarget "BeskarKit" */;
 			buildPhases = (
-				7832233E25C446BF00D466ED /* Headers */,
-				7832233F25C446BF00D466ED /* Sources */,
-				7832234025C446BF00D466ED /* Frameworks */,
-				7832234125C446BF00D466ED /* Resources */,
+				782927E425C50B5C00F41574 /* Headers */,
+				782927E525C50B5C00F41574 /* Sources */,
+				782927E625C50B5C00F41574 /* Frameworks */,
+				782927E725C50B5C00F41574 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BeskarUI;
-			productName = BeskarUI;
-			productReference = 7832234325C446BF00D466ED /* BeskarUI.framework */;
+			name = BeskarKit;
+			productName = BeskarKit;
+			productReference = 782927E925C50B5C00F41574 /* BeskarKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7832233A25C446BF00D466ED /* Project object */ = {
+		782927E025C50B5C00F41574 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
-					7832234225C446BF00D466ED = {
+					782927E825C50B5C00F41574 = {
 						CreatedOnToolsVersion = 12.2;
 						LastSwiftMigration = 1220;
 					};
 				};
 			};
-			buildConfigurationList = 7832233D25C446BF00D466ED /* Build configuration list for PBXProject "BeskarUI" */;
+			buildConfigurationList = 782927E325C50B5C00F41574 /* Build configuration list for PBXProject "BeskarKit" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -148,18 +114,18 @@
 				en,
 				Base,
 			);
-			mainGroup = 7832233925C446BF00D466ED;
-			productRefGroup = 7832234425C446BF00D466ED /* Products */;
+			mainGroup = 782927DF25C50B5C00F41574;
+			productRefGroup = 782927EA25C50B5C00F41574 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7832234225C446BF00D466ED /* BeskarUI */,
+				782927E825C50B5C00F41574 /* BeskarKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7832234125C446BF00D466ED /* Resources */ = {
+		782927E725C50B5C00F41574 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -169,23 +135,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7832233F25C446BF00D466ED /* Sources */ = {
+		782927E525C50B5C00F41574 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */,
-				782927D225C48F8800F41574 /* BeskarViewController.swift in Sources */,
-				7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */,
-				7829281225C5B4B500F41574 /* BeskarLabel.swift in Sources */,
-				782927C725C4520F00F41574 /* UIColor+Beskar.swift in Sources */,
-				7829281B25C5BF6700F41574 /* Spacing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		7832234925C446BF00D466ED /* Debug */ = {
+		782927EF25C50B5C00F41574 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -249,7 +209,7 @@
 			};
 			name = Debug;
 		};
-		7832234A25C446BF00D466ED /* Release */ = {
+		782927F025C50B5C00F41574 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -307,7 +267,7 @@
 			};
 			name = Release;
 		};
-		7832234C25C446BF00D466ED /* Debug */ = {
+		782927F225C50B5C00F41574 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -325,18 +285,17 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rusito23.BeskarUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rusito23.BeskarKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Sources";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
-		7832234D25C446BF00D466ED /* Release */ = {
+		782927F325C50B5C00F41574 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -354,11 +313,10 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rusito23.BeskarUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rusito23.BeskarKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/Sources";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -367,25 +325,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7832233D25C446BF00D466ED /* Build configuration list for PBXProject "BeskarUI" */ = {
+		782927E325C50B5C00F41574 /* Build configuration list for PBXProject "BeskarKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7832234925C446BF00D466ED /* Debug */,
-				7832234A25C446BF00D466ED /* Release */,
+				782927EF25C50B5C00F41574 /* Debug */,
+				782927F025C50B5C00F41574 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7832234B25C446BF00D466ED /* Build configuration list for PBXNativeTarget "BeskarUI" */ = {
+		782927F125C50B5C00F41574 /* Build configuration list for PBXNativeTarget "BeskarKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7832234C25C446BF00D466ED /* Debug */,
-				7832234D25C446BF00D466ED /* Release */,
+				782927F225C50B5C00F41574 /* Debug */,
+				782927F325C50B5C00F41574 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 7832233A25C446BF00D466ED /* Project object */;
+	rootObject = 782927E025C50B5C00F41574 /* Project object */;
 }

@@ -18,6 +18,18 @@ open class BeskarViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.beskar.base
     }
+
+    // MARK: - Initializer
+
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        modalPresentationStyle = .fullScreen
+    }
+
+    @available(*, unavailable)
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 // MARK: - Tab Bar Controller

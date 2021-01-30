@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		782927D925C4AC7F00F41574 /* WalletSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927D825C4AC7F00F41574 /* WalletSelectionViewController.swift */; };
+		782927DE25C50AF800F41574 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927DD25C50AF800F41574 /* Preferences.swift */; };
+		782927F825C50BB900F41574 /* BeskarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 782927F725C50BB900F41574 /* BeskarKit.framework */; };
+		782927F925C50BB900F41574 /* BeskarKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 782927F725C50BB900F41574 /* BeskarKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7829280425C5145000F41574 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829280325C5145000F41574 /* WelcomeViewController.swift */; };
+		7829280925C5AC5500F41574 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829280825C5AC5500F41574 /* LoginViewController.swift */; };
+		7829280B25C5AEB900F41574 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829280A25C5AEB900F41574 /* WelcomeView.swift */; };
+		7829281F25C5C15700F41574 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829281E25C5C15700F41574 /* UIView+Helpers.swift */; };
 		783222DC25C378EF00D466ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DB25C378EF00D466ED /* AppDelegate.swift */; };
 		783222DE25C378EF00D466ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DD25C378EF00D466ED /* SceneDelegate.swift */; };
 		783222E025C378EF00D466ED /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DF25C378EF00D466ED /* TabViewController.swift */; };
@@ -27,6 +34,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				7832236525C44B9800D466ED /* BeskarUI.framework in Embed Frameworks */,
+				782927F925C50BB900F41574 /* BeskarKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,6 +43,12 @@
 
 /* Begin PBXFileReference section */
 		782927D825C4AC7F00F41574 /* WalletSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSelectionViewController.swift; sourceTree = "<group>"; };
+		782927DD25C50AF800F41574 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		782927F725C50BB900F41574 /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7829280325C5145000F41574 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		7829280825C5AC5500F41574 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7829280A25C5AEB900F41574 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		7829281E25C5C15700F41574 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		783222D825C378EF00D466ED /* Beskar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beskar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783222DB25C378EF00D466ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		783222DD25C378EF00D466ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,12 +67,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				7832236425C44B9800D466ED /* BeskarUI.framework in Frameworks */,
+				782927F825C50BB900F41574 /* BeskarKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		782927DB25C50ACF00F41574 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7829280A25C5AEB900F41574 /* WelcomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		782927DC25C50AE300F41574 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				782927DD25C50AF800F41574 /* Preferences.swift */,
+				7829281E25C5C15700F41574 /* UIView+Helpers.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		783222CF25C378EF00D466ED = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +114,8 @@
 			children = (
 				783222DF25C378EF00D466ED /* TabViewController.swift */,
 				782927D825C4AC7F00F41574 /* WalletSelectionViewController.swift */,
+				7829280325C5145000F41574 /* WelcomeViewController.swift */,
+				7829280825C5AC5500F41574 /* LoginViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -90,8 +124,10 @@
 			isa = PBXGroup;
 			children = (
 				783222F625C3796800D466ED /* Base */,
+				782927DC25C50AE300F41574 /* Common */,
 				783222FD25C37A6000D466ED /* Coordinator */,
 				783222F125C3791700D466ED /* Controller */,
+				782927DB25C50ACF00F41574 /* View */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -127,6 +163,7 @@
 		7832236225C44B9700D466ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				782927F725C50BB900F41574 /* BeskarKit.framework */,
 				7832236325C44B9800D466ED /* BeskarUI.framework */,
 			);
 			name = Frameworks;
@@ -202,8 +239,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7829280925C5AC5500F41574 /* LoginViewController.swift in Sources */,
 				7832230325C37BC800D466ED /* AppCoordinator.swift in Sources */,
+				7829280425C5145000F41574 /* WelcomeViewController.swift in Sources */,
+				782927DE25C50AF800F41574 /* Preferences.swift in Sources */,
 				783222E025C378EF00D466ED /* TabViewController.swift in Sources */,
+				7829280B25C5AEB900F41574 /* WelcomeView.swift in Sources */,
+				7829281F25C5C15700F41574 /* UIView+Helpers.swift in Sources */,
 				783222FF25C37A6B00D466ED /* Coordinator.swift in Sources */,
 				782927D925C4AC7F00F41574 /* WalletSelectionViewController.swift in Sources */,
 				783222DC25C378EF00D466ED /* AppDelegate.swift in Sources */,

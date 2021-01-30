@@ -7,4 +7,7 @@
    <FileRef
       location = "group:BeskarUI/BeskarUI.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:BeskarKit/BeskarKit.xcodeproj">
+   </FileRef>
 </Workspace>

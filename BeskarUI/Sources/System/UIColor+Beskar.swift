@@ -17,11 +17,11 @@ public extension BeskarWrapper where Base: UIColor {
 
     static var baseInverted: UIColor { .systemGray }
 
-    static var primary: UIColor { .systemPurple }
+    static var primary: UIColor { .systemOrange }
 
-    static var secondary: UIColor { .systemIndigo }
+    static var secondary: UIColor { .systemGray }
 
-    static var tertiary: UIColor { .systemOrange }
+    static var tertiary: UIColor { .systemIndigo }
 
     // MARK: - Info
 

@@ -13,12 +13,6 @@ final class AppCoordinator: Coordinator {
 
     var presenter: UIViewController
 
-    private lazy var viewController: UIViewController = {
-        let viewController = TabViewController()
-        viewController.modalPresentationStyle = .fullScreen
-        return viewController
-    }()
-
     private let window: UIWindow
 
     // MARK: - Initializer
@@ -31,12 +25,24 @@ final class AppCoordinator: Coordinator {
     // MARK: - Coordinator Conformance
 
     func start() {
+        // Create window
         window.rootViewController = presenter
         window.makeKeyAndVisible()
-        presenter.present(viewController, animated: true)
+
+        let viewController: UIViewController
+        defer { presenter.present(viewController, animated: true) }
+
+        // welcome screen entry point
+        guard Preferences.didShowWelcome else {
+            // Preferences.isFirstLaunch = true
+            viewController = WelcomeViewController()
+            return
+        }
+
+        viewController = LoginViewController()
     }
 
     func stop() {
-        viewController.dismiss(animated: true)
+        presenter.dismiss(animated: true)
     }
 }

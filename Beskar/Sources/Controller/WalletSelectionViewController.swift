@@ -5,7 +5,7 @@
 //  Created by Igor on 29/01/2021.
 //
 
-import UIKit
 import BeskarUI
+import UIKit
 
 final class WalletSelectionViewController: BeskarViewController {}

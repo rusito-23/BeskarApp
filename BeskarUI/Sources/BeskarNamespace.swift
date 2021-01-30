@@ -18,6 +18,8 @@ public protocol BeskarNamespace {
 
 /// Default implementation is to wrap self to extend functionalities
 public extension BeskarNamespace {
+    typealias Beskar = BeskarWrapper<Self>
+
     var beskar: BeskarWrapper<Self> { BeskarWrapper<Self>(base: self) }
     static var beskar: BeskarWrapper<Self>.Type { BeskarWrapper.self }
 }
