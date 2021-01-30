@@ -8,12 +8,5 @@
 import UIKit
 import BeskarUI
 
-final class TabViewController: BeskarTabBarController {
-
-    // MARK: - View Lifecycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-}
+final class TabViewController: BeskarTabBarController {}
 

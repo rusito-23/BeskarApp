@@ -1,5 +1,5 @@
 //
-//  MainCoordinator.swift
+//  AppCoordinator.swift
 //  Beskar
 //
 //  Created by Igor on 28/01/2021.
@@ -7,8 +7,7 @@
 
 import UIKit
 
-/// The Main Coordinator is started when the app loads
-final class MainCoordinator: Coordinator {
+final class AppCoordinator: Coordinator {
 
     // MARK: - Properties
 

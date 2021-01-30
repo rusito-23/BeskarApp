@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		782927D925C4AC7F00F41574 /* WalletSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927D825C4AC7F00F41574 /* WalletSelectionViewController.swift */; };
 		783222DC25C378EF00D466ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DB25C378EF00D466ED /* AppDelegate.swift */; };
 		783222DE25C378EF00D466ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DD25C378EF00D466ED /* SceneDelegate.swift */; };
 		783222E025C378EF00D466ED /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DF25C378EF00D466ED /* TabViewController.swift */; };
 		783222E525C378F000D466ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783222E425C378F000D466ED /* Assets.xcassets */; };
 		783222E825C378F000D466ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 783222E625C378F000D466ED /* LaunchScreen.storyboard */; };
 		783222FF25C37A6B00D466ED /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222FE25C37A6B00D466ED /* Coordinator.swift */; };
-		7832230325C37BC800D466ED /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832230225C37BC800D466ED /* MainCoordinator.swift */; };
+		7832230325C37BC800D466ED /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832230225C37BC800D466ED /* AppCoordinator.swift */; };
 		7832236425C44B9800D466ED /* BeskarUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7832236325C44B9800D466ED /* BeskarUI.framework */; };
 		7832236525C44B9800D466ED /* BeskarUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7832236325C44B9800D466ED /* BeskarUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -33,6 +34,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		782927D825C4AC7F00F41574 /* WalletSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSelectionViewController.swift; sourceTree = "<group>"; };
 		783222D825C378EF00D466ED /* Beskar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beskar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783222DB25C378EF00D466ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		783222DD25C378EF00D466ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +43,7 @@
 		783222E725C378F000D466ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		783222E925C378F000D466ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		783222FE25C37A6B00D466ED /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		7832230225C37BC800D466ED /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		7832230225C37BC800D466ED /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7832236325C44B9800D466ED /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				783222DF25C378EF00D466ED /* TabViewController.swift */,
+				782927D825C4AC7F00F41574 /* WalletSelectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -116,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				783222FE25C37A6B00D466ED /* Coordinator.swift */,
-				7832230225C37BC800D466ED /* MainCoordinator.swift */,
+				7832230225C37BC800D466ED /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -199,9 +202,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7832230325C37BC800D466ED /* MainCoordinator.swift in Sources */,
+				7832230325C37BC800D466ED /* AppCoordinator.swift in Sources */,
 				783222E025C378EF00D466ED /* TabViewController.swift in Sources */,
 				783222FF25C37A6B00D466ED /* Coordinator.swift in Sources */,
+				782927D925C4AC7F00F41574 /* WalletSelectionViewController.swift in Sources */,
 				783222DC25C378EF00D466ED /* AppDelegate.swift in Sources */,
 				783222DE25C378EF00D466ED /* SceneDelegate.swift in Sources */,
 			);

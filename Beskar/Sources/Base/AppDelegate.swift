@@ -31,7 +31,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         // Start Main Navigation
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        coordinator = MainCoordinator(window: window)
+        coordinator = AppCoordinator(window: window)
         coordinator.start()
 
         return true
