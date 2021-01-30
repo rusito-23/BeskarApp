@@ -22,6 +22,18 @@ final class WelcomeView: UIView {
         color: UIColor.beskar.secondary
     )
 
+    private lazy var passwordField: UITextField = {
+        let field = BeskarPasswordField()
+        field.placeholder = "Password"
+        return field
+    }()
+
+    private lazy var repeatPasswordField: UITextField = {
+        let field = BeskarPasswordField()
+        field.placeholder = "Repeat password"
+        return field
+    }()
+
     // MARK: - Initializers
 
     override init(frame: CGRect) {
@@ -39,10 +51,15 @@ final class WelcomeView: UIView {
     // MARK: - Private Methods
 
     private func setUpViews() {
-        addSubviews(titleLabel, subtitleLabel)
+        addSubviews(
+            titleLabel,
+            subtitleLabel,
+            passwordField,
+            repeatPasswordField
+        )
 
+        // Title Label Constraints
         NSLayoutConstraint.activate([
-            // Title Label
             titleLabel.topAnchor.constraint(
                 equalTo: layoutMarginsGuide.topAnchor,
                 constant: Spacing.large.rawValue
@@ -55,7 +72,10 @@ final class WelcomeView: UIView {
                 equalTo: layoutMarginsGuide.trailingAnchor,
                 constant: -Spacing.small.rawValue
             ),
-            // Subtitle
+        ])
+
+        // Subtitle Label Constraints
+        NSLayoutConstraint.activate([
             subtitleLabel.topAnchor.constraint(
                 equalTo: titleLabel.bottomAnchor,
                 constant: Spacing.medium.rawValue
@@ -65,6 +85,38 @@ final class WelcomeView: UIView {
                 constant: Spacing.small.rawValue
             ),
             subtitleLabel.trailingAnchor.constraint(
+                equalTo: layoutMarginsGuide.trailingAnchor,
+                constant: -Spacing.small.rawValue
+            ),
+        ])
+
+        // Password Field Constraints
+        NSLayoutConstraint.activate([
+            passwordField.topAnchor.constraint(
+                equalTo: subtitleLabel.bottomAnchor,
+                constant: Spacing.medium.rawValue
+            ),
+            passwordField.leadingAnchor.constraint(
+                equalTo: layoutMarginsGuide.leadingAnchor,
+                constant: Spacing.small.rawValue
+            ),
+            passwordField.trailingAnchor.constraint(
+                equalTo: layoutMarginsGuide.trailingAnchor,
+                constant: -Spacing.small.rawValue
+            ),
+        ])
+
+        // Repeat Password Field Constraints
+        NSLayoutConstraint.activate([
+            repeatPasswordField.topAnchor.constraint(
+                equalTo: passwordField.bottomAnchor,
+                constant: Spacing.medium.rawValue
+            ),
+            repeatPasswordField.leadingAnchor.constraint(
+                equalTo: layoutMarginsGuide.leadingAnchor,
+                constant: Spacing.small.rawValue
+            ),
+            repeatPasswordField.trailingAnchor.constraint(
                 equalTo: layoutMarginsGuide.trailingAnchor,
                 constant: -Spacing.small.rawValue
             ),
