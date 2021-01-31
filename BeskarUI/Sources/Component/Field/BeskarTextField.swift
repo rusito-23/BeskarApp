@@ -8,16 +8,7 @@
 import Combine
 import UIKit
 
-open class BeskarTextField: UITextField {
-
-    // MARK: - Constants
-
-    static let padding = UIEdgeInsets(
-        top: .zero,
-        left: Spacing.medium.rawValue,
-        bottom: .zero,
-        right: Spacing.medium.rawValue
-    )
+public class BeskarTextField: UITextField {
 
     // MARK: - Initializers
 
@@ -54,26 +45,14 @@ open class BeskarTextField: UITextField {
     // MARK: - Text Rect
 
     public override func textRect(forBounds bounds: CGRect) -> CGRect {
-        bounds.inset(by: Self.padding)
+        bounds.inset(by: UIEdgeInsets.beskar.horizontal(by: .medium))
     }
 
     public override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        bounds.inset(by: Self.padding)
+        bounds.inset(by: UIEdgeInsets.beskar.horizontal(by: .medium))
     }
 
     public override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        bounds.inset(by: Self.padding)
-    }
-}
-
-// MARK: - Combine
-
-extension BeskarTextField {
-    public var textPublisher: AnyPublisher<String?, Never> {
-        NotificationCenter.default
-            .publisher(for: UITextField.textDidChangeNotification, object: self)
-            .compactMap { $0.object as? UITextField }
-            .map { $0.text }
-            .eraseToAnyPublisher()
+        bounds.inset(by: UIEdgeInsets.beskar.horizontal(by: .medium))
     }
 }

@@ -18,29 +18,21 @@ final class RegisterView: UIView {
     )
 
     lazy var subtitleLabel = BeskarLabel(
-        size: .typeMedium,
+        size: .small,
         color: UIColor.beskar.secondary
     )
 
-    lazy var passwordField: BeskarField = {
-        let field = BeskarPasswordField()
-        field.textField.placeholder = "Password"
-        return field
-    }()
+    lazy var passwordField = BeskarPasswordField()
 
-    lazy var repeatPasswordField: BeskarField = {
-        let field = BeskarPasswordField()
-        field.textField.placeholder = "Repeat password"
-        return field
-    }()
+    lazy var repeatPasswordField = BeskarPasswordField()
+
+    lazy var registerButton = BeskarButton(kind: .primary)
 
     // MARK: - Initializers
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpViews()
-        titleLabel.text = "WELCOME TO BESKAR"
-        subtitleLabel.text = "Please enter a password to get started"
     }
 
     @available(*, unavailable)
@@ -55,7 +47,8 @@ final class RegisterView: UIView {
             titleLabel,
             subtitleLabel,
             passwordField,
-            repeatPasswordField
+            repeatPasswordField,
+            registerButton
         )
 
         // Title Label Constraints
@@ -117,6 +110,22 @@ final class RegisterView: UIView {
                 constant: Spacing.small.rawValue
             ),
             repeatPasswordField.trailingAnchor.constraint(
+                equalTo: layoutMarginsGuide.trailingAnchor,
+                constant: -Spacing.small.rawValue
+            ),
+        ])
+
+        // Repeat Password Field Constraints
+        NSLayoutConstraint.activate([
+            registerButton.topAnchor.constraint(
+                equalTo: repeatPasswordField.bottomAnchor,
+                constant: Spacing.large.rawValue
+            ),
+            registerButton.leadingAnchor.constraint(
+                equalTo: layoutMarginsGuide.leadingAnchor,
+                constant: Spacing.small.rawValue
+            ),
+            registerButton.trailingAnchor.constraint(
                 equalTo: layoutMarginsGuide.trailingAnchor,
                 constant: -Spacing.small.rawValue
             ),

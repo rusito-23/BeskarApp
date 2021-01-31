@@ -22,7 +22,7 @@ public final class BeskarPasswordField: BeskarField {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        textField.isSecureTextEntry = true
+        textField.isSecureTextEntry = true 
         textField.textContentType = .password
         setUpVisibilityToggle()
     }

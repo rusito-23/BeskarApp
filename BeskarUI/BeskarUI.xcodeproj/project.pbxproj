@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		780770E225C63F2200071EF3 /* BeskarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770E125C63F2200071EF3 /* BeskarButton.swift */; };
+		780770E625C74A3B00071EF3 /* BeskarFieldMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770E525C74A3A00071EF3 /* BeskarFieldMessage.swift */; };
+		780770E925C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770E825C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift */; };
 		782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927C425C4520F00F41574 /* BeskarNamespace.swift */; };
 		782927C725C4520F00F41574 /* UIColor+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927C525C4520F00F41574 /* UIColor+Beskar.swift */; };
 		782927D225C48F8800F41574 /* BeskarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927D125C48F8800F41574 /* BeskarViewController.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		780770E125C63F2200071EF3 /* BeskarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarButton.swift; sourceTree = "<group>"; };
+		780770E525C74A3A00071EF3 /* BeskarFieldMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarFieldMessage.swift; sourceTree = "<group>"; };
+		780770E825C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Beskar.swift"; sourceTree = "<group>"; };
 		782927C425C4520F00F41574 /* BeskarNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeskarNamespace.swift; sourceTree = "<group>"; };
 		782927C525C4520F00F41574 /* UIColor+Beskar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Beskar.swift"; sourceTree = "<group>"; };
 		782927D125C48F8800F41574 /* BeskarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarViewController.swift; sourceTree = "<group>"; };
@@ -45,9 +51,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		780770E025C63F1700071EF3 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				780770E125C63F2200071EF3 /* BeskarButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		782927D025C48F7300F41574 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				780770E025C63F1700071EF3 /* Button */,
 				7829282A25C5FEA100F41574 /* Controller */,
 				7829282B25C5FEA900F41574 /* Field */,
 				7829282C25C5FEB500F41574 /* Label */,
@@ -61,6 +76,7 @@
 				782927C525C4520F00F41574 /* UIColor+Beskar.swift */,
 				7829280D25C5AF3E00F41574 /* UIFont+Beskar.swift */,
 				7829281A25C5BF6700F41574 /* Dimensions.swift */,
+				780770E825C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -79,6 +95,7 @@
 				7829282025C5CEE600F41574 /* BeskarField.swift */,
 				7829282425C5D06700F41574 /* BeskarPasswordField.swift */,
 				7829282725C5FE9300F41574 /* BeskarTextField.swift */,
+				780770E525C74A3A00071EF3 /* BeskarFieldMessage.swift */,
 			);
 			path = Field;
 			sourceTree = "<group>";
@@ -208,6 +225,8 @@
 			files = (
 				782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */,
 				782927D225C48F8800F41574 /* BeskarViewController.swift in Sources */,
+				780770E625C74A3B00071EF3 /* BeskarFieldMessage.swift in Sources */,
+				780770E925C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift in Sources */,
 				7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */,
 				7829282825C5FE9300F41574 /* BeskarTextField.swift in Sources */,
 				7829282525C5D06700F41574 /* BeskarPasswordField.swift in Sources */,
@@ -215,6 +234,7 @@
 				782927C725C4520F00F41574 /* UIColor+Beskar.swift in Sources */,
 				7829281B25C5BF6700F41574 /* Dimensions.swift in Sources */,
 				7829282125C5CEE600F41574 /* BeskarField.swift in Sources */,
+				780770E225C63F2200071EF3 /* BeskarButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

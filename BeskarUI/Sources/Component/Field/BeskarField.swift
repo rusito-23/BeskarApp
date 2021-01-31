@@ -5,81 +5,56 @@
 //  Created by Igor on 30/01/2021.
 //
 
+import Combine
 import UIKit
 
-open class BeskarField: UIView {
+public class BeskarField: UIView {
 
-    // MARK: - Types
+    // MARK: - Public Properties
 
-    public struct Message {
-        var message: String
-        var kind: Kind
+    /// Text Field Placeholder, automatically uses design system colors
+    public var placeholder: String? {
+        get { textField.attributedPlaceholder?.string }
 
-        public enum Kind {
-            case success
-            case warning
-            case error
-
-            fileprivate var color: UIColor {
-                switch self {
-                case .success: return UIColor.beskar.success
-                case .warning: return UIColor.beskar.warning
-                case .error: return UIColor.beskar.error
-                }
-            }
-
-            fileprivate var image: UIImage? {
-                UIImage(systemName: imageName)
-            }
-
-            private var imageName: String {
-                switch self {
-                case .success: return "checkmark.icon"
-                case .warning: return "exclamationmark.triangle"
-                case .error: return "xmark.octagon"
-                }
-            }
+        set {
+            textField.attributedPlaceholder = NSAttributedString(
+                string: newValue ?? "",
+                attributes: placeholderAttributes
+            )
         }
     }
 
+    /// Text Field Publisher to be used with Combine, triggered on textDidChangeNotification
+    public var textPublisher: AnyPublisher<String?, Never> {
+        NotificationCenter.default
+            .publisher(for: UITextField.textDidChangeNotification, object: textField)
+            .compactMap { $0.object as? UITextField }
+            .map { $0.text }
+            .eraseToAnyPublisher()
+    }
+
+
+    // MARK: - Private Properties
+
+    private var placeholderAttributes: [NSAttributedString.Key: Any] = [
+        .foregroundColor: UIColor.beskar.secondary,
+        .font: UIFont.beskar.build(.extraSmall)
+    ]
+
     // MARK: - Subviews
 
-    public lazy var textField = BeskarTextField()
+    internal lazy var textField = BeskarTextField()
 
-    private lazy var messageLabel: BeskarLabel = {
-        let label = BeskarLabel(
-            size: .extraSmall,
-            color: UIColor.beskar.success
-        )
-        label.textAlignment = .left
-        return label
-    }()
-
-    private lazy var messageAccessory: UIImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        view.translatesAutoresizingMaskIntoConstraints = false
+    internal lazy var messageView: BeskarFieldMessage = {
+        let view = BeskarFieldMessage()
+        view.isHidden = true
         return view
-    }()
-
-    private lazy var messageStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [
-            messageAccessory,
-            messageLabel
-        ])
-        stack.spacing = Spacing.small.rawValue
-        stack.axis = .horizontal
-        stack.distribution = .fill
-        stack.alignment = .fill
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.isHidden = true
-        return stack
     }()
 
     private lazy var contentStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [
             textField,
-            messageStack
+            messageView
         ])
         stack.spacing = Spacing.small.rawValue
         stack.axis = .vertical
@@ -105,16 +80,12 @@ open class BeskarField: UIView {
 
     // MARK: - Public Methods
 
-    public func add(message: Message) {
-        messageLabel.text = message.message
-        messageLabel.textColor = message.kind.color
-        messageAccessory.image = message.kind.image
-        messageAccessory.tintColor = message.kind.color
-        messageStack.isHidden = false
+    public func showMessage(_ message: String, kind: BeskarFieldMessage.Kind) {
+        messageView.show(message: message, with: kind)
     }
 
-    public func clear() {
-        messageStack.isHidden = true
+    public func hideMessage() {
+        messageView.hide()
     }
 
     // MARK: - Private Methods
@@ -128,16 +99,6 @@ open class BeskarField: UIView {
             contentStack.trailingAnchor.constraint(equalTo: trailingAnchor),
             contentStack.leadingAnchor.constraint(equalTo: leadingAnchor),
             contentStack.bottomAnchor.constraint(equalTo: bottomAnchor),
-        ])
-
-        // Accessory constraints
-        NSLayoutConstraint.activate([
-            messageAccessory.heightAnchor.constraint(
-                equalToConstant: Dimension.small.rawValue
-            ),
-            messageAccessory.widthAnchor.constraint(
-                equalToConstant: Dimension.small.rawValue
-            ),
         ])
     }
 }

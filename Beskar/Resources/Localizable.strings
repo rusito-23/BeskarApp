@@ -9,6 +9,7 @@
 /* Register Screen */
 
 "REGISTER_TITLE" = "WELCOME TO BESKAR!";
-"REGISTER_SUBTITLE" = "Choose your password to get started. This password (as all other data in this app) will only be stored locally in your phone.";
-"PASSWORD_PLACEHOLDER" = "Choose your password";
-"PASSWORD_REPEAT_PLACEHOLDER" = "Repeat your password";
+"REGISTER_SUBTITLE" = "Please choose a password to get started. This password (as all other data in this app) will only be stored locally in your phone.";
+"PASSWORD_PLACEHOLDER" = "Enter your password";
+"REPEAT_PASSWORD_PLACEHOLDER" = "Repeat your password";
+"REGISTER_BUTTON_TITLE" = "GET STARTED";

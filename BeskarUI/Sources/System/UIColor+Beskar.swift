@@ -21,7 +21,7 @@ public extension BeskarWrapper where Base: UIColor {
 
     static var secondary: UIColor { .systemGray }
 
-    static var tertiary: UIColor { .systemIndigo }
+    static var tertiary: UIColor { .black }
 
     // MARK: - Info
 
