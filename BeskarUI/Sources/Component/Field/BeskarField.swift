@@ -11,28 +11,33 @@ open class BeskarField: UIView {
 
     // MARK: - Types
 
-    public enum MessageType {
-        case success
-        case warning
-        case error
+    public struct Message {
+        var message: String
+        var kind: Kind
 
-        fileprivate var color: UIColor {
-            switch self {
-            case .success: return UIColor.beskar.success
-            case .warning: return UIColor.beskar.warning
-            case .error: return UIColor.beskar.error
+        public enum Kind {
+            case success
+            case warning
+            case error
+
+            fileprivate var color: UIColor {
+                switch self {
+                case .success: return UIColor.beskar.success
+                case .warning: return UIColor.beskar.warning
+                case .error: return UIColor.beskar.error
+                }
             }
-        }
 
-        fileprivate var image: UIImage? {
-            UIImage(systemName: imageName)
-        }
+            fileprivate var image: UIImage? {
+                UIImage(systemName: imageName)
+            }
 
-        private var imageName: String {
-            switch self {
-            case .success: return "checkmark.icon"
-            case .warning: return "exclamationmark.triangle"
-            case .error: return "xmark.octagon"
+            private var imageName: String {
+                switch self {
+                case .success: return "checkmark.icon"
+                case .warning: return "exclamationmark.triangle"
+                case .error: return "xmark.octagon"
+                }
             }
         }
     }
@@ -100,11 +105,11 @@ open class BeskarField: UIView {
 
     // MARK: - Public Methods
 
-    public func add(message: String, for type: MessageType) {
-        messageLabel.text = message
-        messageLabel.textColor = type.color
-        messageAccessory.image = type.image
-        messageAccessory.tintColor = type.color
+    public func add(message: Message) {
+        messageLabel.text = message.message
+        messageLabel.textColor = message.kind.color
+        messageAccessory.image = message.kind.image
+        messageAccessory.tintColor = message.kind.color
         messageStack.isHidden = false
     }
 

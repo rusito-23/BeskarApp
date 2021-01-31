@@ -37,7 +37,7 @@ final class AppCoordinator: Coordinator {
         // welcome screen entry point
         guard Preferences.didShowWelcome else {
             // Preferences.isFirstLaunch = true
-            viewController = WelcomeViewController()
+            viewController = RegisterViewController()
             return
         }
 

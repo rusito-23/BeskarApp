@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Beskar
+
+  Created by Igor on 30/01/2021.
+  
+*/
+
+/* Register Screen */
+
+"REGISTER_TITLE" = "WELCOME TO BESKAR!";
+"REGISTER_SUBTITLE" = "Choose your password to get started. This password (as all other data in this app) will only be stored locally in your phone.";
+"PASSWORD_PLACEHOLDER" = "Choose your password";
+"PASSWORD_REPEAT_PLACEHOLDER" = "Repeat your password";

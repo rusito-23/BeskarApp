@@ -5,6 +5,7 @@
 //  Created by Igor on 30/01/2021.
 //
 
+import Combine
 import UIKit
 
 open class BeskarTextField: UITextField {
@@ -65,3 +66,14 @@ open class BeskarTextField: UITextField {
     }
 }
 
+// MARK: - Combine
+
+extension BeskarTextField {
+    public var textPublisher: AnyPublisher<String?, Never> {
+        NotificationCenter.default
+            .publisher(for: UITextField.textDidChangeNotification, object: self)
+            .compactMap { $0.object as? UITextField }
+            .map { $0.text }
+            .eraseToAnyPublisher()
+    }
+}
