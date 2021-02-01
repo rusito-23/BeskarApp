@@ -38,15 +38,21 @@ final class RegisterViewController: BeskarViewController {
     // MARK: - Private Methods
 
     private func setUpBindings() {
-        contentView.titleLabel.text = viewModel.title
-        contentView.subtitleLabel.text = viewModel.subtitle
-        contentView.passwordField.placeholder = viewModel.passwordPlaceholder
-        contentView.repeatPasswordField.placeholder = viewModel.repeatPlaceholder
-        contentView.registerButton.setTitle(viewModel.buttonTitle, for: .normal)
+        viewModel.setUpData(on: contentView)
 
         contentView.passwordField.textPublisher
             .receive(on: DispatchQueue.main)
             .assign(to: \.password, on: viewModel)
+            .store(in: &bindings)
+
+        contentView.repeatPasswordField.textPublisher
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.repeatPassword, on: viewModel)
+            .store(in: &bindings)
+
+        viewModel.passwordValidation
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.validationResult, on: contentView)
             .store(in: &bindings)
     }
 }

@@ -61,9 +61,8 @@ public class BeskarFieldMessage: UIView {
         stack.spacing = Spacing.small.rawValue
         stack.axis = .horizontal
         stack.distribution = .fill
-        stack.alignment = .fill
+        stack.alignment = .top
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.isHidden = true
         return stack
     }()
 
@@ -72,7 +71,7 @@ public class BeskarFieldMessage: UIView {
     override public init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        setUpConstraints()
+        setUpViews()
     }
 
     @available(*, unavailable)
@@ -100,7 +99,7 @@ public class BeskarFieldMessage: UIView {
 
     // MARK: - Private Methods
 
-    private func setUpConstraints() {
+    private func setUpViews() {
         addSubview(messageStack)
 
         // Stack view constraints
@@ -113,12 +112,8 @@ public class BeskarFieldMessage: UIView {
 
         // Accessory constraints
         NSLayoutConstraint.activate([
-            messageAccessory.heightAnchor.constraint(
-                equalToConstant: Dimension.small.rawValue
-            ),
-            messageAccessory.widthAnchor.constraint(
-                equalToConstant: Dimension.small.rawValue
-            ),
+            messageAccessory.heightAnchor.constraint(equalToConstant: Dimension.small.rawValue),
+            messageAccessory.widthAnchor.constraint(equalToConstant: Dimension.small.rawValue),
         ])
     }
 

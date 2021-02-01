@@ -1,5 +1,5 @@
 //
-//  String+Localization.swift
+//  String+Helpers.swift
 //  Beskar
 //
 //  Created by Igor on 30/01/2021.
@@ -7,8 +7,9 @@
 
 import Foundation
 
-extension String {
+// MARK: - Localization
 
+extension String {
     /// Localize without arguments
     var localized: String {
         NSLocalizedString(self, comment: self)
@@ -18,4 +19,10 @@ extension String {
     func localize(_ arguments: CVarArg...) -> String {
         String(format: self.localized, arguments)
     }
+}
+
+// MARK: - Trim Helpers
+
+extension String {
+    var trimmed: String { trimmingCharacters(in: .whitespaces) }
 }

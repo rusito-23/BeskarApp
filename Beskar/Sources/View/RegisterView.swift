@@ -10,6 +10,24 @@ import UIKit
 
 final class RegisterView: UIView {
 
+    // MARK: - Properties
+
+    var validationResult: RegisterViewModel.ValidationResult = .emptyPassword {
+        didSet {
+            passwordField.hideMessage()
+            repeatPasswordField.hideMessage()
+            registerButton.isEnabled = validationResult.shouldEnableRegister
+
+            switch validationResult {
+            case let .passwordError(message):
+                passwordField.showMessage(message, kind: .error)
+            case let .repeatError(message):
+                repeatPasswordField.showMessage(message, kind: .error)
+            default: break
+            }
+        }
+    }
+
     // MARK: - Subviews
 
     lazy var titleLabel = BeskarLabel(
@@ -26,7 +44,11 @@ final class RegisterView: UIView {
 
     lazy var repeatPasswordField = BeskarPasswordField()
 
-    lazy var registerButton = BeskarButton(kind: .primary)
+    lazy var registerButton: BeskarButton = {
+        let button = BeskarButton(kind: .primary)
+        button.isEnabled = false
+        return button
+    }()
 
     // MARK: - Initializers
 

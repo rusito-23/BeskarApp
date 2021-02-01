@@ -15,13 +15,10 @@ public class BeskarField: UIView {
     /// Text Field Placeholder, automatically uses design system colors
     public var placeholder: String? {
         get { textField.attributedPlaceholder?.string }
-
-        set {
-            textField.attributedPlaceholder = NSAttributedString(
-                string: newValue ?? "",
-                attributes: placeholderAttributes
-            )
-        }
+        set { textField.attributedPlaceholder = NSAttributedString(
+            string: newValue ?? "",
+            attributes: placeholderAttributes
+        )}
     }
 
     /// Text Field Publisher to be used with Combine, triggered on textDidChangeNotification
@@ -47,7 +44,7 @@ public class BeskarField: UIView {
 
     internal lazy var messageView: BeskarFieldMessage = {
         let view = BeskarFieldMessage()
-        view.isHidden = true
+        view.hide()
         return view
     }()
 
@@ -58,7 +55,7 @@ public class BeskarField: UIView {
         ])
         stack.spacing = Spacing.small.rawValue
         stack.axis = .vertical
-        stack.distribution = .fillProportionally
+        stack.distribution = .fill
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
