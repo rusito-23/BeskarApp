@@ -12,21 +12,19 @@ final class AppCoordinator: Coordinator {
 
     // MARK: - Properties
 
-    var presenter: UIViewController
-    private let window: UIWindow
+    lazy var presenter: UIViewController = UINavigationController()
 
-    // MARK: - Initializer
-
-    init(window: UIWindow, presenter: UIViewController = UINavigationController()) {
-        self.presenter = presenter
-        self.window = window
-    }
+    private(set) lazy var window: UIWindow = {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = presenter
+        window.tintColor = UIColor.beskar.primary
+        return window
+    }()
 
     // MARK: - Coordinator Conformance
 
     func start() {
         // Setup window
-        window.tintColor = UIColor.beskar.primary
         window.rootViewController = presenter
         window.makeKeyAndVisible()
 
@@ -42,9 +40,5 @@ final class AppCoordinator: Coordinator {
         }
 
         viewController = LoginViewController()
-    }
-
-    func stop() {
-        presenter.dismiss(animated: true)
     }
 }

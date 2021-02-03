@@ -18,8 +18,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Properties
 
-    var window: UIWindow?
-    private var coordinator: Coordinator!
+    var window: UIWindow? {
+        get { coordinator.window }
+        set { }
+    }
+
+    private lazy var coordinator = AppCoordinator()
 
     // MARK: - AppDelegate Conformance
 
@@ -28,31 +32,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
 
-        // Start Main Navigation
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        self.window = window
-        coordinator = AppCoordinator(window: window)
+        // Start App Coordinator
         coordinator.start()
 
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(
-        _ application: UIApplication,
-        configurationForConnecting connectingSceneSession: UISceneSession,
-        options: UIScene.ConnectionOptions
-    ) -> UISceneConfiguration {
-        return UISceneConfiguration(
-            name: Configuration.default,
-            sessionRole: connectingSceneSession.role
-        )
-    }
-
-    func application(
-        _ application: UIApplication,
-        didDiscardSceneSessions sceneSessions: Set<UISceneSession>
-    ) { }
 }
 
