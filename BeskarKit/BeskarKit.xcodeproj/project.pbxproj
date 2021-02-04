@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		782927EE25C50B5C00F41574 /* BeskarKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 782927EC25C50B5C00F41574 /* BeskarKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7863121625CB56CB000D4F05 /* BeskarAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7863121525CB56CB000D4F05 /* BeskarAuth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		782927E925C50B5C00F41574 /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		782927EC25C50B5C00F41574 /* BeskarKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeskarKit.h; sourceTree = "<group>"; };
 		782927ED25C50B5C00F41574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7863121525CB56CB000D4F05 /* BeskarAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarAuth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			isa = PBXGroup;
 			children = (
 				782927EC25C50B5C00F41574 /* BeskarKit.h */,
+				7863121525CB56CB000D4F05 /* BeskarAuth.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7863121625CB56CB000D4F05 /* BeskarAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
