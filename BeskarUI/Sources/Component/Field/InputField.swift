@@ -1,5 +1,5 @@
 //
-//  BeskarField.swift
+//  InputField.swift
 //  BeskarUI
 //
 //  Created by Igor on 30/01/2021.
@@ -8,7 +8,14 @@
 import Combine
 import UIKit
 
-public class BeskarField: UIView {
+/// Input Field
+/// Custom view that contains:
+///     - a text field
+///     - a message view
+/// Using the Beskar Design System
+/// Includes helpers to be used with Combine
+
+open class InputField: UIView {
 
     // MARK: - Public Properties
 
@@ -40,10 +47,10 @@ public class BeskarField: UIView {
 
     // MARK: - Subviews
 
-    internal lazy var textField = BeskarTextField()
+    internal lazy var textField = TextField()
 
-    internal lazy var messageView: BeskarFieldMessage = {
-        let view = BeskarFieldMessage()
+    internal lazy var messageView: FieldMessage = {
+        let view = FieldMessage()
         view.hide()
         return view
     }()
@@ -77,7 +84,7 @@ public class BeskarField: UIView {
 
     // MARK: - Public Methods
 
-    public func showMessage(_ message: String, kind: BeskarFieldMessage.Kind) {
+    public func showMessage(_ message: String, kind: FieldMessage.Kind) {
         messageView.show(message: message, with: kind)
     }
 

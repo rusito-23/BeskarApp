@@ -1,5 +1,5 @@
 //
-//  BeskarButton.swift
+//  Button.swift
 //  BeskarUI
 //
 //  Created by Igor on 30/01/2021.
@@ -7,7 +7,11 @@
 
 import UIKit
 
-public class BeskarButton: UIButton {
+/// Beskar Design System Button
+/// Provides an easy interface to use the design system button, with
+/// two kinds available: `primary` and `secondary
+
+public class Button: UIButton {
 
     // MARK: - Types
 

@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Beskar
+
+  Created by Igor on 06/02/2021.
+  
+*/
+
+NSFaceIDUsageDescription = "We will use Face ID to keep your data safe.";

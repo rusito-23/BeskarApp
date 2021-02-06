@@ -6,6 +6,7 @@
 //
 
 import BeskarUI
+import BeskarKit
 import UIKit
 
 final class AppCoordinator: Coordinator {
@@ -21,24 +22,27 @@ final class AppCoordinator: Coordinator {
         return window
     }()
 
+    private let authService: AuthServiceProtocol
+
+    private var rootViewController: UIViewController? {
+        didSet {
+            guard let viewController = rootViewController else { return }
+            presenter.present(viewController, animated: true)
+        }
+    }
+
+    // MARK: - Initializers
+
+    init(authService: AuthServiceProtocol = AuthService()) {
+        self.authService = authService
+    }
+
     // MARK: - Coordinator Conformance
 
     func start() {
-        // Setup window
-        window.rootViewController = presenter
+        // Show window
         window.makeKeyAndVisible()
 
-        // TODO: Start new coordinators instead of using view controllers!
-        let viewController: UIViewController
-        defer { presenter.present(viewController, animated: true) }
-
-        // welcome screen entry point
-        guard Preferences.didShowWelcome else {
-            // Preferences.isFirstLaunch = true
-            viewController = RegisterViewController()
-            return
-        }
-
-        viewController = LoginViewController()
+        // TODO: check auth status & start coords
     }
 }

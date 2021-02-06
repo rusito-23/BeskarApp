@@ -17,16 +17,10 @@ struct Preferences {
     // MARK: - Kind
 
     enum Kind: String {
-        case didShowWelcome = "did_show_welcome"
         case useBiometrics = "use_biometrics"
     }
 
     // MARK: - Login Method
-
-    static var didShowWelcome: Bool {
-        get { defaults.bool(forKey: Kind.didShowWelcome.rawValue) }
-        set { defaults.set(newValue, forKey: Kind.didShowWelcome.rawValue) }
-    }
 
     static var useBiometrics: Bool {
         get { defaults.bool(forKey: Kind.useBiometrics.rawValue) }

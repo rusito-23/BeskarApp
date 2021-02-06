@@ -7,34 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		780770E225C63F2200071EF3 /* BeskarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770E125C63F2200071EF3 /* BeskarButton.swift */; };
-		780770E625C74A3B00071EF3 /* BeskarFieldMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770E525C74A3A00071EF3 /* BeskarFieldMessage.swift */; };
+		780770E225C63F2200071EF3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770E125C63F2200071EF3 /* Button.swift */; };
+		780770E625C74A3B00071EF3 /* FieldMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770E525C74A3A00071EF3 /* FieldMessage.swift */; };
 		780770E925C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770E825C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift */; };
 		782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927C425C4520F00F41574 /* BeskarNamespace.swift */; };
 		782927C725C4520F00F41574 /* UIColor+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927C525C4520F00F41574 /* UIColor+Beskar.swift */; };
-		782927D225C48F8800F41574 /* BeskarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927D125C48F8800F41574 /* BeskarViewController.swift */; };
+		782927D225C48F8800F41574 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927D125C48F8800F41574 /* ViewController.swift */; };
 		7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829280D25C5AF3E00F41574 /* UIFont+Beskar.swift */; };
-		7829281225C5B4B500F41574 /* BeskarLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829281125C5B4B500F41574 /* BeskarLabel.swift */; };
+		7829281225C5B4B500F41574 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829281125C5B4B500F41574 /* Label.swift */; };
 		7829281B25C5BF6700F41574 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829281A25C5BF6700F41574 /* Dimensions.swift */; };
-		7829282125C5CEE600F41574 /* BeskarField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282025C5CEE600F41574 /* BeskarField.swift */; };
-		7829282525C5D06700F41574 /* BeskarPasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282425C5D06700F41574 /* BeskarPasswordField.swift */; };
-		7829282825C5FE9300F41574 /* BeskarTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282725C5FE9300F41574 /* BeskarTextField.swift */; };
+		7829282125C5CEE600F41574 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282025C5CEE600F41574 /* InputField.swift */; };
+		7829282825C5FE9300F41574 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282725C5FE9300F41574 /* TextField.swift */; };
 		7832236025C44B3300D466ED /* BeskarUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7832235E25C44B3300D466ED /* BeskarUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		780770E125C63F2200071EF3 /* BeskarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarButton.swift; sourceTree = "<group>"; };
-		780770E525C74A3A00071EF3 /* BeskarFieldMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarFieldMessage.swift; sourceTree = "<group>"; };
+		780770E125C63F2200071EF3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		780770E525C74A3A00071EF3 /* FieldMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldMessage.swift; sourceTree = "<group>"; };
 		780770E825C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Beskar.swift"; sourceTree = "<group>"; };
 		782927C425C4520F00F41574 /* BeskarNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeskarNamespace.swift; sourceTree = "<group>"; };
 		782927C525C4520F00F41574 /* UIColor+Beskar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Beskar.swift"; sourceTree = "<group>"; };
-		782927D125C48F8800F41574 /* BeskarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarViewController.swift; sourceTree = "<group>"; };
+		782927D125C48F8800F41574 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7829280D25C5AF3E00F41574 /* UIFont+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Beskar.swift"; sourceTree = "<group>"; };
-		7829281125C5B4B500F41574 /* BeskarLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarLabel.swift; sourceTree = "<group>"; };
+		7829281125C5B4B500F41574 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		7829281A25C5BF6700F41574 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
-		7829282025C5CEE600F41574 /* BeskarField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarField.swift; sourceTree = "<group>"; };
-		7829282425C5D06700F41574 /* BeskarPasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarPasswordField.swift; sourceTree = "<group>"; };
-		7829282725C5FE9300F41574 /* BeskarTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeskarTextField.swift; sourceTree = "<group>"; };
+		7829282025C5CEE600F41574 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		7829282725C5FE9300F41574 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		7832234325C446BF00D466ED /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7832235C25C44B3300D466ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7832235E25C44B3300D466ED /* BeskarUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeskarUI.h; sourceTree = "<group>"; };
@@ -54,7 +52,7 @@
 		780770E025C63F1700071EF3 /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				780770E125C63F2200071EF3 /* BeskarButton.swift */,
+				780770E125C63F2200071EF3 /* Button.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -84,7 +82,7 @@
 		7829282A25C5FEA100F41574 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				782927D125C48F8800F41574 /* BeskarViewController.swift */,
+				782927D125C48F8800F41574 /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -92,10 +90,9 @@
 		7829282B25C5FEA900F41574 /* Field */ = {
 			isa = PBXGroup;
 			children = (
-				7829282025C5CEE600F41574 /* BeskarField.swift */,
-				7829282425C5D06700F41574 /* BeskarPasswordField.swift */,
-				7829282725C5FE9300F41574 /* BeskarTextField.swift */,
-				780770E525C74A3A00071EF3 /* BeskarFieldMessage.swift */,
+				7829282025C5CEE600F41574 /* InputField.swift */,
+				7829282725C5FE9300F41574 /* TextField.swift */,
+				780770E525C74A3A00071EF3 /* FieldMessage.swift */,
 			);
 			path = Field;
 			sourceTree = "<group>";
@@ -103,7 +100,7 @@
 		7829282C25C5FEB500F41574 /* Label */ = {
 			isa = PBXGroup;
 			children = (
-				7829281125C5B4B500F41574 /* BeskarLabel.swift */,
+				7829281125C5B4B500F41574 /* Label.swift */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -224,17 +221,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */,
-				782927D225C48F8800F41574 /* BeskarViewController.swift in Sources */,
-				780770E625C74A3B00071EF3 /* BeskarFieldMessage.swift in Sources */,
+				782927D225C48F8800F41574 /* ViewController.swift in Sources */,
+				780770E625C74A3B00071EF3 /* FieldMessage.swift in Sources */,
 				780770E925C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift in Sources */,
 				7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */,
-				7829282825C5FE9300F41574 /* BeskarTextField.swift in Sources */,
-				7829282525C5D06700F41574 /* BeskarPasswordField.swift in Sources */,
-				7829281225C5B4B500F41574 /* BeskarLabel.swift in Sources */,
+				7829282825C5FE9300F41574 /* TextField.swift in Sources */,
+				7829281225C5B4B500F41574 /* Label.swift in Sources */,
 				782927C725C4520F00F41574 /* UIColor+Beskar.swift in Sources */,
 				7829281B25C5BF6700F41574 /* Dimensions.swift in Sources */,
-				7829282125C5CEE600F41574 /* BeskarField.swift in Sources */,
-				780770E225C63F2200071EF3 /* BeskarButton.swift in Sources */,
+				7829282125C5CEE600F41574 /* InputField.swift in Sources */,
+				780770E225C63F2200071EF3 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

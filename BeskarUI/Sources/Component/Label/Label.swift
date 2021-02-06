@@ -1,5 +1,5 @@
 //
-//  BeskarLabel.swift
+//  Label.swift
 //  BeskarUI
 //
 //  Created by Igor on 30/01/2021.
@@ -7,7 +7,11 @@
 
 import UIKit
 
-public class BeskarLabel: UILabel {
+/// Beskar Design System Label
+/// Helpers to facilitate the usage of the design system label
+/// by initializing the label with Beskar UI fonts and colors.
+
+public class Label: UILabel {
 
     // MARK: - Initializers
 

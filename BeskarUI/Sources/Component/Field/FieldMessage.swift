@@ -1,5 +1,5 @@
 //
-//  BeskarFieldMessage.swift
+//  FieldMessage.swift
 //  BeskarUI
 //
 //  Created by Igor on 31/01/2021.
@@ -7,7 +7,11 @@
 
 import UIKit
 
-public class BeskarFieldMessage: UIView {
+/// Beskar Design System Field Message
+/// Custom view that shows a message in an input Field, with a three available kinds:
+/// `success`, `warning` or `error
+
+public class FieldMessage: UIView {
 
     // MARK: - Types
 
@@ -37,8 +41,8 @@ public class BeskarFieldMessage: UIView {
 
     // MARK: - Subviews
 
-    private lazy var messageLabel: BeskarLabel = {
-        let label = BeskarLabel(
+    private lazy var messageLabel: Label = {
+        let label = Label(
             size: .extraSmall,
             color: UIColor.beskar.success
         )

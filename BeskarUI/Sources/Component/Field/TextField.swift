@@ -1,14 +1,15 @@
 //
-//  BeskarTextField.swift
+//  TextField.swift
 //  BeskarUI
 //
 //  Created by Igor on 30/01/2021.
 //
 
-import Combine
 import UIKit
 
-public class BeskarTextField: UITextField {
+/// Beskar Design System Text Field
+
+public class TextField: UITextField {
 
     // MARK: - Initializers
 

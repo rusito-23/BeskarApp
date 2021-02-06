@@ -10,24 +10,20 @@
 		780770DF25C6391700071EF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 780770DE25C6391700071EF3 /* Localizable.strings */; };
 		780770ED25C75C0400071EF3 /* Collection+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770EC25C75C0400071EF3 /* Collection+Helpers.swift */; };
 		780770F125C769E300071EF3 /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770F025C769E300071EF3 /* RegexValidator.swift */; };
-		782927D925C4AC7F00F41574 /* WalletSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927D825C4AC7F00F41574 /* WalletSelectionViewController.swift */; };
 		782927DE25C50AF800F41574 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927DD25C50AF800F41574 /* Preferences.swift */; };
 		782927F825C50BB900F41574 /* BeskarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 782927F725C50BB900F41574 /* BeskarKit.framework */; };
 		782927F925C50BB900F41574 /* BeskarKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 782927F725C50BB900F41574 /* BeskarKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7829280425C5145000F41574 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829280325C5145000F41574 /* RegisterViewController.swift */; };
-		7829280925C5AC5500F41574 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829280825C5AC5500F41574 /* LoginViewController.swift */; };
-		7829280B25C5AEB900F41574 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829280A25C5AEB900F41574 /* RegisterView.swift */; };
 		7829281F25C5C15700F41574 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829281E25C5C15700F41574 /* UIView+Helpers.swift */; };
 		783222DC25C378EF00D466ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DB25C378EF00D466ED /* AppDelegate.swift */; };
-		783222E025C378EF00D466ED /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DF25C378EF00D466ED /* TabViewController.swift */; };
 		783222E525C378F000D466ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783222E425C378F000D466ED /* Assets.xcassets */; };
 		783222E825C378F000D466ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 783222E625C378F000D466ED /* LaunchScreen.storyboard */; };
 		783222FF25C37A6B00D466ED /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222FE25C37A6B00D466ED /* Coordinator.swift */; };
 		7832230325C37BC800D466ED /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832230225C37BC800D466ED /* AppCoordinator.swift */; };
 		7832236425C44B9800D466ED /* BeskarUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7832236325C44B9800D466ED /* BeskarUI.framework */; };
 		7832236525C44B9800D466ED /* BeskarUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7832236325C44B9800D466ED /* BeskarUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		784C343B25CF172000DA24E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 784C343A25CF172000DA24E1 /* InfoPlist.strings */; };
+		784C344B25CF342600DA24E1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C344A25CF342600DA24E1 /* WelcomeViewController.swift */; };
 		78DB116325C6375100335F7B /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB116225C6375100335F7B /* String+Helpers.swift */; };
-		78ECC27A25C6153400880193 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78ECC27925C6153400880193 /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,24 +45,20 @@
 		780770DE25C6391700071EF3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		780770EC25C75C0400071EF3 /* Collection+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Helpers.swift"; sourceTree = "<group>"; };
 		780770F025C769E300071EF3 /* RegexValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexValidator.swift; sourceTree = "<group>"; };
-		782927D825C4AC7F00F41574 /* WalletSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSelectionViewController.swift; sourceTree = "<group>"; };
 		782927DD25C50AF800F41574 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		782927F725C50BB900F41574 /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7829280325C5145000F41574 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		7829280825C5AC5500F41574 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		7829280A25C5AEB900F41574 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		7829281E25C5C15700F41574 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		783222D825C378EF00D466ED /* Beskar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beskar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783222DB25C378EF00D466ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		783222DF25C378EF00D466ED /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		783222E425C378F000D466ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		783222E725C378F000D466ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		783222E925C378F000D466ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		783222FE25C37A6B00D466ED /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		7832230225C37BC800D466ED /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7832236325C44B9800D466ED /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		784C343A25CF172000DA24E1 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		784C344A25CF342600DA24E1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		78DB116225C6375100335F7B /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
-		78ECC27925C6153400880193 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +77,6 @@
 		782927DB25C50ACF00F41574 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7829280A25C5AEB900F41574 /* RegisterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -123,10 +114,7 @@
 		783222F125C3791700D466ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				783222DF25C378EF00D466ED /* TabViewController.swift */,
-				782927D825C4AC7F00F41574 /* WalletSelectionViewController.swift */,
-				7829280325C5145000F41574 /* RegisterViewController.swift */,
-				7829280825C5AC5500F41574 /* LoginViewController.swift */,
+				784C344A25CF342600DA24E1 /* WelcomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +139,7 @@
 				783222E625C378F000D466ED /* LaunchScreen.storyboard */,
 				783222E425C378F000D466ED /* Assets.xcassets */,
 				780770DE25C6391700071EF3 /* Localizable.strings */,
+				784C343A25CF172000DA24E1 /* InfoPlist.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -184,7 +173,6 @@
 		78ECC27825C6152300880193 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				78ECC27925C6153400880193 /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -248,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				783222E825C378F000D466ED /* LaunchScreen.storyboard in Resources */,
+				784C343B25CF172000DA24E1 /* InfoPlist.strings in Resources */,
 				780770DF25C6391700071EF3 /* Localizable.strings in Resources */,
 				783222E525C378F000D466ED /* Assets.xcassets in Resources */,
 			);
@@ -260,19 +249,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7829280925C5AC5500F41574 /* LoginViewController.swift in Sources */,
+				784C344B25CF342600DA24E1 /* WelcomeViewController.swift in Sources */,
 				78DB116325C6375100335F7B /* String+Helpers.swift in Sources */,
 				7832230325C37BC800D466ED /* AppCoordinator.swift in Sources */,
-				7829280425C5145000F41574 /* RegisterViewController.swift in Sources */,
 				782927DE25C50AF800F41574 /* Preferences.swift in Sources */,
-				783222E025C378EF00D466ED /* TabViewController.swift in Sources */,
 				780770F125C769E300071EF3 /* RegexValidator.swift in Sources */,
-				7829280B25C5AEB900F41574 /* RegisterView.swift in Sources */,
-				78ECC27A25C6153400880193 /* RegisterViewModel.swift in Sources */,
 				7829281F25C5C15700F41574 /* UIView+Helpers.swift in Sources */,
 				780770ED25C75C0400071EF3 /* Collection+Helpers.swift in Sources */,
 				783222FF25C37A6B00D466ED /* Coordinator.swift in Sources */,
-				782927D925C4AC7F00F41574 /* WalletSelectionViewController.swift in Sources */,
 				783222DC25C378EF00D466ED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
