@@ -24,7 +24,8 @@ if (search FIXME) then
 fi
 
 # Run SwiftLint
-if (./scripts/lint_changed) then
+./scripts/lint_changed
+if [[ $? -ne 0 ]]; then
     log_error "Solve the SwiftLint errors and try again"
     exit 1
 fi

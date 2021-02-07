@@ -3,4 +3,4 @@
 source scripts/helpers
 
 log_info "Running SwiftLint"
-mint run swiftlint
+$SWIFTLINT

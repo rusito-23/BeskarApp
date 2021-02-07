@@ -10,8 +10,7 @@ trailing_comma:
     mandatory_comma: true
 
 line_length:
-    warning: 100
-    error: 120
+    error: 100
     ignores_comments: true
     ignores_urls: true
 

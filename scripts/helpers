@@ -18,3 +18,8 @@ log_error() { echo "\n ❌  ${RED}$@${CLEAR}\n"; }
 log_success() { echo "\n ✅  ${GREEN}$@${CLEAR}\n"; }
 
 log_warning() { echo "\n ⚠️  ${YELLOW}$@${CLEAR}\n"; }
+
+# --------------------
+# Paths
+
+SWIFTLINT='mint run swiftlint'
