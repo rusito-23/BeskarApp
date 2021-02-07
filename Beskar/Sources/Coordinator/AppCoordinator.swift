@@ -28,7 +28,7 @@ final class AppCoordinator: Coordinator {
     /// Authentication Services, brought to you by `BeskarKit`
     private let authService: AuthServiceProtocol
 
-    /// TODO: do we need to keep a reference here?
+    /// JIC: A reference to the root view controller
     private var rootViewController: UIViewController?
 
     // MARK: Initializers
@@ -43,12 +43,10 @@ final class AppCoordinator: Coordinator {
         // Show window
         window.makeKeyAndVisible()
 
-        // TODO: check auth status & start coords
-
-        // Check for Welcome Flow
+        // Check if Welcome Flow must be shown
         guard Preferences.isNotFirstLaunch else {
             // preferences.isNotFirstLaunch = true
-            startWelcomeFlow()
+            startWelcomeFlow(then: startLoginFlow)
             return
         }
 
@@ -58,18 +56,49 @@ final class AppCoordinator: Coordinator {
 
     // MARK: Private
 
-    private func startWelcomeFlow() {
+    /// Show Welcome Screen
+    private func startWelcomeFlow(
+        then completion: @escaping (() -> Void)
+    ) {
         let viewController = WelcomeViewController()
-        rootViewController = viewController
-        viewController.onAllowButtonCompletion = { [weak self] in
-            self?.startLoginFlow()
+        viewController.onAllowButtonCompletion = completion
+        present(viewController)
+    }
+
+    /// Authenticate and then
+    /// Show error or Main screen
+    private func startLoginFlow() {
+        // Check for Auth Services availability
+        guard authService.isAvailable() else {
+            self.presentError(subtitle: "AUTH_SERVICE_ERROR_SUBTITLE".localized)
+            return
         }
 
+        // Start biometric authentication
+        authService.authenticate(
+            reason: "AUTH_REASON".localized
+        ) { [weak self] success in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+
+                // Check if Auth was successful
+                guard success else {
+                    self.presentError(subtitle: "AUTH_ERROR_SUBTITLE".localized)
+                    return
+                }
+
+                // Start Main Flow!
+                self.present(TabViewController())
+            }
+        }
+    }
+
+    private func present(_ viewController: UIViewController) {
+        rootViewController = viewController
         presenter.present(viewController, animated: true)
     }
 
-    private func startLoginFlow() {
-        // TODO: implementation
-        print("Start Login Flow")
+    private func presentError(subtitle: String) {
+        present(ErrorViewController(subtitle: subtitle))
     }
 }

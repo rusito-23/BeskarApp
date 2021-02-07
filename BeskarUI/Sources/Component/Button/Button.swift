@@ -31,9 +31,13 @@ public class Button: UIButton {
 
     public init(
         kind: Kind,
-        title: String? = nil
+        title: String? = nil,
+        identifier: String? = nil,
+        label: String? = nil
     ) {
         super.init(frame: .zero)
+        accessibilityIdentifier = identifier
+        accessibilityLabel = label
         translatesAutoresizingMaskIntoConstraints = false
         setTitle(title, for: .normal)
 
@@ -75,9 +79,7 @@ public class Button: UIButton {
 
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(
-                equalToConstant: Dimension.medium.rawValue
-            )
+            heightAnchor.constraint(equalToConstant: Size.medium.rawValue)
         ])
     }
 }

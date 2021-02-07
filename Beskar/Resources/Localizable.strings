@@ -15,3 +15,20 @@ This will allow us to keep your data safe.";
 We will not have access to your credentials.
 We will only validate that you are the device owner.";
 "WELCOME_BUTTON" = "ALLOW";
+
+// MARK: - Auth
+
+"AUTH_REASON" = "We will use biometric authentication to keep your data safe.";
+
+// MARK: - Error
+
+// MARK: Default Error
+
+"DEFAULT_ERROR_TITLE" = "Oops!";
+
+// MARK: Auth Service Error
+
+"AUTH_SERVICE_ERROR_SUBTITLE" = "We could not use the authentication services.
+Try again in a few minutes.";
+
+"AUTH_ERROR_SUBTITLE" = "Authentication failed";

@@ -116,8 +116,8 @@ public class FieldMessage: UIView {
 
         // Accessory constraints
         NSLayoutConstraint.activate([
-            messageAccessory.heightAnchor.constraint(equalToConstant: Dimension.small.rawValue),
-            messageAccessory.widthAnchor.constraint(equalToConstant: Dimension.small.rawValue),
+            messageAccessory.heightAnchor.constraint(equalToConstant: Size.small.rawValue),
+            messageAccessory.widthAnchor.constraint(equalToConstant: Size.small.rawValue),
         ])
     }
 

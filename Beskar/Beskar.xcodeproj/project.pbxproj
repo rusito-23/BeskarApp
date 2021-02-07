@@ -10,6 +10,10 @@
 		780770DF25C6391700071EF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 780770DE25C6391700071EF3 /* Localizable.strings */; };
 		780770ED25C75C0400071EF3 /* Collection+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770EC25C75C0400071EF3 /* Collection+Helpers.swift */; };
 		780770F125C769E300071EF3 /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770F025C769E300071EF3 /* RegexValidator.swift */; };
+		7824688225CF76C800B1B9E4 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824688125CF76C800B1B9E4 /* TabViewController.swift */; };
+		7824688425CF78C600B1B9E4 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824688325CF78C600B1B9E4 /* ErrorViewController.swift */; };
+		7824688625CF78EE00B1B9E4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824688525CF78EE00B1B9E4 /* ErrorView.swift */; };
+		7824688925CF7B4A00B1B9E4 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824688825CF7B4A00B1B9E4 /* Accessibility.swift */; };
 		782927DE25C50AF800F41574 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927DD25C50AF800F41574 /* Preferences.swift */; };
 		782927F825C50BB900F41574 /* BeskarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 782927F725C50BB900F41574 /* BeskarKit.framework */; };
 		782927F925C50BB900F41574 /* BeskarKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 782927F725C50BB900F41574 /* BeskarKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -46,6 +50,10 @@
 		780770DE25C6391700071EF3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		780770EC25C75C0400071EF3 /* Collection+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Helpers.swift"; sourceTree = "<group>"; };
 		780770F025C769E300071EF3 /* RegexValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexValidator.swift; sourceTree = "<group>"; };
+		7824688125CF76C800B1B9E4 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		7824688325CF78C600B1B9E4 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		7824688525CF78EE00B1B9E4 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		7824688825CF7B4A00B1B9E4 /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
 		782927DD25C50AF800F41574 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		782927F725C50BB900F41574 /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7829281E25C5C15700F41574 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
@@ -76,10 +84,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7824688725CF7A9F00B1B9E4 /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				7824688825CF7B4A00B1B9E4 /* Accessibility.swift */,
+			);
+			path = Accessibility;
+			sourceTree = "<group>";
+		};
 		782927DB25C50ACF00F41574 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				784C345425CF55F600DA24E1 /* WelcomeView.swift */,
+				7824688525CF78EE00B1B9E4 /* ErrorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				784C344A25CF342600DA24E1 /* WelcomeViewController.swift */,
+				7824688125CF76C800B1B9E4 /* TabViewController.swift */,
+				7824688325CF78C600B1B9E4 /* ErrorViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -125,6 +144,7 @@
 		783222F225C3791E00D466ED /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				7824688725CF7A9F00B1B9E4 /* Accessibility */,
 				783222F625C3796800D466ED /* Base */,
 				782927DC25C50AE300F41574 /* Common */,
 				783222FD25C37A6000D466ED /* Coordinator */,
@@ -253,14 +273,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				784C344B25CF342600DA24E1 /* WelcomeViewController.swift in Sources */,
+				7824688425CF78C600B1B9E4 /* ErrorViewController.swift in Sources */,
 				78DB116325C6375100335F7B /* String+Helpers.swift in Sources */,
 				7832230325C37BC800D466ED /* AppCoordinator.swift in Sources */,
 				782927DE25C50AF800F41574 /* Preferences.swift in Sources */,
 				780770F125C769E300071EF3 /* RegexValidator.swift in Sources */,
 				784C345525CF55F600DA24E1 /* WelcomeView.swift in Sources */,
+				7824688225CF76C800B1B9E4 /* TabViewController.swift in Sources */,
 				7829281F25C5C15700F41574 /* UIView+Helpers.swift in Sources */,
 				780770ED25C75C0400071EF3 /* Collection+Helpers.swift in Sources */,
 				783222FF25C37A6B00D466ED /* Coordinator.swift in Sources */,
+				7824688925CF7B4A00B1B9E4 /* Accessibility.swift in Sources */,
+				7824688625CF78EE00B1B9E4 /* ErrorView.swift in Sources */,
 				783222DC25C378EF00D466ED /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

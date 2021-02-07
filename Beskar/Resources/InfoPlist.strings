@@ -6,4 +6,4 @@
   
 */
 
-NSFaceIDUsageDescription = "We will use Face ID to keep your data safe.";
+NSFaceIDUsageDescription = "We will use biometric authentication to keep your data safe.";

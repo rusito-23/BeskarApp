@@ -37,9 +37,7 @@ public class TextField: UITextField {
 
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(
-                equalToConstant: Dimension.medium.rawValue
-            )
+            heightAnchor.constraint(equalToConstant: Size.medium.rawValue)
         ])
     }
 

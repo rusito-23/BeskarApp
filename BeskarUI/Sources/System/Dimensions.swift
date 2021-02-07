@@ -14,6 +14,7 @@ public enum Spacing: CGFloat {
     case medium = 16.0
     case small = 8.0
     case extraSmall = 4.0
+    case zero = 0
 }
 
 public struct Border {
@@ -32,7 +33,7 @@ public struct Border {
     }
 }
 
-public enum Dimension: CGFloat {
+public enum Size: CGFloat {
     case large = 100.0
     case medium = 50.0
     case small = 25.0

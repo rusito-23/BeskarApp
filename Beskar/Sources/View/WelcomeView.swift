@@ -14,26 +14,30 @@ final class WelcomeView: UIView {
 
     lazy var allowButton = Button(
         kind: .primary,
-        title: "WELCOME_BUTTON".localized
+        title: "WELCOME_BUTTON".localized,
+        identifier: A.WelcomeScreen.allowButton
     )
 
     private lazy var titleLabel = Label(
         size: .large,
         weight: .traitBold,
         color: UIColor.beskar.primary,
-        text: "WELCOME_TITLE".localized
+        text: "WELCOME_TITLE".localized,
+        identifier: A.WelcomeScreen.title
     )
 
     private lazy var subtitleLabel = Label(
         size: .small,
         color: UIColor.beskar.secondary,
-        text: "WELCOME_SUBTITLE".localized
+        text: "WELCOME_SUBTITLE".localized,
+        identifier: A.WelcomeScreen.subtitle
     )
 
     private lazy var disclaimerLabel = Label(
         size: .extraSmall,
         color: UIColor.beskar.secondary,
-        text: "WELCOME_DISCLAIMER".localized
+        text: "WELCOME_DISCLAIMER".localized,
+        identifier: A.WelcomeScreen.disclaimer
     )
 
     // MARK: Initializers

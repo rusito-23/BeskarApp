@@ -54,21 +54,14 @@ public final class AuthService: AuthServiceProtocol {
 extension AuthService {
     public func isAvailable() -> Bool {
         var error: NSError?
-
-        let canEvaluatePolicy = context.canEvaluatePolicy(
+        guard context.canEvaluatePolicy(
             policy,
             error: &error
-        )
-
-        if let policyError = error as? LAError {
-            switch policyError.code {
-            // TODO: check for policy error code
-            default: print("Authentication Failed")
-            }
+        ), error as? LAError == nil else {
             return false
         }
 
-        return canEvaluatePolicy
+        return true
     }
 
     public func authenticate(
