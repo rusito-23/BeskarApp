@@ -13,12 +13,13 @@ import UIKit
 
 public class Label: UILabel {
 
-    // MARK: - Initializers
+    // MARK: Initializers
 
     public init(
         size: UIFont.Beskar.Size,
         weight: UIFont.Beskar.Weight = .init(),
-        color: UIColor = UIColor.beskar.primary
+        color: UIColor = UIColor.beskar.primary,
+        text: String? = nil
     ) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
@@ -27,6 +28,7 @@ public class Label: UILabel {
         lineBreakMode = .byWordWrapping
         numberOfLines = 0
         textAlignment = .center
+        self.text = text
     }
 
     @available(*, unavailable)

@@ -10,20 +10,20 @@ import Foundation
 
 struct Preferences {
 
-    // MARK: - Properties
+    // MARK: Properties
 
     private static var defaults: UserDefaults { .standard }
 
-    // MARK: - Kind
+    // MARK: Kind
 
     enum Kind: String {
-        case useBiometrics = "use_biometrics"
+        case isNotFirstLaunch = "is_first_launch"
     }
 
-    // MARK: - Login Method
+    // MARK: Getters & Setters
 
-    static var useBiometrics: Bool {
-        get { defaults.bool(forKey: Kind.useBiometrics.rawValue) }
-        set { defaults.set(newValue, forKey: Kind.useBiometrics.rawValue) }
+    static var isNotFirstLaunch: Bool {
+        get { defaults.bool(forKey: Kind.isNotFirstLaunch.rawValue) }
+        set { defaults.set(newValue, forKey: Kind.isNotFirstLaunch.rawValue) }
     }
 }

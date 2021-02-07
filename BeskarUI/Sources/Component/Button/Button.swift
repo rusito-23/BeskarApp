@@ -13,25 +13,29 @@ import UIKit
 
 public class Button: UIButton {
 
-    // MARK: - Types
+    // MARK: Types
 
     public enum Kind {
         case primary
         case secondary
     }
 
-    // MARK: - Properties
+    // MARK: Properties
 
     public var titleText: String? {
         get { title(for: .normal) }
         set { setTitle(newValue, for: .normal) }
     }
 
-    // MARK: - Initializers
+    // MARK: Initializers
 
-    public init(kind: Kind) {
+    public init(
+        kind: Kind,
+        title: String? = nil
+    ) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
+        setTitle(title, for: .normal)
 
         setUp(with: kind)
         setUpLayer()
@@ -43,7 +47,7 @@ public class Button: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Private Methods
+    // MARK: Private Methods
 
     private func setUpLayer() {
         layer.borderWidth = Border.Width.small.rawValue

@@ -25,7 +25,7 @@ public protocol AuthServiceProtocol {
 
 public final class AuthService: AuthServiceProtocol {
 
-    // MARK: - Types
+    // MARK: Types
 
     public typealias Completion = (Bool) -> Void
 

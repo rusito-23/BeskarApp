@@ -6,18 +6,12 @@
   
 */
 
-// MARK: - Register Scree
+// MARK: - Welcome Screen
 
-"REGISTER_TITLE" = "WELCOME TO BESKAR!";
-"REGISTER_SUBTITLE" = "Please choose a password to get started. This password (as all other data in this app) will only be stored locally in your phone.";
-
-// MARK: Placeholders
-
-"PASSWORD_PLACEHOLDER" = "Enter your password";
-"REPEAT_PASSWORD_PLACEHOLDER" = "Repeat your password";
-"REGISTER_BUTTON_TITLE" = "GET STARTED";
-
-// MARK: Errors
-
-"PASSWORD_ERROR" = "Your password must have at least 8 characters, 1 number, 1 uppercase letter and 1 special character.";
-"REPEAT_PASSWORD_ERROR" = "Passwords didn't match";
+"WELCOME_TITLE" = "WELCOME TO BESKAR!";
+"WELCOME_SUBTITLE" = "To get started, please allow biometric authentication access.
+This will allow us to keep your data safe.";
+"WELCOME_DISCLAIMER" = "Don't worry!
+We will not have access to your credentials.
+We will only validate that you are the device owner.";
+"WELCOME_BUTTON" = "ALLOW";

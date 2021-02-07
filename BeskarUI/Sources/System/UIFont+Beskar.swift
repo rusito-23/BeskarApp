@@ -10,7 +10,7 @@ import UIKit.UIFont
 extension UIFont: BeskarNamespace {}
 public extension BeskarWrapper where Base: UIFont {
 
-    // MARK: - Types
+    // MARK: Types
 
     enum Size: CGFloat {
         case extraLarge = 64.0
@@ -24,7 +24,7 @@ public extension BeskarWrapper where Base: UIFont {
 
     typealias Weight = UIFontDescriptor.SymbolicTraits
 
-    // MARK: - Constants
+    // MARK: Constants
 
     private static var name: String { "AvenirNext-Heavy" }
 

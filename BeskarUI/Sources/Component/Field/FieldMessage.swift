@@ -13,7 +13,7 @@ import UIKit
 
 public class FieldMessage: UIView {
 
-    // MARK: - Types
+    // MARK: Types
 
     public enum Kind {
         case success
@@ -39,7 +39,7 @@ public class FieldMessage: UIView {
         }
     }
 
-    // MARK: - Subviews
+    // MARK: Subviews
 
     private lazy var messageLabel: Label = {
         let label = Label(
@@ -70,7 +70,7 @@ public class FieldMessage: UIView {
         return stack
     }()
 
-    // MARK: - Initializers
+    // MARK: Initializers
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -83,7 +83,7 @@ public class FieldMessage: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Public Methods
+    // MARK: Public Methods
 
     public func show(message: String, with kind: Kind) {
         messageLabel.text = message
@@ -101,7 +101,7 @@ public class FieldMessage: UIView {
         isHidden = true
     }
 
-    // MARK: - Private Methods
+    // MARK: Private Methods
 
     private func setUpViews() {
         addSubview(messageStack)

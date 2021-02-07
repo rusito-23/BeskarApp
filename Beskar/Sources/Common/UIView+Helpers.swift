@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
 
-    // MARK: - Methods
+    // MARK: Add Subviews Helpers
 
     func addSubviews(_ views: UIView...) {
         for view in views {

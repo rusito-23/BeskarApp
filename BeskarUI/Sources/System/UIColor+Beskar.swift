@@ -11,7 +11,7 @@ import UIKit.UIColor
 extension UIColor: BeskarNamespace {}
 public extension BeskarWrapper where Base: UIColor {
 
-    // MARK: - Base
+    // MARK: Base
 
     static var base: UIColor { .systemGray6 }
 
@@ -23,7 +23,7 @@ public extension BeskarWrapper where Base: UIColor {
 
     static var tertiary: UIColor { .black }
 
-    // MARK: - Info
+    // MARK: Info
 
     static var success: UIColor { .systemGreen }
 

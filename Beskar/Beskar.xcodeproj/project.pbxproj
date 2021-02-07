@@ -23,6 +23,7 @@
 		7832236525C44B9800D466ED /* BeskarUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7832236325C44B9800D466ED /* BeskarUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		784C343B25CF172000DA24E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 784C343A25CF172000DA24E1 /* InfoPlist.strings */; };
 		784C344B25CF342600DA24E1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C344A25CF342600DA24E1 /* WelcomeViewController.swift */; };
+		784C345525CF55F600DA24E1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C345425CF55F600DA24E1 /* WelcomeView.swift */; };
 		78DB116325C6375100335F7B /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB116225C6375100335F7B /* String+Helpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		7832236325C44B9800D466ED /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		784C343A25CF172000DA24E1 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		784C344A25CF342600DA24E1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		784C345425CF55F600DA24E1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		78DB116225C6375100335F7B /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 		782927DB25C50ACF00F41574 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				784C345425CF55F600DA24E1 /* WelcomeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				7832230325C37BC800D466ED /* AppCoordinator.swift in Sources */,
 				782927DE25C50AF800F41574 /* Preferences.swift in Sources */,
 				780770F125C769E300071EF3 /* RegexValidator.swift in Sources */,
+				784C345525CF55F600DA24E1 /* WelcomeView.swift in Sources */,
 				7829281F25C5C15700F41574 /* UIView+Helpers.swift in Sources */,
 				780770ED25C75C0400071EF3 /* Collection+Helpers.swift in Sources */,
 				783222FF25C37A6B00D466ED /* Coordinator.swift in Sources */,

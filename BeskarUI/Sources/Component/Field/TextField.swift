@@ -11,7 +11,7 @@ import UIKit
 
 public class TextField: UITextField {
 
-    // MARK: - Initializers
+    // MARK: Initializers
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +27,7 @@ public class TextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Private
+    // MARK: Private
 
     private func setUpLayer() {
         layer.borderWidth = Border.Width.small.rawValue
@@ -43,7 +43,7 @@ public class TextField: UITextField {
         ])
     }
 
-    // MARK: - Text Rect
+    // MARK: Text Rect Insets
 
     public override func textRect(forBounds bounds: CGRect) -> CGRect {
         bounds.inset(by: UIEdgeInsets.beskar.horizontal(by: .medium))

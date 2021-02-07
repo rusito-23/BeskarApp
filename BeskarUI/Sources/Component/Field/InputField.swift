@@ -17,7 +17,7 @@ import UIKit
 
 open class InputField: UIView {
 
-    // MARK: - Public Properties
+    // MARK: Public Properties
 
     /// Text Field Placeholder, automatically uses design system colors
     public var placeholder: String? {
@@ -38,14 +38,14 @@ open class InputField: UIView {
     }
 
 
-    // MARK: - Private Properties
+    // MARK: Private Properties
 
     private var placeholderAttributes: [NSAttributedString.Key: Any] = [
         .foregroundColor: UIColor.beskar.secondary,
         .font: UIFont.beskar.build(.extraSmall)
     ]
 
-    // MARK: - Subviews
+    // MARK: Subviews
 
     internal lazy var textField = TextField()
 
@@ -67,7 +67,7 @@ open class InputField: UIView {
         return stack
     }()
 
-    // MARK: - Initializers
+    // MARK: Initializers
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -82,7 +82,7 @@ open class InputField: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Public Methods
+    // MARK: Public Methods
 
     public func showMessage(_ message: String, kind: FieldMessage.Kind) {
         messageView.show(message: message, with: kind)
@@ -92,7 +92,7 @@ open class InputField: UIView {
         messageView.hide()
     }
 
-    // MARK: - Private Methods
+    // MARK: Private Methods
 
     private func setUpViews() {
         addSubview(contentStack)

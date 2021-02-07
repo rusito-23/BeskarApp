@@ -10,13 +10,13 @@ import UIKit
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    // MARK: - Types
+    // MARK: Types
 
     private struct Configuration {
         static let `default` = "Default Configuration"
     }
 
-    // MARK: - Properties
+    // MARK: Properties
 
     var window: UIWindow? {
         get { coordinator.window }
@@ -25,7 +25,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private lazy var coordinator = AppCoordinator()
 
-    // MARK: - AppDelegate Conformance
+    // MARK: AppDelegate Conformance
 
     func application(
         _ application: UIApplication,

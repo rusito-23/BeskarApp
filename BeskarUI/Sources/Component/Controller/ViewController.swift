@@ -8,15 +8,36 @@
 
 import UIKit
 
-/// Beskar Design System Controllers
-/// Override default functions for `UIViewController`
-/// to use Beskar colors and presentation styles by default.
-
 // MARK: - View Controller
 
-open class ViewController: UIViewController {
+/// Add view controller functionality to enable the auto-setup of a custom view.
+/// Overrides the `viewDidLoad` method to load the view and creates an `open lazy var`
+/// that contains the reference to the view (with the given type).
+/// Also sets default background color and presentation style to ensure design system conformance.
+///
+/// Example usage:
+/// ```
+/// class MyViewController: ViewController<MyView> {
+///     override func viewDidLoad() {
+///         super.viewDidLoad()
+///
+///         // customView is of kind MyView
+///         customView.myButton.addTarget(self, ...)
+///     }
+/// }
+/// ```
+
+open class ViewController<View>: UIViewController where View: UIView {
+
+    // MARK: Properties
+
+    open lazy var customView = View()
 
     // MARK: View Lifecycle
+
+    open override func loadView() {
+        view = customView
+    }
 
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +61,9 @@ open class ViewController: UIViewController {
 }
 
 // MARK: - Tab Bar Controller
+
+/// Set default background color and presentation style to
+/// `UITabBarController` to ensure Design System conformance.
 
 open class TabBarController: UITabBarController {
 

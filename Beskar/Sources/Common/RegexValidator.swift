@@ -9,7 +9,7 @@ import Foundation
 
 struct RegexValidator {
 
-    // MARK: - Types
+    // MARK: Types
 
     /// Different Regex kinds to eval using a predefined configuration
     enum Regex: String {
@@ -22,7 +22,7 @@ struct RegexValidator {
         case password = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&<>*~:`-]).{8,}$"
     }
 
-    // MARK: - Static Methods
+    // MARK: Static Methods
 
     /// Given a Regex Kind, evaluate the String
     static func eval(
