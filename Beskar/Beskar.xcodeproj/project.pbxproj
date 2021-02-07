@@ -15,10 +15,12 @@
 		7824688625CF78EE00B1B9E4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824688525CF78EE00B1B9E4 /* ErrorView.swift */; };
 		7824688925CF7B4A00B1B9E4 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824688825CF7B4A00B1B9E4 /* Accessibility.swift */; };
 		782468A425CF992B00B1B9E4 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782468A125CF992000B1B9E4 /* AppCoordinatorTests.swift */; };
+		782468AE25D03E8A00B1B9E4 /* NavigationControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782468AA25D03E5600B1B9E4 /* NavigationControllerMock.swift */; };
 		782927DE25C50AF800F41574 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927DD25C50AF800F41574 /* Preferences.swift */; };
 		782927F825C50BB900F41574 /* BeskarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 782927F725C50BB900F41574 /* BeskarKit.framework */; };
 		782927F925C50BB900F41574 /* BeskarKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 782927F725C50BB900F41574 /* BeskarKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7829281F25C5C15700F41574 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829281E25C5C15700F41574 /* UIView+Helpers.swift */; };
+		782E6D8D25D0404F0057705E /* AuthServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782E6D8C25D0404F0057705E /* AuthServiceMock.swift */; };
 		783222DC25C378EF00D466ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DB25C378EF00D466ED /* AppDelegate.swift */; };
 		783222E525C378F000D466ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783222E425C378F000D466ED /* Assets.xcassets */; };
 		783222E825C378F000D466ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 783222E625C378F000D466ED /* LaunchScreen.storyboard */; };
@@ -68,9 +70,11 @@
 		7824689525CF990300B1B9E4 /* BeskarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeskarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7824689925CF990300B1B9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		782468A125CF992000B1B9E4 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
+		782468AA25D03E5600B1B9E4 /* NavigationControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerMock.swift; sourceTree = "<group>"; };
 		782927DD25C50AF800F41574 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		782927F725C50BB900F41574 /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7829281E25C5C15700F41574 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
+		782E6D8C25D0404F0057705E /* AuthServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceMock.swift; sourceTree = "<group>"; };
 		783222D825C378EF00D466ED /* Beskar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beskar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783222DB25C378EF00D466ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		783222E425C378F000D466ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,10 +120,28 @@
 		7824689025CF98A900B1B9E4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				782468A925D03E3E00B1B9E4 /* Mocks */,
+				782468A825D03E3800B1B9E4 /* Tests */,
 				7824689925CF990300B1B9E4 /* Info.plist */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		782468A825D03E3800B1B9E4 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
 				782468A125CF992000B1B9E4 /* AppCoordinatorTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		782468A925D03E3E00B1B9E4 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				782468AA25D03E5600B1B9E4 /* NavigationControllerMock.swift */,
+				782E6D8C25D0404F0057705E /* AuthServiceMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		782927DB25C50ACF00F41574 /* View */ = {
@@ -334,7 +356,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				782E6D8D25D0404F0057705E /* AuthServiceMock.swift in Sources */,
 				782468A425CF992B00B1B9E4 /* AppCoordinatorTests.swift in Sources */,
+				782468AE25D03E8A00B1B9E4 /* NavigationControllerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@ final class AppCoordinator: Coordinator {
 
     /// App Coordinator sets up its own `presenter`
     /// That's what I call autonomy...
-    lazy var presenter: UIViewController = UINavigationController()
+    var presenter: UIViewController
 
     /// We create the main window here, instead of using the `AppDelegate`
     private(set) lazy var window: UIWindow = {
@@ -33,7 +33,11 @@ final class AppCoordinator: Coordinator {
 
     // MARK: Initializers
 
-    init(authService: AuthServiceProtocol = AuthService()) {
+    init(
+        presenter: UIViewController = UINavigationController(),
+        authService: AuthServiceProtocol = AuthService()
+    ) {
+        self.presenter = presenter
         self.authService = authService
     }
 

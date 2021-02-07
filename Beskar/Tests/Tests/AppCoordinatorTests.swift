@@ -15,12 +15,18 @@ final class AppCoordinatorTests: XCTestCase {
 
     private var authMock: AuthServiceMock!
     private var coordinator: AppCoordinator!
+    private var navigationMock: NavigationControllerMock!
 
     // MARK: Setup
 
     override func setUp() {
+        navigationMock = NavigationControllerMock()
         authMock = AuthServiceMock()
-        coordinator = AppCoordinator(authService: authMock)
+
+        coordinator = AppCoordinator(
+            presenter: navigationMock,
+            authService: authMock
+        )
     }
 
     // MARK: Tests
@@ -41,6 +47,7 @@ final class AppCoordinatorTests: XCTestCase {
         Preferences.isNotFirstLaunch = true
 
         // Setup expectations
+        navigationMock.presentExpectation = expectation(description: "Should present Login Flow")
         authMock.availabilityExpectation = expectation(description: "Should Check Auth Availability")
         authMock.authenticationExpectation = expectation(description: "Should Check Auth Authentication")
 
@@ -53,9 +60,10 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
+        XCTAssert(navigationMock.presentedViewController is TabViewController)
     }
 
-    func test_withAuthNotAvailable_shouldShowError() {
+    func test_withAuthServiceNotAvailable_shouldShowError() {
         // Setup first launch
         Preferences.isNotFirstLaunch = true
 
@@ -72,32 +80,24 @@ final class AppCoordinatorTests: XCTestCase {
         waitForExpectations(timeout: 3.0)
         XCTAssert(coordinator.presenter.presentedViewController is ErrorViewController)
     }
-}
 
-// MARK: - Auth Service Mock
+    func test_onAuthenticationError_shouldShowError() {
+        // Setup first launch
+        Preferences.isNotFirstLaunch = true
 
-final class AuthServiceMock: AuthServiceProtocol {
+        // Setup expectations
+        navigationMock.presentExpectation = expectation(description: "Should present Error")
+        authMock.availabilityExpectation = expectation(description: "Should Check Auth Availability")
 
-    // MARK: Properties
+        // Setup mock responses
+        authMock.isAvailableMock = true
+        authMock.authenticationSuccessMock = false
 
-    var isAvailableMock: Bool = false
-    var authenticationSuccessMock: Bool = false
+        // Start coordinator
+        coordinator.start()
 
-    var availabilityExpectation: XCTestExpectation?
-    var authenticationExpectation: XCTestExpectation?
-
-    // MARK: Protocol Conformance
-
-    func isAvailable() -> Bool {
-        availabilityExpectation?.fulfill()
-        return isAvailableMock
-    }
-
-    func authenticate(
-        reason: String,
-        completion: @escaping AuthService.Completion
-    ) {
-        authenticationExpectation?.fulfill()
-        completion(authenticationSuccessMock)
+        // Check last presented
+        waitForExpectations(timeout: 3.0)
+        XCTAssert(coordinator.presenter.presentedViewController is ErrorViewController)
     }
 }
