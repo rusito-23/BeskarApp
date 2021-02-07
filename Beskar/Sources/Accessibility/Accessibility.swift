@@ -24,3 +24,10 @@ extension A {
         static let button = "ErrorScreen.button"
     }
 }
+
+extension A {
+    struct LoadingScreen {
+        static let spinner = "LoadingScreen.spinner"
+        static let title = "LoadingScreen.title"
+    }
+}

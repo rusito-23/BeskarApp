@@ -11,6 +11,14 @@ import UIKit
 
 final class AppCoordinator: Coordinator {
 
+    // MARK: Static Properties
+
+    private static var presenter: UINavigationController {
+        let controller = UINavigationController()
+        controller.isNavigationBarHidden = true
+        return controller
+    }
+
     // MARK: Properties
 
     /// App Coordinator sets up its own `presenter`
@@ -31,10 +39,13 @@ final class AppCoordinator: Coordinator {
     /// JIC: A reference to the root view controller
     private var rootViewController: UIViewController?
 
+    /// A reference to the loading indicator
+    private var loadingViewController: LoadingViewController?
+
     // MARK: Initializers
 
     init(
-        presenter: UIViewController = UINavigationController(),
+        presenter: UIViewController = AppCoordinator.presenter,
         authService: AuthServiceProtocol = AuthService()
     ) {
         self.presenter = presenter
@@ -79,11 +90,13 @@ final class AppCoordinator: Coordinator {
         }
 
         // Start biometric authentication
+        startLoading()
         authService.authenticate(
             reason: "AUTH_REASON".localized
         ) { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }
+                self.stopLoading()
 
                 switch result {
                 case let .success(success) where success:
@@ -138,5 +151,15 @@ final class AppCoordinator: Coordinator {
         }
 
         present(errorViewController)
+    }
+
+    private func startLoading() {
+        let viewController = LoadingViewController()
+        loadingViewController = viewController
+        presenter.present(viewController, animated: false)
+    }
+
+    private func stopLoading() {
+        loadingViewController?.dismiss(animated: false)
     }
 }

@@ -21,6 +21,8 @@
 		782927F925C50BB900F41574 /* BeskarKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 782927F725C50BB900F41574 /* BeskarKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7829281F25C5C15700F41574 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829281E25C5C15700F41574 /* UIView+Helpers.swift */; };
 		782E6D8D25D0404F0057705E /* AuthServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782E6D8C25D0404F0057705E /* AuthServiceMock.swift */; };
+		782E6D9325D060BD0057705E /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782E6D8F25D060AF0057705E /* LoadingViewController.swift */; };
+		782E6D9B25D061860057705E /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782E6D9725D060EE0057705E /* LoadingView.swift */; };
 		783222DC25C378EF00D466ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783222DB25C378EF00D466ED /* AppDelegate.swift */; };
 		783222E525C378F000D466ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 783222E425C378F000D466ED /* Assets.xcassets */; };
 		783222E825C378F000D466ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 783222E625C378F000D466ED /* LaunchScreen.storyboard */; };
@@ -75,6 +77,8 @@
 		782927F725C50BB900F41574 /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7829281E25C5C15700F41574 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		782E6D8C25D0404F0057705E /* AuthServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceMock.swift; sourceTree = "<group>"; };
+		782E6D8F25D060AF0057705E /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		782E6D9725D060EE0057705E /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		783222D825C378EF00D466ED /* Beskar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beskar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		783222DB25C378EF00D466ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		783222E425C378F000D466ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,8 +151,8 @@
 		782927DB25C50ACF00F41574 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				782E6D9625D060C60057705E /* Base */,
 				784C345425CF55F600DA24E1 /* WelcomeView.swift */,
-				7824688525CF78EE00B1B9E4 /* ErrorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,6 +167,24 @@
 				7829281E25C5C15700F41574 /* UIView+Helpers.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		782E6D9225D060B50057705E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7824688325CF78C600B1B9E4 /* ErrorViewController.swift */,
+				782E6D8F25D060AF0057705E /* LoadingViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		782E6D9625D060C60057705E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7824688525CF78EE00B1B9E4 /* ErrorView.swift */,
+				782E6D9725D060EE0057705E /* LoadingView.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		783222CF25C378EF00D466ED = {
@@ -188,9 +210,9 @@
 		783222F125C3791700D466ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				782E6D9225D060B50057705E /* Base */,
 				784C344A25CF342600DA24E1 /* WelcomeViewController.swift */,
 				7824688125CF76C800B1B9E4 /* TabViewController.swift */,
-				7824688325CF78C600B1B9E4 /* ErrorViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -368,8 +390,10 @@
 			files = (
 				784C344B25CF342600DA24E1 /* WelcomeViewController.swift in Sources */,
 				7824688425CF78C600B1B9E4 /* ErrorViewController.swift in Sources */,
+				782E6D9325D060BD0057705E /* LoadingViewController.swift in Sources */,
 				78DB116325C6375100335F7B /* String+Helpers.swift in Sources */,
 				7832230325C37BC800D466ED /* AppCoordinator.swift in Sources */,
+				782E6D9B25D061860057705E /* LoadingView.swift in Sources */,
 				782927DE25C50AF800F41574 /* Preferences.swift in Sources */,
 				780770F125C769E300071EF3 /* RegexValidator.swift in Sources */,
 				784C345525CF55F600DA24E1 /* WelcomeView.swift in Sources */,

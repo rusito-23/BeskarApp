@@ -11,6 +11,7 @@
 "RETRY" = "Retry";
 "CANCEL" = "Cancel";
 "OK" = "OK";
+"LOADING" = "Loading...";
 
 // MARK: - Welcome Screen
 
