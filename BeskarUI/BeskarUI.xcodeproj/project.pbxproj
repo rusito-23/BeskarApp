@@ -19,6 +19,7 @@
 		7829282125C5CEE600F41574 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282025C5CEE600F41574 /* InputField.swift */; };
 		7829282825C5FE9300F41574 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282725C5FE9300F41574 /* TextField.swift */; };
 		7832236025C44B3300D466ED /* BeskarUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7832235E25C44B3300D466ED /* BeskarUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564A25D0ADE70027493F /* UIImage+Beskar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		7832234325C446BF00D466ED /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7832235C25C44B3300D466ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7832235E25C44B3300D466ED /* BeskarUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeskarUI.h; sourceTree = "<group>"; };
+		7890564A25D0ADE70027493F /* UIImage+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Beskar.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,10 +73,11 @@
 		7829281925C5BF3A00F41574 /* System */ = {
 			isa = PBXGroup;
 			children = (
+				7829281A25C5BF6700F41574 /* Dimensions.swift */,
 				782927C525C4520F00F41574 /* UIColor+Beskar.swift */,
 				7829280D25C5AF3E00F41574 /* UIFont+Beskar.swift */,
-				7829281A25C5BF6700F41574 /* Dimensions.swift */,
 				780770E825C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift */,
+				7890564A25D0ADE70027493F /* UIImage+Beskar.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */,
 				782927D225C48F8800F41574 /* ViewController.swift in Sources */,
 				780770E625C74A3B00071EF3 /* FieldMessage.swift in Sources */,
+				7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */,
 				780770E925C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift in Sources */,
 				7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */,
 				7829282825C5FE9300F41574 /* TextField.swift in Sources */,

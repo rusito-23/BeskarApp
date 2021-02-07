@@ -8,7 +8,7 @@
 import UIKit.UIFont
 
 extension UIFont: BeskarNamespace {}
-public extension BeskarWrapper where Base: UIFont {
+public extension BeskarWrapper where Base == UIFont {
 
     // MARK: Types
 

@@ -64,67 +64,23 @@ final class WelcomeView: UIView {
         )
 
         // Title Constraints
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(
-                equalTo: layoutMarginsGuide.topAnchor,
-                constant: Spacing.large.rawValue
-            ),
-            titleLabel.leadingAnchor.constraint(
-                equalTo: layoutMarginsGuide.leadingAnchor,
-                constant: Spacing.small.rawValue
-            ),
-            titleLabel.trailingAnchor.constraint(
-                equalTo: layoutMarginsGuide.trailingAnchor,
-                constant: -Spacing.small.rawValue
-            ),
-        ])
+        titleLabel.top(to: layoutMarginsGuide, offset: Spacing.large.rawValue)
+        titleLabel.leading(to: layoutMarginsGuide, offset: Spacing.small.rawValue)
+        titleLabel.trailing(to: layoutMarginsGuide, offset: -Spacing.small.rawValue)
 
         // Subtitle Constraints
-        NSLayoutConstraint.activate([
-            subtitleLabel.topAnchor.constraint(
-                equalTo: titleLabel.bottomAnchor,
-                constant: Spacing.large.rawValue
-            ),
-            subtitleLabel.leadingAnchor.constraint(
-                equalTo: layoutMarginsGuide.leadingAnchor,
-                constant: Spacing.small.rawValue
-            ),
-            subtitleLabel.trailingAnchor.constraint(
-                equalTo: layoutMarginsGuide.trailingAnchor,
-                constant: -Spacing.small.rawValue
-            ),
-        ])
+        subtitleLabel.topToBottom(of: titleLabel, offset: Spacing.large.rawValue)
+        subtitleLabel.leading(to: layoutMarginsGuide, offset: Spacing.small.rawValue)
+        subtitleLabel.trailing(to: layoutMarginsGuide, offset: -Spacing.small.rawValue)
 
         // Disclaimer Constraints
-        NSLayoutConstraint.activate([
-            disclaimerLabel.topAnchor.constraint(
-                equalTo: subtitleLabel.bottomAnchor,
-                constant: Spacing.large.rawValue
-            ),
-            disclaimerLabel.leadingAnchor.constraint(
-                equalTo: layoutMarginsGuide.leadingAnchor,
-                constant: Spacing.small.rawValue
-            ),
-            disclaimerLabel.trailingAnchor.constraint(
-                equalTo: layoutMarginsGuide.trailingAnchor,
-                constant: -Spacing.small.rawValue
-            ),
-        ])
+        disclaimerLabel.topToBottom(of: subtitleLabel, offset: Spacing.large.rawValue)
+        disclaimerLabel.leading(to: layoutMarginsGuide, offset: Spacing.small.rawValue)
+        disclaimerLabel.trailing(to: layoutMarginsGuide, offset: -Spacing.small.rawValue)
 
         // Button Constraints
-        NSLayoutConstraint.activate([
-            allowButton.topAnchor.constraint(
-                equalTo: disclaimerLabel.bottomAnchor,
-                constant: Spacing.large.rawValue
-            ),
-            allowButton.leadingAnchor.constraint(
-                equalTo: layoutMarginsGuide.leadingAnchor,
-                constant: Spacing.small.rawValue
-            ),
-            allowButton.trailingAnchor.constraint(
-                equalTo: layoutMarginsGuide.trailingAnchor,
-                constant: -Spacing.small.rawValue
-            ),
-        ])
+        allowButton.topToBottom(of: disclaimerLabel, offset: Spacing.large.rawValue)
+        allowButton.leading(to: layoutMarginsGuide, offset: Spacing.small.rawValue)
+        allowButton.trailing(to: layoutMarginsGuide, offset: -Spacing.small.rawValue)
     }
 }

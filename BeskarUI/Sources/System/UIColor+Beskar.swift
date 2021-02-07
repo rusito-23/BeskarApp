@@ -9,7 +9,7 @@
 import UIKit.UIColor
 
 extension UIColor: BeskarNamespace {}
-public extension BeskarWrapper where Base: UIColor {
+public extension BeskarWrapper where Base == UIColor {
 
     // MARK: Base
 

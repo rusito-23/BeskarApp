@@ -1,0 +1,14 @@
+#!/bin/sh
+# Update Project Dependencies
+
+# Check `pwd` and use helpers
+[ -d scripts ] || (echo "ERROR: Please run script from top folder" && exit 1)
+source scripts/helpers
+
+# Update cocoapods dependencies
+log_info "Updating cocoapods dependencies"
+pod install
+
+# Remove extra file ref in workspace 
+log_info "Clearing BeskarWorkspace extra file refs"
+gco -- BeskarWorkspace.xcworkspace/contents.xcworkspacedata

@@ -37,4 +37,8 @@ public enum Size: CGFloat {
     case large = 100.0
     case medium = 50.0
     case small = 25.0
+
+    public var size: CGSize {
+        CGSize(width: rawValue, height: rawValue)
+    }
 }

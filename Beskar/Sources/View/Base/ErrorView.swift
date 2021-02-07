@@ -7,6 +7,7 @@
 
 import BeskarUI
 import UIKit
+import TinyConstraints
 
 final class ErrorView: UIView {
 
@@ -30,7 +31,7 @@ final class ErrorView: UIView {
 
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "xmark.octagon")
+        view.image = UIImage.beskar.error
         view.contentMode = .scaleAspectFit
         view.accessibilityIdentifier = A.ErrorScreen.image
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -61,66 +62,23 @@ final class ErrorView: UIView {
         )
 
         // Title Constraints
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(
-                equalTo: layoutMarginsGuide.topAnchor,
-                constant: Spacing.large.rawValue
-            ),
-            titleLabel.leadingAnchor.constraint(
-                equalTo: layoutMarginsGuide.leadingAnchor,
-                constant: Spacing.small.rawValue
-            ),
-            titleLabel.trailingAnchor.constraint(
-                equalTo: layoutMarginsGuide.trailingAnchor,
-                constant: -Spacing.small.rawValue
-            ),
-        ])
+        titleLabel.top(to: layoutMarginsGuide, offset: Spacing.large.rawValue)
+        titleLabel.leading(to: layoutMarginsGuide, offset: Spacing.small.rawValue)
+        titleLabel.trailing(to: layoutMarginsGuide, offset: -Spacing.small.rawValue)
 
         // Error Image Constraints
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(
-                equalTo: titleLabel.bottomAnchor,
-                constant: Spacing.large.rawValue
-            ),
-            imageView.heightAnchor.constraint(
-                equalToConstant: Size.large.rawValue
-            ),
-            imageView.widthAnchor.constraint(
-                equalToConstant: Size.large.rawValue
-            ),
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-        ])
+        imageView.topToBottom(of: titleLabel, offset: Spacing.large.rawValue)
+        imageView.size(Size.large.size)
+        imageView.centerX(to: layoutMarginsGuide)
 
         // Subtitle Constraints
-        NSLayoutConstraint.activate([
-            subtitleLabel.topAnchor.constraint(
-                equalTo: imageView.bottomAnchor,
-                constant: Spacing.large.rawValue
-            ),
-            subtitleLabel.leadingAnchor.constraint(
-                equalTo: layoutMarginsGuide.leadingAnchor,
-                constant: Spacing.small.rawValue
-            ),
-            subtitleLabel.trailingAnchor.constraint(
-                equalTo: layoutMarginsGuide.trailingAnchor,
-                constant: -Spacing.small.rawValue
-            ),
-        ])
+        subtitleLabel.topToBottom(of: imageView, offset: Spacing.large.rawValue)
+        subtitleLabel.leading(to: layoutMarginsGuide, offset: Spacing.small.rawValue)
+        subtitleLabel.trailing(to: layoutMarginsGuide, offset: -Spacing.small.rawValue)
 
         // Button Constraints
-        NSLayoutConstraint.activate([
-            button.topAnchor.constraint(
-                equalTo: subtitleLabel.bottomAnchor,
-                constant: Spacing.large.rawValue
-            ),
-            button.leadingAnchor.constraint(
-                equalTo: layoutMarginsGuide.leadingAnchor,
-                constant: Spacing.small.rawValue
-            ),
-            button.trailingAnchor.constraint(
-                equalTo: layoutMarginsGuide.trailingAnchor,
-                constant: -Spacing.small.rawValue
-            ),
-        ])
+        button.topToBottom(of: subtitleLabel, offset: Spacing.large.rawValue)
+        button.leading(to: layoutMarginsGuide, offset: Spacing.small.rawValue)
+        button.trailing(to: layoutMarginsGuide, offset: -Spacing.small.rawValue)
     }
 }

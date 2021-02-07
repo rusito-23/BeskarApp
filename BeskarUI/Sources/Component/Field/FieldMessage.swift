@@ -29,13 +29,11 @@ public class FieldMessage: UIView {
         }
 
         fileprivate var image: UIImage? {
-            let imageName: String
             switch self {
-            case .success: imageName = "checkmark.icon"
-            case .warning: imageName = "exclamationmark.triangle"
-            case .error: imageName = "xmark.octagon"
+            case .success: return UIImage.beskar.success
+            case .warning: return UIImage.beskar.warning
+            case .error: return UIImage.beskar.error
             }
-            return UIImage(systemName: imageName)
         }
     }
 

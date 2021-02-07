@@ -9,13 +9,23 @@
 /* Begin PBXBuildFile section */
 		782927EE25C50B5C00F41574 /* BeskarKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 782927EC25C50B5C00F41574 /* BeskarKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		784C344625CF2F7C00DA24E1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C344525CF2F7C00DA24E1 /* AuthService.swift */; };
+		7890564025D08D880027493F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890563F25D08D880027493F /* Wallet.swift */; };
+		7890564425D08E590027493F /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564325D08E590027493F /* Currency.swift */; };
+		7890564725D0A89F0027493F /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564625D0A89F0027493F /* Transaction.swift */; };
+		A094B10EB31610A7DA0F5DA2 /* Pods_BeskarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5832342BFD4C0B7B0496C321 /* Pods_BeskarKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57C32719672B546EF6228DFE /* Pods-BeskarKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarKit.release.xcconfig"; path = "Target Support Files/Pods-BeskarKit/Pods-BeskarKit.release.xcconfig"; sourceTree = "<group>"; };
+		5832342BFD4C0B7B0496C321 /* Pods_BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		782927E925C50B5C00F41574 /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		782927EC25C50B5C00F41574 /* BeskarKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeskarKit.h; sourceTree = "<group>"; };
 		782927ED25C50B5C00F41574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		784C344525CF2F7C00DA24E1 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		7890563F25D08D880027493F /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		7890564325D08E590027493F /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		7890564625D0A89F0027493F /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		AA1DFFAEE3BFB0EBD0422B02 /* Pods-BeskarKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarKit.debug.xcconfig"; path = "Target Support Files/Pods-BeskarKit/Pods-BeskarKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -23,18 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A094B10EB31610A7DA0F5DA2 /* Pods_BeskarKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4072E4C0552229C3675AF8D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5832342BFD4C0B7B0496C321 /* Pods_BeskarKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		782927DF25C50B5C00F41574 = {
 			isa = PBXGroup;
 			children = (
 				782927F625C50B7500F41574 /* Resources */,
 				782927F525C50B6B00F41574 /* Sources */,
 				782927EA25C50B5C00F41574 /* Products */,
+				8400E7F93ADF36A7F3916562 /* Pods */,
+				4072E4C0552229C3675AF8D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +70,7 @@
 		782927F525C50B6B00F41574 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				7890563E25D08D880027493F /* Model */,
 				784C344825CF2F8000DA24E1 /* AuthService */,
 				782927EC25C50B5C00F41574 /* BeskarKit.h */,
 			);
@@ -71,6 +93,26 @@
 			path = AuthService;
 			sourceTree = "<group>";
 		};
+		7890563E25D08D880027493F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7890563F25D08D880027493F /* Wallet.swift */,
+				7890564325D08E590027493F /* Currency.swift */,
+				7890564625D0A89F0027493F /* Transaction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8400E7F93ADF36A7F3916562 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA1DFFAEE3BFB0EBD0422B02 /* Pods-BeskarKit.debug.xcconfig */,
+				57C32719672B546EF6228DFE /* Pods-BeskarKit.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -89,6 +131,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 782927F125C50B5C00F41574 /* Build configuration list for PBXNativeTarget "BeskarKit" */;
 			buildPhases = (
+				CCF193C25E1B473E9992CD14 /* [CP] Check Pods Manifest.lock */,
 				782927E425C50B5C00F41574 /* Headers */,
 				782927E525C50B5C00F41574 /* Sources */,
 				782927E625C50B5C00F41574 /* Frameworks */,
@@ -145,11 +188,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CCF193C25E1B473E9992CD14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BeskarKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		782927E525C50B5C00F41574 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7890564425D08E590027493F /* Currency.swift in Sources */,
+				7890564025D08D880027493F /* Wallet.swift in Sources */,
+				7890564725D0A89F0027493F /* Transaction.swift in Sources */,
 				784C344625CF2F7C00DA24E1 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +352,7 @@
 		};
 		782927F225C50B5C00F41574 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA1DFFAEE3BFB0EBD0422B02 /* Pods-BeskarKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -309,6 +381,7 @@
 		};
 		782927F325C50B5C00F41574 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57C32719672B546EF6228DFE /* Pods-BeskarKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;

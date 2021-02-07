@@ -7,6 +7,7 @@
 
 import BeskarUI
 import UIKit
+import TinyConstraints
 
 final class LoadingView: UIView {
 
@@ -46,25 +47,11 @@ final class LoadingView: UIView {
         addSubviews(spinner, titleLabel)
 
         // Spinner constraints
-        NSLayoutConstraint.activate([
-            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
-            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
-        ])
+        spinner.center(in: layoutMarginsGuide)
 
         // Title constraints
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(
-                equalTo: spinner.bottomAnchor,
-                constant: Spacing.large.rawValue
-            ),
-            titleLabel.leadingAnchor.constraint(
-                equalTo: leadingAnchor,
-                constant: Spacing.small.rawValue
-            ),
-            titleLabel.trailingAnchor.constraint(
-                equalTo: trailingAnchor,
-                constant: -Spacing.small.rawValue
-            ),
-        ])
+        titleLabel.topToBottom(of: spinner, offset: Spacing.large.rawValue)
+        titleLabel.leading(to: layoutMarginsGuide, offset: Spacing.small.rawValue)
+        titleLabel.trailing(to: layoutMarginsGuide, offset: -Spacing.small.rawValue)
     }
 }
