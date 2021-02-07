@@ -14,6 +14,7 @@
 		7824688425CF78C600B1B9E4 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824688325CF78C600B1B9E4 /* ErrorViewController.swift */; };
 		7824688625CF78EE00B1B9E4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824688525CF78EE00B1B9E4 /* ErrorView.swift */; };
 		7824688925CF7B4A00B1B9E4 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824688825CF7B4A00B1B9E4 /* Accessibility.swift */; };
+		782468A425CF992B00B1B9E4 /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782468A125CF992000B1B9E4 /* AppCoordinatorTests.swift */; };
 		782927DE25C50AF800F41574 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927DD25C50AF800F41574 /* Preferences.swift */; };
 		782927F825C50BB900F41574 /* BeskarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 782927F725C50BB900F41574 /* BeskarKit.framework */; };
 		782927F925C50BB900F41574 /* BeskarKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 782927F725C50BB900F41574 /* BeskarKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -30,6 +31,16 @@
 		784C345525CF55F600DA24E1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C345425CF55F600DA24E1 /* WelcomeView.swift */; };
 		78DB116325C6375100335F7B /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB116225C6375100335F7B /* String+Helpers.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7824689A25CF990300B1B9E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 783222D025C378EF00D466ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 783222D725C378EF00D466ED;
+			remoteInfo = Beskar;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		7832236625C44B9800D466ED /* Embed Frameworks */ = {
@@ -54,6 +65,9 @@
 		7824688325CF78C600B1B9E4 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		7824688525CF78EE00B1B9E4 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		7824688825CF7B4A00B1B9E4 /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
+		7824689525CF990300B1B9E4 /* BeskarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeskarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7824689925CF990300B1B9E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		782468A125CF992000B1B9E4 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		782927DD25C50AF800F41574 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		782927F725C50BB900F41574 /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7829281E25C5C15700F41574 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
@@ -72,6 +86,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7824689225CF990300B1B9E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		783222D525C378EF00D466ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,6 +111,15 @@
 				7824688825CF7B4A00B1B9E4 /* Accessibility.swift */,
 			);
 			path = Accessibility;
+			sourceTree = "<group>";
+		};
+		7824689025CF98A900B1B9E4 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7824689925CF990300B1B9E4 /* Info.plist */,
+				782468A125CF992000B1B9E4 /* AppCoordinatorTests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		782927DB25C50ACF00F41574 /* View */ = {
@@ -118,6 +148,7 @@
 			children = (
 				783222F425C3794000D466ED /* Resources */,
 				783222F225C3791E00D466ED /* Sources */,
+				7824689025CF98A900B1B9E4 /* Tests */,
 				783222D925C378EF00D466ED /* Products */,
 				7832236225C44B9700D466ED /* Frameworks */,
 			);
@@ -127,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				783222D825C378EF00D466ED /* Beskar.app */,
+				7824689525CF990300B1B9E4 /* BeskarTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +235,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7824689425CF990300B1B9E4 /* BeskarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7824689C25CF990300B1B9E4 /* Build configuration list for PBXNativeTarget "BeskarTests" */;
+			buildPhases = (
+				7824689125CF990300B1B9E4 /* Sources */,
+				7824689225CF990300B1B9E4 /* Frameworks */,
+				7824689325CF990300B1B9E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7824689B25CF990300B1B9E4 /* PBXTargetDependency */,
+			);
+			name = BeskarTests;
+			productName = BeskarTests;
+			productReference = 7824689525CF990300B1B9E4 /* BeskarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		783222D725C378EF00D466ED /* Beskar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 783222EC25C378F000D466ED /* Build configuration list for PBXNativeTarget "Beskar" */;
@@ -227,9 +277,13 @@
 		783222D025C378EF00D466ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1220;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
+					7824689425CF990300B1B9E4 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 783222D725C378EF00D466ED;
+					};
 					783222D725C378EF00D466ED = {
 						CreatedOnToolsVersion = 12.2;
 					};
@@ -249,11 +303,19 @@
 			projectRoot = "";
 			targets = (
 				783222D725C378EF00D466ED /* Beskar */,
+				7824689425CF990300B1B9E4 /* BeskarTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7824689325CF990300B1B9E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		783222D625C378EF00D466ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,6 +330,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7824689125CF990300B1B9E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				782468A425CF992B00B1B9E4 /* AppCoordinatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		783222D425C378EF00D466ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -291,6 +361,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7824689B25CF990300B1B9E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 783222D725C378EF00D466ED /* Beskar */;
+			targetProxy = 7824689A25CF990300B1B9E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		783222E625C378F000D466ED /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -303,6 +381,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7824689D25CF990300B1B9E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V67S6WRV9Z;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rusito23.BeskarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Beskar.app/Beskar";
+			};
+			name = Debug;
+		};
+		7824689E25CF990300B1B9E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V67S6WRV9Z;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rusito23.BeskarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Beskar.app/Beskar";
+			};
+			name = Release;
+		};
 		783222EA25C378F000D466ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -462,6 +582,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7824689C25CF990300B1B9E4 /* Build configuration list for PBXNativeTarget "BeskarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7824689D25CF990300B1B9E4 /* Debug */,
+				7824689E25CF990300B1B9E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		783222D325C378EF00D466ED /* Build configuration list for PBXProject "Beskar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
