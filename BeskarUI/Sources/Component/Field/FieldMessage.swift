@@ -60,7 +60,7 @@ public class FieldMessage: UIView {
     private lazy var messageStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [
             messageAccessory,
-            messageLabel
+            messageLabel,
         ])
         stack.spacing = Spacing.small.rawValue
         stack.axis = .horizontal

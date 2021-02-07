@@ -1,0 +1,8 @@
+#!/bin/sh
+[ -d scripts ] || (echo "ERROR: Please run script from top folder" && exit 1)
+source scripts/helpers
+
+git diff --cached --name-only | while read filename; do
+    log_info "Running SwiftLint on $filename"
+    swiftlint lint --path "$filename";
+done

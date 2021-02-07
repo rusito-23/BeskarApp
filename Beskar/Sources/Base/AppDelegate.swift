@@ -20,6 +20,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow? {
         get { coordinator.window }
+        // swiftlint:disable:next unused_setter_value
         set { }
     }
 
@@ -38,4 +39,3 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-

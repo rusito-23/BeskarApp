@@ -13,6 +13,8 @@ final class AppCoordinator: Coordinator {
 
     // MARK: Static Properties
 
+    /// Configure default presenter
+    /// A Navigation Controller without a Navigation Bar
     private static var presenter: UINavigationController {
         let controller = UINavigationController()
         controller.isNavigationBarHidden = true
@@ -105,7 +107,7 @@ final class AppCoordinator: Coordinator {
                 case let .failure(error):
                     // handle error
                     self.handle(error: error)
-                case .success(_):
+                case .success:
                     // handle success response
                     // with incorrect success value
                     self.handle(error: .unavailable)
@@ -153,12 +155,14 @@ final class AppCoordinator: Coordinator {
         present(errorViewController)
     }
 
+    /// Show loading indicator
     private func startLoading() {
         let viewController = LoadingViewController()
         loadingViewController = viewController
         presenter.present(viewController, animated: false)
     }
 
+    /// Hide loading indicator
     private func stopLoading() {
         loadingViewController?.dismiss(animated: false)
     }

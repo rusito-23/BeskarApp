@@ -79,7 +79,7 @@ public class Button: UIButton {
 
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: Size.medium.rawValue)
+            heightAnchor.constraint(equalToConstant: Size.medium.rawValue),
         ])
     }
 }

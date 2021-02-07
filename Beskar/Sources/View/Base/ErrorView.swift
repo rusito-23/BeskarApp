@@ -88,7 +88,7 @@ final class ErrorView: UIView {
             imageView.widthAnchor.constraint(
                 equalToConstant: Size.large.rawValue
             ),
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor)
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
 
         // Subtitle Constraints

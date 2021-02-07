@@ -47,9 +47,9 @@ final class AppCoordinatorTests: XCTestCase {
         Preferences.isNotFirstLaunch = true
 
         // Setup expectations
-        navigationMock.presentExpectation = expectation(description: "Should present Login Flow")
-        authMock.availabilityExpectation = expectation(description: "Should Check Auth Availability")
-        authMock.authenticationExpectation = expectation(description: "Should Check Auth Authentication")
+        navigationMock.presentExpectation = expectation(description: "Present Login Flow")
+        authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
+        authMock.authenticationExpectation = expectation(description: "Check Auth Authentication")
 
         // Setup mock responses
         authMock.isAvailableMock = true
@@ -68,7 +68,7 @@ final class AppCoordinatorTests: XCTestCase {
         Preferences.isNotFirstLaunch = true
 
         // Setup expectations
-        authMock.availabilityExpectation = expectation(description: "Should Check Auth Availability")
+        authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
 
         // Setup mock responses
         authMock.isAvailableMock = false
@@ -86,8 +86,8 @@ final class AppCoordinatorTests: XCTestCase {
         Preferences.isNotFirstLaunch = true
 
         // Setup expectations
-        navigationMock.presentExpectation = expectation(description: "Should present Error")
-        authMock.availabilityExpectation = expectation(description: "Should Check Auth Availability")
+        navigationMock.presentExpectation = expectation(description: "Present Error")
+        authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
 
         // Setup mock responses
         authMock.isAvailableMock = true

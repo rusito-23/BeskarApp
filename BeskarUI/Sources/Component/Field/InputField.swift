@@ -37,12 +37,11 @@ open class InputField: UIView {
             .eraseToAnyPublisher()
     }
 
-
     // MARK: Private Properties
 
     private var placeholderAttributes: [NSAttributedString.Key: Any] = [
         .foregroundColor: UIColor.beskar.secondary,
-        .font: UIFont.beskar.build(.extraSmall)
+        .font: UIFont.beskar.build(.extraSmall),
     ]
 
     // MARK: Subviews
@@ -58,7 +57,7 @@ open class InputField: UIView {
     private lazy var contentStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [
             textField,
-            messageView
+            messageView,
         ])
         stack.spacing = Spacing.small.rawValue
         stack.axis = .vertical

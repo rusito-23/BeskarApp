@@ -1,0 +1,6 @@
+#!/bin/sh
+[ -d scripts ] || (echo "ERROR: Please run script from top folder" && exit 1)
+source scripts/helpers
+
+log_info "Running SwiftLint"
+mint run swiftlint

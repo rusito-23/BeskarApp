@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Beskar App
+# Script Helpers
+
+# --------------------
+# Colors
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+CLEAR='\033[0m'
+
+log_info() { echo "${CLEAR}$@${CLEAR}\n"; }
+
+log_error() { echo "${RED}$@${CLEAR}\n"; }
+
+log_success() { echo "${GREEN}$@${CLEAR}\n"; }
+
+log_warning() { echo "${YELLOW}$@${CLEAR}\n"; }

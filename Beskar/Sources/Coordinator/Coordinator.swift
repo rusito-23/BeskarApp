@@ -16,9 +16,6 @@ protocol Coordinator {
 
     // MARK: Properties
 
-    /// The subcoordinators
-    var childCoordinators: [Coordinator] { get set }
-
     /// The view controller on top of which the coordinator will start
     var presenter: UIViewController { get set }
 
@@ -33,8 +30,7 @@ protocol Coordinator {
 
 // MARK: - Protocol Defaults
 
-/// Child coordinators and stop method aren't required for all coordinators
+/// Stop method isn't required for all coordinators
 extension Coordinator {
-    var childCoordinators: [Coordinator] { get { [] } set { } }
     func stop() {}
 }
