@@ -3,7 +3,13 @@
 source scripts/helpers
 
 log_info "Installing mint if necessary..."
-brew list mint $> /dev/null || brew install mint
+brew list mint $> /dev/null \
+    || brew install mint &> /dev/null \
+    || (log_error "Failed to install Mint" && exit 1)
 
 log_info "Install mint packages"
 mint bootstrap
+
+log_info "Setup git hooks"
+cp scripts/pre-commit .git/hooks/pre-commit
+git config --local core.hooksPath $(pwd)/.git/hooks

@@ -1,0 +1,32 @@
+#!/bin/sh
+[ -d scripts ] || (echo "ERROR: Please run script from top folder" && exit 1)
+source scripts/helpers
+
+# Helpers
+search() {
+    git-diff-index -p -M --cached HEAD -- \
+        | grep '^+' \
+        | grep --color=auto $@
+}
+
+# Start Checks
+log_info "Running pre-commit hook 🚀 "
+
+# ToDo Search
+if (search TODO) then
+  log_warning "Found some \`TODO\`'!"
+fi
+
+# FixMe Search
+if (search FIXME) then
+  log_error "Solve your \`FIXME\` and try again."
+  exit 1
+fi
+
+# Run SwiftLint
+if (./scripts/lint_changed) then
+    log_error "Solve the SwiftLint errors and try again"
+    exit 1
+fi
+
+exit 0

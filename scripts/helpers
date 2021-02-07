@@ -11,10 +11,10 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 CLEAR='\033[0m'
 
-log_info() { echo "${CLEAR}$@${CLEAR}\n"; }
+log_info() { echo "\n ℹ️  ${CLEAR}$@${CLEAR}\n"; }
 
-log_error() { echo "${RED}$@${CLEAR}\n"; }
+log_error() { echo "\n ❌  ${RED}$@${CLEAR}\n"; }
 
-log_success() { echo "${GREEN}$@${CLEAR}\n"; }
+log_success() { echo "\n ✅  ${GREEN}$@${CLEAR}\n"; }
 
-log_warning() { echo "${YELLOW}$@${CLEAR}\n"; }
+log_warning() { echo "\n ⚠️  ${YELLOW}$@${CLEAR}\n"; }
