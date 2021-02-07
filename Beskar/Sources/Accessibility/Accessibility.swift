@@ -21,5 +21,6 @@ extension A {
         static let title = "ErrorScreen.title"
         static let subtitle = "ErrorScreen.subtitle"
         static let image = "ErrorScreen.image"
+        static let button = "ErrorScreen.button"
     }
 }

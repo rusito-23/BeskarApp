@@ -58,7 +58,7 @@ final class AppCoordinator: Coordinator {
         startLoginFlow()
     }
 
-    // MARK: Private
+    // MARK: Private Methods
 
     /// Show Welcome Screen
     private func startWelcomeFlow(
@@ -74,35 +74,69 @@ final class AppCoordinator: Coordinator {
     private func startLoginFlow() {
         // Check for Auth Services availability
         guard authService.isAvailable() else {
-            self.presentError(subtitle: "AUTH_SERVICE_ERROR_SUBTITLE".localized)
+            handle(error: .unavailable)
             return
         }
 
         // Start biometric authentication
         authService.authenticate(
             reason: "AUTH_REASON".localized
-        ) { [weak self] success in
+        ) { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }
 
-                // Check if Auth was successful
-                guard success else {
-                    self.presentError(subtitle: "AUTH_ERROR_SUBTITLE".localized)
-                    return
+                switch result {
+                case let .success(success) where success:
+                    // handle success case
+                    self.startMainFlow()
+                case let .failure(error):
+                    // handle error
+                    self.handle(error: error)
+                case .success(_):
+                    // handle success response
+                    // with incorrect success value
+                    self.handle(error: .unavailable)
                 }
-
-                // Start Main Flow!
-                self.present(TabViewController())
             }
         }
     }
 
+    /// Main Flow
+    /// Show the main view controller
+    private func startMainFlow() {
+        let viewController = TabViewController()
+        self.present(viewController)
+    }
+
+    /// Setup the root view controller and present it
     private func present(_ viewController: UIViewController) {
         rootViewController = viewController
         presenter.present(viewController, animated: true)
     }
 
-    private func presentError(subtitle: String) {
-        present(ErrorViewController(subtitle: subtitle))
+    /// Handle authentication error
+    private func handle(error: AuthService.AuthError) {
+        var errorViewController: ErrorViewController
+        let retryCompletion: (() -> Void) = { [weak self] in self?.startLoginFlow() }
+
+        switch error {
+        case .unauthorized:
+            errorViewController = ErrorViewController(
+                subtitle: "AUTH_UNAUTHORIZED_ERROR_SUBTITLE".localized,
+                onButtonTappedCompletion: retryCompletion
+            )
+        case .canceled:
+            errorViewController = ErrorViewController(
+                subtitle: "AUTH_CANCELED_ERROR_SUBTITLE".localized,
+                onButtonTappedCompletion: retryCompletion
+            )
+        case .unavailable:
+            errorViewController = ErrorViewController(
+                subtitle: "AUTH_UNAVAILABLE_ERROR_SUBTITLE".localized,
+                onButtonTappedCompletion: retryCompletion
+            )
+        }
+
+        present(errorViewController)
     }
 }

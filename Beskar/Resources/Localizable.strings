@@ -6,6 +6,12 @@
   
 */
 
+// MARK: - Common Texts
+
+"RETRY" = "Retry";
+"CANCEL" = "Cancel";
+"OK" = "OK";
+
 // MARK: - Welcome Screen
 
 "WELCOME_TITLE" = "WELCOME TO BESKAR!";
@@ -25,10 +31,14 @@ We will only validate that you are the device owner.";
 // MARK: Default Error
 
 "DEFAULT_ERROR_TITLE" = "Oops!";
+"DEFAULT_ERROR_SUBTITLE" = "Looks like we are having some issues";
 
 // MARK: Auth Service Error
 
 "AUTH_SERVICE_ERROR_SUBTITLE" = "We could not use the authentication services.
 Try again in a few minutes.";
 
-"AUTH_ERROR_SUBTITLE" = "Authentication failed";
+"AUTH_UNAUTHORIZED_ERROR_SUBTITLE" = "The authentication failed. Do you want to try again?";
+"AUTH_CANCELED_ERROR_SUBTITLE" = "The authentication flow was canceled, please try again.";
+"AUTH_UNAVAILABLE_ERROR_SUBTITLE" = "Device owner authentication is unavailable.
+Please make sure you have set your passcode and configured biometrics in your device.";

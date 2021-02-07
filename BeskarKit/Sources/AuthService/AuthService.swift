@@ -27,7 +27,16 @@ public final class AuthService: AuthServiceProtocol {
 
     // MARK: Types
 
-    public typealias Completion = (Bool) -> Void
+    public typealias Completion = (Result<Bool, AuthError>) -> Void
+
+    public enum AuthError: Error {
+        /// Authentication failed
+        case unauthorized
+        /// Device authentication wan't configured
+        case unavailable
+        /// User or system canceled request
+        case canceled
+    }
 
     // MARK: Static Properties
 
@@ -71,6 +80,32 @@ extension AuthService {
         context.evaluatePolicy(
             policy,
             localizedReason: reason
-        ) { (success, _)  in completion(success) }
+        ) { (success, err)  in
+            guard !success, let error = err as? LAError else {
+                completion(.success(success))
+                return
+            }
+
+            switch error.code {
+            case .authenticationFailed:
+                completion(.failure(.unauthorized))
+            case .userCancel,
+                 .systemCancel,
+                 .appCancel,
+                 .userFallback,
+                 .touchIDLockout:
+                completion(.failure(.canceled))
+            case .invalidContext,
+                 .touchIDNotAvailable,
+                 .touchIDNotEnrolled,
+                 .biometryNotAvailable,
+                 .biometryNotEnrolled,
+                 .notInteractive,
+                 .passcodeNotSet:
+                completion(.failure(.unavailable))
+            @unknown default:
+                completion(.failure(.unavailable))
+            }
+        }
     }
 }

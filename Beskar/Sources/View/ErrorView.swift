@@ -23,6 +23,11 @@ final class ErrorView: UIView {
         identifier: A.ErrorScreen.subtitle
     )
 
+    lazy var button = Button(
+        kind: .primary,
+        identifier: A.ErrorScreen.button
+    )
+
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "xmark.octagon")
@@ -51,7 +56,8 @@ final class ErrorView: UIView {
         addSubviews(
             titleLabel,
             imageView,
-            subtitleLabel
+            subtitleLabel,
+            button
         )
 
         // Title Constraints
@@ -96,6 +102,22 @@ final class ErrorView: UIView {
                 constant: Spacing.small.rawValue
             ),
             subtitleLabel.trailingAnchor.constraint(
+                equalTo: layoutMarginsGuide.trailingAnchor,
+                constant: -Spacing.small.rawValue
+            ),
+        ])
+
+        // Button Constraints
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(
+                equalTo: subtitleLabel.bottomAnchor,
+                constant: Spacing.large.rawValue
+            ),
+            button.leadingAnchor.constraint(
+                equalTo: layoutMarginsGuide.leadingAnchor,
+                constant: Spacing.small.rawValue
+            ),
+            button.trailingAnchor.constraint(
                 equalTo: layoutMarginsGuide.trailingAnchor,
                 constant: -Spacing.small.rawValue
             ),
