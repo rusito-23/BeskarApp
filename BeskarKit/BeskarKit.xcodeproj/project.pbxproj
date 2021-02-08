@@ -96,9 +96,9 @@
 		7890563E25D08D880027493F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7890563F25D08D880027493F /* Wallet.swift */,
 				7890564325D08E590027493F /* Currency.swift */,
 				7890564625D0A89F0027493F /* Transaction.swift */,
+				7890563F25D08D880027493F /* Wallet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

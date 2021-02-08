@@ -30,4 +30,11 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
+# Run SpellChecker 
+./scripts/spellcheck_changed
+if [[ $? -ne 0 ]]; then
+    log_error "Solve the SpellChecker errors and try again"
+    exit 1
+fi
+
 exit 0

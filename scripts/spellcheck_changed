@@ -1,0 +1,27 @@
+#!/bin/sh
+# Run SpellChecker on changed files
+
+# Check `pwd` and use helpers
+[ -d scripts ] || (echo "ERROR: Please run script from top folder" && exit 1)
+source scripts/helpers
+set -e
+
+# Run on staged
+git diff --diff-filter=d --name-only -- "*.swift" | while read filename; do
+    log_info "Running SpellChecker on $filename"
+    $SPELLCHECK "$filename"
+done
+
+# Run on chached 
+git diff --cached --diff-filter=d --name-only -- "*.swift" | while read filename; do
+    log_info "Running SpellChecker on $filename"
+    $SPELLCHECK "$filename"
+done
+
+# Run on others, exluding deleted
+git ls-files --others --exclude-standard -- "*.swift" | while read filename; do
+    log_info "Running SpellChecker on $filename"
+    $SPELLCHECK "$filename"
+done
+
+log_success "SpellCheck finished successfully!"

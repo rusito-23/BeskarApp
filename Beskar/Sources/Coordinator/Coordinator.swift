@@ -10,8 +10,10 @@ import UIKit
 // MARK: - Coordinator Protocol
 
 /// Coordinator Protocol
-/// - Wrap the presentation logic
-/// - Remove presentation dependencies from the view controller
+/// - Description
+///     The `Coordinator` protocol is useful to:
+///     - Wrap the presentation logic
+///     - Remove presentation dependencies from the view controller
 protocol Coordinator {
 
     // MARK: Properties

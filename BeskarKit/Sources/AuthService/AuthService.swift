@@ -8,6 +8,12 @@
 import Foundation
 import LocalAuthentication
 
+/// AuthService
+/// - Description
+///     Provides an interface to authenticate the user.
+///     It's built around the `LocalAuthentication` Apple Lib, although
+///     The interface is prepared to use other kind of authentication.
+
 // MARK: - Protocol
 
 public protocol AuthServiceProtocol {
@@ -32,7 +38,7 @@ public final class AuthService: AuthServiceProtocol {
     public enum AuthError: Error {
         /// Authentication failed
         case unauthorized
-        /// Device authentication wan't configured
+        /// Device authentication wasn't configured
         case unavailable
         /// User or system canceled request
         case canceled
@@ -61,6 +67,13 @@ public final class AuthService: AuthServiceProtocol {
 // MARK: - Auth Service Protocol Conformance
 
 extension AuthService {
+
+    /// Availability Check
+    /// - Description
+    ///     Checks if the authentication services are available.
+    ///     This means, we can evaluate the given policy.
+    /// - Returns
+    ///     Bool indicating if the service is available
     public func isAvailable() -> Bool {
         var error: NSError?
         guard context.canEvaluatePolicy(
@@ -73,6 +86,13 @@ extension AuthService {
         return true
     }
 
+    /// Authenticate
+    /// - Description
+    ///     Starts the authentication flow, using the given `reason`.
+    ///     When the authentication result is ready, the parameter `completion`
+    ///     is called, with the appropriate `Result<Bool, AuthError`.
+    /// - Warning
+    ///     Does not call the completion handler on the Main Thread.
     public func authenticate(
         reason: String,
         completion: @escaping Completion
