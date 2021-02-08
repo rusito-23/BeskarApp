@@ -12,6 +12,10 @@ import XCTest
 
 final class NavigationControllerMock: UINavigationController {
 
+    // MARK: Properties
+
+    var lastPresentedViewController: UIViewController?
+
     // MARK: Expectations
 
     var presentExpectation: XCTestExpectation?
@@ -28,6 +32,7 @@ final class NavigationControllerMock: UINavigationController {
             animated: flag,
             completion: completion
         )
+        lastPresentedViewController = viewControllerToPresent
         presentExpectation?.fulfill()
     }
 }

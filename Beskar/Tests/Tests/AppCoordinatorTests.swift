@@ -39,7 +39,7 @@ final class AppCoordinatorTests: XCTestCase {
         coordinator.start()
 
         // Check last presented
-        XCTAssert(coordinator.presenter.presentedViewController is WelcomeViewController)
+        XCTAssert(navigationMock.lastPresentedViewController is WelcomeViewController)
     }
 
     func test_notOnFirstLaunch_shouldStartLoginFlow() {
@@ -48,19 +48,20 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Login Flow")
+        navigationMock.presentExpectation?.expectedFulfillmentCount = 2
         authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
         authMock.authenticationExpectation = expectation(description: "Check Auth Authentication")
 
         // Setup mock responses
         authMock.isAvailableMock = true
-        authMock.authenticationSuccessMock = true
+        authMock.authenticationSuccessMock = .success(true)
 
         // Start coordinator
         coordinator.start()
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
-        XCTAssert(navigationMock.presentedViewController is TabViewController)
+        XCTAssert(navigationMock.lastPresentedViewController is TabViewController)
     }
 
     func test_withAuthServiceNotAvailable_shouldShowError() {
@@ -78,26 +79,69 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
-        XCTAssert(coordinator.presenter.presentedViewController is ErrorViewController)
+        XCTAssert(navigationMock.lastPresentedViewController is ErrorViewController)
     }
 
-    func test_onAuthenticationError_shouldShowError() {
+    func test_onAuthenticationUnavailable_shouldShowError() {
         // Setup first launch
         Preferences.isNotFirstLaunch = true
 
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Error")
+        navigationMock.presentExpectation?.expectedFulfillmentCount = 2
         authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
 
         // Setup mock responses
         authMock.isAvailableMock = true
-        authMock.authenticationSuccessMock = false
+        authMock.authenticationSuccessMock = .failure(.unavailable)
 
         // Start coordinator
         coordinator.start()
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
-        XCTAssert(coordinator.presenter.presentedViewController is ErrorViewController)
+        XCTAssert(navigationMock.lastPresentedViewController is ErrorViewController)
+    }
+
+    func test_onAuthenticationCanceled_shouldShowError() {
+        // Setup first launch
+        Preferences.isNotFirstLaunch = true
+
+        // Setup expectations
+        navigationMock.presentExpectation = expectation(description: "Present Error")
+        navigationMock.presentExpectation?.expectedFulfillmentCount = 2
+        authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
+
+        // Setup mock responses
+        authMock.isAvailableMock = true
+        authMock.authenticationSuccessMock = .failure(.canceled)
+
+        // Start coordinator
+        coordinator.start()
+
+        // Check last presented
+        waitForExpectations(timeout: 3.0)
+        XCTAssert(navigationMock.lastPresentedViewController is ErrorViewController)
+    }
+
+    func test_onAuthenticationFailure_shouldShowError() {
+        // Setup first launch
+        Preferences.isNotFirstLaunch = true
+
+        // Setup expectations
+        navigationMock.presentExpectation = expectation(description: "Present Error")
+        navigationMock.presentExpectation?.expectedFulfillmentCount = 2
+        authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
+
+        // Setup mock responses
+        authMock.isAvailableMock = true
+        authMock.authenticationSuccessMock = .failure(.unauthorized)
+
+        // Start coordinator
+        coordinator.start()
+
+        // Check last presented
+        waitForExpectations(timeout: 3.0)
+        XCTAssert(navigationMock.lastPresentedViewController is ErrorViewController)
     }
 }

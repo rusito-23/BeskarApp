@@ -15,7 +15,7 @@ final class AuthServiceMock: AuthServiceProtocol {
     // MARK: Mock Properties
 
     var isAvailableMock: Bool = false
-    var authenticationSuccessMock: Bool = false
+    var authenticationSuccessMock: Result<Bool, AuthService.AuthError> = .failure(.unavailable)
 
     // MARK: Expectations
 
