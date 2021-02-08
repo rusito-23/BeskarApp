@@ -37,7 +37,11 @@ cyclomatic_complexity:
 
 type_name:
     min_length: 1
-    max_length: 40
+    max_length: 30
+
+identifier_name:
+    min_length: 2
+    max_length: 30
 
 nesting:
     type_level:
