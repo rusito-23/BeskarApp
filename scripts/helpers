@@ -22,6 +22,6 @@ log_warning() { echo "\n ⚠️  ${YELLOW}$@${CLEAR}\n"; }
 # --------------------
 # Paths
 
-SWIFTLINT='mint run swiftlint'
+SWIFTLINT='mint run swiftlint lint --strict --quiet'
 
 SPELLCHECK='mint run spellcheck --yml .spellcheck.yaml --'

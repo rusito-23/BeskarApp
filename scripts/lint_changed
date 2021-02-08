@@ -9,19 +9,19 @@ set -e
 # Run on staged
 git diff --diff-filter=d --name-only -- "*.swift" | while read filename; do
     log_info "Running SwiftLint on $filename"
-    $SWIFTLINT lint --quiet --path "$filename"
+    $SWIFTLINT --path "$filename"
 done
 
 # Run on chached 
 git diff --cached --diff-filter=d --name-only -- "*.swift" | while read filename; do
     log_info "Running SwiftLint on $filename"
-    $SWIFTLINT lint --quiet --path "$filename"
+    $SWIFTLINT --path "$filename"
 done
 
 # Run on others, exluding deleted
 git ls-files --others --exclude-standard -- "*.swift" | while read filename; do
     log_info "Running SwiftLint on $filename"
-    $SWIFTLINT lint --quiet --path "$filename"
+    $SWIFTLINT --path "$filename"
 done
 
 log_success "SwiftLint finished successfully!"
