@@ -4,24 +4,32 @@
 # Check `pwd` and use helpers
 [ -d scripts ] || (echo "ERROR: Please run script from top folder" && exit 1)
 source scripts/helpers
-set -e
+
+# Initialize checks
+output=""
 
 # Run on staged
-git diff --diff-filter=d --name-only -- "*.swift" | while read filename; do
+while read filename; do
+    [[ -z $filename ]] && continue
     log_info "Running SpellChecker on $filename"
-    $SPELLCHECK "$filename"
-done
+    out=$($SPELLCHECK "$filename" | tee /dev/fd/2)
+    output="${output}${out}"
+done <<< "$(git diff --diff-filter=d --name-only -- "*.swift")"
 
 # Run on chached 
-git diff --cached --diff-filter=d --name-only -- "*.swift" | while read filename; do
+while read filename; do
+    [[ -z $filename ]] && continue
     log_info "Running SpellChecker on $filename"
-    $SPELLCHECK "$filename"
-done
+    out=$($SPELLCHECK "$filename" | tee /dev/fd/2)
+    output="${output}${out}"
+done <<< "$(git diff --cached --diff-filter=d --name-only -- "*.swift")"
 
 # Run on others, exluding deleted
-git ls-files --others --exclude-standard -- "*.swift" | while read filename; do
+while read filename; do
+    [[ -z $filename ]] && continue
     log_info "Running SpellChecker on $filename"
-    $SPELLCHECK "$filename"
-done
+    out=$($SPELLCHECK "$filename" | tee /dev/fd/2)
+    output="${output}${out}"
+done <<< "$(git ls-files --others --exclude-standard -- "*.swift")"
 
-log_success "SpellCheck finished successfully!"
+if [[ $output =~ "warning" ]]; then exit 1; fi
