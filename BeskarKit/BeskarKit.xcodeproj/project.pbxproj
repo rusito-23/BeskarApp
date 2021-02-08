@@ -12,6 +12,7 @@
 		7890564025D08D880027493F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890563F25D08D880027493F /* Wallet.swift */; };
 		7890564425D08E590027493F /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564325D08E590027493F /* Currency.swift */; };
 		7890564725D0A89F0027493F /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564625D0A89F0027493F /* Transaction.swift */; };
+		78DB861125D1F1DA005CF09B /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB861025D1F1DA005CF09B /* DataService.swift */; };
 		A094B10EB31610A7DA0F5DA2 /* Pods_BeskarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5832342BFD4C0B7B0496C321 /* Pods_BeskarKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		7890563F25D08D880027493F /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		7890564325D08E590027493F /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		7890564625D0A89F0027493F /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		78DB861025D1F1DA005CF09B /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		AA1DFFAEE3BFB0EBD0422B02 /* Pods-BeskarKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarKit.debug.xcconfig"; path = "Target Support Files/Pods-BeskarKit/Pods-BeskarKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				7890563E25D08D880027493F /* Model */,
-				784C344825CF2F8000DA24E1 /* AuthService */,
+				784C344825CF2F8000DA24E1 /* Service */,
 				782927EC25C50B5C00F41574 /* BeskarKit.h */,
 			);
 			path = Sources;
@@ -85,12 +87,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		784C344825CF2F8000DA24E1 /* AuthService */ = {
+		784C344825CF2F8000DA24E1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				784C344525CF2F7C00DA24E1 /* AuthService.swift */,
+				78DB861025D1F1DA005CF09B /* DataService.swift */,
 			);
-			path = AuthService;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		7890563E25D08D880027493F /* Model */ = {
@@ -222,6 +225,7 @@
 				7890564025D08D880027493F /* Wallet.swift in Sources */,
 				7890564725D0A89F0027493F /* Transaction.swift in Sources */,
 				784C344625CF2F7C00DA24E1 /* AuthService.swift in Sources */,
+				78DB861125D1F1DA005CF09B /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

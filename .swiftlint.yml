@@ -51,4 +51,7 @@ nesting:
         warning: 5
         error: 10
 
+unused_optional_binding:
+    ignore_optional_try: true
+
 reporter: "xcode"

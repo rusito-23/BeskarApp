@@ -1,3 +1,4 @@
 whiteList:
   - wasn
   - iterable
+  - qos
