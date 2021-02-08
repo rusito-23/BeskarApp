@@ -62,7 +62,7 @@ final class AppCoordinator: Coordinator {
 
         // Check if Welcome Flow must be shown
         guard Preferences.isNotFirstLaunch else {
-            // preferences.isNotFirstLaunch = true
+            Preferences.isNotFirstLaunch = true
             startWelcomeFlow(then: startLoginFlow)
             return
         }
