@@ -21,8 +21,10 @@ open class DataService<Data: Object> {
     public enum DataServiceError: Error {
         /// The Realm DB was not available for usage
         case unavailable
-        /// Concurrency failure
+        /// A Thread Safe Reference was lost
         case concurrencyFailure
+        /// Generic Realm failure
+        case failure
     }
 
     // MARK: Internal Properties
@@ -43,10 +45,14 @@ open class DataService<Data: Object> {
     /// Computed Realm instance to keep it thread safe
     var realm: Realm? { try? Realm() }
 
+    // MARK: Public Initializer
+
+    public init() {}
+
     // MARK: Internal Methods
 
     /// Retrieve all objects of the given data type from the DB
-    func fetch(
+    public func fetch(
         _ completion: @escaping FetchResult
     ) {
         serviceQueue.async { [weak self] in
@@ -81,14 +87,10 @@ open class DataService<Data: Object> {
     }
 
     /// Write an object of the given data type in the DB
-    func write(
+    public func write(
         _ object: Data,
         _ completion: @escaping WriteResult
     ) {
-
-        // Create object thread safe reference
-        let reference = ThreadSafeReference(to: object)
-
         serviceQueue.async { [weak self] in
             guard let self = self else { return }
 
@@ -98,11 +100,8 @@ open class DataService<Data: Object> {
                 return
             }
 
-            // Resolve reference
-            guard
-                let object = realm.resolve(reference),
-                let _ = try? realm.write({ realm.add(object) })
-            else {
+            // Write object
+            guard let _ = try? realm.write({ realm.add(object) }) else {
                 completion(.failure(.concurrencyFailure))
                 return
             }

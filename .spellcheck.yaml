@@ -2,3 +2,4 @@ whiteList:
   - wasn
   - iterable
   - qos
+  - swifty

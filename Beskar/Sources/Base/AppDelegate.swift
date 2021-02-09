@@ -5,7 +5,9 @@
 //  Created by Igor on 28/01/2021.
 //
 
+import BeskarKit
 import UIKit
+import SwiftyBeaver
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,10 +20,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: Properties
 
-    var window: UIWindow? {
-        get { coordinator.window }
-        // swiftlint:disable:next unused_setter_value
-        set { }
+    private var window: UIWindow? {
+        coordinator.window
     }
 
     private lazy var coordinator = AppCoordinator()
@@ -35,6 +35,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Start App Coordinator
         coordinator.start()
+
+        // Setup Logger
+        SwiftyBeaver.setup()
 
         return true
     }

@@ -19,26 +19,26 @@ public class Transaction: Object {
     // MARK: Properties Names
 
     struct PropertiesNames {
-        static let id = "id"
+        static let key = "key"
     }
 
     // MARK: Persistent Properties
 
     /// An unique identifier, not available for public usage
-    @objc dynamic var id: String
+    @objc dynamic var key: String = UUID().uuidString
 
     /// A required user description of the transaction
-    @objc dynamic var summary: String
+    @objc dynamic var summary: String = ""
 
     /// The amount gained/lost in the transaction
-    @objc dynamic var amount: Double
+    @objc dynamic var amount: Double = 0.0
 
     /// The kind of the transaction
     /// Indicates if the wallet lost or gained with this transaction
-    @objc dynamic var kind: Kind
+    @objc dynamic var kind: Kind = .minus
 
     /// The date on which the transaction was performed
-    @objc dynamic var date: Date
+    @objc dynamic var date: Date = Date()
 
     /// The wallet that contains this particular transaction
     let wallet = LinkingObjects(
@@ -59,14 +59,13 @@ public class Transaction: Object {
 
     // MARK: Initializer
 
-    public init(
-        uuid: UUID = UUID(),
+    public convenience init(
         summary: String,
         amount: Double,
         kind: Kind,
         date: Date
     ) {
-        self.id = uuid.uuidString
+        self.init()
         self.summary = summary
         self.amount = amount
         self.kind = kind
@@ -75,5 +74,5 @@ public class Transaction: Object {
 
     // MARK: Object Overrides
 
-    override public static func primaryKey() -> String { "id" }
+    override public static func primaryKey() -> String { PropertiesNames.key }
 }
