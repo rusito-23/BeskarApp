@@ -8,11 +8,12 @@
 import Combine
 import UIKit
 
-/// Input Field
-/// Custom view that contains:
-///     - a text field
-///     - a message view
-/// Using the Beskar Design System
+/// Beskar Design System Input Field
+///
+/// # Description #
+/// Custom view that contains a text field & a message view.
+/// 
+/// # Note #
 /// Includes helpers to be used with Combine
 
 open class InputField: UIView {

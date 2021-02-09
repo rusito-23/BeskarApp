@@ -8,8 +8,10 @@
 import UIKit
 
 /// Beskar Design System Label
+///
+/// # Description #
 /// Helpers to facilitate the usage of the design system label
-/// by initializing the label with Beskar UI fonts and colors.
+/// by initializing the label with Beskar Fonts and Colors.
 
 public class Label: UILabel {
 

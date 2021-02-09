@@ -8,8 +8,10 @@
 import UIKit
 
 /// Beskar Design System Field Message
+///
+/// # Description #
 /// Custom view that shows a message in an input Field, with a three available kinds:
-/// `success`, `warning` or `error
+/// `success`, `warning` or `error`
 
 public class FieldMessage: UIView {
 
@@ -30,9 +32,9 @@ public class FieldMessage: UIView {
 
         fileprivate var image: UIImage? {
             switch self {
-            case .success: return UIImage.beskar.success
-            case .warning: return UIImage.beskar.warning
-            case .error: return UIImage.beskar.error
+            case .success: return UIImage.beskar.create(.message(.success))
+            case .warning: return UIImage.beskar.create(.message(.success))
+            case .error: return UIImage.beskar.create(.message(.success))
             }
         }
     }

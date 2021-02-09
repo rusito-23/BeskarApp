@@ -13,6 +13,12 @@
 "OK" = "OK";
 "LOADING" = "Loading...";
 
+// MARK: - Tab Items
+
+"ANALYTICS" = "ANALYTICS";
+"WALLETS" = "WALLETS";
+"SETTINGS" = "SETTINGS";
+
 // MARK: - Welcome Screen
 
 "WELCOME_TITLE" = "WELCOME TO BESKAR!";

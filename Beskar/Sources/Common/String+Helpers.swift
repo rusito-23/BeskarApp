@@ -15,7 +15,7 @@ extension String {
         NSLocalizedString(self, comment: self)
     }
 
-    /// Localize string with format
+    /// Localize with format (& arguments)
     func localize(_ arguments: CVarArg...) -> String {
         String(format: self.localized, arguments)
     }

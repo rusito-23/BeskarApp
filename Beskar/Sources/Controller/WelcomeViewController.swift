@@ -8,8 +8,6 @@
 import BeskarUI
 import UIKit
 
-// MARK: - Welcome View Controller
-
 final class WelcomeViewController: ViewController<WelcomeView> {
 
     // MARK: Properties

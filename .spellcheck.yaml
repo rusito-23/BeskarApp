@@ -3,3 +3,7 @@ whiteList:
   - iterable
   - qos
   - swifty
+  - exclamationmark
+  - xmark
+  - gearshape
+  - xaxis

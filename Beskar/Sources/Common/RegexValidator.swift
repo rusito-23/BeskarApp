@@ -13,9 +13,10 @@ struct RegexValidator {
 
     /// Different Regex kinds to eval using a predefined configuration
     enum Regex: String {
+        /// # Discussion #
         /// A password should contain, at least:
         /// - one uppercase letter
-        /// - one lowecase letter
+        /// - one lowercase letter
         /// - one number
         /// - one symbol
         /// - have at least 8 characters
@@ -24,7 +25,7 @@ struct RegexValidator {
 
     // MARK: Static Methods
 
-    /// Given a Regex Kind, evaluate the String
+    /// Given a `Regex.Kind`, evaluate the String
     static func eval(
         _ string: String,
         for regex: Regex,

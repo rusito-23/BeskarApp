@@ -11,16 +11,6 @@ import UIKit
 
 final class AppCoordinator: Coordinator {
 
-    // MARK: Static Properties
-
-    /// Configure default presenter
-    /// A Navigation Controller without a Navigation Bar
-    private static var presenter: UINavigationController {
-        let controller = UINavigationController()
-        controller.isNavigationBarHidden = true
-        return controller
-    }
-
     // MARK: Properties
 
     /// App Coordinator sets up its own `presenter`
@@ -47,7 +37,7 @@ final class AppCoordinator: Coordinator {
     // MARK: Initializers
 
     init(
-        presenter: UIViewController = AppCoordinator.presenter,
+        presenter: UIViewController = MainNavigationController(),
         authService: AuthServiceProtocol = AuthService()
     ) {
         self.presenter = presenter
@@ -82,8 +72,7 @@ final class AppCoordinator: Coordinator {
         present(viewController)
     }
 
-    /// Authenticate and then
-    /// Show error or Main screen
+    /// Authenticate and then show Error or Main screen
     private func startLoginFlow() {
         // Check for Auth Services availability
         guard authService.isAvailable() else {
@@ -92,13 +81,11 @@ final class AppCoordinator: Coordinator {
         }
 
         // Start biometric authentication
-        startLoading()
         authService.authenticate(
             reason: "AUTH_REASON".localized
         ) { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }
-                self.stopLoading()
 
                 switch result {
                 case let .success(success) where success:
@@ -119,7 +106,7 @@ final class AppCoordinator: Coordinator {
     /// Main Flow
     /// Show the main view controller
     private func startMainFlow() {
-        let viewController = TabViewController()
+        let viewController = MainTabBarController()
         self.present(viewController)
     }
 
@@ -153,17 +140,5 @@ final class AppCoordinator: Coordinator {
         }
 
         present(errorViewController)
-    }
-
-    /// Show loading indicator
-    private func startLoading() {
-        let viewController = LoadingViewController()
-        loadingViewController = viewController
-        presenter.present(viewController, animated: false)
-    }
-
-    /// Hide loading indicator
-    private func stopLoading() {
-        loadingViewController?.dismiss(animated: false)
     }
 }

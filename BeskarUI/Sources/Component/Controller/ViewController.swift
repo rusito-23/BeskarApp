@@ -8,24 +8,26 @@
 
 import UIKit
 
-// MARK: - View Controller
-
-/// Add view controller functionality to enable the auto-setup of a custom view.
-/// Overrides the `viewDidLoad` method to load the view and creates an `open lazy var`
-/// that contains the reference to the view (with the given type).
-/// Also sets default background color and presentation style to ensure design system conformance.
+/// # Description #
+/// A View Controller that conforms to the Beskar Style.
+/// Provides overrides that set up the style and helpers to auto-setup a custom view.
 ///
-/// Example usage:
+/// # Example #
 /// ```
 /// class MyViewController: ViewController<MyView> {
 ///     override func viewDidLoad() {
-///         super.viewDidLoad()
+///         super.viewDidLoad() // this is important
 ///
 ///         // customView is of kind MyView
 ///         customView.myButton.addTarget(self, ...)
 ///     }
 /// }
 /// ```
+///
+/// # Note #
+/// See also [Navigation Controller](x-source-tag:NavigationController)
+///
+/// - Tag: ViewController
 
 open class ViewController<View>: UIViewController where View: UIView {
 
@@ -38,36 +40,6 @@ open class ViewController<View>: UIViewController where View: UIView {
     open override func loadView() {
         view = customView
     }
-
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor.beskar.base
-    }
-
-    // MARK: Initializer
-
-    public override init(
-        nibName nibNameOrNil: String?,
-        bundle nibBundleOrNil: Bundle?
-    ) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        modalPresentationStyle = .fullScreen
-    }
-
-    @available(*, unavailable)
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-// MARK: - Tab Bar Controller
-
-/// Set default background color and presentation style to
-/// `UITabBarController` to ensure Design System conformance.
-
-open class TabBarController: UITabBarController {
-
-    // MARK: View Lifecycle
 
     open override func viewDidLoad() {
         super.viewDidLoad()

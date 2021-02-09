@@ -4,7 +4,7 @@
 //
 //  Created by Igor on 28/01/2021.
 //
-//  Design System Colors
+//  Beskar Design System Colors
 
 import UIKit.UIColor
 

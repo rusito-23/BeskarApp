@@ -48,7 +48,6 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Login Flow")
-        navigationMock.presentExpectation?.expectedFulfillmentCount = 2
         authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
         authMock.authenticationExpectation = expectation(description: "Check Auth Authentication")
 
@@ -61,7 +60,7 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
-        XCTAssert(navigationMock.lastPresentedViewController is TabViewController)
+        XCTAssert(navigationMock.lastPresentedViewController is MainTabBarController)
     }
 
     func test_withAuthServiceNotAvailable_shouldShowError() {
@@ -88,7 +87,6 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Error")
-        navigationMock.presentExpectation?.expectedFulfillmentCount = 2
         authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
 
         // Setup mock responses
@@ -109,7 +107,6 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Error")
-        navigationMock.presentExpectation?.expectedFulfillmentCount = 2
         authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
 
         // Setup mock responses
@@ -130,7 +127,6 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Error")
-        navigationMock.presentExpectation?.expectedFulfillmentCount = 2
         authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
 
         // Setup mock responses

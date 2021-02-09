@@ -4,6 +4,7 @@
 //
 //  Created by Igor on 07/02/2021.
 //
+// Beskar Design System Reusable Images
 
 import UIKit
 
@@ -13,10 +14,21 @@ extension BeskarWrapper where Base == UIImage {
     // MARK: Names By Kind
 
     public struct Name {
-        public enum System: String {
-            case success = "checkmark.icon"
-            case warning = "exclamationmark.triangle"
-            case error = "xmark.octagon"
+        public enum System {
+            case message(MessageKind)
+            case tabIcon(TabIcon)
+
+            public enum MessageKind: String {
+                case success = "checkmark.icon"
+                case warning = "exclamationmark.triangle"
+                case error = "xmark.octagon"
+            }
+
+            public enum TabIcon: String {
+                case settings = "gearshape"
+                case wallets = "wallet.pass"
+                case analytics = "chart.bar.xaxis"
+            }
         }
 
         public enum Custom: String {
@@ -24,23 +36,18 @@ extension BeskarWrapper where Base == UIImage {
         }
     }
 
-    // MARK: Static Colors
-
-    public static var success: UIImage? { with(.success) }
-
-    public static var warning: UIImage? { with(.warning) }
-
-    public static var error: UIImage? { with(.error) }
-
-    public static var clearIcon: UIImage? { with(.error) }
-
     // MARK: Builder Methods
 
-    public static func with(_ systemName: Name.System) -> UIImage? {
-        UIImage(systemName: systemName.rawValue)
+    public static func create(_ systemName: Name.System) -> UIImage? {
+        switch systemName {
+        case let .message(name):
+            return UIImage(systemName: name.rawValue)
+        case let .tabIcon(name):
+            return UIImage(systemName: name.rawValue)
+        }
     }
 
-    public static func with(_ name: Name.Custom) -> UIImage? {
+    public static func create(_ name: Name.Custom) -> UIImage? {
         UIImage(named: name.rawValue)
     }
 }

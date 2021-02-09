@@ -31,7 +31,7 @@ final class ErrorView: UIView {
 
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage.beskar.error
+        view.image = UIImage.beskar.create(.message(.error))
         view.contentMode = .scaleAspectFit
         view.accessibilityIdentifier = A.ErrorScreen.image
         view.translatesAutoresizingMaskIntoConstraints = false

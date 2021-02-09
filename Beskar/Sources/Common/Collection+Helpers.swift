@@ -10,9 +10,7 @@ import Foundation
 // MARK: - Nil Or Empty
 
 extension Optional where Wrapped: Collection {
-    var isNilOrEmpty: Bool {
-        self?.isEmpty ?? true
-    }
+    var isNilOrEmpty: Bool { self?.isEmpty ?? true }
 }
 
 extension Collection {

@@ -19,6 +19,8 @@
 		7829282125C5CEE600F41574 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282025C5CEE600F41574 /* InputField.swift */; };
 		7829282825C5FE9300F41574 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282725C5FE9300F41574 /* TextField.swift */; };
 		7832236025C44B3300D466ED /* BeskarUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7832235E25C44B3300D466ED /* BeskarUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		78414A6725D3492F00F9351D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A6625D3492F00F9351D /* TabBarController.swift */; };
+		78414A6A25D3493A00F9351D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A6925D3493A00F9351D /* NavigationController.swift */; };
 		7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564A25D0ADE70027493F /* UIImage+Beskar.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		7832234325C446BF00D466ED /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7832235C25C44B3300D466ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7832235E25C44B3300D466ED /* BeskarUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeskarUI.h; sourceTree = "<group>"; };
+		78414A6625D3492F00F9351D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		78414A6925D3493A00F9351D /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		7890564A25D0ADE70027493F /* UIImage+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Beskar.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				782927D125C48F8800F41574 /* ViewController.swift */,
+				78414A6625D3492F00F9351D /* TabBarController.swift */,
+				78414A6925D3493A00F9351D /* NavigationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -224,9 +230,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */,
+				78414A6725D3492F00F9351D /* TabBarController.swift in Sources */,
 				782927D225C48F8800F41574 /* ViewController.swift in Sources */,
 				780770E625C74A3B00071EF3 /* FieldMessage.swift in Sources */,
 				7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */,
+				78414A6A25D3493A00F9351D /* NavigationController.swift in Sources */,
 				780770E925C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift in Sources */,
 				7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */,
 				7829282825C5FE9300F41574 /* TextField.swift in Sources */,
