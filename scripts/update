@@ -11,4 +11,4 @@ pod install
 
 # Remove extra file ref in workspace 
 log_info "Clearing BeskarWorkspace extra file refs"
-gco -- BeskarWorkspace.xcworkspace/contents.xcworkspacedata
+git checkout -- BeskarWorkspace.xcworkspace/contents.xcworkspacedata

@@ -8,4 +8,4 @@
 import BeskarUI
 import UIKit
 
-final class MainNavigationController: NavigationController<UIView> {}
+final class MainNavigationController: NavigationController {}

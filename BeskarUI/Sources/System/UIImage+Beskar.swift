@@ -32,7 +32,7 @@ extension BeskarWrapper where Base == UIImage {
         }
 
         public enum Custom: String {
-            case clearIcon = "clear_icon"
+            case clearIcon = "icon-clear"
         }
     }
 

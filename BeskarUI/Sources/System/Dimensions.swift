@@ -35,6 +35,7 @@ public struct Border {
 }
 
 public enum Size: CGFloat {
+    case extraLarge = 200.0
     case large = 100.0
     case medium = 50.0
     case small = 25.0
