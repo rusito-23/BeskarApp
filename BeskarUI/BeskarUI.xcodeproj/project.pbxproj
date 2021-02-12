@@ -21,6 +21,7 @@
 		7832236025C44B3300D466ED /* BeskarUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7832235E25C44B3300D466ED /* BeskarUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78414A6725D3492F00F9351D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A6625D3492F00F9351D /* TabBarController.swift */; };
 		78414A6A25D3493A00F9351D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A6925D3493A00F9351D /* NavigationController.swift */; };
+		78438C4525D5FE21003B8A4E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78438C4425D5FE21003B8A4E /* ImageView.swift */; };
 		7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564A25D0ADE70027493F /* UIImage+Beskar.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		7832235E25C44B3300D466ED /* BeskarUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeskarUI.h; sourceTree = "<group>"; };
 		78414A6625D3492F00F9351D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		78414A6925D3493A00F9351D /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		78438C4425D5FE21003B8A4E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		7890564A25D0ADE70027493F /* UIImage+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Beskar.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,21 +57,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		780770E025C63F1700071EF3 /* Button */ = {
-			isa = PBXGroup;
-			children = (
-				780770E125C63F2200071EF3 /* Button.swift */,
-			);
-			path = Button;
-			sourceTree = "<group>";
-		};
 		782927D025C48F7300F41574 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				780770E025C63F1700071EF3 /* Button */,
+				78438C4325D5FDFA003B8A4E /* View */,
 				7829282A25C5FEA100F41574 /* Controller */,
-				7829282B25C5FEA900F41574 /* Field */,
-				7829282C25C5FEB500F41574 /* Label */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -94,24 +86,6 @@
 				78414A6925D3493A00F9351D /* NavigationController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		7829282B25C5FEA900F41574 /* Field */ = {
-			isa = PBXGroup;
-			children = (
-				7829282025C5CEE600F41574 /* InputField.swift */,
-				7829282725C5FE9300F41574 /* TextField.swift */,
-				780770E525C74A3A00071EF3 /* FieldMessage.swift */,
-			);
-			path = Field;
-			sourceTree = "<group>";
-		};
-		7829282C25C5FEB500F41574 /* Label */ = {
-			isa = PBXGroup;
-			children = (
-				7829281125C5B4B500F41574 /* Label.swift */,
-			);
-			path = Label;
 			sourceTree = "<group>";
 		};
 		7832233925C446BF00D466ED = {
@@ -148,6 +122,19 @@
 				7832235E25C44B3300D466ED /* BeskarUI.h */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		78438C4325D5FDFA003B8A4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				780770E125C63F2200071EF3 /* Button.swift */,
+				780770E525C74A3A00071EF3 /* FieldMessage.swift */,
+				78438C4425D5FE21003B8A4E /* ImageView.swift */,
+				7829282025C5CEE600F41574 /* InputField.swift */,
+				7829281125C5B4B500F41574 /* Label.swift */,
+				7829282725C5FE9300F41574 /* TextField.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78438C4525D5FE21003B8A4E /* ImageView.swift in Sources */,
 				782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */,
 				78414A6725D3492F00F9351D /* TabBarController.swift in Sources */,
 				782927D225C48F8800F41574 /* ViewController.swift in Sources */,

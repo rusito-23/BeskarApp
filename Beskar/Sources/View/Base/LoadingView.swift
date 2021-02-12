@@ -11,28 +11,36 @@ import TinyConstraints
 
 final class LoadingView: UIView {
 
-    // MARK: Subviews
+    // MARK: Constants
 
-    lazy var spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView()
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.accessibilityIdentifier = A.LoadingScreen.spinner
-        spinner.startAnimating()
-        return spinner
-    }()
+    private struct Constants {
+        static let alpha: CGFloat = 0.8
+    }
+
+    // MARK: Subviews
 
     lazy var titleLabel = Label(
         size: .medium,
         weight: .traitBold,
         color: UIColor.beskar.primary,
-        identifier: A.ErrorScreen.title
+        text: "LOADING".localized,
+        identifier: A.LoadingScreen.title
     )
+
+    lazy var spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView()
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.accessibilityIdentifier = A.LoadingScreen.spinner
+        return spinner
+    }()
 
     // MARK: Initializers
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        backgroundColor = UIColor.beskar.base
+            .withAlphaComponent(Constants.alpha)
+        isUserInteractionEnabled = false
         setUpViews()
     }
 
@@ -50,8 +58,17 @@ final class LoadingView: UIView {
         spinner.center(in: layoutMarginsGuide)
 
         // Title constraints
-        titleLabel.topToBottom(of: spinner, offset: Spacing.large.rawValue)
-        titleLabel.leading(to: layoutMarginsGuide, offset: Spacing.small.rawValue)
-        titleLabel.trailing(to: layoutMarginsGuide, offset: -Spacing.small.rawValue)
+        titleLabel.topToBottom(
+            of: spinner,
+            offset: Spacing.large.rawValue
+        )
+        titleLabel.leading(
+            to: layoutMarginsGuide,
+            offset: Spacing.small.rawValue
+        )
+        titleLabel.trailing(
+            to: layoutMarginsGuide,
+            offset: -Spacing.small.rawValue
+        )
     }
 }

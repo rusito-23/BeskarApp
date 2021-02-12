@@ -32,9 +32,9 @@ public class FieldMessage: UIView {
 
         fileprivate var image: UIImage? {
             switch self {
-            case .success: return UIImage.beskar.create(.message(.success))
-            case .warning: return UIImage.beskar.create(.message(.success))
-            case .error: return UIImage.beskar.create(.message(.success))
+            case .success: return UIImage.beskar.create(.success)
+            case .warning: return UIImage.beskar.create(.success)
+            case .error: return UIImage.beskar.create(.success)
             }
         }
     }

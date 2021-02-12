@@ -1,4 +1,5 @@
 PODS:
+  - CombineDataSources (0.2.5)
   - Realm (10.5.1):
     - Realm/Headers (= 10.5.1)
   - Realm/Headers (10.5.1)
@@ -8,23 +9,26 @@ PODS:
   - TinyConstraints (4.0.1)
 
 DEPENDENCIES:
+  - CombineDataSources
   - RealmSwift
   - SwiftyBeaver
   - TinyConstraints
 
 SPEC REPOS:
   trunk:
+    - CombineDataSources
     - Realm
     - RealmSwift
     - SwiftyBeaver
     - TinyConstraints
 
 SPEC CHECKSUMS:
+  CombineDataSources: dcbc3b06a038ffdf620b3b4533d3ecaf76ca6a2e
   Realm: 77fcb4e0b9f2963ea06f584749a0d7dc9cab95e1
   RealmSwift: 6abe6aa6cd8b70cc1a87afcb9232cabea74ff1ac
   SwiftyBeaver: 2e8acd6fc90c6d0a27055867a290794926d57c02
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 287fdcabea7728227a096c116ad338afda106f71
+PODFILE CHECKSUM: 5668d6fa340c74fd4c61074f99e1dc7ad7568688
 
 COCOAPODS: 1.10.0

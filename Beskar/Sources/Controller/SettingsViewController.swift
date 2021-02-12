@@ -8,4 +8,4 @@
 import BeskarUI
 import UIKit
 
-final class SettingsViewController: ViewController<SettingsView> {}
+final class SettingsViewController: ViewController<WorkInProgressView> {}

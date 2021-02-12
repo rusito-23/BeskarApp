@@ -14,21 +14,21 @@ extension BeskarWrapper where Base == UIImage {
     // MARK: Names By Kind
 
     public struct Name {
-        public enum System {
-            case message(MessageKind)
-            case tabIcon(TabIcon)
+        public enum System: String {
+            // Messages
 
-            public enum MessageKind: String {
-                case success = "checkmark.icon"
-                case warning = "exclamationmark.triangle"
-                case error = "xmark.octagon"
-            }
+            case success = "checkmark.icon"
+            case warning = "exclamationmark.triangle"
+            case error = "xmark.octagon"
 
-            public enum TabIcon: String {
-                case settings = "gearshape"
-                case wallets = "wallet.pass"
-                case analytics = "chart.bar.xaxis"
-            }
+            // Tab Icons
+            case settings = "gearshape"
+            case wallets = "wallet.pass"
+            case analytics = "chart.bar.xaxis"
+
+            // Other
+            case wip = "wrench.and.screwdriver"
+            // case wip = "gearshape.2"
         }
 
         public enum Custom: String {
@@ -39,12 +39,7 @@ extension BeskarWrapper where Base == UIImage {
     // MARK: Builder Methods
 
     public static func create(_ systemName: Name.System) -> UIImage? {
-        switch systemName {
-        case let .message(name):
-            return UIImage(systemName: name.rawValue)
-        case let .tabIcon(name):
-            return UIImage(systemName: name.rawValue)
-        }
+        UIImage(systemName: systemName.rawValue)
     }
 
     public static func create(_ name: Name.Custom) -> UIImage? {

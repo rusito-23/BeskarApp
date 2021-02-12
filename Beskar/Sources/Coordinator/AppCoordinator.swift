@@ -31,13 +31,10 @@ final class AppCoordinator: Coordinator {
     /// JIC: A reference to the root view controller
     private var rootViewController: UIViewController?
 
-    /// A reference to the loading indicator
-    private var loadingViewController: LoadingViewController?
-
     // MARK: Initializers
 
     init(
-        presenter: UIViewController = MainNavigationController(),
+        presenter: UIViewController = NavigationController(),
         authService: AuthServiceProtocol = AuthService()
     ) {
         self.presenter = presenter

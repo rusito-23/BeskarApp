@@ -31,3 +31,11 @@ extension A {
         static let title = "LoadingScreen.title"
     }
 }
+
+extension A {
+    struct WorkInProgressView {
+        static let image = "WorkInProgressView.image"
+        static let title = "WorkInProgressView.title"
+        static let subtitle = "WorkInProgressView.subtitle"
+    }
+}

@@ -8,4 +8,4 @@
 import BeskarUI
 import UIKit
 
-final class AnalyticsViewController: ViewController<AnalyticsView> {}
+final class AnalyticsViewController: ViewController<WorkInProgressView> {}

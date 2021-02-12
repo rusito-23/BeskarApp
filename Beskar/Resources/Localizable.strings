@@ -49,3 +49,8 @@ Try again in a few minutes.";
 "AUTH_CANCELED_ERROR_SUBTITLE" = "The authentication flow was canceled, please try again.";
 "AUTH_UNAVAILABLE_ERROR_SUBTITLE" = "Device owner authentication is unavailable.
 Please make sure you have set your passcode and configured biometrics in your device.";
+
+// MARK: - Work In Progress View
+
+"WIP_TITLE" = "Work in progress!";
+"WIP_SUBTITLE" = "Hopefully this will be finished soon...";

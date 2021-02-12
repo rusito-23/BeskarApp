@@ -16,7 +16,7 @@ final class MainTabBarController: TabBarController {
         let analyticsViewController = AnalyticsViewController()
         analyticsViewController.tabBarItem = {
             let item = UITabBarItem()
-            item.image = UIImage.beskar.create(.tabIcon(.analytics))
+            item.image = UIImage.beskar.create(.analytics)
             item.title = "ANALYTICS".localized
             return item
         }()
@@ -27,7 +27,7 @@ final class MainTabBarController: TabBarController {
         let walletListViewController = WalletListViewController()
         walletListViewController.tabBarItem = {
             let item = UITabBarItem()
-            item.image = UIImage.beskar.create(.tabIcon(.wallets))
+            item.image = UIImage.beskar.create(.wallets)
             item.title = "WALLETS".localized
             return item
         }()
@@ -38,7 +38,7 @@ final class MainTabBarController: TabBarController {
         let settingsViewController = SettingsViewController()
         settingsViewController.tabBarItem = {
             let item = UITabBarItem()
-            item.image = UIImage.beskar.create(.tabIcon(.settings))
+            item.image = UIImage.beskar.create(.settings)
             item.title = "SETTINGS".localized
             return item
         }()

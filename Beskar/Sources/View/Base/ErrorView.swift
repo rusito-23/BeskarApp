@@ -29,14 +29,10 @@ final class ErrorView: UIView {
         identifier: A.ErrorScreen.button
     )
 
-    private lazy var imageView: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage.beskar.create(.message(.error))
-        view.contentMode = .scaleAspectFit
-        view.accessibilityIdentifier = A.ErrorScreen.image
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    private lazy var imageView = ImageView(
+        .error,
+        identifier: A.ErrorScreen.image
+    )
 
     // MARK: Initializers
 
