@@ -22,6 +22,8 @@
 		78414A6725D3492F00F9351D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A6625D3492F00F9351D /* TabBarController.swift */; };
 		78414A6A25D3493A00F9351D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A6925D3493A00F9351D /* NavigationController.swift */; };
 		78438C4525D5FE21003B8A4E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78438C4425D5FE21003B8A4E /* ImageView.swift */; };
+		7889475725D9A62F00BB9BEE /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475625D9A62F00BB9BEE /* ActionButton.swift */; };
+		7889475B25D9C32F00BB9BEE /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475A25D9C32F00BB9BEE /* Separator.swift */; };
 		7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564A25D0ADE70027493F /* UIImage+Beskar.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		78414A6625D3492F00F9351D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		78414A6925D3493A00F9351D /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		78438C4425D5FE21003B8A4E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		7889475625D9A62F00BB9BEE /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		7889475A25D9C32F00BB9BEE /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		7890564A25D0ADE70027493F /* UIImage+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Beskar.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,11 +131,13 @@
 		78438C4325D5FDFA003B8A4E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7889475625D9A62F00BB9BEE /* ActionButton.swift */,
 				780770E125C63F2200071EF3 /* Button.swift */,
 				780770E525C74A3A00071EF3 /* FieldMessage.swift */,
 				78438C4425D5FE21003B8A4E /* ImageView.swift */,
 				7829282025C5CEE600F41574 /* InputField.swift */,
 				7829281125C5B4B500F41574 /* Label.swift */,
+				7889475A25D9C32F00BB9BEE /* Separator.swift */,
 				7829282725C5FE9300F41574 /* TextField.swift */,
 			);
 			path = View;
@@ -223,6 +229,8 @@
 				780770E625C74A3B00071EF3 /* FieldMessage.swift in Sources */,
 				7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */,
 				78414A6A25D3493A00F9351D /* NavigationController.swift in Sources */,
+				7889475725D9A62F00BB9BEE /* ActionButton.swift in Sources */,
+				7889475B25D9C32F00BB9BEE /* Separator.swift in Sources */,
 				780770E925C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift in Sources */,
 				7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */,
 				7829282825C5FE9300F41574 /* TextField.swift in Sources */,

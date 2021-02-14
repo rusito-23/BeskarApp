@@ -34,6 +34,7 @@
 		784C343B25CF172000DA24E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 784C343A25CF172000DA24E1 /* InfoPlist.strings */; };
 		784C344B25CF342600DA24E1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C344A25CF342600DA24E1 /* WelcomeViewController.swift */; };
 		784C345525CF55F600DA24E1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C345425CF55F600DA24E1 /* WelcomeView.swift */; };
+		78AC5E3C25D60729005F8D86 /* WalletCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC5E3B25D60729005F8D86 /* WalletCardView.swift */; };
 		78C0909225D083E900C8563B /* LoggerSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C0909125D083E900C8563B /* LoggerSetUp.swift */; };
 		78C0909F25D0841B00C8563B /* BeskarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909825D0841B00C8563B /* BeskarKit.framework */; };
 		78C090A025D0841B00C8563B /* BeskarKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909825D0841B00C8563B /* BeskarKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -106,6 +107,7 @@
 		784C343A25CF172000DA24E1 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		784C344A25CF342600DA24E1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		784C345425CF55F600DA24E1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		78AC5E3B25D60729005F8D86 /* WalletCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCardView.swift; sourceTree = "<group>"; };
 		78C0909125D083E900C8563B /* LoggerSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSetUp.swift; sourceTree = "<group>"; };
 		78C0909825D0841B00C8563B /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C0909925D0841B00C8563B /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +182,7 @@
 				782E6D9625D060C60057705E /* Base */,
 				784C345425CF55F600DA24E1 /* WelcomeView.swift */,
 				78414A5225D2F48400F9351D /* WalletListView.swift */,
+				78AC5E3B25D60729005F8D86 /* WalletCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				78414A5325D2F48400F9351D /* WalletListView.swift in Sources */,
 				78414A5625D2F4AA00F9351D /* AnalyticsViewController.swift in Sources */,
 				782E6D9B25D061860057705E /* LoadingView.swift in Sources */,
+				78AC5E3C25D60729005F8D86 /* WalletCardView.swift in Sources */,
 				782927DE25C50AF800F41574 /* Preferences.swift in Sources */,
 				780770F125C769E300071EF3 /* RegexValidator.swift in Sources */,
 				78C0909225D083E900C8563B /* LoggerSetUp.swift in Sources */,

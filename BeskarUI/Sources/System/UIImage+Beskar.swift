@@ -26,9 +26,13 @@ extension BeskarWrapper where Base == UIImage {
             case wallets = "wallet.pass"
             case analytics = "chart.bar.xaxis"
 
+            // Actions
+            case add = "plus.circle"
+            case sub = "minus.circle"
+            case list = "list.dash"
+
             // Other
             case wip = "wrench.and.screwdriver"
-            // case wip = "gearshape.2"
         }
 
         public enum Custom: String {

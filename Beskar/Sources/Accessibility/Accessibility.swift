@@ -39,3 +39,19 @@ extension A {
         static let subtitle = "WorkInProgressView.subtitle"
     }
 }
+
+extension A {
+    struct WalletListView {
+        static let table = "WalletListView.table"
+    }
+}
+
+extension A {
+    struct WalletCardView {
+        static let title = "WalletCardView.title"
+        static let amount = "WalletCardView.amount"
+        static let withdraw = "WalletCardView.withdraw"
+        static let listTransactions = "WalletCardView.listTransactions"
+        static let deposit = "WalletCardView.deposit"
+    }
+}

@@ -77,6 +77,11 @@ final class AppCoordinator: Coordinator {
             return
         }
 
+        #if DEBUG
+        startMainFlow()
+        return
+        #endif
+
         // Start biometric authentication
         authService.authenticate(
             reason: "AUTH_REASON".localized
