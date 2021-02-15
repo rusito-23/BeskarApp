@@ -12,7 +12,7 @@ final class WelcomeView: UIView {
 
     // MARK: Subviews
 
-    lazy var allowButton = Button(
+    private(set) lazy var allowButton = Button(
         kind: .primary,
         title: "WELCOME_BUTTON".localized,
         identifier: A.WelcomeScreen.allowButton

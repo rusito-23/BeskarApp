@@ -9,3 +9,4 @@ whiteList:
   - xaxis
   - associatedtype
   - typealias
+  - swinject

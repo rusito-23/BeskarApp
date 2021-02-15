@@ -13,18 +13,18 @@ final class ErrorView: UIView {
 
     // MARK: Subviews
 
-    lazy var titleLabel = Label(
+    private(set) lazy var titleLabel = Label(
         size: .large,
         weight: .traitBold,
         identifier: A.ErrorScreen.title
     )
 
-    lazy var subtitleLabel = Label(
+    private(set) lazy var subtitleLabel = Label(
         size: .small,
         identifier: A.ErrorScreen.subtitle
     )
 
-    lazy var button = Button(
+    private(set) lazy var button = Button(
         kind: .primary,
         identifier: A.ErrorScreen.button
     )

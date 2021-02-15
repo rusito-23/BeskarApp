@@ -1,5 +1,5 @@
 //
-//  CreateWalletCell.swift
+//  WalletListFooter.swift
 //  Beskar
 //
 //  Created by Igor on 14/02/2021.
@@ -8,33 +8,30 @@
 import BeskarUI
 import UIKit
 
-final class CreateWalletCell: UITableViewCell {
+final class WalletListFooter: UIView {
 
     // MARK: Subviews
 
-    lazy var titleLabel = Label(
+    private(set) lazy var titleLabel = Label(
         size: .medium,
         color: UIColor.beskar.primary,
-        identifier: A.CreateWalletCell.title
+        identifier: A.WalletListFooter.title
     )
 
-    lazy var newWalletButton = ActionButton(
+    private(set) lazy var newWalletButton = ActionButton(
         imageName: .new,
         size: .large,
         color: UIColor.beskar.primary,
         highlightColor: UIColor.beskar.secondary,
-        identifier: A.CreateWalletCell.addWallet
+        identifier: A.WalletListFooter.addWallet
     )
 
     // MARK: Initializers
 
-    override init(
-        style: UITableViewCell.CellStyle,
-        reuseIdentifier: String?
-    ) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         backgroundColor = .clear
-        selectionStyle = .none
+        translatesAutoresizingMaskIntoConstraints = false
         setUpViews()
     }
 
@@ -46,15 +43,15 @@ final class CreateWalletCell: UITableViewCell {
     // MARK: Private Methods
 
     private func setUpViews() {
-        contentView.addSubviews(
+        addSubviews(
             titleLabel,
             newWalletButton
         )
 
         // Title Constraints
         titleLabel.topToSuperview()
-        titleLabel.leading(to: contentView, offset: Spacing.small.rawValue)
-        titleLabel.trailing(to: contentView, offset: -Spacing.small.rawValue)
+        titleLabel.leading(to: self, offset: Spacing.small.rawValue)
+        titleLabel.trailing(to: self, offset: -Spacing.small.rawValue)
 
         // Add New Wallet Button Constraints
         newWalletButton.topToBottom(of: titleLabel, offset: Spacing.small.rawValue)

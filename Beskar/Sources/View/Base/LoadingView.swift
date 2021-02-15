@@ -19,14 +19,14 @@ final class LoadingView: UIView {
 
     // MARK: Subviews
 
-    lazy var titleLabel = Label(
+    private(set) lazy var titleLabel = Label(
         size: .small,
         color: UIColor.beskar.primary,
         text: "LOADING".localized,
         identifier: A.LoadingScreen.title
     )
 
-    lazy var spinner: UIActivityIndicatorView = {
+    private(set) lazy var spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView()
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.accessibilityIdentifier = A.LoadingScreen.spinner

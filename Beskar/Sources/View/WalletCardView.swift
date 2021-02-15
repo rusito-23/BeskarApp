@@ -12,7 +12,7 @@ final class WalletCardView: UITableViewCell {
 
     // MARK: Texts
 
-    lazy var titleLabel = Label(
+    private(set) lazy var titleLabel = Label(
         size: .small,
         weight: .traitBold,
         color: UIColor.beskar.tertiary,
@@ -20,7 +20,7 @@ final class WalletCardView: UITableViewCell {
         identifier: A.WalletCardView.title
     )
 
-    lazy var amountLabel = Label(
+    private(set) lazy var amountLabel = Label(
         size: .small,
         color: UIColor.beskar.tertiary,
         alignment: .right,
@@ -29,17 +29,17 @@ final class WalletCardView: UITableViewCell {
 
     // MARK: Buttons
 
-    lazy var depositButton = ActionButton(
+    private(set) lazy var depositButton = ActionButton(
         imageName: .add,
         identifier: A.WalletCardView.deposit
     )
 
-    lazy var listTransactionsButton = ActionButton(
+    private(set) lazy var listTransactionsButton = ActionButton(
         imageName: .list,
         identifier: A.WalletCardView.listTransactions
     )
 
-    lazy var withdrawButton = ActionButton(
+    private(set) lazy var withdrawButton = ActionButton(
         imageName: .sub,
         identifier: A.WalletCardView.withdraw
     )

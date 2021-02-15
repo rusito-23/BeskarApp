@@ -6,6 +6,7 @@
 //
 
 import Combine
+import CombineDataSources
 import BeskarUI
 import UIKit
 
@@ -13,7 +14,7 @@ final class WalletListViewController: ViewController<WalletListView> {
 
     // MARK: Properties
 
-    private lazy var viewModel = WalletListViewModel()
+    private lazy var viewModel: WalletListViewModel = .resolved
 
     // MARK: View Lifecycle
 
@@ -26,17 +27,20 @@ final class WalletListViewController: ViewController<WalletListView> {
     // MARK: Private Methods
 
     private func setUpBindings() {
-        // Bind View Model State Handling
+        // Bind view model `state` handling
         viewModel.$state.sink { state in
             switch state {
             case .ready:
+                self.customView.footerView.isHidden = true
                 self.stopLoading()
             case .loading:
+                self.customView.footerView.isHidden = true
                 self.startLoading()
             case .loaded:
-                log.debug("State assigned: \(self.viewModel.state)")
+                self.customView.footerView.isHidden = false
                 self.stopLoading()
             case .failed:
+                self.customView.footerView.isHidden = true
                 self.stopLoading()
                 self.showError(
                     "WALLET_LIST_ERROR".localized,
@@ -45,12 +49,18 @@ final class WalletListViewController: ViewController<WalletListView> {
             }
         }.store(in: &subscriptions)
 
-        viewModel.$shouldReload.sink { reload in
-            if reload { self.customView.tableView.reloadData() }
-        }.store(in: &subscriptions)
+        // Bind view model `wallets` as table data source
+        viewModel.$wallets.bind(subscriber: customView.tableView.rowsSubscriber(
+            cellIdentifier: WalletCardView.identifier,
+            cellType: WalletCardView.self,
+            cellConfig: { cell, _, model in
+                cell.titleLabel.text = model.name
+            }
+        )).store(in: &subscriptions)
 
-        // Setup Table View with View Model
-        customView.tableView.delegate = viewModel
-        customView.tableView.dataSource = viewModel
+        // Bind view model footer text
+        viewModel.$footerText.assign(
+            to: \.text, on: customView.footerView.titleLabel
+        ).store(in: &subscriptions)
     }
 }

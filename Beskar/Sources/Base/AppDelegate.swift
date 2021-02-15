@@ -30,11 +30,14 @@ import SwiftyBeaver
         didFinishLaunchingWithOptions launchOptions: Options
     ) -> Bool {
 
-        // Start App Coordinator
-        coordinator.start()
-
         // Setup Logger
         SwiftyBeaver.setup()
+
+        // Setup dependency repo
+        Swinject.setUp()
+
+        // Start App Coordinator
+        coordinator.start()
 
         return true
     }

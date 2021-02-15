@@ -117,5 +117,4 @@ public class FieldMessage: UIView {
             messageAccessory.widthAnchor.constraint(equalToConstant: Size.small.rawValue),
         ])
     }
-
 }

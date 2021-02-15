@@ -34,11 +34,12 @@
 		784C343B25CF172000DA24E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 784C343A25CF172000DA24E1 /* InfoPlist.strings */; };
 		784C344B25CF342600DA24E1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C344A25CF342600DA24E1 /* WelcomeViewController.swift */; };
 		784C345525CF55F600DA24E1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C345425CF55F600DA24E1 /* WelcomeView.swift */; };
-		7889475F25D9CB3B00BB9BEE /* CreateWalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475E25D9CB3B00BB9BEE /* CreateWalletCell.swift */; };
+		7889475F25D9CB3B00BB9BEE /* WalletListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475E25D9CB3B00BB9BEE /* WalletListFooter.swift */; };
 		7889476425D9E87800BB9BEE /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889476325D9E87800BB9BEE /* UITableViewCellExtensions.swift */; };
 		7889476825D9E8BD00BB9BEE /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889476725D9E8BD00BB9BEE /* UITableViewExtensions.swift */; };
 		7889476C25D9F40200BB9BEE /* WalletListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889476B25D9F40200BB9BEE /* WalletListViewModel.swift */; };
 		7889477325DA20FB00BB9BEE /* WalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889477225DA20FB00BB9BEE /* WalletViewModel.swift */; };
+		7897667C25DAF0F6000E9552 /* Swinject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897667B25DAF0F6000E9552 /* Swinject.swift */; };
 		78AC5E3C25D60729005F8D86 /* WalletCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC5E3B25D60729005F8D86 /* WalletCardView.swift */; };
 		78C0909225D083E900C8563B /* LoggerSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C0909125D083E900C8563B /* LoggerSetUp.swift */; };
 		78C0909F25D0841B00C8563B /* BeskarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909825D0841B00C8563B /* BeskarKit.framework */; };
@@ -112,11 +113,12 @@
 		784C343A25CF172000DA24E1 /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		784C344A25CF342600DA24E1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		784C345425CF55F600DA24E1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		7889475E25D9CB3B00BB9BEE /* CreateWalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletCell.swift; sourceTree = "<group>"; };
+		7889475E25D9CB3B00BB9BEE /* WalletListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListFooter.swift; sourceTree = "<group>"; };
 		7889476325D9E87800BB9BEE /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
 		7889476725D9E8BD00BB9BEE /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 		7889476B25D9F40200BB9BEE /* WalletListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListViewModel.swift; sourceTree = "<group>"; };
 		7889477225DA20FB00BB9BEE /* WalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModel.swift; sourceTree = "<group>"; };
+		7897667B25DAF0F6000E9552 /* Swinject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swinject.swift; sourceTree = "<group>"; };
 		78AC5E3B25D60729005F8D86 /* WalletCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCardView.swift; sourceTree = "<group>"; };
 		78C0909125D083E900C8563B /* LoggerSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSetUp.swift; sourceTree = "<group>"; };
 		78C0909825D0841B00C8563B /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,7 +193,7 @@
 			children = (
 				7889476225D9E86C00BB9BEE /* Extensions */,
 				782E6D9625D060C60057705E /* Base */,
-				7889475E25D9CB3B00BB9BEE /* CreateWalletCell.swift */,
+				7889475E25D9CB3B00BB9BEE /* WalletListFooter.swift */,
 				784C345425CF55F600DA24E1 /* WelcomeView.swift */,
 				78414A5225D2F48400F9351D /* WalletListView.swift */,
 				78AC5E3B25D60729005F8D86 /* WalletCardView.swift */,
@@ -294,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				783222DB25C378EF00D466ED /* AppDelegate.swift */,
+				7897667B25DAF0F6000E9552 /* Swinject.swift */,
 				78C0909125D083E900C8563B /* LoggerSetUp.swift */,
 			);
 			path = Base;
@@ -519,9 +522,10 @@
 			files = (
 				784C344B25CF342600DA24E1 /* WelcomeViewController.swift in Sources */,
 				78414A4F25D2F45D00F9351D /* WalletListViewController.swift in Sources */,
+				7897667C25DAF0F6000E9552 /* Swinject.swift in Sources */,
 				7824688425CF78C600B1B9E4 /* ErrorViewController.swift in Sources */,
 				7889476825D9E8BD00BB9BEE /* UITableViewExtensions.swift in Sources */,
-				7889475F25D9CB3B00BB9BEE /* CreateWalletCell.swift in Sources */,
+				7889475F25D9CB3B00BB9BEE /* WalletListFooter.swift in Sources */,
 				78DB116325C6375100335F7B /* String+Helpers.swift in Sources */,
 				7832230325C37BC800D466ED /* AppCoordinator.swift in Sources */,
 				78414A5325D2F48400F9351D /* WalletListView.swift in Sources */,

@@ -8,6 +8,7 @@ disabled_rules:
 excluded:
 - Carthage
 - Pods
+- Beskar/Sources/Base/Swinject.swift
 
 trailing_comma:
     mandatory_comma: true

@@ -12,15 +12,17 @@ final class WalletListView: UIView {
 
     // MARK: Subviews
 
-    lazy var tableView: UITableView = {
+    private(set) lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.register(WalletCardView.self)
-        tableView.register(CreateWalletCell.self)
+        tableView.tableFooterView = footerView
         tableView.accessibilityIdentifier = A.WalletListView.table
         return tableView
     }()
+
+    private(set) lazy var footerView = WalletListFooter()
 
     // MARK: Initializers
 
@@ -42,5 +44,7 @@ final class WalletListView: UIView {
             to: layoutMarginsGuide,
             insets: .vertical(Spacing.small.rawValue)
         )
+
+        footerView.width(to: tableView)
     }
 }
