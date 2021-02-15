@@ -6,47 +6,51 @@
 //
 
 import RealmSwift
+import Foundation
+
+/// The possible Data Service Errors
+public enum DataServiceError: Error {
+    /// The Realm DB was not available for usage
+    case unavailable
+    /// A Thread Safe Reference was lost
+    case concurrencyFailure
+    /// Generic Realm failure
+    case failure
+}
 
 /// - Description
 /// Defines common behavior used to manage persistent data in the app.
-open class DataService<Data: Object> {
+/// Designed to be used as an abstract implementation.
+public protocol DataService: NSObject {
+    associatedtype Data: Object
+    typealias FetchResult = (Result<[Data], DataServiceError>) -> Void
+    typealias WriteResult = (Result<Bool, DataServiceError>) -> Void
 
-    // MARK: Types
+    /// Retrieve all objects of the given data type from the DB
+    func fetch(_ completion: @escaping FetchResult)
 
-    public typealias FetchResult = (Result<[Data], DataServiceError>) -> Void
-    public typealias WriteResult = (Result<Bool, DataServiceError>) -> Void
+    /// Write an object of the given data type in the DB
+    func write(_ object: Data, _ completion: @escaping WriteResult)
+}
 
-    /// The possible Data Service Errors
-    public enum DataServiceError: Error {
-        /// The Realm DB was not available for usage
-        case unavailable
-        /// A Thread Safe Reference was lost
-        case concurrencyFailure
-        /// Generic Realm failure
-        case failure
-    }
+/// Default implementation for Data Service
+extension DataService {
 
     // MARK: Internal Properties
 
     /// Realm default configuration
-    var configuration: Realm.Configuration { .defaultConfiguration }
+    private var configuration: Realm.Configuration { .defaultConfiguration }
 
     /// The queue on which the db calls are made
-    var serviceQueue: DispatchQueue {
+    private var serviceQueue: DispatchQueue {
         DispatchQueue(label: "\(Data.self)Queue", qos: .background)
     }
 
     /// The queue on which the result of the call should be posted
-    var resultQueue: DispatchQueue {
-        DispatchQueue.main
-    }
+    private var resultQueue: DispatchQueue { DispatchQueue.main }
 
     /// Computed Realm instance to keep it thread safe
-    var realm: Realm? { try? Realm() }
-
-    // MARK: Public Initializer
-
-    public init() {}
+    private var realm: Realm? { try? Realm() }
 
     // MARK: Internal Methods
 

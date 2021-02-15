@@ -13,4 +13,9 @@ extension UITableView {
     func register(_ cellClass: UITableViewCell.Type) {
         register(cellClass, forCellReuseIdentifier: cellClass.identifier)
     }
+
+    /// Safe dequeue a Table View Cell
+    func dequeue<T: UITableViewCell>(_ type: T.Type) -> T? {
+        return dequeueReusableCell(withIdentifier: T.identifier) as? T
+    }
 }

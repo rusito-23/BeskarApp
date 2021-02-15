@@ -7,3 +7,5 @@ whiteList:
   - xmark
   - gearshape
   - xaxis
+  - associatedtype
+  - typealias

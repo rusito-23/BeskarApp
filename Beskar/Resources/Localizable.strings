@@ -58,5 +58,5 @@ Please make sure you have set your passcode and configured biometrics in your de
 // MARK: - Wallet List View
 
 "WALLET_LIST_ERROR" = "We can't load your wallets at this moment...";
-"ADD_NEW_WALLET_TITLE" = "Add a new wallet to get started";
+"CREATE_NEW_WALLET_TITLE" = "Get started by creating a new wallet";
 

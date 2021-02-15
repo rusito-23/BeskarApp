@@ -9,14 +9,11 @@ import BeskarKit
 import UIKit
 import SwiftyBeaver
 
-@main
-final class AppDelegate: UIResponder, UIApplicationDelegate {
+@main final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: Types
 
-    private struct Configuration {
-        static let `default` = "Default Configuration"
-    }
+    typealias Options = [UIApplication.LaunchOptionsKey: Any]?
 
     // MARK: Properties
 
@@ -30,7 +27,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(
         _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+        didFinishLaunchingWithOptions launchOptions: Options
     ) -> Bool {
 
         // Start App Coordinator

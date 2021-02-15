@@ -1,5 +1,5 @@
 //
-//  AddNewWalletCell.swift
+//  CreateWalletCell.swift
 //  Beskar
 //
 //  Created by Igor on 14/02/2021.
@@ -8,14 +8,14 @@
 import BeskarUI
 import UIKit
 
-final class AddNewWalletCell: UITableViewCell {
+final class CreateWalletCell: UITableViewCell {
 
     // MARK: Subviews
 
     lazy var titleLabel = Label(
         size: .medium,
         color: UIColor.beskar.primary,
-        identifier: A.AddNewWalletCell.title
+        identifier: A.CreateWalletCell.title
     )
 
     lazy var newWalletButton = ActionButton(
@@ -23,7 +23,7 @@ final class AddNewWalletCell: UITableViewCell {
         size: .large,
         color: UIColor.beskar.primary,
         highlightColor: UIColor.beskar.secondary,
-        identifier: A.AddNewWalletCell.addWallet
+        identifier: A.CreateWalletCell.addWallet
     )
 
     // MARK: Initializers

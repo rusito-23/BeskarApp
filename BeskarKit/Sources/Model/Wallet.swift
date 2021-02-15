@@ -43,7 +43,7 @@ public class Wallet: Object {
     @objc public dynamic var currency: Currency = .dollars
 
     /// The list of transactions made in this wallet
-    let transactions = List<Transaction>()
+    public let transactions = List<Transaction>()
 
     // MARK: Initializers
 

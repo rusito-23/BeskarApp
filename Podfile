@@ -8,7 +8,7 @@ target 'Beskar' do
     pod 'RealmSwift'
     pod 'TinyConstraints'
     pod 'SwiftyBeaver'
-    pod 'CombineDataSources'
+    pod 'Swinject'
 end
 
 target 'BeskarKit' do

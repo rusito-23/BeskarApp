@@ -28,20 +28,20 @@ public class Transaction: Object {
     @objc dynamic var key: String = UUID().uuidString
 
     /// A required user description of the transaction
-    @objc dynamic var summary: String = ""
+    @objc public dynamic var summary: String = ""
 
     /// The amount gained/lost in the transaction
-    @objc dynamic var amount: Double = 0.0
+    @objc public dynamic var amount: Double = 0.0
 
     /// The kind of the transaction
     /// Indicates if the wallet lost or gained with this transaction
-    @objc dynamic var kind: Kind = .minus
+    @objc public dynamic var kind: Kind = .minus
 
     /// The date on which the transaction was performed
-    @objc dynamic var date: Date = Date()
+    @objc public dynamic var date: Date = Date()
 
     /// The wallet that contains this particular transaction
-    let wallet = LinkingObjects(
+    public let wallet = LinkingObjects(
         fromType: Wallet.self,
         property: Wallet.PropertiesNames.transactions
     )

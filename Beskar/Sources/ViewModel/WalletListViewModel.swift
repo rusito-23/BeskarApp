@@ -12,7 +12,7 @@ import UIKit
 
 /// Performs business logic on wallets
 /// - Retrieves wallet list
-/// - Provides bindings for wallets and other useful data
+/// - Provides published bindings for wallets and other useful data
 final class WalletListViewModel: NSObject, ObservableObject {
 
     // MARK: State
@@ -55,14 +55,19 @@ final class WalletListViewModel: NSObject, ObservableObject {
     // MARK: Private Properties
 
     /// The service that retrieves the wallets data
-    private let walletService: DataService<Wallet>
+    private let walletService: WalletServiceProtocol
 
-    /// The retrieved wallets
-    private var wallets: [Wallet] = []
+    /// An array with the retrieved wallets view models
+    private var walletsViewModels: [WalletViewModel] = []
+
+    /// An array with the retrieved wallets
+    private var wallets: [Wallet] = [] {
+        didSet { walletsViewModels = wallets.map { WalletViewModel($0) } }
+    }
 
     // MARK: Initializers
 
-    init(walletService: DataService<Wallet> = .init()) {
+    init(walletService: WalletServiceProtocol = WalletService()) {
         self.walletService = walletService
     }
 
@@ -103,26 +108,26 @@ final class WalletListViewModel: NSObject, ObservableObject {
         for row: Int
     ) -> WalletCardView {
         guard
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: WalletCardView.identifier
-            ) as? WalletCardView,
-            let wallet = wallets[safe: row]
-        else { fatalError("Failed to dequeue wallet card") }
-        // TODO: set wallet view model
-        cell.titleLabel.text = wallet.name
-        cell.amountLabel.text = "US$ 1000.0"
+            let cell = tableView.dequeue(WalletCardView.self),
+            let viewModel = walletsViewModels[safe: row]
+        else { fatalError("Failed to dequeue `WalletCardView`") }
+
+        cell.titleLabel.text = viewModel.name
+        cell.amountLabel.text = viewModel.amountText
         return cell
     }
 
-    /// Provides & populates a `AddNewWalletCell`
+    /// Provides & populates a `CreateWalletCell`
     private func dequeueCreateWalletCell(
         for tableView: UITableView
-    ) -> AddNewWalletCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: AddNewWalletCell.identifier
-        ) as? AddNewWalletCell else { fatalError("Failed to dequeue new wallet cell") }
+    ) -> CreateWalletCell {
+        guard let cell = tableView.dequeue(
+            CreateWalletCell.self
+        ) else { fatalError("Failed to dequeue `CreateWalletCell`") }
+
         // we show a text only if we don't have any wallet
-        cell.titleLabel.text = wallets.isEmpty ? "ADD_NEW_WALLET_TITLE".localized : nil
+        cell.titleLabel.text = wallets.isNotEmpty ? nil :
+            "CREATE_NEW_WALLET_TITLE".localized
         return cell
     }
 }

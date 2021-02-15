@@ -17,7 +17,7 @@ final class WalletListView: UIView {
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.register(WalletCardView.self)
-        tableView.register(AddNewWalletCell.self)
+        tableView.register(CreateWalletCell.self)
         tableView.accessibilityIdentifier = A.WalletListView.table
         return tableView
     }()

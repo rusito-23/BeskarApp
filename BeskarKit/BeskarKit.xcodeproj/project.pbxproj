@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		782927EE25C50B5C00F41574 /* BeskarKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 782927EC25C50B5C00F41574 /* BeskarKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		784C344625CF2F7C00DA24E1 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C344525CF2F7C00DA24E1 /* AuthService.swift */; };
+		7858924C25DA31F700558570 /* WalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7858924B25DA31F700558570 /* WalletService.swift */; };
 		7890564025D08D880027493F /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890563F25D08D880027493F /* Wallet.swift */; };
 		7890564425D08E590027493F /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564325D08E590027493F /* Currency.swift */; };
 		7890564725D0A89F0027493F /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564625D0A89F0027493F /* Transaction.swift */; };
@@ -23,6 +24,7 @@
 		782927EC25C50B5C00F41574 /* BeskarKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeskarKit.h; sourceTree = "<group>"; };
 		782927ED25C50B5C00F41574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		784C344525CF2F7C00DA24E1 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		7858924B25DA31F700558570 /* WalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletService.swift; sourceTree = "<group>"; };
 		7890563F25D08D880027493F /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		7890564325D08E590027493F /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		7890564625D0A89F0027493F /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -90,10 +92,19 @@
 		784C344825CF2F8000DA24E1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				7858924E25DA31FC00558570 /* Abstract */,
 				784C344525CF2F7C00DA24E1 /* AuthService.swift */,
-				78DB861025D1F1DA005CF09B /* DataService.swift */,
+				7858924B25DA31F700558570 /* WalletService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		7858924E25DA31FC00558570 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				78DB861025D1F1DA005CF09B /* DataService.swift */,
+			);
+			path = Abstract;
 			sourceTree = "<group>";
 		};
 		7890563E25D08D880027493F /* Model */ = {
@@ -225,6 +236,7 @@
 				7890564025D08D880027493F /* Wallet.swift in Sources */,
 				7890564725D0A89F0027493F /* Transaction.swift in Sources */,
 				784C344625CF2F7C00DA24E1 /* AuthService.swift in Sources */,
+				7858924C25DA31F700558570 /* WalletService.swift in Sources */,
 				78DB861125D1F1DA005CF09B /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

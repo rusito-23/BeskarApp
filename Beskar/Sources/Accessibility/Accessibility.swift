@@ -57,8 +57,8 @@ extension A {
 }
 
 extension A {
-    struct AddNewWalletCell {
-        static let title = "AddNewWalletCell.title"
-        static let addWallet = "AddNewWalletCell.add"
+    struct CreateWalletCell {
+        static let title = "CreateWalletCell.title"
+        static let addWallet = "CreateWalletCell.add"
     }
 }
