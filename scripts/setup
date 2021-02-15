@@ -19,3 +19,6 @@ mint bootstrap
 log_info "Setup git hooks"
 cp scripts/pre-commit .git/hooks/pre-commit
 git config --local core.hooksPath $(pwd)/.git/hooks
+
+# Ignore changes to playground
+git update-index --skip-worktree ./BeskarPlayground.playground/Contents.swift
