@@ -21,24 +21,23 @@ public class Label: UILabel {
         size: UIFont.Beskar.Size,
         weight: UIFont.Beskar.Weight = .init(),
         color: UIColor = UIColor.beskar.primary,
+        breakMode: NSLineBreakMode = .byWordWrapping,
+        alignment: NSTextAlignment = .center,
         text: String? = nil,
         identifier: String? = nil,
         label: String? = nil
     ) {
         super.init(frame: .zero)
 
+        lineBreakMode = breakMode
+        textAlignment = alignment
         accessibilityIdentifier = identifier
         accessibilityLabel = label
-
+        numberOfLines = 0
         translatesAutoresizingMaskIntoConstraints = false
-
         font = UIFont.beskar.build(size, weight)
         textColor = color
         self.text = text
-
-        lineBreakMode = .byWordWrapping
-        numberOfLines = 0
-        textAlignment = .center
     }
 
     @available(*, unavailable)

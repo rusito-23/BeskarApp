@@ -16,7 +16,6 @@ extension BeskarWrapper where Base == UIImage {
     public struct Name {
         public enum System: String {
             // Messages
-
             case success = "checkmark.icon"
             case warning = "exclamationmark.triangle"
             case error = "xmark.octagon"
@@ -30,6 +29,7 @@ extension BeskarWrapper where Base == UIImage {
             case add = "plus.circle"
             case sub = "minus.circle"
             case list = "list.dash"
+            case new = "plus.circle.fill"
 
             // Other
             case wip = "wrench.and.screwdriver"

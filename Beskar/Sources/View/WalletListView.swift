@@ -16,10 +16,8 @@ final class WalletListView: UIView {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        tableView.register(
-            WalletCardView.self,
-            forCellReuseIdentifier: WalletCardView.identifier
-        )
+        tableView.register(WalletCardView.self)
+        tableView.register(AddNewWalletCell.self)
         tableView.accessibilityIdentifier = A.WalletListView.table
         return tableView
     }()

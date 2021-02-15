@@ -55,3 +55,11 @@ extension A {
         static let deposit = "WalletCardView.deposit"
     }
 }
+
+extension A {
+    struct AddNewWalletCell {
+        static let title = "AddNewWalletCell.title"
+        static let subtitle = "AddNewWalletCell.subtitle"
+        static let addWallet = "AddNewWalletCell.add"
+    }
+}

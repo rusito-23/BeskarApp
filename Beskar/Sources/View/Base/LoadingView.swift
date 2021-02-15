@@ -20,8 +20,7 @@ final class LoadingView: UIView {
     // MARK: Subviews
 
     lazy var titleLabel = Label(
-        size: .medium,
-        weight: .traitBold,
+        size: .small,
         color: UIColor.beskar.primary,
         text: "LOADING".localized,
         identifier: A.LoadingScreen.title

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:BeskarPlayground.playground">
+   </FileRef>
+   <FileRef
       location = "container:Beskar/Beskar.xcodeproj">
    </FileRef>
    <FileRef

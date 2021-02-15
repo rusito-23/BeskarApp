@@ -14,24 +14,13 @@ import UIKit
 /// within this view. Uses `tertiary` tinto color for normal state and `secondary` for highlighted.
 public class ActionButton: UIButton {
 
-    // MARK: Types
-
-    public enum Kind {
-        case primary
-        case secondary
-        case tertiary
-    }
-
-    // MARK: Computer Properties
-
-    private lazy var symbolConfiguration = UIImage.SymbolConfiguration(
-        pointSize: UIFont.Beskar.Size.typeMedium.rawValue
-    )
-
     // MARK: Initializers
 
     public init(
         imageName: UIImage.Beskar.Name.System,
+        size: UIFont.Beskar.Size = .typeMedium,
+        color: UIColor = UIColor.beskar.tertiary,
+        highlightColor: UIColor = UIColor.beskar.secondary,
         identifier: String? = nil,
         label: String? = nil
     ) {
@@ -40,7 +29,12 @@ public class ActionButton: UIButton {
         accessibilityIdentifier = identifier
         accessibilityLabel = label
 
-        setUpImage(with: imageName)
+        setUpImage(
+            with: imageName,
+            pointSize: size.rawValue,
+            color: color,
+            highlightColor: highlightColor
+        )
     }
 
     @available(*, unavailable)
@@ -50,12 +44,17 @@ public class ActionButton: UIButton {
 
     // MARK: Private Methods
 
-    private func setUpImage(with imageName: UIImage.Beskar.Name.System) {
+    private func setUpImage(
+        with imageName: UIImage.Beskar.Name.System,
+        pointSize: CGFloat,
+        color: UIColor,
+        highlightColor: UIColor
+    ) {
         setImage(
             UIImage.beskar
                 .create(imageName)?
                 .withTintColor(
-                    UIColor.beskar.tertiary,
+                    color,
                     renderingMode: .alwaysOriginal
             ), for: .normal
         )
@@ -64,11 +63,12 @@ public class ActionButton: UIButton {
             UIImage.beskar
                 .create(imageName)?
                 .withTintColor(
-                    UIColor.beskar.secondary,
+                    highlightColor,
                     renderingMode: .alwaysOriginal
             ), for: .highlighted
         )
 
+        let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: pointSize)
         setPreferredSymbolConfiguration(symbolConfiguration, forImageIn: .normal)
         setPreferredSymbolConfiguration(symbolConfiguration, forImageIn: .highlighted)
         imageView?.contentMode = .scaleAspectFit

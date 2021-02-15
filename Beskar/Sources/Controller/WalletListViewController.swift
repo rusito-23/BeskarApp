@@ -8,4 +8,12 @@
 import BeskarUI
 import UIKit
 
-final class WalletListViewController: ViewController<WalletListView> {}
+final class WalletListViewController: ViewController<WalletListView> {
+
+    // MARK: View Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+}

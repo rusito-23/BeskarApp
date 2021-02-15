@@ -41,14 +41,11 @@ public class FieldMessage: UIView {
 
     // MARK: Subviews
 
-    private lazy var messageLabel: Label = {
-        let label = Label(
-            size: .extraSmall,
-            color: UIColor.beskar.success
-        )
-        label.textAlignment = .left
-        return label
-    }()
+    private lazy var messageLabel = Label(
+        size: .extraSmall,
+        color: UIColor.beskar.success,
+        alignment: .left
+    )
 
     private lazy var messageAccessory: UIImageView = {
         let view = UIImageView()

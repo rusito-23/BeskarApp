@@ -10,32 +10,22 @@ import UIKit
 
 final class WalletCardView: UITableViewCell {
 
-    // MARK: Reuse identifier
-
-    static let identifier = "WalletCardView"
-
     // MARK: Texts
 
-    lazy var titleLabel: Label = {
-        let label = Label(
-            size: .small,
-            weight: .traitBold,
-            color: UIColor.beskar.tertiary,
-            identifier: A.WalletCardView.title
-        )
-        label.textAlignment = .left
-        return label
-    }()
+    lazy var titleLabel = Label(
+        size: .small,
+        weight: .traitBold,
+        color: UIColor.beskar.tertiary,
+        alignment: .left,
+        identifier: A.WalletCardView.title
+    )
 
-    lazy var amountLabel: Label = {
-        let label =  Label(
-            size: .small,
-            color: UIColor.beskar.tertiary,
-            identifier: A.WalletCardView.amount
-        )
-        label.textAlignment = .right
-        return label
-    }()
+    lazy var amountLabel = Label(
+        size: .small,
+        color: UIColor.beskar.tertiary,
+        alignment: .right,
+        identifier: A.WalletCardView.amount
+    )
 
     // MARK: Buttons
 
