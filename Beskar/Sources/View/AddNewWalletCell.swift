@@ -18,12 +18,6 @@ final class AddNewWalletCell: UITableViewCell {
         identifier: A.AddNewWalletCell.title
     )
 
-    lazy var subtitleLabel = Label(
-        size: .small,
-        color: UIColor.beskar.secondary,
-        identifier: A.AddNewWalletCell.subtitle
-    )
-
     lazy var newWalletButton = ActionButton(
         imageName: .new,
         size: .large,
@@ -54,7 +48,6 @@ final class AddNewWalletCell: UITableViewCell {
     private func setUpViews() {
         contentView.addSubviews(
             titleLabel,
-            subtitleLabel,
             newWalletButton
         )
 
@@ -63,13 +56,8 @@ final class AddNewWalletCell: UITableViewCell {
         titleLabel.leading(to: contentView, offset: Spacing.small.rawValue)
         titleLabel.trailing(to: contentView, offset: -Spacing.small.rawValue)
 
-        // Subtitle Constraints
-        subtitleLabel.topToBottom(of: titleLabel, offset: Spacing.small.rawValue)
-        subtitleLabel.leading(to: titleLabel)
-        subtitleLabel.trailing(to: titleLabel)
-
         // Add New Wallet Button Constraints
-        newWalletButton.topToBottom(of: subtitleLabel, offset: Spacing.small.rawValue)
+        newWalletButton.topToBottom(of: titleLabel, offset: Spacing.small.rawValue)
         newWalletButton.centerXToSuperview()
         newWalletButton.size(Size.medium.size)
         newWalletButton.bottomToSuperview()

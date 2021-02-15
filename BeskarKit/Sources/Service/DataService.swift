@@ -9,7 +9,6 @@ import RealmSwift
 
 /// - Description
 /// Defines common behavior used to manage persistent data in the app.
-
 open class DataService<Data: Object> {
 
     // MARK: Types

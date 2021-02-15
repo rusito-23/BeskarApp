@@ -12,7 +12,7 @@ final class WalletListView: UIView {
 
     // MARK: Subviews
 
-    private lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none

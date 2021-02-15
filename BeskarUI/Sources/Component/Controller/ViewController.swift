@@ -6,11 +6,13 @@
 //
 //  Design System View Controller
 
+import Combine
 import UIKit
 
 /// # Description #
 /// A View Controller that conforms to the Beskar Style.
 /// Provides overrides that set up the style and helpers to auto-setup a custom view.
+/// Also, provides a default `subscriptions` set to store bindings.
 ///
 /// # Example #
 /// ```
@@ -34,6 +36,8 @@ open class ViewController<View>: UIViewController where View: UIView {
     // MARK: Properties
 
     open lazy var customView = View()
+
+    open lazy var subscriptions = Set<AnyCancellable>()
 
     // MARK: View Lifecycle
 
