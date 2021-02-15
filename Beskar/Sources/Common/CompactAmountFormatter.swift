@@ -5,22 +5,22 @@
 //  Created by Igor on 15/02/2021.
 //
 
+import BeskarKit
 import Foundation
 
-/// Compact Amount Description Formatter
+/// Compact Amount Number Formatter
 ///
 /// # Description #
 /// [Taken from SO](https://stackoverflow.com/a/65396645/8189455)
-/// (obviously)
 ///
 /// # Example #
-/// - `US$ 10` becomes `US$ 10`
-/// - `US$ 1000` becomes `US$ 1K`
-/// - `US$ 10000` becomes `US$ 10K`
-/// - `US$ 1000000` becomes `US$ 1M`
-struct CompactAmountFormatter {
+/// - `10` becomes `US$ 10`
+/// - `1000` becomes `US$ 1K`
+/// - `1000000` becomes `US$ 1M`
+/// - `250` euros becomes `250 EU€`
+final class CompactAmountFormatter: NumberFormatter {
 
-    // MARK: Abbreviation Util
+    // MARK: Abbreviation Type
 
     private typealias Abbreviation = (
         threshold: Double,
@@ -28,27 +28,36 @@ struct CompactAmountFormatter {
         suffix: String
     )
 
-    // MARK: Static Private Properties
+    // MARK: Private Properties
 
-    private static var abbreviations: [Abbreviation] = [
+    private var currency: Currency
+
+    private lazy var abbreviations: [Abbreviation] = [
         (0, 1, ""),
         (1000.0, 1000.0, "K"),
         (100_000.0, 1_000_000.0, "M"),
         (100_000_000.0, 1_000_000_000.0, "B"),
     ]
 
-    private static var numberFormatter: NumberFormatter {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.allowsFloats = true
-        numberFormatter.minimumIntegerDigits = 1
-        numberFormatter.minimumFractionDigits = 0
-        numberFormatter.maximumFractionDigits = 1
-        return numberFormatter
+    // MARK: Initializers
+
+    init(currency: Currency) {
+        self.currency = currency
+        super.init()
+        allowsFloats = true
+        minimumIntegerDigits = 1
+        minimumFractionDigits = 0
+        maximumFractionDigits = 1
     }
 
-    // MARK: Static Methods
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-    static func format(_ amount: Double) -> String? {
+    // MARK: Methods
+
+    func string(for amount: Double) -> String {
         // Retrieve abbreviation
         let abbreviation: Abbreviation = {
             var previous = abbreviations[0]
@@ -60,13 +69,26 @@ struct CompactAmountFormatter {
         }()
 
         // Set suffix
-        let numberFormatter = self.numberFormatter
-        numberFormatter.positiveSuffix = abbreviation.suffix
-        numberFormatter.negativeSuffix = abbreviation.suffix
+        positiveSuffix = abbreviation.suffix
+        negativeSuffix = abbreviation.suffix
 
-        // Format
-        return numberFormatter.string(from: NSNumber(
-            value: amount / abbreviation.divisor
-        ))
+        // Join with the currency locale
+        var components = [
+            currency.display,
+            string(
+                for: NSNumber(
+                    value: amount / abbreviation.divisor
+                )
+            ) ?? "",
+        ]
+
+        // Reverse components given by currency
+        switch currency {
+        case .dollars, .pesos: break
+        case .euros: components.reverse()
+        }
+
+        // Join into a single string
+        return components.joined(separator: " ")
     }
 }

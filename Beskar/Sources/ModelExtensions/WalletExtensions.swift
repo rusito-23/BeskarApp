@@ -16,20 +16,8 @@ extension Wallet {
             .reduce(Double.zero, +)
     }
 
-    /// The localized compact amount
+    /// The compact amount, localized
     var compactAmountFormatted: String {
-        // Format and prepare components
-        let amountFormatted = CompactAmountFormatter.format(amount) ?? ""
-        var components = [ currency.display, amountFormatted ]
-
-        // Reverse components given by locale
-        // Eventually use the default Swift formatter
-        switch currency {
-        case .dollars, .pesos: break
-        case .euros: components.reverse()
-        }
-
-        // Join into a single string
-        return components.joined(separator: " ")
+        CompactAmountFormatter(currency: currency).string(for: amount)
     }
 }
