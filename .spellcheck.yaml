@@ -10,3 +10,4 @@ whiteList:
   - associatedtype
   - typealias
   - swinject
+  - stackoverflow

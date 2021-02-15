@@ -44,4 +44,9 @@ import protocol RealmSwift.RealmEnum
         case .euros: return "EU"
         }
     }
+
+    /// The string to be displayed on showing a currency
+    public var display: String {
+        "\(locale)\(sign)"
+    }
 }

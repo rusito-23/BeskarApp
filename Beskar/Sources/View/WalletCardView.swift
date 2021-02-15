@@ -6,13 +6,20 @@
 //
 
 import BeskarUI
+import Combine
 import UIKit
 
 final class WalletCardView: UITableViewCell {
 
+    // MARK: Properties
+
+    var viewModel: WalletViewModel = .resolved
+
+    private lazy var subscriptions = Set<AnyCancellable>()
+
     // MARK: Texts
 
-    private(set) lazy var titleLabel = Label(
+    private lazy var titleLabel = Label(
         size: .small,
         weight: .traitBold,
         color: UIColor.beskar.tertiary,
@@ -20,7 +27,7 @@ final class WalletCardView: UITableViewCell {
         identifier: A.WalletCardView.title
     )
 
-    private(set) lazy var amountLabel = Label(
+    private lazy var amountLabel = Label(
         size: .small,
         color: UIColor.beskar.tertiary,
         alignment: .right,
@@ -29,17 +36,17 @@ final class WalletCardView: UITableViewCell {
 
     // MARK: Buttons
 
-    private(set) lazy var depositButton = ActionButton(
+    private lazy var depositButton = ActionButton(
         imageName: .add,
         identifier: A.WalletCardView.deposit
     )
 
-    private(set) lazy var listTransactionsButton = ActionButton(
+    private lazy var listTransactionsButton = ActionButton(
         imageName: .list,
         identifier: A.WalletCardView.listTransactions
     )
 
-    private(set) lazy var withdrawButton = ActionButton(
+    private lazy var withdrawButton = ActionButton(
         imageName: .sub,
         identifier: A.WalletCardView.withdraw
     )
@@ -105,6 +112,7 @@ final class WalletCardView: UITableViewCell {
 
         setUpViews()
         setUpBorderAsCard()
+        setUpBindings()
     }
 
     @available(*, unavailable)
@@ -131,5 +139,15 @@ final class WalletCardView: UITableViewCell {
         contentView.layer.borderWidth = Border.Width.small.rawValue
         contentView.layer.borderColor = UIColor.beskar.tertiary.cgColor
         contentView.layer.cornerRadius = Border.Radius.medium.rawValue
+    }
+
+    private func setUpBindings() {
+        viewModel.namePublisher.assign(
+            to: \.text, on: titleLabel
+        ).store(in: &subscriptions)
+
+        viewModel.compactAmountPublisher.assign(
+            to: \.text, on: amountLabel
+        ).store(in: &subscriptions)
     }
 }

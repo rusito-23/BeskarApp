@@ -29,6 +29,10 @@ final class Swinject {
                 walletService: r.resolve(WalletServiceProtocol.self)
             )
         }
+
+        container.register(WalletViewModel.self) { (r: Resolver) in
+            WalletViewModel()
+        }
     }
 }
 

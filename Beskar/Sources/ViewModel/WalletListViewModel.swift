@@ -13,7 +13,7 @@ import UIKit
 /// Performs business logic on wallets
 /// - Retrieves wallet list
 /// - Provides published bindings for wallets and other useful data
-final class WalletListViewModel: NSObject, ObservableObject, Resolvable {
+final class WalletListViewModel: ViewModel, Resolvable {
 
     // MARK: State
 
@@ -42,11 +42,11 @@ final class WalletListViewModel: NSObject, ObservableObject, Resolvable {
 
     // MARK: Initializers
 
-    init(walletService: WalletServiceProtocol? = WalletService()) {
+    init(walletService: WalletServiceProtocol?) {
         self.walletService = walletService
     }
 
-    // MARK: Methods
+    // MARK: View Model Conformance
 
     /// Entry point to start loading the actual wallets
     /// This method updates the published state and fetches the wallets

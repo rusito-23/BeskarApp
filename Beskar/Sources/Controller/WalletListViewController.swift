@@ -21,6 +21,7 @@ final class WalletListViewController: ViewController<WalletListView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpBindings()
+        setUpActions()
         viewModel.start()
     }
 
@@ -50,17 +51,31 @@ final class WalletListViewController: ViewController<WalletListView> {
         }.store(in: &subscriptions)
 
         // Bind view model `wallets` as table data source
-        viewModel.$wallets.bind(subscriber: customView.tableView.rowsSubscriber(
-            cellIdentifier: WalletCardView.identifier,
-            cellType: WalletCardView.self,
-            cellConfig: { cell, _, model in
-                cell.titleLabel.text = model.name
-            }
-        )).store(in: &subscriptions)
+        viewModel.$wallets.bind(
+            subscriber: customView.tableView.rowsSubscriber(
+                cellIdentifier: WalletCardView.identifier,
+                cellType: WalletCardView.self,
+                cellConfig: { cell, _, model in
+                    cell.viewModel.wallet = model
+                }
+            )
+        ).store(in: &subscriptions)
 
         // Bind view model footer text
         viewModel.$footerText.assign(
             to: \.text, on: customView.footerView.titleLabel
         ).store(in: &subscriptions)
     }
+
+    private func setUpActions() {
+        customView.footerView.newWalletButton.addTarget(
+            self,
+            action: #selector(onCreateWallet),
+            for: .touchUpInside
+        )
+    }
+
+    // MARK: Actions
+
+    @objc private func onCreateWallet(_ sender: UIButton) { }
 }

@@ -6,40 +6,24 @@
 //
 
 import BeskarKit
+import Combine
 import Foundation
 
-final class WalletViewModel {
+final class WalletViewModel: ViewModel, Resolvable {
 
-    // MARK: Published properties
+    // MARK: Properties
+
+    @Published var wallet: Wallet?
+
+    // MARK: Publishers
 
     /// The name of the wallet as a published string
-    @Published private(set) var name: String?
+    private(set) lazy var namePublisher: AnyPublisher<String?, Never> = $wallet
+        .map { $0?.name }
+        .eraseToAnyPublisher()
 
-    /// The amount of the wallet with currency info
-    /// as a published string
-    @Published private(set) var amountText: String?
-
-    // MARK: Private properties
-
-    private let wallet: Wallet
-
-    // MARK: Initializer
-
-    init(_ wallet: Wallet) {
-        self.wallet = wallet
-        update()
-    }
-
-    // MARK: Private Methods
-
-    private func update() {
-        name = wallet.name
-        amountText = [
-            "\(wallet.currency.locale)\(wallet.currency.sign)",
-            String(wallet.transactions
-                .map { $0.amount }
-                .reduce(Double.zero, +)
-            ),
-        ].joined(separator: " ")
-    }
+    /// The compact amount of the wallet with currency info as a published string
+    private(set) lazy var compactAmountPublisher: AnyPublisher<String?, Never> =  $wallet
+        .map { $0?.compactAmountFormatted }
+        .eraseToAnyPublisher()
 }
