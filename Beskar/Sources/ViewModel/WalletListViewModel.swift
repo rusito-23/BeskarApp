@@ -51,6 +51,7 @@ final class WalletListViewModel: ViewModel, Resolvable {
     /// Entry point to start loading the actual wallets
     /// This method updates the published state and fetches the wallets
     func start() {
+        guard state != .loading else { return }
         state = .loading
         walletService?.fetch { result in
             switch result {
@@ -60,8 +61,7 @@ final class WalletListViewModel: ViewModel, Resolvable {
             case let .success(wallets):
                 self.wallets = wallets
                 self.state = .loaded
-                self.footerText = wallets.isEmpty ?
-                    "CREATE_NEW_WALLET_TITLE".localized : nil
+                self.footerText = self.wallets.isEmpty ? "CREATE_NEW_WALLET_TITLE".localized : nil
             }
         }
     }

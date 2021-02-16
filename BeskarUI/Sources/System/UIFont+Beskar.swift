@@ -16,6 +16,7 @@ public extension BeskarWrapper where Base == UIFont {
     enum Size: CGFloat {
         case extraLarge = 64.0
         case large = 46.0
+        case typeLarge = 36.0
         case medium = 32.0
         case typeMedium = 27.0
         case small = 23.0

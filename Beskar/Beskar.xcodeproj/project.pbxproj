@@ -43,6 +43,7 @@
 		7897668425DB00F0000E9552 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897668325DB00F0000E9552 /* ViewModel.swift */; };
 		7897668825DB0AD1000E9552 /* CompactAmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897668725DB0AD1000E9552 /* CompactAmountFormatter.swift */; };
 		7897669025DB1460000E9552 /* WalletExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897668F25DB1460000E9552 /* WalletExtensions.swift */; };
+		789766B425DB2BC4000E9552 /* WalletServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789766B025DB2BBA000E9552 /* WalletServiceMock.swift */; };
 		78AC5E3C25D60729005F8D86 /* WalletCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC5E3B25D60729005F8D86 /* WalletCardView.swift */; };
 		78C0909225D083E900C8563B /* LoggerSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C0909125D083E900C8563B /* LoggerSetUp.swift */; };
 		78C0909F25D0841B00C8563B /* BeskarKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909825D0841B00C8563B /* BeskarKit.framework */; };
@@ -125,6 +126,7 @@
 		7897668325DB00F0000E9552 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7897668725DB0AD1000E9552 /* CompactAmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactAmountFormatter.swift; sourceTree = "<group>"; };
 		7897668F25DB1460000E9552 /* WalletExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletExtensions.swift; sourceTree = "<group>"; };
+		789766B025DB2BBA000E9552 /* WalletServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletServiceMock.swift; sourceTree = "<group>"; };
 		78AC5E3B25D60729005F8D86 /* WalletCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCardView.swift; sourceTree = "<group>"; };
 		78C0909125D083E900C8563B /* LoggerSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSetUp.swift; sourceTree = "<group>"; };
 		78C0909825D0841B00C8563B /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +190,7 @@
 		782468A925D03E3E00B1B9E4 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				789766B025DB2BBA000E9552 /* WalletServiceMock.swift */,
 				782468AA25D03E5600B1B9E4 /* NavigationControllerMock.swift */,
 				782E6D8C25D0404F0057705E /* AuthServiceMock.swift */,
 			);
@@ -537,6 +540,7 @@
 			files = (
 				782E6D8D25D0404F0057705E /* AuthServiceMock.swift in Sources */,
 				782468A425CF992B00B1B9E4 /* AppCoordinatorTests.swift in Sources */,
+				789766B425DB2BC4000E9552 /* WalletServiceMock.swift in Sources */,
 				782468AE25D03E8A00B1B9E4 /* NavigationControllerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

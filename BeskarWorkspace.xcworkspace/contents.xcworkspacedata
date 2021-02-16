@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:BeskarPlayground.playground">
-   </FileRef>
-   <FileRef
       location = "container:Beskar/Beskar.xcodeproj">
    </FileRef>
    <FileRef
@@ -12,6 +9,9 @@
    </FileRef>
    <FileRef
       location = "group:BeskarKit/BeskarKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BeskarPlayground.playground">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

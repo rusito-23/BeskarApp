@@ -26,10 +26,10 @@ extension BeskarWrapper where Base == UIImage {
             case analytics = "chart.bar.xaxis"
 
             // Actions
-            case add = "plus.circle"
-            case sub = "minus.circle"
-            case list = "list.dash"
-            case new = "plus.circle.fill"
+            case deposit = "plus.circle"
+            case withdraw = "minus.circle"
+            case details = "list.dash"
+            case create = "plus.circle.fill"
 
             // Other
             case wip = "wrench.and.screwdriver"

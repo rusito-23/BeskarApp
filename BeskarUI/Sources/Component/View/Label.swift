@@ -24,18 +24,18 @@ public class Label: UILabel {
         color: UIColor = UIColor.beskar.primary,
         breakMode: NSLineBreakMode = .byWordWrapping,
         alignment: NSTextAlignment = .center,
+        lines: Int = 0,
+        autoConstraints: Bool = false,
         text: String? = nil,
-        identifier: String? = nil,
-        label: String? = nil
+        identifier: String? = nil
     ) {
         super.init(frame: .zero)
 
         lineBreakMode = breakMode
         textAlignment = alignment
         accessibilityIdentifier = identifier
-        accessibilityLabel = label
-        numberOfLines = 0
-        translatesAutoresizingMaskIntoConstraints = false
+        numberOfLines = lines
+        translatesAutoresizingMaskIntoConstraints = autoConstraints
         font = UIFont.beskar.build(size, weight)
         textColor = color
         self.text = text

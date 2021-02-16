@@ -24,30 +24,35 @@ final class WalletCardView: UITableViewCell {
         weight: .traitBold,
         color: UIColor.beskar.tertiary,
         alignment: .left,
+        lines: 3,
         identifier: A.WalletCardView.title
-    )
+    ).withCompressionResistance(.required, for: .vertical)
 
     private lazy var amountLabel = Label(
         size: .small,
         color: UIColor.beskar.tertiary,
         alignment: .right,
+        lines: 3,
         identifier: A.WalletCardView.amount
-    )
+    ).withCompressionResistance(.required, for: .vertical)
 
     // MARK: Buttons
 
     private lazy var depositButton = ActionButton(
-        imageName: .add,
+        imageName: .deposit,
+        size: .typeLarge,
         identifier: A.WalletCardView.deposit
     )
 
-    private lazy var listTransactionsButton = ActionButton(
-        imageName: .list,
-        identifier: A.WalletCardView.listTransactions
+    private lazy var detailsButton = ActionButton(
+        imageName: .details,
+        size: .typeLarge,
+        identifier: A.WalletCardView.detailsButton
     )
 
     private lazy var withdrawButton = ActionButton(
-        imageName: .sub,
+        imageName: .withdraw,
+        size: .typeLarge,
         identifier: A.WalletCardView.withdraw
     )
 
@@ -59,30 +64,29 @@ final class WalletCardView: UITableViewCell {
         kind: .horizontal
     )
 
-    private lazy var headerStack: UIStackView = {
+    private lazy var headerStack: UIView = {
         let stackView = UIStackView(arrangedSubviews: [
             titleLabel,
             amountLabel,
         ])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = Spacing.small.rawValue
-        stackView.distribution = .fill
-        stackView.layoutMargins = UIEdgeInsets.beskar.horizontal(by: .medium)
-        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.alignment = .top
+        stackView.accessibilityIdentifier = A.WalletCardView.header
         return stackView
     }()
 
     private lazy var buttonStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             withdrawButton,
-            listTransactionsButton,
+            detailsButton,
             depositButton,
         ])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = Spacing.small.rawValue
         stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.accessibilityIdentifier = A.WalletCardView.buttons
         return stackView
     }()
 
@@ -93,9 +97,11 @@ final class WalletCardView: UITableViewCell {
             buttonStack,
         ])
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
         stackView.spacing = Spacing.medium.rawValue
+        stackView.axis = .vertical
         stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.accessibilityIdentifier = A.WalletCardView.content
         return stackView
     }()
 
@@ -106,6 +112,7 @@ final class WalletCardView: UITableViewCell {
         reuseIdentifier: String?
     ) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
         contentView.backgroundColor = UIColor.beskar.primary
         selectionStyle = .none

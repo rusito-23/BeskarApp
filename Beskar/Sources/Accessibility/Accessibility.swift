@@ -51,8 +51,12 @@ extension A {
         static let title = "WalletCardView.title"
         static let amount = "WalletCardView.amount"
         static let withdraw = "WalletCardView.withdraw"
-        static let listTransactions = "WalletCardView.listTransactions"
+        static let detailsButton = "WalletCardView.detailsButton"
         static let deposit = "WalletCardView.deposit"
+        static let header = "WalletCardView.header"
+        static let separator = "WalletCardView.separator"
+        static let buttons = "WalletCardView.buttons"
+        static let content = "WalletCardView.content"
     }
 }
 

@@ -19,6 +19,9 @@ final class WalletListView: UIView {
         tableView.register(WalletCardView.self)
         tableView.tableFooterView = footerView
         tableView.accessibilityIdentifier = A.WalletListView.table
+        tableView.showsVerticalScrollIndicator = false
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
 
@@ -40,11 +43,7 @@ final class WalletListView: UIView {
 
     private func setUpViews() {
         addSubview(tableView)
-        tableView.edges(
-            to: layoutMarginsGuide,
-            insets: .vertical(Spacing.small.rawValue)
-        )
-
+        tableView.edges(to: layoutMarginsGuide, insets: .vertical(Spacing.small.rawValue))
         footerView.width(to: tableView)
     }
 }

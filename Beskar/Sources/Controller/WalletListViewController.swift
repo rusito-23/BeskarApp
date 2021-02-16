@@ -22,6 +22,9 @@ final class WalletListViewController: ViewController<WalletListView> {
         super.viewDidLoad()
         setUpBindings()
         setUpActions()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         viewModel.start()
     }
 
@@ -55,9 +58,7 @@ final class WalletListViewController: ViewController<WalletListView> {
             subscriber: customView.tableView.rowsSubscriber(
                 cellIdentifier: WalletCardView.identifier,
                 cellType: WalletCardView.self,
-                cellConfig: { cell, _, model in
-                    cell.viewModel.wallet = model
-                }
+                cellConfig: { $0.viewModel.wallet = $2 }
             )
         ).store(in: &subscriptions)
 
