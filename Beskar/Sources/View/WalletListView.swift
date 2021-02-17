@@ -10,6 +10,13 @@ import UIKit
 
 final class WalletListView: UIView {
 
+    // MARK: Properties
+
+    var isFooterHidden: Bool {
+        get { footerView.isHidden }
+        set { footerView.isHidden = newValue }
+    }
+
     // MARK: Subviews
 
     private(set) lazy var tableView: UITableView = {
@@ -17,11 +24,11 @@ final class WalletListView: UIView {
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.register(WalletCardView.self)
-        tableView.tableFooterView = footerView
-        tableView.accessibilityIdentifier = A.WalletListView.table
+        tableView.delegate = self
         tableView.showsVerticalScrollIndicator = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.accessibilityIdentifier = A.WalletListView.table
         return tableView
     }()
 
@@ -44,6 +51,14 @@ final class WalletListView: UIView {
     private func setUpViews() {
         addSubview(tableView)
         tableView.edges(to: layoutMarginsGuide, insets: .vertical(Spacing.small.rawValue))
-        footerView.width(to: tableView)
+    }
+}
+
+extension WalletListView: UITableViewDelegate {
+    func tableView(
+        _ tableView: UITableView,
+        viewForFooterInSection section: Int
+    ) -> UIView? {
+        footerView
     }
 }

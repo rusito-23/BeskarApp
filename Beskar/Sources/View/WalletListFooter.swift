@@ -18,24 +18,13 @@ final class WalletListFooter: UIView {
         identifier: A.WalletListFooter.title
     )
 
-    private(set) lazy var newWalletButton = ActionButton(
+    private(set) lazy var createWalletButton = ActionButton(
         imageName: .create,
         size: .large,
         color: UIColor.beskar.primary,
         highlightColor: UIColor.beskar.secondary,
-        identifier: A.WalletListFooter.addWallet
+        identifier: A.WalletListFooter.create
     )
-
-    private lazy var contentStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            titleLabel,
-            newWalletButton,
-        ])
-        stackView.axis = .vertical
-        stackView.spacing = Spacing.small.rawValue
-        stackView.alignment = .fill
-        return stackView
-    }()
 
     // MARK: Initializers
 
@@ -53,7 +42,15 @@ final class WalletListFooter: UIView {
     // MARK: Private Methods
 
     private func setUpViews() {
-        addSubviews(contentStack)
-        contentStack.edges(to: self)
+        addSubviews(titleLabel, createWalletButton)
+        titleLabel.edgesToSuperview(
+            excluding: .bottom,
+            insets: .horizontal(Spacing.small.rawValue)
+        )
+
+        createWalletButton.topToBottom(of: titleLabel)
+        createWalletButton.size(Size.medium.size)
+        createWalletButton.centerXToSuperview()
+        createWalletButton.bottomToSuperview()
     }
 }

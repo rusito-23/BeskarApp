@@ -63,6 +63,6 @@ extension A {
 extension A {
     struct WalletListFooter {
         static let title = "WalletListFooter.title"
-        static let addWallet = "WalletListFooter.add"
+        static let create = "WalletListFooter.create"
     }
 }

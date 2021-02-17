@@ -31,28 +31,6 @@ final class WalletListViewController: ViewController<WalletListView> {
     // MARK: Private Methods
 
     private func setUpBindings() {
-        // Bind view model `state` handling
-        viewModel.$state.sink { state in
-            switch state {
-            case .ready:
-                self.customView.footerView.isHidden = true
-                self.stopLoading()
-            case .loading:
-                self.customView.footerView.isHidden = true
-                self.startLoading()
-            case .loaded:
-                self.customView.footerView.isHidden = false
-                self.stopLoading()
-            case .failed:
-                self.customView.footerView.isHidden = true
-                self.stopLoading()
-                self.showError(
-                    "WALLET_LIST_ERROR".localized,
-                    buttonTitle: "RETRY".localized
-                ) { [weak self] in self?.viewModel.start() }
-            }
-        }.store(in: &subscriptions)
-
         // Bind view model `wallets` as table data source
         viewModel.$wallets.bind(
             subscriber: customView.tableView.rowsSubscriber(
@@ -63,20 +41,44 @@ final class WalletListViewController: ViewController<WalletListView> {
         ).store(in: &subscriptions)
 
         // Bind view model footer text
-        viewModel.$footerText.assign(
-            to: \.text, on: customView.footerView.titleLabel
+        viewModel.$footerText.sink { footerText in
+            self.customView.footerView.titleLabel.text = footerText
+            self.customView.tableView.reloadData()
+        }.store(in: &subscriptions)
+
+        // Bind view model footer visibility
+        viewModel.$hideFooter.assign(
+            to: \.isFooterHidden, on: customView
         ).store(in: &subscriptions)
+
+        // Bind view model loading indicator
+        viewModel.$isLoading.sink { loading in
+            loading ? self.startLoading() : self.stopLoading()
+        }.store(in: &subscriptions)
+
+        // Bind view model error
+        viewModel.$failed.sink { failed in
+            guard failed else { return }
+            self.showLoadError()
+        }.store(in: &subscriptions)
     }
 
     private func setUpActions() {
-        customView.footerView.newWalletButton.addTarget(
+        customView.footerView.createWalletButton.addTarget(
             self,
-            action: #selector(onCreateWallet),
+            action: #selector(onCreateWalletTapped),
             for: .touchUpInside
         )
     }
 
+    private func showLoadError() {
+        showError(
+            "WALLET_LIST_ERROR".localized,
+            buttonTitle: "RETRY".localized
+        ) { [weak self] in self?.viewModel.start() }
+    }
+
     // MARK: Actions
 
-    @objc private func onCreateWallet(_ sender: UIButton) { }
+    @objc private func onCreateWalletTapped(_ sender: UIButton) { }
 }
