@@ -1,6 +1,6 @@
 //
 //  Coordinator.swift
-//  Beskar
+//  BeskarUI
 //
 //  Created by Igor on 28/01/2021.
 //
@@ -14,7 +14,7 @@ import UIKit
 /// Used to
 /// - Wrap the presentation logic
 /// - Remove presentation dependencies from the view controller
-protocol Coordinator {
+public protocol Coordinator: AnyObject {
 
     // MARK: Properties
 
@@ -33,6 +33,6 @@ protocol Coordinator {
 // MARK: - Protocol Defaults
 
 /// Stop method isn't required for all coordinators
-extension Coordinator {
+public extension Coordinator {
     func stop() {}
 }

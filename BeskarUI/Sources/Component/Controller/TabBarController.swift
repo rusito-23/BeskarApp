@@ -11,6 +11,10 @@ import UIKit
 
 open class TabBarController: UITabBarController {
 
+    // MARK: Properties
+
+    open weak var coordinator: Coordinator?
+
     // MARK: View Lifecycle
 
     open override func viewDidLoad() {

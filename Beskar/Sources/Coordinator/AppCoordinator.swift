@@ -13,7 +13,7 @@ final class AppCoordinator: Coordinator {
 
     // MARK: Properties
 
-    /// App Coordinator sets up its own `presenter`
+    /// The App Coordinator sets up its own `presenter`,
     /// That's what I call autonomy...
     var presenter: UIViewController
 
@@ -25,20 +25,12 @@ final class AppCoordinator: Coordinator {
         return window
     }()
 
-    /// Authentication Services, brought to you by `BeskarKit`
-    private let authService: AuthServiceProtocol
-
-    /// JIC: A reference to the root view controller
-    private var rootViewController: UIViewController?
+    private var rootCoordinator: Coordinator?
 
     // MARK: Initializers
 
-    init(
-        presenter: UIViewController = NavigationController(),
-        authService: AuthServiceProtocol = AuthService()
-    ) {
+    init(presenter: UIViewController = NavigationController()) {
         self.presenter = presenter
-        self.authService = authService
     }
 
     // MARK: Coordinator Conformance
@@ -50,76 +42,44 @@ final class AppCoordinator: Coordinator {
         // Check if Welcome Flow must be shown
         guard Preferences.isNotFirstLaunch else {
             Preferences.isNotFirstLaunch = true
-            startWelcomeFlow(then: startLoginFlow)
+            startWelcomeFlow()
             return
         }
 
         // Start Login Flow
         startLoginFlow()
     }
+}
 
-    // MARK: Private Methods
+// MARK: Flows
 
-    /// Show Welcome Screen
-    private func startWelcomeFlow(
-        then completion: @escaping (() -> Void)
-    ) {
+extension AppCoordinator {
+
+    /// Start Welcome Flow - only shown on first launch
+    func startWelcomeFlow() {
         let viewController = WelcomeViewController()
-        viewController.onAllowButtonCompletion = completion
-        present(viewController)
-    }
-
-    /// Authenticate and then show Error or Main screen
-    private func startLoginFlow() {
-        // Check for Auth Services availability
-        guard authService.isAvailable() else {
-            handle(error: .unavailable)
-            return
-        }
-
-        #if DEBUG
-        startMainFlow()
-        return
-        #endif
-
-        // Start biometric authentication
-        authService.authenticate(
-            reason: "AUTH_REASON".localized
-        ) { [weak self] result in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-
-                switch result {
-                case let .success(success) where success:
-                    // handle success case
-                    self.startMainFlow()
-                case let .failure(error):
-                    // handle error
-                    self.handle(error: error)
-                case .success:
-                    // handle success response
-                    // with incorrect success value
-                    self.handle(error: .unavailable)
-                }
-            }
-        }
-    }
-
-    /// Main Flow
-    /// Show the main view controller
-    private func startMainFlow() {
-        let viewController = MainTabBarController()
-        self.present(viewController)
-    }
-
-    /// Setup the root view controller and present it
-    private func present(_ viewController: UIViewController) {
-        rootViewController = viewController
+        viewController.coordinator = self
         presenter.present(viewController, animated: true)
     }
 
-    /// Handle authentication error
-    private func handle(error: AuthService.AuthError) {
+    /// Start Authentication Flow
+    func startLoginFlow() {
+        let coordinator = LoginCoordinator(
+            parentCoordinator: self,
+            presenter: presenter
+        )
+
+        coordinator.start()
+    }
+
+    /// Start Main Flow - Tab Bar
+    func startMainFlow() {
+        rootCoordinator = MainTabBarCoordinator(presenter: presenter)
+        rootCoordinator?.start()
+    }
+
+    /// Start Authentication Error Flow
+    func startAuthErrorFlow(with error: AuthService.AuthError) {
         var errorViewController: ErrorViewController
         let retryCompletion: (() -> Void) = { [weak self] in self?.startLoginFlow() }
 
@@ -141,6 +101,6 @@ final class AppCoordinator: Coordinator {
             )
         }
 
-        present(errorViewController)
+        presenter.present(errorViewController, animated: true)
     }
 }

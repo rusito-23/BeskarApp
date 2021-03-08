@@ -12,9 +12,11 @@ final class WelcomeViewController: ViewController<WelcomeView> {
 
     // MARK: Properties
 
-    var onAllowButtonCompletion: (() -> Void)?
+    var appCoordinator: AppCoordinator? {
+        coordinator as? AppCoordinator
+    }
 
-    // MARK: View Lifecycle
+    // MARK: View Controller Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ final class WelcomeViewController: ViewController<WelcomeView> {
 
     @objc private func onAllowButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true) { [weak self] in
-            self?.onAllowButtonCompletion?()
+            self?.appCoordinator?.startLoginFlow()
         }
     }
 }

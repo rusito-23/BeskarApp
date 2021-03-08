@@ -23,7 +23,7 @@ extension BeskarWrapper where Base == UIImage {
             // Tab Icons
             case settings = "gearshape"
             case wallets = "wallet.pass"
-            case analytics = "chart.bar.xaxis"
+            case stats = "chart.bar.xaxis"
 
             // Actions
             case deposit = "plus.circle"

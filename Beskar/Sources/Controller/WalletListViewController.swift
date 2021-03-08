@@ -16,6 +16,10 @@ final class WalletListViewController: ViewController<WalletListView> {
 
     private lazy var viewModel: WalletListViewModel = .resolved
 
+    private var walletListCoordinator: WalletListCoordinator? {
+        coordinator as? WalletListCoordinator
+    }
+
     // MARK: View Lifecycle
 
     override func viewDidLoad() {
@@ -80,5 +84,7 @@ final class WalletListViewController: ViewController<WalletListView> {
 
     // MARK: Actions
 
-    @objc private func onCreateWalletTapped(_ sender: UIButton) { }
+    @objc private func onCreateWalletTapped(_ sender: UIButton) {
+        walletListCoordinator?.startNewWalletFlow()
+    }
 }

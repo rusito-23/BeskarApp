@@ -25,6 +25,8 @@
 		7889475725D9A62F00BB9BEE /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475625D9A62F00BB9BEE /* ActionButton.swift */; };
 		7889475B25D9C32F00BB9BEE /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475A25D9C32F00BB9BEE /* Separator.swift */; };
 		7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564A25D0ADE70027493F /* UIImage+Beskar.swift */; };
+		78B4C9DD25F6791C005085F5 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C9DC25F6791C005085F5 /* TabCoordinator.swift */; };
+		78DAF05925DD95FB00060CBF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DAF05825DD95FB00060CBF /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		7889475625D9A62F00BB9BEE /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		7889475A25D9C32F00BB9BEE /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		7890564A25D0ADE70027493F /* UIImage+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Beskar.swift"; sourceTree = "<group>"; };
+		78B4C9DC25F6791C005085F5 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
+		78DAF05825DD95FB00060CBF /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +68,8 @@
 		782927D025C48F7300F41574 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				78438C4325D5FDFA003B8A4E /* View */,
 				7829282A25C5FEA100F41574 /* Controller */,
+				78438C4325D5FDFA003B8A4E /* View */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -120,6 +124,7 @@
 		7832235D25C44B3300D466ED /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				78B4C9D125F66EAA005085F5 /* Navigation */,
 				7829281925C5BF3A00F41574 /* System */,
 				782927D025C48F7300F41574 /* Component */,
 				782927C425C4520F00F41574 /* BeskarNamespace.swift */,
@@ -141,6 +146,15 @@
 				7829282725C5FE9300F41574 /* TextField.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		78B4C9D125F66EAA005085F5 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				78DAF05825DD95FB00060CBF /* Coordinator.swift */,
+				78B4C9DC25F6791C005085F5 /* TabCoordinator.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,11 +239,13 @@
 				78438C4525D5FE21003B8A4E /* ImageView.swift in Sources */,
 				782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */,
 				78414A6725D3492F00F9351D /* TabBarController.swift in Sources */,
+				78B4C9DD25F6791C005085F5 /* TabCoordinator.swift in Sources */,
 				782927D225C48F8800F41574 /* ViewController.swift in Sources */,
 				780770E625C74A3B00071EF3 /* FieldMessage.swift in Sources */,
 				7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */,
 				78414A6A25D3493A00F9351D /* NavigationController.swift in Sources */,
 				7889475725D9A62F00BB9BEE /* ActionButton.swift in Sources */,
+				78DAF05925DD95FB00060CBF /* Coordinator.swift in Sources */,
 				7889475B25D9C32F00BB9BEE /* Separator.swift in Sources */,
 				780770E925C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift in Sources */,
 				7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */,

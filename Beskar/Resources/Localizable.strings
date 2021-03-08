@@ -15,7 +15,7 @@
 
 // MARK: - Tab Items
 
-"ANALYTICS" = "ANALYTICS";
+"STATS" = "STATS";
 "WALLETS" = "WALLETS";
 "SETTINGS" = "SETTINGS";
 
@@ -58,5 +58,5 @@ Please make sure you have set your passcode and configured biometrics in your de
 // MARK: - Wallet List View
 
 "WALLET_LIST_ERROR" = "We can't load your wallets at this moment...";
-"CREATE_NEW_WALLET_TITLE" = "Get started by creating a new wallet";
+"CREATE_NEW_WALLET_TITLE" = "Create a new wallet and get started!";
 

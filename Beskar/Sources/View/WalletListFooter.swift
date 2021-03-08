@@ -43,14 +43,14 @@ final class WalletListFooter: UIView {
 
     private func setUpViews() {
         addSubviews(titleLabel, createWalletButton)
-        titleLabel.edgesToSuperview(
-            excluding: .bottom,
-            insets: .horizontal(Spacing.small.rawValue)
-        )
+
+        titleLabel.top(to: layoutMarginsGuide)
+        titleLabel.leading(to: layoutMarginsGuide)
+        titleLabel.trailing(to: layoutMarginsGuide)
 
         createWalletButton.topToBottom(of: titleLabel)
         createWalletButton.size(Size.medium.size)
-        createWalletButton.centerXToSuperview()
-        createWalletButton.bottomToSuperview()
+        createWalletButton.centerX(to: layoutMarginsGuide)
+        createWalletButton.bottom(to: layoutMarginsGuide)
     }
 }
