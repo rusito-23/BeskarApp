@@ -60,3 +60,10 @@ Please make sure you have set your passcode and configured biometrics in your de
 "WALLET_LIST_ERROR" = "We can't load your wallets at this moment...";
 "CREATE_NEW_WALLET_TITLE" = "Create a new wallet and get started!";
 
+// MARK: - Create New Wallet Screen
+
+"CREATE_WALLET_TITLE" = "Create a new wallet";
+"CREATE_WALLET_SUBTITLE" = "All of your wallet information and transactions will be stored locally only";
+
+"WALLET_NAME_PLACEHOLDER" = "Wallet Name";
+"WALLET_DESCRIPTION_PLACEHOLDER" = "Wallet Description";

@@ -16,7 +16,7 @@
 		7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829280D25C5AF3E00F41574 /* UIFont+Beskar.swift */; };
 		7829281225C5B4B500F41574 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829281125C5B4B500F41574 /* Label.swift */; };
 		7829281B25C5BF6700F41574 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829281A25C5BF6700F41574 /* Dimensions.swift */; };
-		7829282125C5CEE600F41574 /* InputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282025C5CEE600F41574 /* InputField.swift */; };
+		7829282125C5CEE600F41574 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282025C5CEE600F41574 /* FormField.swift */; };
 		7829282825C5FE9300F41574 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829282725C5FE9300F41574 /* TextField.swift */; };
 		7832236025C44B3300D466ED /* BeskarUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7832235E25C44B3300D466ED /* BeskarUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78414A6725D3492F00F9351D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A6625D3492F00F9351D /* TabBarController.swift */; };
@@ -39,7 +39,7 @@
 		7829280D25C5AF3E00F41574 /* UIFont+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Beskar.swift"; sourceTree = "<group>"; };
 		7829281125C5B4B500F41574 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		7829281A25C5BF6700F41574 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
-		7829282025C5CEE600F41574 /* InputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputField.swift; sourceTree = "<group>"; };
+		7829282025C5CEE600F41574 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		7829282725C5FE9300F41574 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		7832234325C446BF00D466ED /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7832235C25C44B3300D466ED /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 				780770E125C63F2200071EF3 /* Button.swift */,
 				780770E525C74A3A00071EF3 /* FieldMessage.swift */,
 				78438C4425D5FE21003B8A4E /* ImageView.swift */,
-				7829282025C5CEE600F41574 /* InputField.swift */,
+				7829282025C5CEE600F41574 /* FormField.swift */,
 				7829281125C5B4B500F41574 /* Label.swift */,
 				7889475A25D9C32F00BB9BEE /* Separator.swift */,
 				7829282725C5FE9300F41574 /* TextField.swift */,
@@ -253,7 +253,7 @@
 				7829281225C5B4B500F41574 /* Label.swift in Sources */,
 				782927C725C4520F00F41574 /* UIColor+Beskar.swift in Sources */,
 				7829281B25C5BF6700F41574 /* Dimensions.swift in Sources */,
-				7829282125C5CEE600F41574 /* InputField.swift in Sources */,
+				7829282125C5CEE600F41574 /* FormField.swift in Sources */,
 				780770E225C63F2200071EF3 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

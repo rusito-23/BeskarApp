@@ -75,27 +75,17 @@ public class FieldMessage: UIView {
         setUpViews()
     }
 
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    // MARK: Public Methods
-
-    public func show(message: String, with kind: Kind) {
+    public convenience init(message: String, kind: Kind) {
+        self.init(frame: .zero)
         messageLabel.text = message
         messageLabel.textColor = kind.color
         messageAccessory.image = kind.image
         messageAccessory.tintColor = kind.color
-        isHidden = false
     }
 
-    public func hide() {
-        messageLabel.text = nil
-        messageLabel.textColor = nil
-        messageAccessory.image = nil
-        messageAccessory.tintColor = nil
-        isHidden = true
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: Private Methods

@@ -13,6 +13,5 @@ final class CreateWalletViewController: ViewController<CreateWalletView> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // view.backgroundColor = .white
     }
 }
