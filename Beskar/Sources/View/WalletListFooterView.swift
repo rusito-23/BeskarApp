@@ -1,5 +1,5 @@
 //
-//  WalletListFooter.swift
+//  WalletListFooterView.swift
 //  Beskar
 //
 //  Created by Igor on 14/02/2021.
@@ -8,7 +8,7 @@
 import BeskarUI
 import UIKit
 
-final class WalletListFooter: UIView {
+final class WalletListFooterView: UIView {
 
     // MARK: Subviews
 

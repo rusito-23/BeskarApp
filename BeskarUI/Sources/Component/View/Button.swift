@@ -12,7 +12,6 @@ import UIKit
 /// # Description #
 /// Provides an easy interface to use the design system button, with
 /// two kinds available: `primary` and `secondary`
-
 public class Button: UIButton {
 
     // MARK: Types

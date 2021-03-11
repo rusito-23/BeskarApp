@@ -13,7 +13,6 @@ import UIKit
 /// # Description #
 /// Helpers to facilitate the usage of the design system label by initializing the label with Beskar Fonts and Colors.
 /// Also provides helpers to interact using the Combine framework.
-
 public class Label: UILabel {
 
     // MARK: Initializers

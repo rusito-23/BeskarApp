@@ -14,7 +14,6 @@ import class RealmSwift.List
 ///     This will be used to save general information about a money source
 ///     It will save a list of transactions, linked by the many-to-one relationship.
 ///     The class is prepared to be saved into the Realm Database
-
 public class Wallet: Object {
 
     // MARK: Properties Names

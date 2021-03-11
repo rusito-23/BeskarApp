@@ -71,5 +71,9 @@ extension A {
     struct CreateWalletView {
         static let title = "CreateWalletView.title"
         static let subtitle = "CreateWalletView.subtitle"
+        static let nameField = "CreateWalletView.nameField"
+        static let descriptionField = "CreateWalletView.descriptionField"
+        static let currencyField = "CreateWalletView.currencyField"
+        static let createButton = "CreateWalletView.createButton"
     }
 }

@@ -12,7 +12,6 @@ import UIKit
 /// # Description #
 /// Contains custom initializers to use the BeskarUI image set
 /// and sets up the default style values.
-
 public class ImageView: UIImageView {
 
     // MARK: Initializers

@@ -18,7 +18,6 @@ import protocol RealmSwift.RealmEnum
 /// - Note
 ///     We don't localize the strings in this file, even if they are shown
 ///     directly to the user, since these are supposed to be international.
-
 @objc public enum Currency: Int, RealmEnum, CaseIterable {
     case dollars
     case pesos

@@ -8,7 +8,6 @@
 import UIKit
 
 /// Beskar Design System Text Field
-
 public class TextField: UITextField {
 
     // MARK: Initializers

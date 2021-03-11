@@ -12,7 +12,6 @@ import UIKit
 /// # Description #
 /// Custom view that shows a message in an input Field, with a three available kinds:
 /// `success`, `warning` or `error`
-
 public class FieldMessage: UIView {
 
     // MARK: Types

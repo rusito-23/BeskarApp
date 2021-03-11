@@ -8,12 +8,11 @@
 import UIKit
 
 /// A Tab Controller that conforms to the Beskar Style.
-
 open class TabBarController: UITabBarController {
 
     // MARK: Properties
 
-    open weak var coordinator: Coordinator?
+    public weak var coordinator: Coordinator?
 
     // MARK: View Lifecycle
 

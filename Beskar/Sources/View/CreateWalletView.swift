@@ -26,12 +26,26 @@ final class CreateWalletView: UIView {
         identifier: A.CreateWalletView.subtitle
     )
 
-    private lazy var nameField = FormField(
-        placeholder: "WALLET_NAME_PLACEHOLDER".localized
+    private lazy var nameField = FormInputField(
+        placeholder: "WALLET_NAME_PLACEHOLDER".localized,
+        identifier: A.CreateWalletView.nameField
     )
 
-    private lazy var descriptionField = FormField(
-        placeholder: "WALLET_DESCRIPTION_PLACEHOLDER".localized
+    private lazy var descriptionField = FormInputField(
+        placeholder: "WALLET_DESCRIPTION_PLACEHOLDER".localized,
+        identifier: A.CreateWalletView.descriptionField
+    )
+
+    private lazy var currencyField = FormPickerInputField(
+        placeholder: "WALLET_CURRENCY_PLACEHOLDER".localized,
+        cancelButtonText: "CANCEL".localized,
+        identifier: A.CreateWalletView.currencyField
+    )
+
+    private lazy var createButton = Button(
+        kind: .primary,
+        title: "CREATE".localized,
+        identifier: A.CreateWalletView.createButton
     )
 
     // MARK: Initializers
@@ -53,7 +67,9 @@ final class CreateWalletView: UIView {
             titleLabel,
             subtitleLabel,
             nameField,
-            descriptionField
+            descriptionField,
+            currencyField,
+            createButton
         )
 
         titleLabel.top(to: layoutMarginsGuide, offset: Spacing.small.rawValue)
@@ -65,11 +81,15 @@ final class CreateWalletView: UIView {
         subtitleLabel.trailing(to: self, offset: -Spacing.typeMedium.rawValue)
 
         nameField.topToBottom(of: subtitleLabel, offset: Spacing.large.rawValue)
-        nameField.leading(to: self, offset: Spacing.typeMedium.rawValue)
-        nameField.trailing(to: self, offset: -Spacing.typeMedium.rawValue)
+        nameField.edges(to: subtitleLabel, excluding: [.bottom, .top])
 
         descriptionField.topToBottom(of: nameField, offset: Spacing.medium.rawValue)
-        descriptionField.leading(to: self, offset: Spacing.typeMedium.rawValue)
-        descriptionField.trailing(to: self, offset: -Spacing.typeMedium.rawValue)
+        descriptionField.edges(to: nameField, excluding: [.bottom, .top])
+
+        currencyField.topToBottom(of: descriptionField, offset: Spacing.medium.rawValue)
+        currencyField.edges(to: nameField, excluding: [.bottom, .top])
+
+        createButton.topToBottom(of: currencyField, offset: Spacing.medium.rawValue)
+        createButton.edges(to: nameField, excluding: [.bottom, .top])
     }
 }

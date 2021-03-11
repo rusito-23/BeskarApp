@@ -30,19 +30,18 @@ import UIKit
 /// See also [Navigation Controller](x-source-tag:NavigationController)
 ///
 /// - Tag: ViewController
-
 open class ViewController<View>: UIViewController where View: UIView {
 
     // MARK: Properties
 
     /// The view wrapped in the given associated type
-    open lazy var customView = View()
+    public lazy var customView = View()
 
     /// A subscription set to store Combine bindings
-    open lazy var subscriptions = Set<AnyCancellable>()
+    public lazy var subscriptions = Set<AnyCancellable>()
 
     /// An optional reference to the presenter coordinator
-    open weak var coordinator: Coordinator?
+    public weak var coordinator: Coordinator?
 
     // MARK: View Lifecycle
 

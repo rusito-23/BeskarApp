@@ -1,5 +1,5 @@
 //
-//  FormField.swift
+//  FormInputField.swift
 //  BeskarUI
 //
 //  Created by Igor on 30/01/2021.
@@ -8,16 +8,14 @@
 import Combine
 import UIKit
 
-/// Beskar Design System Form Field
+/// Beskar Design System Form Input Field
 ///
 /// # Description #
 /// Custom view that contains a text field & a message view.
 /// 
 /// # Note #
 /// Includes helpers to be used with Combine
-// TODO: add identifier to all of this stuff
-
-open class FormField: UIView {
+public class FormInputField: UIView {
 
     // MARK: Types
 
@@ -45,6 +43,9 @@ open class FormField: UIView {
         didSet { updatePlaceholder() }
     }
 
+    /// The text field accessibility identifier
+    private var identifier: String
+
     private var placeholderAttributes: [NSAttributedString.Key: Any] = [
         .foregroundColor: UIColor.beskar.secondary,
         .font: UIFont.beskar.build(.extraSmall),
@@ -55,6 +56,7 @@ open class FormField: UIView {
     lazy var textField: TextField = {
         let textField = TextField()
         textField.delegate = self
+        textField.accessibilityIdentifier = identifier
         return textField
     }()
 
@@ -82,16 +84,13 @@ open class FormField: UIView {
 
     // MARK: Initializers
 
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        clipsToBounds = true
-        translatesAutoresizingMaskIntoConstraints = false
-        setUpViews()
-    }
-
-    public convenience init(placeholder: String) {
-        self.init(frame: .zero)
+    public init(placeholder: String, identifier: String) {
         self.placeholder = placeholder
+        self.identifier = identifier
+        super.init(frame: .zero)
+
+        setUpViews()
+        setUpAccessibility()
         updatePlaceholder()
     }
 
@@ -104,6 +103,8 @@ open class FormField: UIView {
 
     public func addMessage(_ message: String, kind: FieldMessage.Kind) {
         let messageView = FieldMessage(message: message, kind: kind)
+        messageView.accessibilityIdentifier = message
+        accessibilityElements?.append(messageView)
         contentStack.addArrangedSubview(messageView)
     }
 
@@ -111,11 +112,16 @@ open class FormField: UIView {
         for view in contentStack.arrangedSubviews where view is FieldMessage {
             view.removeFromSuperview()
         }
+
+        // re-set accessibility
+        setUpAccessibility()
     }
 
     // MARK: Private Methods
 
     private func setUpViews() {
+        clipsToBounds = true
+        translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentStack)
 
         // Content Stack constraints
@@ -134,11 +140,16 @@ open class FormField: UIView {
             attributes: placeholderAttributes
         )
     }
+
+    private func setUpAccessibility() {
+        isAccessibilityElement = false
+        accessibilityElements = [textField]
+    }
 }
 
 // MARK: UITextFieldDelegate
 
-extension FormField: UITextFieldDelegate {
+extension FormInputField: UITextFieldDelegate {
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: Constants.PlaceholderAnimation.duration) {
             self.titleLabel.isHidden = false

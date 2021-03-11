@@ -13,7 +13,6 @@ import protocol RealmSwift.RealmEnum
 /// - Description
 ///     Saves information about a particular transaction, linked to a wallet
 ///     The currency is given by the wallet to which this transaction belongs.
-
 public class Transaction: Object {
 
     // MARK: Properties Names

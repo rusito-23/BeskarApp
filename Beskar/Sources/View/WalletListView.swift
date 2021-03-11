@@ -32,7 +32,7 @@ final class WalletListView: UIView {
         return tableView
     }()
 
-    private(set) lazy var footerView = WalletListFooter()
+    private(set) lazy var footerView = WalletListFooterView()
 
     // MARK: Initializers
 

@@ -9,6 +9,10 @@ import BeskarKit
 import Combine
 import Foundation
 
+/// Wallet View Model
+///
+/// # Description #
+/// A view model that handles the logic when displaying a Wallet.
 final class WalletViewModel: ViewModel, Resolvable {
 
     // MARK: Properties

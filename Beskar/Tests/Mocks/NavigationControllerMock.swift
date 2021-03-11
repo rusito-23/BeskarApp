@@ -9,7 +9,6 @@ import UIKit
 import XCTest
 
 /// A mock class to control the navigation controller behavior
-
 final class NavigationControllerMock: UINavigationController {
 
     // MARK: Properties

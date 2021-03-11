@@ -12,7 +12,6 @@ import UIKit
 /// Provides overrides that set up the default Beskar style.
 ///
 /// - Tag: NavigationController
-
 open class NavigationController: UINavigationController {
 
     // MARK: View Lifecycle

@@ -13,9 +13,6 @@ import LocalAuthentication
 ///     Provides an interface to authenticate the user.
 ///     It's built around the `LocalAuthentication` Apple Lib, although
 ///     The interface is prepared to use other kind of authentication.
-
-// MARK: - Protocol
-
 public protocol AuthServiceProtocol {
     /// Check if the authentication service is available
     func isAvailable() -> Bool
@@ -27,8 +24,7 @@ public protocol AuthServiceProtocol {
     )
 }
 
-// MARK: - Implementation
-
+/// Auth Service Implementation
 public final class AuthService: AuthServiceProtocol {
 
     // MARK: Types

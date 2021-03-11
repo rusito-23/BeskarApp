@@ -10,9 +10,10 @@ import Combine
 import Foundation
 import UIKit
 
-/// Performs business logic on wallets
-/// - Retrieves wallet list
-/// - Provides published bindings for wallets and other useful data
+/// Wallet List View Model
+///
+/// # Description #
+/// Retrieve the wallet list from the local DB and publishes the state
 final class WalletListViewModel: ViewModel, Resolvable {
 
     // MARK: State

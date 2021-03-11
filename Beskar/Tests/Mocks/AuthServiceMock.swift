@@ -9,7 +9,6 @@ import BeskarKit
 import XCTest
 
 /// A mock class to control the auth service behavior
-
 final class AuthServiceMock: AuthServiceProtocol {
 
     // MARK: Mock Properties
