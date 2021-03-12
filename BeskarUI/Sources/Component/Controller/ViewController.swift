@@ -11,7 +11,7 @@ import UIKit
 
 /// # Description #
 /// A View Controller that conforms to the Beskar Style.
-/// Provides overrides that set up the style and helpers to auto-setup a custom view.
+/// Provides overrides that set up the style and helpers to auto-setup a custom view, saved in `ui`.
 /// Also, provides a default `subscriptions` set to store bindings.
 ///
 /// # Example #
@@ -20,8 +20,8 @@ import UIKit
 ///     override func viewDidLoad() {
 ///         super.viewDidLoad() // this is important
 ///
-///         // customView is of kind MyView
-///         customView.myButton.addTarget(self, ...)
+///         // ui is of kind MyView
+///         ui.myButton.addTarget(self, ...)
 ///     }
 /// }
 /// ```
@@ -30,23 +30,20 @@ import UIKit
 /// See also [Navigation Controller](x-source-tag:NavigationController)
 ///
 /// - Tag: ViewController
-open class ViewController<View>: UIViewController where View: UIView {
+open class ViewController<ViewType>: UIViewController where ViewType: UIView {
 
     // MARK: Properties
 
     /// The view wrapped in the given associated type
-    public lazy var customView = View()
+    public lazy var ui = ViewType()
 
     /// A subscription set to store Combine bindings
     public lazy var subscriptions = Set<AnyCancellable>()
 
-    /// An optional reference to the presenter coordinator
-    public weak var coordinator: Coordinator?
-
     // MARK: View Lifecycle
 
     open override func loadView() {
-        view = customView
+        view = ui
     }
 
     open override func viewDidLoad() {

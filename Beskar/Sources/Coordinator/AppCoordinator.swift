@@ -9,6 +9,17 @@ import BeskarUI
 import BeskarKit
 import UIKit
 
+// MARK: - App Coordinator Protocol
+
+protocol AppCoordinatorFlow: class {
+    func startWelcomeFlow()
+    func startLoginFlow()
+    func startMainFlow()
+    func startAuthErrorFlow(with error: AuthService.AuthError)
+}
+
+// MARK: - App Coordinator
+
 final class AppCoordinator: Coordinator {
 
     // MARK: Properties
@@ -51,9 +62,9 @@ final class AppCoordinator: Coordinator {
     }
 }
 
-// MARK: Flows
+// MARK: App Coordinator Flow Conformance
 
-extension AppCoordinator {
+extension AppCoordinator: AppCoordinatorFlow {
 
     /// Start Welcome Flow - only shown on first launch
     func startWelcomeFlow() {
@@ -65,7 +76,7 @@ extension AppCoordinator {
     /// Start Authentication Flow
     func startLoginFlow() {
         let coordinator = LoginCoordinator(
-            parentCoordinator: self,
+            parent: self,
             presenter: presenter
         )
 

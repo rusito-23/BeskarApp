@@ -21,12 +21,18 @@ public class Button: UIButton {
         case secondary
     }
 
-    // MARK: Properties
+    // MARK: Public Properties
 
     public var titleText: String? {
         get { title(for: .normal) }
         set { setTitle(newValue, for: .normal) }
     }
+
+    // MARK: Private Properties
+
+    private var kind: Kind
+
+    private var isEnabledObserver: NSKeyValueObservation?
 
     // MARK: Initializers
 
@@ -36,15 +42,17 @@ public class Button: UIButton {
         identifier: String? = nil,
         label: String? = nil
     ) {
+        self.kind = kind
         super.init(frame: .zero)
         accessibilityIdentifier = identifier
         accessibilityLabel = label
         translatesAutoresizingMaskIntoConstraints = false
         setTitle(title, for: .normal)
 
-        setUp(with: kind)
+        setUpStyle()
         setUpLayer()
         setUpConstraints()
+        setUpObservers()
     }
 
     @available(*, unavailable)
@@ -54,12 +62,7 @@ public class Button: UIButton {
 
     // MARK: Private Methods
 
-    private func setUpLayer() {
-        layer.borderWidth = Border.Width.small.rawValue
-        layer.cornerRadius = Border.Radius.medium.rawValue
-    }
-
-    private func setUp(with kind: Kind) {
+    private func setUpStyle() {
         switch kind {
         case .primary:
             titleLabel?.font = UIFont.beskar.build(.extraSmall, .traitExpanded)
@@ -78,9 +81,26 @@ public class Button: UIButton {
         }
     }
 
+    private func setUpLayer() {
+        layer.borderWidth = Border.Width.small.rawValue
+        layer.cornerRadius = Border.Radius.medium.rawValue
+    }
+
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: Size.medium.rawValue),
         ])
+    }
+
+    private func setUpObservers() {
+        isEnabledObserver = observe(\.isEnabled, options: [.new]) { _, _  in
+            switch self.kind {
+            case .primary:
+                self.backgroundColor = self.isEnabled ?
+                    UIColor.beskar.primary :
+                    UIColor.beskar.base
+            case .secondary: break
+            }
+        }
     }
 }

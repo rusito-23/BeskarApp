@@ -14,7 +14,6 @@ final class SettingsCoordinator: TabCoordinator {
 
     lazy var tabViewController: UIViewController = {
         let viewController = SettingsViewController()
-        viewController.coordinator = self
         viewController.tabBarItem = tabBarItem
         return viewController
     }()

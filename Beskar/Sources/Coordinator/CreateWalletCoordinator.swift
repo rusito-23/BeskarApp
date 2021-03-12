@@ -24,7 +24,6 @@ final class CreateWalletCoordinator: Coordinator {
 
     private lazy var viewController: UIViewController = {
         let viewController = CreateWalletViewController()
-        viewController.coordinator = self
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .formSheet
         return viewController

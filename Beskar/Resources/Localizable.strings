@@ -10,7 +10,7 @@
 
 "RETRY" = "Retry";
 "CANCEL" = "Cancel";
-"CREATE" = "Create";
+"CREATE" = "CREATE";
 "OK" = "OK";
 "LOADING" = "Loading...";
 
@@ -69,6 +69,8 @@ Please make sure you have set your passcode and configured biometrics in your de
 "WALLET_NAME_PLACEHOLDER" = "Wallet Name";
 "WALLET_DESCRIPTION_PLACEHOLDER" = "Wallet Description";
 "WALLET_CURRENCY_PLACEHOLDER" = "Wallet Currency";
+
+"WALLET_CREATION_ERROR" = "We failed to save your new wallet";
 
 // MARK: - Validations
 

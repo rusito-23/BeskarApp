@@ -13,29 +13,29 @@ final class CreateWalletView: UIView {
 
     // MARK: Subviews
 
-    lazy var nameField = InputField(
+    private(set) lazy var nameField = InputField(
         placeholder: "WALLET_NAME_PLACEHOLDER".localized,
         identifier: A.CreateWalletView.nameField
     )
 
-    lazy var descriptionField = InputField(
+    private(set) lazy var descriptionField = InputField(
         placeholder: "WALLET_DESCRIPTION_PLACEHOLDER".localized,
         identifier: A.CreateWalletView.descriptionField
     )
 
-    lazy var currencyField = PickerInputField<Currency>(
+    private(set) lazy var currencyField = PickerInputField<Currency>(
         placeholder: "WALLET_CURRENCY_PLACEHOLDER".localized,
         cancelButtonText: "CANCEL".localized,
         identifier: A.CreateWalletView.currencyField
     )
 
-    lazy var createButton = Button(
+    private(set) lazy var createButton = Button(
         kind: .primary,
         title: "CREATE".localized,
         identifier: A.CreateWalletView.createButton
     )
 
-    lazy var cancelButton: UIButton = {
+    private(set) lazy var closeButton: UIButton = {
         let button = UIButton(type: .close)
         button.imageView?.tintColor = UIColor.beskar.primary
         button.tintColor = UIColor.beskar.primary
@@ -80,7 +80,7 @@ final class CreateWalletView: UIView {
 
     private func setUpViews() {
         addSubviews(
-            cancelButton,
+            closeButton,
             titleLabel,
             subtitleLabel,
             nameField,
@@ -89,10 +89,10 @@ final class CreateWalletView: UIView {
             createButton
         )
 
-        cancelButton.top(to: layoutMarginsGuide, offset: Spacing.medium.rawValue)
-        cancelButton.trailing(to: self, offset: -Spacing.medium.rawValue)
+        closeButton.top(to: layoutMarginsGuide, offset: Spacing.medium.rawValue)
+        closeButton.trailing(to: self, offset: -Spacing.medium.rawValue)
 
-        titleLabel.topToBottom(of: cancelButton, offset: Spacing.small.rawValue)
+        titleLabel.topToBottom(of: closeButton)
         titleLabel.leading(to: self, offset: Spacing.medium.rawValue)
         titleLabel.trailing(to: self, offset: -Spacing.medium.rawValue)
 
@@ -109,7 +109,7 @@ final class CreateWalletView: UIView {
         currencyField.topToBottom(of: descriptionField, offset: Spacing.medium.rawValue)
         currencyField.edges(to: nameField, excluding: [.bottom, .top])
 
-        createButton.topToBottom(of: currencyField, offset: Spacing.medium.rawValue)
+        createButton.topToBottom(of: currencyField, offset: Spacing.typeMedium.rawValue)
         createButton.edges(to: nameField, excluding: [.bottom, .top])
     }
 }

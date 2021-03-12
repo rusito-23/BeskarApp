@@ -99,17 +99,17 @@ extension DataService {
 
             // Initialize realm
             guard let realm = self.realm else {
-                completion(.failure(.unavailable))
+                self.resultQueue.async { completion(.failure(.unavailable)) }
                 return
             }
 
             // Write object
             guard let _ = try? realm.write({ realm.add(object) }) else {
-                completion(.failure(.concurrencyFailure))
+                self.resultQueue.async { completion(.failure(.concurrencyFailure)) }
                 return
             }
 
-            completion(.success(true))
+            self.resultQueue.async { completion(.success(true)) }
         }
     }
 }

@@ -12,14 +12,13 @@ final class StatsCoordinator: TabCoordinator {
 
     // MARK: Properties
 
+    var presenter: UIViewController
+
     lazy var tabViewController: UIViewController = {
         let viewController = StatsViewController()
-        viewController.coordinator = self
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
-
-    var presenter: UIViewController
 
     // MARK: Private Properties
 

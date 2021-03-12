@@ -42,6 +42,8 @@ final class WalletListFooterView: UIView {
     // MARK: Private Methods
 
     private func setUpViews() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = true
+        createWalletButton.translatesAutoresizingMaskIntoConstraints = true
         addSubviews(titleLabel, createWalletButton)
 
         titleLabel.top(to: layoutMarginsGuide)

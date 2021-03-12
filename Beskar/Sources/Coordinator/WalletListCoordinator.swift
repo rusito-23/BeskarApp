@@ -8,6 +8,14 @@
 import BeskarUI
 import UIKit
 
+// MARK: - Flow Protocol
+
+protocol WalletListCoordinatorFlow: class {
+    func startNewWalletFlow()
+}
+
+// MARK: - Coordinator implementation
+
 final class WalletListCoordinator: TabCoordinator {
 
     // MARK: Properties
@@ -39,7 +47,7 @@ final class WalletListCoordinator: TabCoordinator {
 
 // MARK: Flows
 
-extension WalletListCoordinator {
+extension WalletListCoordinator: WalletListCoordinatorFlow {
     func startNewWalletFlow() {
         let coordinator = CreateWalletCoordinator(presenter: presenter)
         coordinator.start()

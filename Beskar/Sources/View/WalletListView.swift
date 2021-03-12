@@ -20,15 +20,15 @@ final class WalletListView: UIView {
     // MARK: Subviews
 
     private(set) lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        tableView.register(WalletCardView.self)
         tableView.delegate = self
         tableView.showsVerticalScrollIndicator = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.accessibilityIdentifier = A.WalletListView.table
+        tableView.register(WalletCardView.self)
         return tableView
     }()
 
@@ -58,7 +58,5 @@ extension WalletListView: UITableViewDelegate {
     func tableView(
         _ tableView: UITableView,
         viewForFooterInSection section: Int
-    ) -> UIView? {
-        footerView
-    }
+    ) -> UIView? { footerView }
 }

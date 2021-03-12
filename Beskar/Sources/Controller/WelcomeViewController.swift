@@ -12,9 +12,7 @@ final class WelcomeViewController: ViewController<WelcomeView> {
 
     // MARK: Properties
 
-    var appCoordinator: AppCoordinator? {
-        coordinator as? AppCoordinator
-    }
+    weak var coordinator: AppCoordinatorFlow?
 
     // MARK: View Controller Overrides
 
@@ -26,7 +24,7 @@ final class WelcomeViewController: ViewController<WelcomeView> {
     // MARK: Private
 
     private func setUpActions() {
-        customView.allowButton.addTarget(
+        ui.allowButton.addTarget(
             self,
             action: #selector(onAllowButtonTapped),
             for: .touchUpInside
@@ -37,7 +35,7 @@ final class WelcomeViewController: ViewController<WelcomeView> {
 
     @objc private func onAllowButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true) { [weak self] in
-            self?.appCoordinator?.startLoginFlow()
+            self?.coordinator?.startLoginFlow()
         }
     }
 }

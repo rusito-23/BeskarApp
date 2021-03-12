@@ -14,6 +14,8 @@ final class MainTabBarCoordinator: Coordinator {
 
     var presenter: UIViewController
 
+    // MARK: Controller
+
     private lazy var tabBarController: TabBarController = {
         let tabBarController = TabBarController()
         tabBarController.coordinator = self

@@ -16,15 +16,6 @@ import UIKit
 /// Retrieve the wallet list from the local DB and publishes the state
 final class WalletListViewModel: ViewModel, Resolvable {
 
-    // MARK: State
-
-    private enum State {
-        case ready
-        case loading
-        case loaded
-        case failed
-    }
-
     // MARK: Published Properties
 
     /// An array with the retrieved wallets
@@ -33,38 +24,7 @@ final class WalletListViewModel: ViewModel, Resolvable {
     /// The text that should be displayed in the footer
     @Published private(set) var footerText: String?
 
-    /// Indicates if the footer should be hidden
-    @Published private(set) var hideFooter: Bool = true
-
-    /// Indicates if a loading indicator should be shown
-    @Published private(set) var isLoading: Bool = false
-
-    /// Indicates if an error should be shown
-    @Published private(set) var failed: Bool = false
-
     // MARK: Private Properties
-
-    /// The current state of the view model
-    private var state: State = .ready {
-        didSet {
-            switch state {
-            case .ready:
-                hideFooter = true
-                isLoading = false
-                failed = false
-            case .loading:
-                hideFooter = true
-                isLoading = true
-            case .loaded:
-                hideFooter = false
-                isLoading = false
-            case .failed:
-                hideFooter = true
-                isLoading = false
-                failed = true
-            }
-        }
-    }
 
     /// The service that interacts with the wallets
     private let walletService: WalletServiceProtocol?
@@ -79,18 +39,16 @@ final class WalletListViewModel: ViewModel, Resolvable {
 
     /// Entry point to start loading the actual wallets
     /// This method updates the published state and fetches the wallets
-    func start() {
-        guard state != .loading else { return }
-        state = .loading
+    func start(_ completion: @escaping (Result<Bool, DataServiceError>) -> Void) {
         walletService?.fetch { result in
             switch result {
-            case .failure:
+            case let .failure(error):
                 self.wallets = []
-                self.state = .failed
+                completion(.failure(error))
             case let .success(wallets):
                 self.wallets = wallets
-                self.state = .loaded
                 self.footerText = self.wallets.isEmpty ? "CREATE_NEW_WALLET_TITLE".localized : nil
+                completion(.success(true))
             }
         }
     }

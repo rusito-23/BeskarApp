@@ -61,7 +61,7 @@ public class InputField: UIView {
 
     // MARK: Subviews
 
-    lazy var textField: TextField = {
+    private(set) lazy var textField: TextField = {
         let textField = TextField()
         textField.delegate = self
         textField.accessibilityIdentifier = identifier

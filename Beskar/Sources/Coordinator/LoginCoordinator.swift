@@ -13,21 +13,21 @@ final class LoginCoordinator: Coordinator {
 
     // MARK: Properties
 
-    var parentCoordinator: AppCoordinator
-
-    var presenter: UIViewController
-
     /// Authentication Services, brought to you by `BeskarKit`
     private let authService: AuthServiceProtocol
+
+    var parent: AppCoordinatorFlow
+
+    var presenter: UIViewController
 
     // MARK: Initializer
 
     init(
-        parentCoordinator: AppCoordinator,
+        parent: AppCoordinatorFlow,
         presenter: UIViewController = NavigationController(),
         authService: AuthServiceProtocol = AuthService()
     ) {
-        self.parentCoordinator = parentCoordinator
+        self.parent = parent
         self.presenter = presenter
         self.authService = authService
     }
@@ -37,12 +37,12 @@ final class LoginCoordinator: Coordinator {
     func start() {
         // Check for Auth Services availability
         guard authService.isAvailable() else {
-            parentCoordinator.startAuthErrorFlow(with: .unavailable)
+            parent.startAuthErrorFlow(with: .unavailable)
             return
         }
 
         #if DEBUG
-        parentCoordinator.startMainFlow()
+        parent.startMainFlow()
         return
         #endif
 
@@ -56,14 +56,14 @@ final class LoginCoordinator: Coordinator {
                 switch result {
                 case let .success(success) where success:
                     // handle success case
-                    self.parentCoordinator.startMainFlow()
+                    self.parent.startMainFlow()
                 case let .failure(error):
                     // handle error
-                    self.parentCoordinator.startAuthErrorFlow(with: error)
+                    self.parent.startAuthErrorFlow(with: error)
                 case .success:
                     // handle success response
                     // with incorrect success value
-                    self.parentCoordinator.startAuthErrorFlow(with: .unavailable)
+                    self.parent.startAuthErrorFlow(with: .unavailable)
                 }
             }
         }

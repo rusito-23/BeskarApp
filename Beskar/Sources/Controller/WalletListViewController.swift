@@ -14,11 +14,11 @@ final class WalletListViewController: ViewController<WalletListView> {
 
     // MARK: Properties
 
-    private lazy var viewModel: WalletListViewModel = .resolved
+    weak var coordinator: WalletListCoordinatorFlow?
 
-    private var walletListCoordinator: WalletListCoordinator? {
-        coordinator as? WalletListCoordinator
-    }
+    // MARK: Private Properties
+
+    private lazy var viewModel: WalletListViewModel = .resolved
 
     // MARK: View Lifecycle
 
@@ -29,7 +29,7 @@ final class WalletListViewController: ViewController<WalletListView> {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        viewModel.start()
+        startReloading()
     }
 
     // MARK: Private Methods
@@ -37,7 +37,7 @@ final class WalletListViewController: ViewController<WalletListView> {
     private func setUpBindings() {
         // Bind view model `wallets` as table data source
         viewModel.$wallets.bind(
-            subscriber: customView.tableView.rowsSubscriber(
+            subscriber: ui.tableView.rowsSubscriber(
                 cellIdentifier: WalletCardView.identifier,
                 cellType: WalletCardView.self,
                 cellConfig: { $0.viewModel.wallet = $2 }
@@ -46,29 +46,13 @@ final class WalletListViewController: ViewController<WalletListView> {
 
         // Bind view model footer text
         viewModel.$footerText.sink { footerText in
-            self.customView.footerView.titleLabel.text = footerText
-            self.customView.tableView.reloadData()
-        }.store(in: &subscriptions)
-
-        // Bind view model footer visibility
-        viewModel.$hideFooter.assign(
-            to: \.isFooterHidden, on: customView
-        ).store(in: &subscriptions)
-
-        // Bind view model loading indicator
-        viewModel.$isLoading.sink { loading in
-            loading ? self.startLoading() : self.stopLoading()
-        }.store(in: &subscriptions)
-
-        // Bind view model error
-        viewModel.$failed.sink { failed in
-            guard failed else { return }
-            self.showLoadError()
+            self.ui.footerView.titleLabel.text = footerText
+            self.ui.tableView.reloadData()
         }.store(in: &subscriptions)
     }
 
     private func setUpActions() {
-        customView.footerView.createWalletButton.addTarget(
+        ui.footerView.createWalletButton.addTarget(
             self,
             action: #selector(onCreateWalletTapped),
             for: .touchUpInside
@@ -82,9 +66,24 @@ final class WalletListViewController: ViewController<WalletListView> {
         ) { [weak self] in self?.viewModel.start() }
     }
 
+    private func startReloading() {
+        startLoading()
+        ui.footerView.isHidden = true
+        viewModel.start { [weak self] result in
+            guard let self = self else { return }
+            self.stopLoading()
+            self.ui.footerView.isHidden = false
+
+            switch result {
+            case .failure: self.showLoadError()
+            case .success: break
+            }
+        }
+    }
+
     // MARK: Actions
 
     @objc private func onCreateWalletTapped(_ sender: UIButton) {
-        walletListCoordinator?.startNewWalletFlow()
+        coordinator?.startNewWalletFlow()
     }
 }

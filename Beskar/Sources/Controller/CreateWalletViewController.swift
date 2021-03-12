@@ -27,31 +27,38 @@ final class CreateWalletViewController: ViewController<CreateWalletView> {
 
     private func setUpBindings() {
         // field bindings
-        bind(customView.nameField, with: viewModel.nameFieldViewModel)
-        bind(customView.descriptionField, with: viewModel.descriptionFieldViewModel)
-        bindPicker(customView.currencyField, with: viewModel.currencyFieldViewModel)
+        bind(ui.nameField, with: viewModel.nameFieldViewModel)
+        bind(ui.descriptionField, with: viewModel.descriptionFieldViewModel)
+        bindPicker(ui.currencyField, with: viewModel.currencyFieldViewModel)
 
         // currencies
         viewModel.$currencies.assign(
             to: \.options,
-            on: customView.currencyField
+            on: ui.currencyField
         ).store(in: &subscriptions)
 
         // bind button with validations
-        viewModel.$isValid.assign(
+        viewModel.$shouldEnableCreateButton.assign(
             to: \.isEnabled,
-            on: customView.createButton
+            on: ui.createButton
         ).store(in: &subscriptions)
+
+        // bind model properties
+        [
+            ui.nameField.textPublisher.assign(to: \.name, on: viewModel),
+            ui.descriptionField.textPublisher.assign(to: \.description, on: viewModel),
+            ui.currencyField.$selected.assign(to: \.currency, on: viewModel),
+        ].forEach { $0.store(in: &subscriptions) }
     }
 
     private func setUpActions() {
-        customView.cancelButton.addTarget(
+        ui.closeButton.addTarget(
             self,
-            action: #selector(onCancelButtonTapped),
+            action: #selector(onCloseButtonTapped),
             for: .touchUpInside
         )
 
-        customView.createButton.addTarget(
+        ui.createButton.addTarget(
             self,
             action: #selector(onCreateButtonTapped),
             for: .touchUpInside
@@ -60,11 +67,25 @@ final class CreateWalletViewController: ViewController<CreateWalletView> {
 
     // MARK: Actions
 
-    @objc func onCancelButtonTapped(_ sender: UIBarButtonItem) {
+    @objc func onCloseButtonTapped(_ sender: UIBarButtonItem?) {
         dismiss(animated: true)
     }
 
     @objc func onCreateButtonTapped(_ sender: UIBarButtonItem) {
-        log.debug("CREATE")
+        startLoading()
+        viewModel.start { [weak self] result in
+            guard let self = self else { return }
+            self.stopLoading()
+            switch result {
+            case let .success(didSucceed) where didSucceed:
+                self.dismiss(animated: true)
+            case .failure, .success:
+                self.showError(
+                    "WALLET_CREATION_ERROR".localized,
+                    buttonTitle: "CANCEL",
+                    completion: {[weak self] in self?.dismiss(animated: true)}
+                )
+            }
+        }
     }
 }

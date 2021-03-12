@@ -17,9 +17,17 @@ import Combine
 /// Provides necessary data to fill the wallet
 final class CreateWalletViewModel: ViewModel, Resolvable {
 
-    // MARK: Properties
+    // MARK: Model Properties
 
-    lazy var nameFieldViewModel = InputFieldViewModel(
+    var name: String?
+
+    var description: String?
+
+    var currency: Currency?
+
+    // MARK: Sub View Models
+
+    private(set) lazy var nameFieldViewModel = InputFieldViewModel(
         isRequired: true,
         validations: [
             .minimumCharacterCount(3),
@@ -29,7 +37,7 @@ final class CreateWalletViewModel: ViewModel, Resolvable {
         delegate: self
     )
 
-    lazy var descriptionFieldViewModel = InputFieldViewModel(
+    private(set) lazy var descriptionFieldViewModel = InputFieldViewModel(
         isRequired: false,
         validations: [
             .minimumCharacterCount(3),
@@ -39,23 +47,49 @@ final class CreateWalletViewModel: ViewModel, Resolvable {
         delegate: self
     )
 
-    lazy var currencyFieldViewModel = PickerInputFieldViewModel<Currency>(
+    private(set) lazy var currencyFieldViewModel = PickerInputFieldViewModel<Currency>(
         isRequired: true,
         delegate: self
     )
 
     // MARK: Published Properties
 
-    @Published var currencies: [Currency] = Currency.allCases
+    @Published private(set) var currencies: [Currency] = Currency.allCases
 
-    @Published var isValid: Bool = false
+    @Published private(set) var shouldEnableCreateButton: Bool = false
+
+    // MARK: Private Properties
+
+    private lazy var walletService = injector.resolve(WalletServiceProtocol.self)
+
+    // MARK: Methods
+
+    func start(_ completion: @escaping (Result<Bool, DataServiceError>) -> Void) {
+        guard
+            let name = name,
+            let currency = currency,
+            let walletService = walletService
+        else {
+            completion(.failure(.unavailable))
+            return
+        }
+
+        let wallet = Wallet(
+            name: name,
+            summary: description,
+            creationDate: Date(),
+            currency: currency
+        )
+
+        walletService.write(wallet, completion)
+    }
 }
 
 // MARK: Form Field View Model Delegate Conformance
 
 extension CreateWalletViewModel: InputFieldViewModelDelegate {
     func inputFieldViewModel(_ viewModel: InputFieldViewModel, didFinishValidations: Bool) {
-        isValid = [
+        shouldEnableCreateButton = [
             nameFieldViewModel.isValid,
             descriptionFieldViewModel.isValid,
             currencyFieldViewModel.isValid,

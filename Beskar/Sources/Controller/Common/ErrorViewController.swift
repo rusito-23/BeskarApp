@@ -45,13 +45,13 @@ final class ErrorViewController: ViewController<ErrorView> {
     // MARK: - Private Methods
 
     private func setUpTexts() {
-        customView.titleLabel.text = titleText
-        customView.subtitleLabel.text = subtitleText
-        customView.button.titleText = buttonTitle
+        ui.titleLabel.text = titleText
+        ui.subtitleLabel.text = subtitleText
+        ui.button.titleText = buttonTitle
     }
 
     private func setUpActions() {
-        customView.button.addTarget(
+        ui.button.addTarget(
             self,
             action: #selector(onButtonTapped),
             for: .touchUpInside
