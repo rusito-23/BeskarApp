@@ -1,5 +1,5 @@
 //
-//  FormInputField.swift
+//  InputField.swift
 //  BeskarUI
 //
 //  Created by Igor on 30/01/2021.
@@ -15,7 +15,7 @@ import UIKit
 /// 
 /// # Note #
 /// Includes helpers to be used with Combine
-public class FormInputField: UIView {
+public class InputField: UIView {
 
     // MARK: Types
 
@@ -154,7 +154,7 @@ public class FormInputField: UIView {
 
 // MARK: UITextFieldDelegate
 
-extension FormInputField: UITextFieldDelegate {
+extension InputField: UITextFieldDelegate {
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: Constants.PlaceholderAnimation.duration) {
             self.titleLabel.isHidden = false

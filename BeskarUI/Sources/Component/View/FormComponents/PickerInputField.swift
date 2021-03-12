@@ -1,22 +1,19 @@
 //
-//  FormPickerInputField.swift
+//  PickerInputField.swift
 //  BeskarUI
 //
 //  Created by Igor on 11/03/2021.
 //
 
+import Combine
 import UIKit
 
 /// Form Picker Input Option
 ///
 /// # Description #
 /// A protocol that defines the options that need to be used from within the input picker.
-public protocol FormPickerInputOption {
+public protocol PickerInputOption {
     var displayName: String { get }
-}
-
-struct SomeOption: FormPickerInputOption {
-    let displayName: String
 }
 
 /// Beskar Design System Form Picker Input Field
@@ -28,17 +25,28 @@ struct SomeOption: FormPickerInputOption {
 ///
 /// # Note #
 /// Includes helpers to be used with Combine
-public class FormPickerInputField: FormInputField {
+public class PickerInputField<
+    OptionType: PickerInputOption
+>: InputField, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    // MARK: Properties
+    // MARK: Public Properties
 
-    var options: [FormPickerInputOption] = []
+    public var options: [OptionType] = []
 
-    // MARK: Private Properties
-
-    private var selected: FormPickerInputOption? {
+    @Published public var selected: OptionType? {
         didSet { textField.text = selected?.displayName }
     }
+
+    /// Text Field Publisher to be used with Combine, triggered on textDidChangeNotification
+    public override var textPublisher: AnyPublisher<String?, Never> {
+        NotificationCenter.default
+            .publisher(for: UITextField.textDidChangeNotification, object: textField)
+            .compactMap { $0.object as? UITextField }
+            .map { $0.text }
+            .eraseToAnyPublisher()
+    }
+
+    // MARK: Private Properties
 
     private var cancelButtonText: String
 
@@ -94,28 +102,28 @@ public class FormPickerInputField: FormInputField {
         textField.inputView = itemPicker
         textField.inputAccessoryView = pickerToolBar
     }
-}
 
-// MARK: - Picker View Datasource Conformance
+    // MARK: Picker View Datasource Conformance
 
-extension FormPickerInputField: UIPickerViewDataSource {
+    /// We only support a single component currently
     public func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
 
+    /// The number of rows is given by the option count
     public func pickerView(
         _ pickerView: UIPickerView,
         numberOfRowsInComponent component: Int
     ) -> Int { options.count }
-}
 
-// MARK: - Picker View Delegate Conformance
+    // MARK: Picker View Delegate Conformance
 
-extension FormPickerInputField: UIPickerViewDelegate {
+    /// We title is the given display name
     public func pickerView(
         _ pickerView: UIPickerView,
         titleForRow row: Int,
         forComponent component: Int
     ) -> String? { options[row].displayName }
 
+    /// Set the selected component and resign the first responder
     public func pickerView(
         _ pickerView: UIPickerView,
         didSelectRow row: Int,
@@ -124,12 +132,4 @@ extension FormPickerInputField: UIPickerViewDelegate {
         selected = options[row]
         textField.resignFirstResponder()
     }
-}
-
-// MARK: - Text Field Delegate Extension
-
-extension FormPickerInputField {
-    func textFieldShouldBeginEditing(
-        _ textField: UITextField
-    ) -> Bool { !options.isEmpty }
 }

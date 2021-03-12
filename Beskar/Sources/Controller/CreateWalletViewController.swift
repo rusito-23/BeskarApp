@@ -24,22 +24,21 @@ final class CreateWalletViewController: ViewController<CreateWalletView> {
     // MARK: Private Methods
 
     private func setUpBindings() {
-        // form field validations
-        customView.nameField.textPublisher.sink(
-            receiveValue: viewModel.validate(name:)
+        // field bindings
+        bind(customView.nameField, with: viewModel.nameFieldViewModel)
+        bind(customView.descriptionField, with: viewModel.descriptionFieldViewModel)
+        bindPicker(customView.currencyField, with: viewModel.currencyFieldViewModel)
+
+        // currencies
+        viewModel.$currencies.assign(
+            to: \.options,
+            on: customView.currencyField
         ).store(in: &subscriptions)
 
-        customView.descriptionField.textPublisher.sink(
-            receiveValue: viewModel.validate(description:)
-        ).store(in: &subscriptions)
-
-        // form errors
-        viewModel.$nameMessages.assign(
-            to: \.messages, on: customView.nameField
-        ).store(in: &subscriptions)
-
-        viewModel.$descriptionMessages.assign(
-            to: \.messages, on: customView.descriptionField
+        // bind button with validations
+        viewModel.$isValid.assign(
+            to: \.isEnabled,
+            on: customView.createButton
         ).store(in: &subscriptions)
     }
 }

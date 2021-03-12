@@ -59,3 +59,36 @@ extension ViewController {
         present(errorViewController, animated: true)
     }
 }
+
+// MARK: - Input Field Binding
+
+extension ViewController {
+
+    /// Helps binding a Form Input View with a given Field View Model
+    func bind(
+        _ inputField: InputField,
+        with viewModel: InputFieldViewModel
+    ) {
+        inputField.textPublisher.sink(
+            receiveValue: viewModel.validate
+        ).store(in: &subscriptions)
+
+        viewModel.$messages.assign(
+            to: \.messages, on: inputField
+        ).store(in: &subscriptions)
+    }
+
+    /// Helps binding a Form Picker Input View with a given Picker Field View Model
+    func bindPicker<OptionType>(
+        _ inputField: PickerInputField<OptionType>,
+        with viewModel: PickerInputFieldViewModel<OptionType>
+    ) {
+        inputField.$selected.sink(
+            receiveValue: viewModel.validate
+        ).store(in: &subscriptions)
+
+        viewModel.$messages.assign(
+            to: \.messages, on: inputField
+        ).store(in: &subscriptions)
+    }
+}

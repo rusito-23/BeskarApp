@@ -6,6 +6,7 @@
 //
 
 import BeskarUI
+import BeskarKit
 import Combine
 
 /// Create Wallet View Model
@@ -16,72 +17,48 @@ import Combine
 /// Provides necessary data to fill the wallet
 final class CreateWalletViewModel: ViewModel, Resolvable {
 
-    // MARK: Constants
+    // MARK: Properties
 
-    private struct Constants {
-        static var nameValidations: [(ValidationKind, Message)] = [
-            (.custom(.atLeast(3)), Message("AT_LEAST_FORMAT".localize(3), .error)),
-            (.custom(.atMost(20)), Message("AT_MOST_FORMAT".localize(15), .error)),
-            (.regex(.onlyUppercasedLetters), Message("ALL_UPPERCASE".localized, .error)),
-        ]
+    lazy var nameFieldViewModel = InputFieldViewModel(
+        isRequired: true,
+        validations: [
+            .minimumCharacterCount(3),
+            .maximumCharacterCount(15),
+            .regex(.onlyUppercasedLetters),
+        ],
+        delegate: self
+    )
 
-        static var descriptionValidations: [(ValidationKind, Message)] = [
-            (.custom(.atLeast(3)), Message("AT_LEAST_FORMAT".localize(3), .error)),
-            (.custom(.atMost(30)), Message("AT_MOST_FORMAT".localize(30), .error)),
-            (.regex(.startsWithUppercase), Message("START_UPPERCASE".localized, .error)),
-        ]
-    }
+    lazy var descriptionFieldViewModel = InputFieldViewModel(
+        isRequired: false,
+        validations: [
+            .minimumCharacterCount(3),
+            .maximumCharacterCount(30),
+            .regex(.startsWithUppercase),
+        ],
+        delegate: self
+    )
 
-    // MARK: Published
+    lazy var currencyFieldViewModel = PickerInputFieldViewModel<Currency>(
+        isRequired: true,
+        delegate: self
+    )
 
-    @Published var nameMessages: [Message] = []
+    // MARK: Published Properties
 
-    @Published var descriptionMessages: [Message] = []
+    @Published var currencies: [Currency] = Currency.allCases
 
-    // MARK: Private Properties
+    @Published var isValid: Bool = false
+}
 
-    private lazy var validator = injector.resolve(StringValidatorProtocol.self)
+// MARK: Form Field View Model Delegate Conformance
 
-    // MARK: Validation Methods
-
-    func validate(name: String?) {
-        validate(
-            name,
-            for: Constants.nameValidations,
-            target: &nameMessages
-        )
-    }
-
-    func validate(description: String?) {
-        validate(
-            description,
-            for: Constants.descriptionValidations,
-            target: &descriptionMessages
-        )
-    }
-
-    // MARK: Private Methods
-
-    private func validate(
-        _ string: String?,
-        for validations: [(ValidationKind, Message)],
-        target: inout [Message]
-    ) {
-        target.removeAll()
-
-        guard
-            let validator = validator,
-            let string = string,
-            string.trimmed.isNotEmpty
-        else {
-            target.append(Message("REQUIRED".localized, .error))
-            return
-        }
-
-        for (validationKind, message) in validations {
-            if !validator.eval(string, for: validationKind) {
-                target.append(message)
-            }
-        }
+extension CreateWalletViewModel: InputFieldViewModelDelegate {
+    func inputFieldViewModel(_ viewModel: InputFieldViewModel, didFinishValidations: Bool) {
+        isValid = [
+            nameFieldViewModel.isValid,
+            descriptionFieldViewModel.isValid,
+            currencyFieldViewModel.isValid,
+        ].allSatisfy { $0 }
     }
 }

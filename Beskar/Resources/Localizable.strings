@@ -72,8 +72,8 @@ Please make sure you have set your passcode and configured biometrics in your de
 
 // MARK: - Validations
 
-"AT_LEAST_FORMAT" = "should contain at least %d characters";
-"AT_MOST_FORMAT" = "should contain at most %d characters";
-"ALL_UPPERCASE" = "should have only uppercase letters";
-"START_UPPERCASE" = "should start with an uppercase letter";
-"REQUIRED" = "this field is required";
+"VALIDATION_MIN_FORMAT" = "should contain at least %d characters";
+"VALIDATION_MAX_FORMAT" = "should contain at most %d characters";
+"VALIDATION_ALL_UPPERCASE" = "should have only uppercase letters";
+"VALIDATION_START_UPPERCASE" = "should start with an uppercase letter";
+"VALIDATION_REQUIRED" = "this field is required";

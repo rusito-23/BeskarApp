@@ -6,23 +6,24 @@
 //
 
 import BeskarUI
+import BeskarKit
 import UIKit
 
 final class CreateWalletView: UIView {
 
     // MARK: Subviews
 
-    lazy var nameField = FormInputField(
+    lazy var nameField = InputField(
         placeholder: "WALLET_NAME_PLACEHOLDER".localized,
         identifier: A.CreateWalletView.nameField
     )
 
-    lazy var descriptionField = FormInputField(
+    lazy var descriptionField = InputField(
         placeholder: "WALLET_DESCRIPTION_PLACEHOLDER".localized,
         identifier: A.CreateWalletView.descriptionField
     )
 
-    lazy var currencyField = FormPickerInputField(
+    lazy var currencyField = PickerInputField<Currency>(
         placeholder: "WALLET_CURRENCY_PLACEHOLDER".localized,
         cancelButtonText: "CANCEL".localized,
         identifier: A.CreateWalletView.currencyField
