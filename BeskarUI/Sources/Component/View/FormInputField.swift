@@ -36,6 +36,14 @@ public class FormInputField: UIView {
             .eraseToAnyPublisher()
     }
 
+    public var messages: [Message] = [] {
+        didSet {
+            removeMessages()
+            messages.forEach { addMessage($0) }
+            layoutIfNeeded()
+        }
+    }
+
     // MARK: Private Properties
 
     /// Text Field Placeholder, automatically uses design system colors
@@ -99,25 +107,22 @@ public class FormInputField: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: Public Methods
+    // MARK: Private Methods
 
-    public func addMessage(_ message: String, kind: FieldMessage.Kind) {
-        let messageView = FieldMessage(message: message, kind: kind)
-        messageView.accessibilityIdentifier = message
+    private func addMessage(_ message: Message) {
+        let messageView = MessageView(message: message)
+        messageView.accessibilityIdentifier = message.message
         accessibilityElements?.append(messageView)
         contentStack.addArrangedSubview(messageView)
     }
 
     public func removeMessages() {
-        for view in contentStack.arrangedSubviews where view is FieldMessage {
+        for view in contentStack.arrangedSubviews where view is MessageView {
             view.removeFromSuperview()
         }
 
-        // re-set accessibility
         setUpAccessibility()
     }
-
-    // MARK: Private Methods
 
     private func setUpViews() {
         clipsToBounds = true

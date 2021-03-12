@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		780770DF25C6391700071EF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 780770DE25C6391700071EF3 /* Localizable.strings */; };
 		780770ED25C75C0400071EF3 /* Collection+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770EC25C75C0400071EF3 /* Collection+Helpers.swift */; };
-		780770F125C769E300071EF3 /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770F025C769E300071EF3 /* RegexValidator.swift */; };
+		780770F125C769E300071EF3 /* StringValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770F025C769E300071EF3 /* StringValidator.swift */; };
 		7824688425CF78C600B1B9E4 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824688325CF78C600B1B9E4 /* ErrorViewController.swift */; };
 		7824688625CF78EE00B1B9E4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824688525CF78EE00B1B9E4 /* ErrorView.swift */; };
 		7824688925CF7B4A00B1B9E4 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7824688825CF7B4A00B1B9E4 /* Accessibility.swift */; };
@@ -92,7 +92,7 @@
 		36F6EF945829005FD033F5B5 /* Pods-Beskar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.release.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.release.xcconfig"; sourceTree = "<group>"; };
 		780770DE25C6391700071EF3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		780770EC25C75C0400071EF3 /* Collection+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Helpers.swift"; sourceTree = "<group>"; };
-		780770F025C769E300071EF3 /* RegexValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexValidator.swift; sourceTree = "<group>"; };
+		780770F025C769E300071EF3 /* StringValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValidator.swift; sourceTree = "<group>"; };
 		7824688325CF78C600B1B9E4 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		7824688525CF78EE00B1B9E4 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		7824688825CF7B4A00B1B9E4 /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 			children = (
 				7897668725DB0AD1000E9552 /* CompactAmountFormatter.swift */,
 				782927DD25C50AF800F41574 /* Preferences.swift */,
-				780770F025C769E300071EF3 /* RegexValidator.swift */,
+				780770F025C769E300071EF3 /* StringValidator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -593,7 +593,7 @@
 				782E6D9B25D061860057705E /* LoadingView.swift in Sources */,
 				78AC5E3C25D60729005F8D86 /* WalletCardView.swift in Sources */,
 				782927DE25C50AF800F41574 /* Preferences.swift in Sources */,
-				780770F125C769E300071EF3 /* RegexValidator.swift in Sources */,
+				780770F125C769E300071EF3 /* StringValidator.swift in Sources */,
 				7889477325DA20FB00BB9BEE /* WalletViewModel.swift in Sources */,
 				782BBD2925DD89A9007FB112 /* CreateWalletCoordinator.swift in Sources */,
 				78C0909225D083E900C8563B /* LoggerSetUp.swift in Sources */,

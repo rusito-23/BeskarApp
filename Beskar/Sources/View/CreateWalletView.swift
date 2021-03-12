@@ -12,6 +12,30 @@ final class CreateWalletView: UIView {
 
     // MARK: Subviews
 
+    lazy var nameField = FormInputField(
+        placeholder: "WALLET_NAME_PLACEHOLDER".localized,
+        identifier: A.CreateWalletView.nameField
+    )
+
+    lazy var descriptionField = FormInputField(
+        placeholder: "WALLET_DESCRIPTION_PLACEHOLDER".localized,
+        identifier: A.CreateWalletView.descriptionField
+    )
+
+    lazy var currencyField = FormPickerInputField(
+        placeholder: "WALLET_CURRENCY_PLACEHOLDER".localized,
+        cancelButtonText: "CANCEL".localized,
+        identifier: A.CreateWalletView.currencyField
+    )
+
+    lazy var createButton = Button(
+        kind: .primary,
+        title: "CREATE".localized,
+        identifier: A.CreateWalletView.createButton
+    )
+
+    // MARK: Private Subviews
+
     private lazy var titleLabel = Label(
         size: .medium,
         color: UIColor.beskar.primary,
@@ -24,28 +48,6 @@ final class CreateWalletView: UIView {
         color: UIColor.beskar.secondary,
         text: "CREATE_WALLET_SUBTITLE".localized,
         identifier: A.CreateWalletView.subtitle
-    )
-
-    private lazy var nameField = FormInputField(
-        placeholder: "WALLET_NAME_PLACEHOLDER".localized,
-        identifier: A.CreateWalletView.nameField
-    )
-
-    private lazy var descriptionField = FormInputField(
-        placeholder: "WALLET_DESCRIPTION_PLACEHOLDER".localized,
-        identifier: A.CreateWalletView.descriptionField
-    )
-
-    private lazy var currencyField = FormPickerInputField(
-        placeholder: "WALLET_CURRENCY_PLACEHOLDER".localized,
-        cancelButtonText: "CANCEL".localized,
-        identifier: A.CreateWalletView.currencyField
-    )
-
-    private lazy var createButton = Button(
-        kind: .primary,
-        title: "CREATE".localized,
-        identifier: A.CreateWalletView.createButton
     )
 
     // MARK: Initializers

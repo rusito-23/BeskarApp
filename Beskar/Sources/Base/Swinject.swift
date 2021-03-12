@@ -33,6 +33,16 @@ final class Swinject {
         container.register(WalletViewModel.self) { (r: Resolver) in
             WalletViewModel()
         }
+
+        container.register(CreateWalletViewModel.self) { (r: Resolver) in
+            CreateWalletViewModel()
+        }
+
+        // MARK: Utils
+
+        container.register(StringValidatorProtocol.self) { (r: Resolver) in
+            StringValidator()
+        }
     }
 }
 
