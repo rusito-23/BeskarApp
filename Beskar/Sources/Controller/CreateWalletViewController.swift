@@ -7,6 +7,7 @@
 
 import BeskarUI
 import Combine
+import UIKit
 
 final class CreateWalletViewController: ViewController<CreateWalletView> {
 
@@ -19,6 +20,7 @@ final class CreateWalletViewController: ViewController<CreateWalletView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpBindings()
+        setUpActions()
     }
 
     // MARK: Private Methods
@@ -40,5 +42,29 @@ final class CreateWalletViewController: ViewController<CreateWalletView> {
             to: \.isEnabled,
             on: customView.createButton
         ).store(in: &subscriptions)
+    }
+
+    private func setUpActions() {
+        customView.cancelButton.addTarget(
+            self,
+            action: #selector(onCancelButtonTapped),
+            for: .touchUpInside
+        )
+
+        customView.createButton.addTarget(
+            self,
+            action: #selector(onCreateButtonTapped),
+            for: .touchUpInside
+        )
+    }
+
+    // MARK: Actions
+
+    @objc func onCancelButtonTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
+    }
+
+    @objc func onCreateButtonTapped(_ sender: UIBarButtonItem) {
+        log.debug("CREATE")
     }
 }

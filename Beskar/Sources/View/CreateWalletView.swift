@@ -35,6 +35,13 @@ final class CreateWalletView: UIView {
         identifier: A.CreateWalletView.createButton
     )
 
+    lazy var cancelButton: UIButton = {
+        let button = UIButton(type: .close)
+        button.imageView?.tintColor = UIColor.beskar.primary
+        button.tintColor = UIColor.beskar.primary
+        return button
+    }()
+
     // MARK: Private Subviews
 
     private lazy var titleLabel = Label(
@@ -55,6 +62,7 @@ final class CreateWalletView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setUpStyle()
         setUpViews()
     }
 
@@ -65,8 +73,14 @@ final class CreateWalletView: UIView {
 
     // MARK: Private Methods
 
+    private func setUpStyle() {
+        backgroundColor = UIColor.beskar.base
+        layer.cornerRadius = Border.Radius.medium.rawValue
+    }
+
     private func setUpViews() {
         addSubviews(
+            cancelButton,
             titleLabel,
             subtitleLabel,
             nameField,
@@ -75,7 +89,10 @@ final class CreateWalletView: UIView {
             createButton
         )
 
-        titleLabel.top(to: layoutMarginsGuide, offset: Spacing.small.rawValue)
+        cancelButton.top(to: layoutMarginsGuide, offset: Spacing.medium.rawValue)
+        cancelButton.trailing(to: self, offset: -Spacing.medium.rawValue)
+
+        titleLabel.topToBottom(of: cancelButton, offset: Spacing.small.rawValue)
         titleLabel.leading(to: self, offset: Spacing.medium.rawValue)
         titleLabel.trailing(to: self, offset: -Spacing.medium.rawValue)
 
