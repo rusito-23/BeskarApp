@@ -61,6 +61,8 @@ class InputFieldViewModel: ViewModel {
                 messages.append(message)
             }
 
+            // re-set validation
+            isValid = !isRequired
             return
         }
 

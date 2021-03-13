@@ -18,13 +18,16 @@ protocol WalletListCoordinatorFlow: class {
 
 final class WalletListCoordinator: Coordinator {
 
-    // MARK: Properties
+    // MARK: Coordinator Properties
 
-    var presenter: UIViewController
+    var presenter: UIViewController?
 
     var presented: UIViewController? { walletListViewController }
 
-    var children: [Coordinator] = []
+    lazy var children: [Coordinator] = []
+    var onStop: (() -> Void)?
+    var onStart: (() -> Void)?
+    weak var delegate: CoordinatorDelegate?
 
     // MARK: Private Properties
 
@@ -41,19 +44,14 @@ final class WalletListCoordinator: Coordinator {
         item.title = "WALLETS".localized
         return item
     }()
-
-    // MARK: Initializer
-
-    init(presenter: UIViewController) {
-        self.presenter = presenter
-    }
 }
 
 // MARK: - Flows
 
 extension WalletListCoordinator: WalletListCoordinatorFlow {
     func startNewWalletFlow() {
-        let createWalletCoordinator = CreateWalletCoordinator(presenter: presenter)
+        let createWalletCoordinator = CreateWalletCoordinator()
+        createWalletCoordinator.presenter = presenter
         createWalletCoordinator.delegate = self
         start(child: createWalletCoordinator)
     }

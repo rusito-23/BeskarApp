@@ -10,10 +10,10 @@ import Foundation
 /// Field Validation
 /// Provides a simple enum and methods with logic to validate different fields and avoid duplications
 enum FieldValidation {
-    case minimumCharacterCount(Int)
-    case maximumCharacterCount(Int)
+    case minimumCharacterCount(min: Int, trim: Bool)
+    case maximumCharacterCount(max: Int, trim: Bool)
     case isNotEmpty
-    case regex(Regex)
+    case regex(regex: Regex, trim: Bool)
 
     /// Regex validations
     enum Regex: String {
@@ -24,10 +24,10 @@ enum FieldValidation {
     /// The localized failure message
     var failureMessage: String {
         switch self {
-        case let .minimumCharacterCount(min): return "VALIDATION_MIN_FORMAT".localize(min)
-        case let .maximumCharacterCount(max): return "VALIDATION_MAX_FORMAT".localize(max)
+        case let .minimumCharacterCount(min, _): return "VALIDATION_MIN_FORMAT".localize(min)
+        case let .maximumCharacterCount(max, _): return "VALIDATION_MAX_FORMAT".localize(max)
         case .isNotEmpty: return "VALIDATION_REQUIRED".localized
-        case let .regex(regexValidation):
+        case let .regex(regexValidation, _):
             switch regexValidation {
             case .onlyUppercasedLetters: return "VALIDATION_ALL_UPPERCASE".localized
             case .startsWithUppercase: return "VALIDATION_START_UPPERCASE".localized
@@ -37,13 +37,25 @@ enum FieldValidation {
 
     /// Evaluate a given string
     func eval(string: String?) -> Bool {
-        guard let string = string else { return false }
+        guard var string = string else { return false }
+
+        let shouldTrim: Bool = {
+            switch self {
+            case let .minimumCharacterCount(_, trim),
+                 let .maximumCharacterCount(_, trim),
+                 let .regex(_, trim):
+                return trim
+            default: return true
+            }
+        }()
+
+        string = shouldTrim ? string.trimmed : string
 
         switch self {
-        case let .minimumCharacterCount(min): return string.count > min
-        case let .maximumCharacterCount(max): return string.count <= max
+        case let .minimumCharacterCount(min, _): return string.count >= min
+        case let .maximumCharacterCount(max, _): return string.count <= max
         case .isNotEmpty: return string.trimmed.isNotEmpty
-        case let .regex(regexValidation):
+        case let .regex(regexValidation, _):
             return NSPredicate(
                 format: "SELF MATCHES %@",
                 regexValidation.rawValue

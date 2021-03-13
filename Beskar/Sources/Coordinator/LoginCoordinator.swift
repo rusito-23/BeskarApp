@@ -18,6 +18,15 @@ final class LoginCoordinator: Coordinator {
 
     var parent: AppCoordinatorFlow
 
+    // MARK: Coordinator Properties
+
+    var presenter: UIViewController?
+    var presented: UIViewController?
+    lazy var children: [Coordinator] = []
+    var onStop: (() -> Void)?
+    var onStart: (() -> Void)?
+    weak var delegate: CoordinatorDelegate?
+
     // MARK: Initializer
 
     init(

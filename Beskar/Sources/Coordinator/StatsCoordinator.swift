@@ -10,15 +10,19 @@ import UIKit
 
 final class StatsCoordinator: Coordinator {
 
-    // MARK: Properties
-
-    var presenter: UIViewController
+    // MARK: Coordinator Properties
 
     lazy var presented: UIViewController? = {
         let viewController = StatsViewController()
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
+
+    var presenter: UIViewController?
+    lazy var children: [Coordinator] = []
+    var onStop: (() -> Void)?
+    var onStart: (() -> Void)?
+    weak var delegate: CoordinatorDelegate?
 
     // MARK: Private Properties
 
@@ -28,10 +32,4 @@ final class StatsCoordinator: Coordinator {
         item.title = "STATS".localized
         return item
     }()
-
-    // MARK: Initializer
-
-    init(presenter: UIViewController) {
-        self.presenter = presenter
-    }
 }

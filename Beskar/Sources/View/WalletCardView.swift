@@ -124,14 +124,12 @@ final class WalletCardView: UITableViewCell {
         reuseIdentifier: String?
     ) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .clear
-        contentView.backgroundColor = UIColor.beskar.primary
-        selectionStyle = .none
 
+        setUpStyle()
         setUpViews()
         setUpBorderAsCard()
         setUpBindings()
+        setUpActions()
     }
 
     @available(*, unavailable)
@@ -148,7 +146,14 @@ final class WalletCardView: UITableViewCell {
 
     // MARK: Private Methods
 
+    private func setUpStyle() {
+        backgroundColor = .clear
+        contentView.backgroundColor = UIColor.beskar.primary
+        selectionStyle = .none
+    }
+
     private func setUpViews() {
+        translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubviews(contentStack)
         contentStack.edges(to: contentView, insets: .uniform(Spacing.medium.rawValue))
     }
@@ -168,5 +173,39 @@ final class WalletCardView: UITableViewCell {
         viewModel.compactAmountPublisher.assign(
             to: \.text, on: amountLabel
         ).store(in: &subscriptions)
+    }
+
+    private func setUpActions() {
+        withdrawButton.addTarget(
+            self,
+            action: #selector(onWithdrawTapped),
+            for: .touchUpInside
+        )
+
+        depositButton.addTarget(
+            self,
+            action: #selector(onDepositTapped),
+            for: .touchUpInside
+        )
+
+        detailsButton.addTarget(
+            self,
+            action: #selector(onDetailsTapped),
+            for: .touchUpInside
+        )
+    }
+
+    // MARK: Actions
+
+    @objc private func onWithdrawTapped(_ sender: UIButton) {
+        delegate?.walletCardViewDidTapWithdraw(self)
+    }
+
+    @objc private func onDepositTapped(_ sender: UIButton) {
+        delegate?.walletCardViewDidTapDeposit(self)
+    }
+
+    @objc private func onDetailsTapped(_ sender: UIButton) {
+        delegate?.walletCardViewDidTapDetails(self)
     }
 }

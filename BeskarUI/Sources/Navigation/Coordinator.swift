@@ -19,7 +19,7 @@ public protocol Coordinator: AnyObject {
     // MARK: Properties
 
     /// The view controller on top of which the coordinator will start
-    var presenter: UIViewController { get set }
+    var presenter: UIViewController? { get set }
 
     /// The presented view controller
     var presented: UIViewController? { get }
@@ -63,7 +63,7 @@ public extension Coordinator {
     /// is to call the default presentation method
     func start() {
         guard let presented = presented else { return }
-        presenter.present(presented, animated: true) { [weak self] in
+        presenter?.present(presented, animated: true) { [weak self] in
             guard let self = self else { return }
             self.onStart?()
             self.delegate?.coordinatorDidStart(self)
@@ -101,32 +101,6 @@ public extension Coordinator {
         self.children.remove(at: index)
     }
 }
-
-// MARK: Coordinator Properties Defaults
-
-// swiftlint:disable unused_setter_value
-public extension Coordinator {
-
-    /// By default, the presenter won't be needed
-    /// but the usage will fail!
-    var presenter: UIViewController { get { fatalError() } set {} }
-
-    /// By default, the presented view controller is nil
-    var presented: UIViewController? { get { nil } set {} }
-
-    /// By default, the coordinator won't have children
-    var children: [Coordinator] { get { [] } set {} }
-
-    /// By default, the stop callback is nil
-    var onStop: (() -> Void)? { get { nil } set {} }
-
-    /// By default, the start callback is nil
-    var onStart: (() -> Void)? { get { nil } set {} }
-
-    /// By default, the delegate is nil
-    var delegate: CoordinatorDelegate? { get { nil } set {} }
-}
-// swiftlint:enable unused_setter_value
 
 // MARK: - Coordinator Delegate
 

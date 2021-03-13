@@ -24,5 +24,11 @@ extension String {
 // MARK: - Trim Helpers
 
 extension String {
-    var trimmed: String { trimmingCharacters(in: .whitespaces) }
+    var trimmed: String {
+        trimmingCharacters(
+            in: .whitespacesAndNewlines
+        ).split(separator: " ")
+        .map(String.init)
+        .joined()
+    }
 }

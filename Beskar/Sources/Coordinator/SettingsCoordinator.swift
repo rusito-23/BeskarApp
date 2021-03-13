@@ -12,9 +12,14 @@ final class SettingsCoordinator: Coordinator {
 
     // MARK: Coordinator Properties
 
-    var presenter: UIViewController
+    var presenter: UIViewController?
 
     var presented: UIViewController? { settingsViewController }
+
+    lazy var children: [Coordinator] = []
+    var onStop: (() -> Void)?
+    var onStart: (() -> Void)?
+    weak var delegate: CoordinatorDelegate?
 
     // MARK: Private Properties
 
@@ -30,10 +35,4 @@ final class SettingsCoordinator: Coordinator {
         item.title = "SETTINGS".localized
         return item
     }()
-
-    // MARK: Initializer
-
-    init(presenter: UIViewController) {
-        self.presenter = presenter
-    }
 }

@@ -12,9 +12,7 @@ final class CreateWalletCoordinator: Coordinator {
 
     // MARK: Coordinator Properties
 
-    var presenter: UIViewController
-
-    weak var delegate: CoordinatorDelegate?
+    var presenter: UIViewController?
 
     lazy var presented: UIViewController? = {
         let viewController = CreateWalletViewController()
@@ -24,9 +22,8 @@ final class CreateWalletCoordinator: Coordinator {
         return viewController
     }()
 
-    // MARK: Initializer
-
-    init(presenter: UIViewController) {
-        self.presenter = presenter
-    }
+    lazy var children: [Coordinator] = []
+    var onStop: (() -> Void)?
+    var onStart: (() -> Void)?
+    weak var delegate: CoordinatorDelegate?
 }

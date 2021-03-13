@@ -22,11 +22,11 @@ protocol AppCoordinatorFlow: class {
 
 final class AppCoordinator: Coordinator {
 
-    // MARK: Properties
+    // MARK: Coordinator Properties
 
     /// The App Coordinator sets up its own `presenter`,
     /// That's what I call autonomy...
-    var presenter: UIViewController
+    var presenter: UIViewController?
 
     /// We create the main window here, instead of using the `AppDelegate`
     private(set) lazy var window: UIWindow = {
@@ -35,6 +35,14 @@ final class AppCoordinator: Coordinator {
         window.tintColor = UIColor.beskar.primary
         return window
     }()
+
+    var presented: UIViewController?
+    lazy var children: [Coordinator] = []
+    var onStop: (() -> Void)?
+    var onStart: (() -> Void)?
+    weak var delegate: CoordinatorDelegate?
+
+    // MARK: Private Properties
 
     private var rootCoordinator: Coordinator?
 
@@ -70,7 +78,7 @@ extension AppCoordinator: AppCoordinatorFlow {
     func startWelcomeFlow() {
         let viewController = WelcomeViewController()
         viewController.coordinator = self
-        presenter.present(viewController, animated: true)
+        presenter?.present(viewController, animated: true)
     }
 
     /// Start Authentication Flow
@@ -81,7 +89,8 @@ extension AppCoordinator: AppCoordinatorFlow {
 
     /// Start Main Flow - Tab Bar
     func startMainFlow() {
-        rootCoordinator = MainTabBarCoordinator(presenter: presenter)
+        rootCoordinator = MainTabBarCoordinator()
+        rootCoordinator?.presenter = presenter
         rootCoordinator?.start()
     }
 
@@ -108,6 +117,6 @@ extension AppCoordinator: AppCoordinatorFlow {
             )
         }
 
-        presenter.present(errorViewController, animated: true)
+        presenter?.present(errorViewController, animated: true)
     }
 }

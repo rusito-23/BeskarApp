@@ -30,9 +30,9 @@ final class CreateWalletViewModel: ViewModel, Resolvable {
     private(set) lazy var nameFieldViewModel = InputFieldViewModel(
         isRequired: true,
         validations: [
-            .minimumCharacterCount(3),
-            .maximumCharacterCount(15),
-            .regex(.onlyUppercasedLetters),
+            .minimumCharacterCount(min: 3, trim: true),
+            .maximumCharacterCount(max: 15, trim: true),
+            .regex(regex: .onlyUppercasedLetters, trim: true),
         ],
         delegate: self
     )
@@ -40,9 +40,9 @@ final class CreateWalletViewModel: ViewModel, Resolvable {
     private(set) lazy var descriptionFieldViewModel = InputFieldViewModel(
         isRequired: false,
         validations: [
-            .minimumCharacterCount(3),
-            .maximumCharacterCount(30),
-            .regex(.startsWithUppercase),
+            .minimumCharacterCount(min: 3, trim: true),
+            .maximumCharacterCount(max: 30, trim: false),
+            .regex(regex: .startsWithUppercase, trim: false),
         ],
         delegate: self
     )
