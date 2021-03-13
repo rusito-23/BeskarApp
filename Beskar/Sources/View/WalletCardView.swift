@@ -9,11 +9,23 @@ import BeskarUI
 import Combine
 import UIKit
 
+// MARK: - Wallet Card View Delegate
+
+protocol WalletCardViewDelegate: class {
+    func walletCardViewDidTapDeposit(_ view: WalletCardView)
+    func walletCardViewDidTapDetails(_ view: WalletCardView)
+    func walletCardViewDidTapWithdraw(_ view: WalletCardView)
+}
+
+// MARK: - Wallet Card View
+
 final class WalletCardView: UITableViewCell {
 
     // MARK: Properties
 
     var viewModel: WalletViewModel = .resolved
+
+    weak var delegate: WalletCardViewDelegate?
 
     private lazy var subscriptions = Set<AnyCancellable>()
 

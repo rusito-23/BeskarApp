@@ -11,6 +11,7 @@
 "RETRY" = "Retry";
 "CANCEL" = "Cancel";
 "CREATE" = "CREATE";
+"DONE" = "Done";
 "OK" = "OK";
 "LOADING" = "Loading...";
 

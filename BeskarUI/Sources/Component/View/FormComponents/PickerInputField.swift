@@ -85,7 +85,11 @@ public class PickerInputField<
         identifier: String
     ) {
         self.cancelButtonText = cancelButtonText
-        super.init(placeholder: placeholder, identifier: identifier)
+        super.init(
+            placeholder: placeholder,
+            doneButtonText: nil,
+            identifier: identifier
+        )
 
         setUpTextField()
     }

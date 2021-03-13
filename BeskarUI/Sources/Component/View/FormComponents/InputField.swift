@@ -59,10 +59,12 @@ public class InputField: UIView {
         .font: UIFont.beskar.build(.extraSmall),
     ]
 
+    private var doneButtonText: String?
+
     // MARK: Subviews
 
     private(set) lazy var textField: TextField = {
-        let textField = TextField()
+        let textField = TextField(doneButtonText: doneButtonText)
         textField.delegate = self
         textField.accessibilityIdentifier = identifier
         return textField
@@ -92,7 +94,12 @@ public class InputField: UIView {
 
     // MARK: Initializers
 
-    public init(placeholder: String, identifier: String) {
+    public init(
+        placeholder: String?,
+        doneButtonText: String?,
+        identifier: String
+    ) {
+        self.doneButtonText = doneButtonText
         self.placeholder = placeholder
         self.identifier = identifier
         super.init(frame: .zero)

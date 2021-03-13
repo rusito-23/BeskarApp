@@ -10,13 +10,36 @@ import UIKit
 /// Beskar Design System Text Field
 public class TextField: UITextField {
 
+    // MARK: Properties
+
+    private var doneButtonText: String?
+
+    // MARK: Subviews
+
+    private lazy var toolBar: UIToolbar = {
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.backgroundColor = UIColor.beskar.base
+        toolBar.tintColor = UIColor.beskar.primary
+        toolBar.setItems([toolBarDoneButton], animated: false)
+        toolBar.sizeToFit()
+        return toolBar
+    }()
+
+    private lazy var toolBarDoneButton = UIBarButtonItem(
+        title: doneButtonText,
+        style: .plain,
+        target: self,
+        action: #selector(onDoneTapped)
+    )
+
     // MARK: Initializers
 
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        clipsToBounds = true
-        translatesAutoresizingMaskIntoConstraints = false
+    public init(doneButtonText: String?) {
+        self.doneButtonText = doneButtonText
+        super.init(frame: .zero)
 
+        setUpToolBar()
         setUpLayer()
         setUpConstraints()
     }
@@ -28,6 +51,10 @@ public class TextField: UITextField {
 
     // MARK: Private
 
+    private func setUpToolBar() {
+        inputAccessoryView = toolBar
+    }
+
     private func setUpLayer() {
         layer.borderWidth = Border.Width.small.rawValue
         layer.borderColor = UIColor.beskar.primary.cgColor
@@ -35,6 +62,9 @@ public class TextField: UITextField {
     }
 
     private func setUpConstraints() {
+        clipsToBounds = true
+        translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
             heightAnchor.constraint(equalToConstant: Size.medium.rawValue),
         ])
@@ -52,5 +82,11 @@ public class TextField: UITextField {
 
     public override func editingRect(forBounds bounds: CGRect) -> CGRect {
         bounds.inset(by: UIEdgeInsets.beskar.horizontal(by: .medium))
+    }
+
+    // MARK: Actions
+
+    @objc func onDoneTapped(_ sender: UIBarButtonItem) {
+        resignFirstResponder()
     }
 }

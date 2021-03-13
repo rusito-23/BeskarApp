@@ -35,12 +35,10 @@ final class WalletListViewController: ViewController<WalletListView> {
     // MARK: Methods
 
     func reload() {
-        startLoading()
-        ui.footerView.isHidden = true
+        startLoadingAndHideFooter()
         viewModel.start { [weak self] result in
             guard let self = self else { return }
-            self.stopLoading()
-            self.ui.footerView.isHidden = false
+            self.stopLoadingAndShowFooter()
 
             switch result {
             case .failure: self.showLoadError()
@@ -57,7 +55,10 @@ final class WalletListViewController: ViewController<WalletListView> {
             subscriber: ui.tableView.rowsSubscriber(
                 cellIdentifier: WalletCardView.identifier,
                 cellType: WalletCardView.self,
-                cellConfig: { $0.viewModel.wallet = $2 }
+                cellConfig: { cell, _, wallet in
+                    cell.viewModel.wallet = wallet
+                    cell.delegate = self
+                }
             )
         ).store(in: &subscriptions)
 
@@ -83,9 +84,35 @@ final class WalletListViewController: ViewController<WalletListView> {
         ) { [weak self] in self?.viewModel.start() }
     }
 
+    private func startLoadingAndHideFooter() {
+        startLoading()
+        ui.footerView.isHidden = true
+    }
+
+    private func stopLoadingAndShowFooter() {
+        stopLoading()
+        ui.footerView.isHidden = false
+    }
+
     // MARK: Actions
 
     @objc private func onCreateWalletTapped(_ sender: UIButton) {
         coordinator?.startNewWalletFlow()
+    }
+}
+
+// MARK: - Wallet Card View Delegate
+
+extension WalletListViewController: WalletCardViewDelegate {
+    func walletCardViewDidTapDeposit(_ view: WalletCardView) {
+        log.debug("Deposit")
+    }
+
+    func walletCardViewDidTapDetails(_ view: WalletCardView) {
+        log.debug("Details")
+    }
+
+    func walletCardViewDidTapWithdraw(_ view: WalletCardView) {
+        log.debug("Withdraw")
     }
 }

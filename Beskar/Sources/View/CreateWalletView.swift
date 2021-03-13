@@ -15,11 +15,13 @@ final class CreateWalletView: UIView {
 
     private(set) lazy var nameField = InputField(
         placeholder: "WALLET_NAME_PLACEHOLDER".localized,
+        doneButtonText: "DONE".localized,
         identifier: A.CreateWalletView.nameField
     )
 
     private(set) lazy var descriptionField = InputField(
         placeholder: "WALLET_DESCRIPTION_PLACEHOLDER".localized,
+        doneButtonText: "DONE".localized,
         identifier: A.CreateWalletView.descriptionField
     )
 
