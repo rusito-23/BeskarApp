@@ -10,9 +10,11 @@ import BeskarUI
 
 final class MainTabBarCoordinator: Coordinator {
 
-    // MARK: Properties
+    // MARK: Coordinator Properties
 
     var presenter: UIViewController
+
+    var presented: UIViewController? { tabBarController }
 
     // MARK: Controller
 
@@ -36,7 +38,7 @@ final class MainTabBarCoordinator: Coordinator {
         presenter: tabBarController
     )
 
-    private lazy var tabCoordinators: [TabCoordinator] = [
+    private lazy var tabCoordinators: [Coordinator] = [
         statsCoordinator,
         walletListCoordinator,
         settingsCoordinator,
@@ -51,8 +53,8 @@ final class MainTabBarCoordinator: Coordinator {
     // MARK: Coordinator Conformance
 
     func start() {
-        tabBarController.viewControllers = tabCoordinators.map { $0.viewController }
-        tabBarController.selectedViewController = walletListCoordinator.viewController
+        tabBarController.viewControllers = tabCoordinators.compactMap { $0.presented }
+        tabBarController.selectedViewController = walletListCoordinator.presented
         presenter.present(tabBarController, animated: true)
     }
 }

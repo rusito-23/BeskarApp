@@ -18,17 +18,13 @@ final class LoginCoordinator: Coordinator {
 
     var parent: AppCoordinatorFlow
 
-    var presenter: UIViewController
-
     // MARK: Initializer
 
     init(
         parent: AppCoordinatorFlow,
-        presenter: UIViewController = NavigationController(),
         authService: AuthServiceProtocol = AuthService()
     ) {
         self.parent = parent
-        self.presenter = presenter
         self.authService = authService
     }
 

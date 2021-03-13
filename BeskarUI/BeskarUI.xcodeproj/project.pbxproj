@@ -25,7 +25,6 @@
 		7889475725D9A62F00BB9BEE /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475625D9A62F00BB9BEE /* ActionButton.swift */; };
 		7889475B25D9C32F00BB9BEE /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475A25D9C32F00BB9BEE /* Separator.swift */; };
 		7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564A25D0ADE70027493F /* UIImage+Beskar.swift */; };
-		78B4C9DD25F6791C005085F5 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C9DC25F6791C005085F5 /* TabCoordinator.swift */; };
 		78B4C9ED25FA5C5D005085F5 /* PickerInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C9EC25FA5C5D005085F5 /* PickerInputField.swift */; };
 		78DAF05925DD95FB00060CBF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DAF05825DD95FB00060CBF /* Coordinator.swift */; };
 /* End PBXBuildFile section */
@@ -51,7 +50,6 @@
 		7889475625D9A62F00BB9BEE /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		7889475A25D9C32F00BB9BEE /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		7890564A25D0ADE70027493F /* UIImage+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Beskar.swift"; sourceTree = "<group>"; };
-		78B4C9DC25F6791C005085F5 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		78B4C9EC25FA5C5D005085F5 /* PickerInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerInputField.swift; sourceTree = "<group>"; };
 		78DAF05825DD95FB00060CBF /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				78DAF05825DD95FB00060CBF /* Coordinator.swift */,
-				78B4C9DC25F6791C005085F5 /* TabCoordinator.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -266,7 +263,6 @@
 				78438C4525D5FE21003B8A4E /* ImageView.swift in Sources */,
 				782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */,
 				78414A6725D3492F00F9351D /* TabBarController.swift in Sources */,
-				78B4C9DD25F6791C005085F5 /* TabCoordinator.swift in Sources */,
 				782927D225C48F8800F41574 /* ViewController.swift in Sources */,
 				780770E625C74A3B00071EF3 /* MessageView.swift in Sources */,
 				7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */,

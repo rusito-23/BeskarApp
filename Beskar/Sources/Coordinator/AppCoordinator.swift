@@ -75,11 +75,7 @@ extension AppCoordinator: AppCoordinatorFlow {
 
     /// Start Authentication Flow
     func startLoginFlow() {
-        let coordinator = LoginCoordinator(
-            parent: self,
-            presenter: presenter
-        )
-
+        let coordinator = LoginCoordinator(parent: self)
         coordinator.start()
     }
 

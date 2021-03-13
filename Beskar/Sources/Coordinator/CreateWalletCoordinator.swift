@@ -10,15 +10,13 @@ import UIKit
 
 final class CreateWalletCoordinator: Coordinator {
 
-    // MARK: Properties
+    // MARK: Coordinator Properties
 
     var presenter: UIViewController
 
     weak var delegate: CoordinatorDelegate?
 
-    // MARK: Private Properties
-
-    private lazy var viewController: UIViewController = {
+    lazy var presented: UIViewController? = {
         let viewController = CreateWalletViewController()
         viewController.coordinator = self
         viewController.modalTransitionStyle = .coverVertical
@@ -30,17 +28,5 @@ final class CreateWalletCoordinator: Coordinator {
 
     init(presenter: UIViewController) {
         self.presenter = presenter
-    }
-
-    // MARK: Coordinator Conformance
-
-    func start() {
-        presenter.present(viewController, animated: true)
-        delegate?.coordinatorDidStart(self)
-    }
-
-    func stop() {
-        viewController.dismiss(animated: true)
-        delegate?.coordinatorDidStop(self)
     }
 }

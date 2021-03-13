@@ -8,13 +8,13 @@
 import BeskarUI
 import UIKit
 
-final class StatsCoordinator: TabCoordinator {
+final class StatsCoordinator: Coordinator {
 
     // MARK: Properties
 
     var presenter: UIViewController
 
-    lazy var viewController: UIViewController = {
+    lazy var presented: UIViewController? = {
         let viewController = StatsViewController()
         viewController.tabBarItem = tabBarItem
         return viewController

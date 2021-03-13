@@ -16,17 +16,17 @@ protocol WalletListCoordinatorFlow: class {
 
 // MARK: - Coordinator implementation
 
-final class WalletListCoordinator: TabCoordinator {
+final class WalletListCoordinator: Coordinator {
 
     // MARK: Properties
 
     var presenter: UIViewController
 
-    var viewController: UIViewController { walletListViewController }
+    var presented: UIViewController? { walletListViewController }
+
+    var children: [Coordinator] = []
 
     // MARK: Private Properties
-
-    private var createWalletCoordinator: CreateWalletCoordinator?
 
     lazy var walletListViewController: WalletListViewController = {
         let viewController = WalletListViewController()
@@ -53,18 +53,17 @@ final class WalletListCoordinator: TabCoordinator {
 
 extension WalletListCoordinator: WalletListCoordinatorFlow {
     func startNewWalletFlow() {
-        createWalletCoordinator = CreateWalletCoordinator(presenter: presenter)
-        createWalletCoordinator?.delegate = self
-        createWalletCoordinator?.start()
+        let createWalletCoordinator = CreateWalletCoordinator(presenter: presenter)
+        createWalletCoordinator.delegate = self
+        start(child: createWalletCoordinator)
     }
 }
 
-// MARK: - Delegate Conformance
+// MARK: - Coordinator Delegate Conformance
 
 extension WalletListCoordinator: CoordinatorDelegate {
     func coordinatorDidStop(_ coordinator: Coordinator) {
         if coordinator is CreateWalletCoordinator {
-            createWalletCoordinator = nil
             walletListViewController.reload()
         }
     }
