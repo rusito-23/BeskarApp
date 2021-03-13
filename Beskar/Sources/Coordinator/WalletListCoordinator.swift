@@ -6,12 +6,15 @@
 //
 
 import BeskarUI
+import BeskarKit
 import UIKit
 
 // MARK: - Flow Protocol
 
 protocol WalletListCoordinatorFlow: class {
     func startNewWalletFlow()
+    func startWalletDetailFlow(for wallet: Wallet)
+    func startWalletTransactionFlow(for wallet: Wallet)
 }
 
 // MARK: - Coordinator implementation
@@ -50,10 +53,24 @@ final class WalletListCoordinator: Coordinator {
 
 extension WalletListCoordinator: WalletListCoordinatorFlow {
     func startNewWalletFlow() {
-        let createWalletCoordinator = CreateWalletCoordinator()
-        createWalletCoordinator.presenter = presenter
-        createWalletCoordinator.delegate = self
-        start(child: createWalletCoordinator)
+        let coordinator = CreateWalletCoordinator()
+        coordinator.presenter = presented
+        coordinator.delegate = self
+        start(child: coordinator)
+    }
+
+    func startWalletDetailFlow(for wallet: Wallet) {
+        let coordinator = WalletDetailCoordinator()
+        coordinator.presenter = presented
+        coordinator.delegate = self
+        start(child: coordinator)
+    }
+
+    func startWalletTransactionFlow(for wallet: Wallet) {
+        let coordinator = WalletTransactionCoordinator()
+        coordinator.presenter = presented
+        coordinator.delegate = self
+        start(child: coordinator)
     }
 }
 

@@ -13,7 +13,13 @@ final class WalletDetailCoordinator: Coordinator {
     // MARK: Coordinator Properties
 
     var presenter: UIViewController?
-    lazy var presented: UIViewController? = WalletDetailViewController()
+
+    lazy var presented: UIViewController? = {
+        let presented = WalletDetailViewController()
+        presented.modalPresentationStyle = .formSheet
+        return presented
+    }()
+
     lazy var children: [Coordinator] = []
     var onStop: (() -> Void)?
     var onStart: (() -> Void)?

@@ -105,14 +105,17 @@ final class WalletListViewController: ViewController<WalletListView> {
 
 extension WalletListViewController: WalletCardViewDelegate {
     func walletCardViewDidTapDeposit(_ view: WalletCardView) {
-        log.debug("Deposit")
+        guard let wallet = view.viewModel.wallet else { return }
+        coordinator?.startWalletTransactionFlow(for: wallet)
     }
 
     func walletCardViewDidTapDetails(_ view: WalletCardView) {
-        log.debug("Details")
+        guard let wallet = view.viewModel.wallet else { return }
+        coordinator?.startWalletDetailFlow(for: wallet)
     }
 
     func walletCardViewDidTapWithdraw(_ view: WalletCardView) {
-        log.debug("Withdraw")
+        guard let wallet = view.viewModel.wallet else { return }
+        coordinator?.startWalletTransactionFlow(for: wallet)
     }
 }

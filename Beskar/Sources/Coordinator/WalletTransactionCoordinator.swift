@@ -14,7 +14,11 @@ final class WalletTransactionCoordinator: Coordinator {
 
     var presenter: UIViewController?
 
-    lazy var presented: UIViewController? = WalletTransactionViewController()
+    lazy var presented: UIViewController? = {
+        let presented = WalletTransactionViewController()
+        presented.modalPresentationStyle = .formSheet
+        return presented
+    }()
 
     lazy var children: [Coordinator] = []
     var onStop: (() -> Void)?

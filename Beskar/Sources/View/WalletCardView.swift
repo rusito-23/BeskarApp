@@ -21,6 +21,12 @@ protocol WalletCardViewDelegate: class {
 
 final class WalletCardView: UITableViewCell {
 
+    // MARK: Constants
+
+    private struct Constants {
+        static let numberOfLinesForTitle = 3
+    }
+
     // MARK: Properties
 
     var viewModel: WalletViewModel = .resolved
@@ -36,7 +42,7 @@ final class WalletCardView: UITableViewCell {
         weight: .traitBold,
         color: UIColor.beskar.tertiary,
         alignment: .left,
-        lines: 3,
+        lines: Constants.numberOfLinesForTitle,
         identifier: A.WalletCardView.title
     ).withCompressionResistance(.required, for: .vertical)
 
@@ -44,7 +50,7 @@ final class WalletCardView: UITableViewCell {
         size: .small,
         color: UIColor.beskar.tertiary,
         alignment: .right,
-        lines: 3,
+        lines: Constants.numberOfLinesForTitle,
         identifier: A.WalletCardView.amount
     ).withCompressionResistance(.required, for: .vertical)
 
@@ -58,7 +64,7 @@ final class WalletCardView: UITableViewCell {
 
     private lazy var detailsButton = ActionButton(
         imageName: .details,
-        size: .typeLarge,
+        size: .small,
         identifier: A.WalletCardView.detailsButton
     )
 
