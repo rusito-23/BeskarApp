@@ -26,10 +26,14 @@
 		7889475B25D9C32F00BB9BEE /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475A25D9C32F00BB9BEE /* Separator.swift */; };
 		7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564A25D0ADE70027493F /* UIImage+Beskar.swift */; };
 		78B4C9ED25FA5C5D005085F5 /* PickerInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C9EC25FA5C5D005085F5 /* PickerInputField.swift */; };
+		78BD8FDE25FD7F7000935915 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BD8FDD25FD7F7000935915 /* ModalViewController.swift */; };
 		78DAF05925DD95FB00060CBF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DAF05825DD95FB00060CBF /* Coordinator.swift */; };
+		AB50CF4EE3EDC4B875B12313 /* Pods_BeskarUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92F30FF3342836F778B0437 /* Pods_BeskarUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18D26959FA23B42CE493B69B /* Pods-BeskarUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarUI.debug.xcconfig"; path = "Target Support Files/Pods-BeskarUI/Pods-BeskarUI.debug.xcconfig"; sourceTree = "<group>"; };
+		6FF72FD2C1314D4DEB494174 /* Pods-BeskarUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarUI.release.xcconfig"; path = "Target Support Files/Pods-BeskarUI/Pods-BeskarUI.release.xcconfig"; sourceTree = "<group>"; };
 		780770E125C63F2200071EF3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		780770E525C74A3A00071EF3 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		780770E825C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Beskar.swift"; sourceTree = "<group>"; };
@@ -51,7 +55,9 @@
 		7889475A25D9C32F00BB9BEE /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		7890564A25D0ADE70027493F /* UIImage+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Beskar.swift"; sourceTree = "<group>"; };
 		78B4C9EC25FA5C5D005085F5 /* PickerInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerInputField.swift; sourceTree = "<group>"; };
+		78BD8FDD25FD7F7000935915 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		78DAF05825DD95FB00060CBF /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E92F30FF3342836F778B0437 /* Pods_BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB50CF4EE3EDC4B875B12313 /* Pods_BeskarUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +109,8 @@
 				7832235B25C44B3300D466ED /* Resources */,
 				7832235D25C44B3300D466ED /* Sources */,
 				7832234425C446BF00D466ED /* Products */,
+				D11D7CEB11D15FB48B04CA48 /* Pods */,
+				DE9FEC27636742EB5CD44143 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				78DAF05825DD95FB00060CBF /* Coordinator.swift */,
+				78BD8FDD25FD7F7000935915 /* ModalViewController.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -181,6 +191,24 @@
 			path = CommonComponents;
 			sourceTree = "<group>";
 		};
+		D11D7CEB11D15FB48B04CA48 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18D26959FA23B42CE493B69B /* Pods-BeskarUI.debug.xcconfig */,
+				6FF72FD2C1314D4DEB494174 /* Pods-BeskarUI.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
+		DE9FEC27636742EB5CD44143 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E92F30FF3342836F778B0437 /* Pods_BeskarUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -199,6 +227,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7832234B25C446BF00D466ED /* Build configuration list for PBXNativeTarget "BeskarUI" */;
 			buildPhases = (
+				E964E9968D654696BE14E6D2 /* [CP] Check Pods Manifest.lock */,
 				7832233E25C446BF00D466ED /* Headers */,
 				7832233F25C446BF00D466ED /* Sources */,
 				7832234025C446BF00D466ED /* Frameworks */,
@@ -255,6 +284,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E964E9968D654696BE14E6D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BeskarUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7832233F25C446BF00D466ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -270,6 +324,7 @@
 				7889475725D9A62F00BB9BEE /* ActionButton.swift in Sources */,
 				78DAF05925DD95FB00060CBF /* Coordinator.swift in Sources */,
 				7889475B25D9C32F00BB9BEE /* Separator.swift in Sources */,
+				78BD8FDE25FD7F7000935915 /* ModalViewController.swift in Sources */,
 				78B4C9ED25FA5C5D005085F5 /* PickerInputField.swift in Sources */,
 				780770E925C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift in Sources */,
 				7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */,
@@ -409,6 +464,7 @@
 		};
 		7832234C25C446BF00D466ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18D26959FA23B42CE493B69B /* Pods-BeskarUI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -438,6 +494,7 @@
 		};
 		7832234D25C446BF00D466ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FF72FD2C1314D4DEB494174 /* Pods-BeskarUI.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;

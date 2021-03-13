@@ -19,3 +19,10 @@ target 'BeskarKit' do
     pod 'RealmSwift'
     pod 'SwiftyBeaver'
 end
+
+target 'BeskarUI' do
+    project 'BeskarUI/BeskarUI.xcodeproj'
+    use_frameworks!
+
+    pod 'TinyConstraints'
+end

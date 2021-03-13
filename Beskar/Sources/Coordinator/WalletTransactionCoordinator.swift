@@ -7,6 +7,7 @@
 
 import BeskarUI
 import UIKit
+import TinyConstraints
 
 final class WalletTransactionCoordinator: Coordinator {
 
@@ -14,7 +15,11 @@ final class WalletTransactionCoordinator: Coordinator {
 
     var presenter: UIViewController?
 
-    lazy var presented: UIViewController? = {
+    lazy var presented: UIViewController? = ModalViewController(
+        viewController: viewController
+    )
+
+    lazy var viewController: UIViewController = {
         let presented = WalletTransactionViewController()
         presented.modalPresentationStyle = .formSheet
         return presented

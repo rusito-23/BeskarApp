@@ -110,7 +110,7 @@ public protocol CoordinatorDelegate: class {
     func coordinatorDidFail(_ coordinator: Coordinator)
 }
 
-/// All methods in the Coordinator Delegate are optionals
+/// All methods in the Coordinator Delegate are optional
 public extension CoordinatorDelegate {
     func coordinatorDidStop(_ coordinator: Coordinator) {}
     func coordinatorDidStart(_ coordinator: Coordinator) {}
