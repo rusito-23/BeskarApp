@@ -29,7 +29,24 @@ final class WalletListViewController: ViewController<WalletListView> {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        startReloading()
+        reload()
+    }
+
+    // MARK: Methods
+
+    func reload() {
+        startLoading()
+        ui.footerView.isHidden = true
+        viewModel.start { [weak self] result in
+            guard let self = self else { return }
+            self.stopLoading()
+            self.ui.footerView.isHidden = false
+
+            switch result {
+            case .failure: self.showLoadError()
+            case .success: break
+            }
+        }
     }
 
     // MARK: Private Methods
@@ -64,21 +81,6 @@ final class WalletListViewController: ViewController<WalletListView> {
             "WALLET_LIST_ERROR".localized,
             buttonTitle: "RETRY".localized
         ) { [weak self] in self?.viewModel.start() }
-    }
-
-    private func startReloading() {
-        startLoading()
-        ui.footerView.isHidden = true
-        viewModel.start { [weak self] result in
-            guard let self = self else { return }
-            self.stopLoading()
-            self.ui.footerView.isHidden = false
-
-            switch result {
-            case .failure: self.showLoadError()
-            case .success: break
-            }
-        }
     }
 
     // MARK: Actions

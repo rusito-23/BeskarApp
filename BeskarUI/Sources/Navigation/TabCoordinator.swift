@@ -8,7 +8,7 @@
 import UIKit
 
 public protocol TabCoordinator: Coordinator {
-    var tabViewController: UIViewController { get }
+    var viewController: UIViewController { get }
 }
 
 public extension TabCoordinator {

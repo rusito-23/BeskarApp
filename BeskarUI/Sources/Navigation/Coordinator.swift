@@ -32,7 +32,28 @@ public protocol Coordinator: AnyObject {
 
 // MARK: - Protocol Defaults
 
-/// Stop method isn't required for all coordinators
 public extension Coordinator {
+
+    /// Delegate is optional
+    // swiftlint:disable:next unused_setter_value
+    var delegate: CoordinatorDelegate? { get { nil } set {} }
+
+    /// Stop method isn't required for all coordinators
     func stop() {}
+}
+
+// MARK: - Delegate Protocol
+
+/// Coordinator Delegate Protocol
+///
+/// The coordinator can send messages using this protocol.
+public protocol CoordinatorDelegate: class {
+    func coordinatorDidStart(_ coordinator: Coordinator)
+    func coordinatorDidStop(_ coordinator: Coordinator)
+}
+
+/// Both methods in the coordinator delegate are optionals
+public extension CoordinatorDelegate {
+    func coordinatorDidStart(_ coordinator: Coordinator) {}
+    func coordinatorDidStop(_ coordinator: Coordinator) {}
 }

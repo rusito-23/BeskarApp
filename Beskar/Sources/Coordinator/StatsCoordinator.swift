@@ -14,7 +14,7 @@ final class StatsCoordinator: TabCoordinator {
 
     var presenter: UIViewController
 
-    lazy var tabViewController: UIViewController = {
+    lazy var viewController: UIViewController = {
         let viewController = StatsViewController()
         viewController.tabBarItem = tabBarItem
         return viewController

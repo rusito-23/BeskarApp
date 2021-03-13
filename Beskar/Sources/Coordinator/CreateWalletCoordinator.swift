@@ -14,28 +14,33 @@ final class CreateWalletCoordinator: Coordinator {
 
     var presenter: UIViewController
 
+    weak var delegate: CoordinatorDelegate?
+
+    // MARK: Private Properties
+
+    private lazy var viewController: UIViewController = {
+        let viewController = CreateWalletViewController()
+        viewController.coordinator = self
+        viewController.modalTransitionStyle = .coverVertical
+        viewController.modalPresentationStyle = .overFullScreen
+        return viewController
+    }()
+
     // MARK: Initializer
 
     init(presenter: UIViewController) {
         self.presenter = presenter
     }
 
-    // MARK: Private Properties
-
-    private lazy var viewController: UIViewController = {
-        let viewController = CreateWalletViewController()
-        viewController.modalTransitionStyle = .coverVertical
-        viewController.modalPresentationStyle = .formSheet
-        return viewController
-    }()
-
     // MARK: Coordinator Conformance
 
     func start() {
         presenter.present(viewController, animated: true)
+        delegate?.coordinatorDidStart(self)
     }
 
     func stop() {
         viewController.dismiss(animated: true)
+        delegate?.coordinatorDidStop(self)
     }
 }

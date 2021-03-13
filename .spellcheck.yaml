@@ -12,3 +12,4 @@ whiteList:
   - swinject
   - stackoverflow
   - payoneer
+  - swiftlint 

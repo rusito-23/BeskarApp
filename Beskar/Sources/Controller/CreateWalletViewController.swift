@@ -11,6 +11,10 @@ import UIKit
 
 final class CreateWalletViewController: ViewController<CreateWalletView> {
 
+    // MARK: Properties
+
+    weak var coordinator: CreateWalletCoordinator?
+
     // MARK: Private Properties
 
     private lazy var viewModel: CreateWalletViewModel = .resolved
@@ -68,7 +72,7 @@ final class CreateWalletViewController: ViewController<CreateWalletView> {
     // MARK: Actions
 
     @objc func onCloseButtonTapped(_ sender: UIBarButtonItem?) {
-        dismiss(animated: true)
+        self.coordinator?.stop()
     }
 
     @objc func onCreateButtonTapped(_ sender: UIBarButtonItem) {
@@ -78,12 +82,12 @@ final class CreateWalletViewController: ViewController<CreateWalletView> {
             self.stopLoading()
             switch result {
             case let .success(didSucceed) where didSucceed:
-                self.dismiss(animated: true)
+                self.coordinator?.stop()
             case .failure, .success:
                 self.showError(
                     "WALLET_CREATION_ERROR".localized,
                     buttonTitle: "CANCEL",
-                    completion: {[weak self] in self?.dismiss(animated: true)}
+                    completion: {[weak self] in self?.coordinator?.stop() }
                 )
             }
         }

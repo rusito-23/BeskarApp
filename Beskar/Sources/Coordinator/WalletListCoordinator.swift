@@ -22,14 +22,18 @@ final class WalletListCoordinator: TabCoordinator {
 
     var presenter: UIViewController
 
-    lazy var tabViewController: UIViewController = {
+    var viewController: UIViewController { walletListViewController }
+
+    // MARK: Private Properties
+
+    private var createWalletCoordinator: CreateWalletCoordinator?
+
+    lazy var walletListViewController: WalletListViewController = {
         let viewController = WalletListViewController()
         viewController.coordinator = self
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
-
-    // MARK: Private Properties
 
     private lazy var tabBarItem: UITabBarItem = {
         let item = UITabBarItem()
@@ -45,11 +49,23 @@ final class WalletListCoordinator: TabCoordinator {
     }
 }
 
-// MARK: Flows
+// MARK: - Flows
 
 extension WalletListCoordinator: WalletListCoordinatorFlow {
     func startNewWalletFlow() {
-        let coordinator = CreateWalletCoordinator(presenter: presenter)
-        coordinator.start()
+        createWalletCoordinator = CreateWalletCoordinator(presenter: presenter)
+        createWalletCoordinator?.delegate = self
+        createWalletCoordinator?.start()
+    }
+}
+
+// MARK: - Delegate Conformance
+
+extension WalletListCoordinator: CoordinatorDelegate {
+    func coordinatorDidStop(_ coordinator: Coordinator) {
+        if coordinator is CreateWalletCoordinator {
+            createWalletCoordinator = nil
+            walletListViewController.reload()
+        }
     }
 }

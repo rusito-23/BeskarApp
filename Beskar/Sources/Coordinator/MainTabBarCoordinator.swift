@@ -51,8 +51,8 @@ final class MainTabBarCoordinator: Coordinator {
     // MARK: Coordinator Conformance
 
     func start() {
-        tabBarController.viewControllers = tabCoordinators.map { $0.tabViewController }
-        tabBarController.selectedViewController = walletListCoordinator.tabViewController
+        tabBarController.viewControllers = tabCoordinators.map { $0.viewController }
+        tabBarController.selectedViewController = walletListCoordinator.viewController
         presenter.present(tabBarController, animated: true)
     }
 }
