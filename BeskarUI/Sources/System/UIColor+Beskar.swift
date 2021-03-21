@@ -23,6 +23,8 @@ public extension BeskarWrapper where Base == UIColor {
 
     static var tertiary: UIColor { .black }
 
+    static var white: UIColor { .white }
+
     // MARK: Info
 
     static var success: UIColor { .systemGreen }

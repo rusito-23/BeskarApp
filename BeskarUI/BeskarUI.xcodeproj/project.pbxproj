@@ -10,6 +10,7 @@
 		780770E225C63F2200071EF3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770E125C63F2200071EF3 /* Button.swift */; };
 		780770E625C74A3B00071EF3 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770E525C74A3A00071EF3 /* MessageView.swift */; };
 		780770E925C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770E825C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift */; };
+		780E98D125FD902200C8061E /* AmountField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780E98D025FD902200C8061E /* AmountField.swift */; };
 		782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927C425C4520F00F41574 /* BeskarNamespace.swift */; };
 		782927C725C4520F00F41574 /* UIColor+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927C525C4520F00F41574 /* UIColor+Beskar.swift */; };
 		782927D225C48F8800F41574 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782927D125C48F8800F41574 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 		780770E125C63F2200071EF3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		780770E525C74A3A00071EF3 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		780770E825C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Beskar.swift"; sourceTree = "<group>"; };
+		780E98D025FD902200C8061E /* AmountField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountField.swift; sourceTree = "<group>"; };
 		782927C425C4520F00F41574 /* BeskarNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeskarNamespace.swift; sourceTree = "<group>"; };
 		782927C525C4520F00F41574 /* UIColor+Beskar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Beskar.swift"; sourceTree = "<group>"; };
 		782927D125C48F8800F41574 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				7829282025C5CEE600F41574 /* InputField.swift */,
 				78B4C9EC25FA5C5D005085F5 /* PickerInputField.swift */,
 				7829282725C5FE9300F41574 /* TextField.swift */,
+				780E98D025FD902200C8061E /* AmountField.swift */,
 			);
 			path = FormComponents;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78438C4525D5FE21003B8A4E /* ImageView.swift in Sources */,
+				780E98D125FD902200C8061E /* AmountField.swift in Sources */,
 				782927C625C4520F00F41574 /* BeskarNamespace.swift in Sources */,
 				78414A6725D3492F00F9351D /* TabBarController.swift in Sources */,
 				782927D225C48F8800F41574 /* ViewController.swift in Sources */,

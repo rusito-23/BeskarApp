@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TinyConstraints
 
 /// Beskar Design System Text Field
 public class TextField: UITextField {
@@ -39,7 +40,7 @@ public class TextField: UITextField {
         self.doneButtonText = doneButtonText
         super.init(frame: .zero)
 
-        setUpToolBar()
+        setUpKeyboard()
         setUpLayer()
         setUpConstraints()
     }
@@ -49,9 +50,9 @@ public class TextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: Private
+    // MARK: Private Setup Methods
 
-    private func setUpToolBar() {
+    private func setUpKeyboard() {
         inputAccessoryView = toolBar
     }
 
@@ -64,13 +65,10 @@ public class TextField: UITextField {
     private func setUpConstraints() {
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            heightAnchor.constraint(equalToConstant: Size.medium.rawValue),
-        ])
+        height(Size.medium.rawValue)
     }
 
-    // MARK: Text Rect Insets
+    // MARK: Private Text Rect Insets Overrides
 
     public override func textRect(forBounds bounds: CGRect) -> CGRect {
         bounds.inset(by: UIEdgeInsets.beskar.horizontal(by: .medium))
@@ -84,7 +82,7 @@ public class TextField: UITextField {
         bounds.inset(by: UIEdgeInsets.beskar.horizontal(by: .medium))
     }
 
-    // MARK: Actions
+    // MARK: Private Actions
 
     @objc func onDoneTapped(_ sender: UIBarButtonItem) {
         resignFirstResponder()

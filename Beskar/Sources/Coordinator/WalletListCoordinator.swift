@@ -14,7 +14,7 @@ import UIKit
 protocol WalletListCoordinatorFlow: class {
     func startNewWalletFlow()
     func startWalletDetailFlow(for wallet: Wallet)
-    func startWalletTransactionFlow(for wallet: Wallet)
+    func startWalletActionFlow(for wallet: Wallet)
 }
 
 // MARK: - Coordinator implementation
@@ -66,8 +66,8 @@ extension WalletListCoordinator: WalletListCoordinatorFlow {
         start(child: coordinator)
     }
 
-    func startWalletTransactionFlow(for wallet: Wallet) {
-        let coordinator = WalletTransactionCoordinator()
+    func startWalletActionFlow(for wallet: Wallet) {
+        let coordinator = WalletActionCoordinator()
         coordinator.presenter = presented
         coordinator.delegate = self
         start(child: coordinator)
