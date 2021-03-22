@@ -5,6 +5,7 @@
 //  Created by Igor on 13/03/2021.
 //
 
+import Combine
 import Foundation
 import UIKit
 
@@ -40,16 +41,27 @@ public class AmountField: UITextField {
         }
     }
 
+    /// The currency display symbol - nil by default
+    public var currencySymbol: String? {
+        get { numberFormatter.currencySymbol }
+        set { numberFormatter.currencySymbol = newValue }
+    }
+
+    /// Text Field Publisher to be used with Combine, triggered on textDidChangeNotification
+    public var textPublisher: AnyPublisher<String?, Never> {
+        NotificationCenter.default
+            .publisher(for: UITextField.textDidChangeNotification, object: self)
+            .compactMap { $0.object as? UITextField }
+            .map { $0.text }
+            .eraseToAnyPublisher()
+    }
+
     // MARK: Private properties
-
-    private var currencySymbol: String?
-
-    private var doneButtonText: String?
 
     private lazy var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currencyAccounting
-        formatter.currencySymbol = currencySymbol ?? ""
+        formatter.currencySymbol = ""
         formatter.maximumFractionDigits = 2
         formatter.minimumFractionDigits = 2
         return formatter
@@ -97,7 +109,7 @@ public class AmountField: UITextField {
     private func setUpActions() {
         addTarget(
             self,
-            action: #selector(textDidChange),
+            action: #selector(onTextDidChange),
             for: .editingChanged
         )
     }
@@ -111,11 +123,7 @@ public class AmountField: UITextField {
 
     // MARK: Private Actions
 
-    @objc private func textDidChange() {
+    @objc private func onTextDidChange() {
         updateAmountText()
-    }
-
-    @objc private func onDoneTapped() {
-        resignFirstResponder()
     }
 }

@@ -11,5 +11,5 @@ whiteList:
   - typealias
   - swinject
   - stackoverflow
-  - payoneer
   - swiftlint 
+  - ss

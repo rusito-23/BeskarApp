@@ -11,9 +11,12 @@ extension Wallet {
 
     /// The raw amount of the wallet - given by the transactions
     var amount: Double {
-        transactions
-            .map { $0.amount }
-            .reduce(Double.zero, +)
+        transactions.reduce(Double.zero) { previous, transaction in
+            switch transaction.kind {
+            case .deposit: return previous + transaction.amount
+            case .withdraw: return previous - transaction.amount
+            }
+        }
     }
 
     /// The compact amount, localized

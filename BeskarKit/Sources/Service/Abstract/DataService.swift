@@ -25,12 +25,21 @@ public protocol DataService: NSObject {
     associatedtype Data: Object
     typealias FetchResult = (Result<[Data], DataServiceError>) -> Void
     typealias WriteResult = (Result<Bool, DataServiceError>) -> Void
+    typealias UpdateResult = (Result<Bool, DataServiceError>) -> Void
+    typealias UpdateAction = ((Data) -> Void)
 
     /// Retrieve all objects of the given data type from the DB
     func fetch(_ completion: @escaping FetchResult)
 
     /// Write an object of the given data type in the DB
     func write(_ object: Data, _ completion: @escaping WriteResult)
+
+    /// Update object properties in the DB
+    func update(
+        _ object: Data,
+        _ action: @escaping UpdateAction,
+        _ completion: @escaping WriteResult
+    )
 }
 
 /// Default implementation for Data Service
@@ -43,7 +52,7 @@ extension DataService {
 
     /// The queue on which the db calls are made
     private var serviceQueue: DispatchQueue {
-        DispatchQueue(label: "\(Data.self)Queue", qos: .background)
+        DispatchQueue(label: "\(Data.self)ServiceQueue", qos: .background)
     }
 
     /// The queue on which the result of the call should be posted
@@ -58,6 +67,7 @@ extension DataService {
     public func fetch(
         _ completion: @escaping FetchResult
     ) {
+        // Move to service thread
         serviceQueue.async { [weak self] in
             guard let self = self else { return }
 
@@ -94,6 +104,7 @@ extension DataService {
         _ object: Data,
         _ completion: @escaping WriteResult
     ) {
+        // Move to service thread
         serviceQueue.async { [weak self] in
             guard let self = self else { return }
 
@@ -105,6 +116,41 @@ extension DataService {
 
             // Write object
             guard let _ = try? realm.write({ realm.add(object) }) else {
+                self.resultQueue.async { completion(.failure(.concurrencyFailure)) }
+                return
+            }
+
+            self.resultQueue.async { completion(.success(true)) }
+        }
+    }
+
+    /// Update object properties in the DB
+    public func update(
+        _ object: Data,
+        _ action: @escaping UpdateAction,
+        _ completion: @escaping UpdateResult
+    ) {
+        // Create thread-safe reference
+        let objectReference = ThreadSafeReference(to: object)
+
+        // Move to service thread
+        serviceQueue.async { [weak self] in
+            guard let self = self else { return }
+
+            // Initialize realm
+            guard let realm = self.realm else {
+                self.resultQueue.async { completion(.failure(.unavailable)) }
+                return
+            }
+
+            // Resolve object reference
+            guard let resolved = realm.resolve(objectReference) else {
+                completion(.failure(.concurrencyFailure))
+                return
+            }
+
+            // Write object
+            guard let _ = try? realm.write({ action(resolved) }) else {
                 self.resultQueue.async { completion(.failure(.concurrencyFailure)) }
                 return
             }

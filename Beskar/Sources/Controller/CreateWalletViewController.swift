@@ -86,7 +86,7 @@ final class CreateWalletViewController: ViewController<CreateWalletView> {
             case .failure, .success:
                 self.showError(
                     "WALLET_CREATION_ERROR".localized,
-                    buttonTitle: "CANCEL",
+                    buttonTitle: "CANCEL".localized,
                     completion: {[weak self] in self?.coordinator?.stop() }
                 )
             }

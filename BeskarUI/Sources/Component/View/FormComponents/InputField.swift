@@ -157,6 +157,7 @@ extension InputField: UITextFieldDelegate {
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: Constants.PlaceholderAnimation.duration) {
             self.titleLabel.isHidden = false
+            self.layoutIfNeeded()
         }
     }
 
@@ -164,6 +165,7 @@ extension InputField: UITextFieldDelegate {
         if textField.text?.isEmpty ?? true {
             UIView.animate(withDuration: Constants.PlaceholderAnimation.duration) {
                 self.titleLabel.isHidden = true
+                self.layoutIfNeeded()
             }
         }
     }

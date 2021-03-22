@@ -106,7 +106,7 @@ final class WalletListViewController: ViewController<WalletListView> {
 extension WalletListViewController: WalletCardViewDelegate {
     func walletCardViewDidTapDeposit(_ view: WalletCardView) {
         guard let wallet = view.viewModel.wallet else { return }
-        coordinator?.startWalletActionFlow(for: wallet)
+        coordinator?.startWalletActionFlow(for: wallet, kind: .deposit)
     }
 
     func walletCardViewDidTapDetails(_ view: WalletCardView) {
@@ -116,6 +116,6 @@ extension WalletListViewController: WalletCardViewDelegate {
 
     func walletCardViewDidTapWithdraw(_ view: WalletCardView) {
         guard let wallet = view.viewModel.wallet else { return }
-        coordinator?.startWalletActionFlow(for: wallet)
+        coordinator?.startWalletActionFlow(for: wallet, kind: .withdraw)
     }
 }

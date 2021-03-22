@@ -11,12 +11,21 @@ import Foundation
 public protocol WalletServiceProtocol {
     typealias FetchResult = (Result<[Wallet], DataServiceError>) -> Void
     typealias WriteResult = (Result<Bool, DataServiceError>) -> Void
+    typealias UpdateResult = (Result<Bool, DataServiceError>) -> Void
+    typealias UpdateAction = ((Wallet) -> Void)
 
     /// Retrieves all wallets
     func fetch(_ completion: @escaping FetchResult)
 
-    /// Saves or updates a wallet
+    /// Saves a wallet
     func write(_ object: Wallet, _ completion: @escaping WriteResult)
+
+    /// Update a wallet
+    func update(
+        _ object: Wallet,
+        _ action: @escaping UpdateAction,
+        _ completion: @escaping UpdateResult
+    )
 }
 
 /// Make initializer publicly available

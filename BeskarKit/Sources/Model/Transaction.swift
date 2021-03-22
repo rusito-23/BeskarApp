@@ -34,7 +34,7 @@ public class Transaction: Object {
 
     /// The kind of the transaction
     /// Indicates if the wallet lost or gained with this transaction
-    @objc public dynamic var kind: Kind = .minus
+    @objc public dynamic var kind: Kind = .withdraw
 
     /// The date on which the transaction was performed
     @objc public dynamic var date: Date = Date()
@@ -52,8 +52,8 @@ public class Transaction: Object {
     ///     This enum allows us to detect if the transaction was positive or negative
     ///     Indicates if the wallet lost or gained with this transaction
     @objc public enum Kind: Int, RealmEnum {
-        case plus
-        case minus
+        case deposit
+        case withdraw
     }
 
     // MARK: Initializer

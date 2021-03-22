@@ -64,14 +64,9 @@ final class AppCoordinator: Coordinator {
     // MARK: Private Methods
 
     private func setUpServices() {
-        // Setup Logger
         SwiftyBeaver.setup()
-
-        // Setup dependency repos
         Swinject.setUp()
-
-        // Enable keyboard manager
-        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.setUp()
     }
 
     private func startAppFlow() {

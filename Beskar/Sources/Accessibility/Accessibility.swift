@@ -77,3 +77,12 @@ extension A {
         static let createButton = "CreateWalletView.createButton"
     }
 }
+
+extension A {
+    struct WalletActionView {
+        static let title = "WalletActionView.title"
+        static let amountField = "WalletActionView.amountField"
+        static let saveButton = "WalletActionView.saveButton"
+        static let summaryField = "WalletActionView.summaryField"
+    }
+}
