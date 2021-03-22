@@ -89,7 +89,6 @@ Please make sure you have set your passcode and configured biometrics in your de
 
 // MARK: - Wallet Action View
 
-"WALLET_ACTION_TITLE_FORMAT" = "%@ money for wallet %@";
 "WALLET_ACTION_SUMMARY_PLACEHOLDER" = "Summary";
 
 "TRANSACTION_SAVE_ERROR" = "We failed to save your transaction";

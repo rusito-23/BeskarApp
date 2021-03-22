@@ -41,6 +41,7 @@ final class WalletActionViewController: ViewController<WalletActionView> {
         ui.amountField.currencySymbol = viewModel.currencySymbol
         ui.amountField.amount = viewModel.amount
         ui.titleLabel.text = viewModel.titleText
+        ui.subtitleLabel.text = viewModel.actionText
         ui.saveButton.setTitle(viewModel.buttonTitle, for: .normal)
     }
 

@@ -35,8 +35,14 @@ final class WalletActionViewModel: ViewModel {
 
     var currencySymbol: String { wallet.currency.sign }
 
-    var titleText: String { "WALLET_ACTION_TITLE_FORMAT"
-        .localize(actionText, wallet.name) }
+    var titleText: String { wallet.name }
+
+    var actionText: String {
+        switch kind {
+        case .deposit: return "DEPOSIT".localized
+        case .withdraw: return "WITHDRAW".localized
+        }
+    }
 
     var buttonTitle: String { actionText.uppercased() }
 
@@ -45,13 +51,6 @@ final class WalletActionViewModel: ViewModel {
     private let wallet: Wallet
 
     private let kind: Transaction.Kind
-
-    private var actionText: String {
-        switch kind {
-        case .deposit: return "DEPOSIT".localized
-        case .withdraw: return "WITHDRAW".localized
-        }
-    }
 
     private lazy var walletService = injector.resolve(WalletServiceProtocol.self)
 

@@ -18,6 +18,12 @@ final class WalletActionView: UIView {
         identifier: A.WalletActionView.title
     )
 
+    private(set) lazy var subtitleLabel = Label(
+        size: .small,
+        color: UIColor.beskar.primary,
+        identifier: A.WalletActionView.title
+    )
+
     private(set) lazy var amountField: AmountField = {
         let field = AmountField()
         field.accessibilityIdentifier = A.WalletActionView.amountField
@@ -51,6 +57,7 @@ final class WalletActionView: UIView {
     private func setUpViews() {
         addSubviews(
             titleLabel,
+            subtitleLabel,
             amountField,
             summaryField,
             saveButton
@@ -60,7 +67,11 @@ final class WalletActionView: UIView {
         titleLabel.leadingToSuperview(offset: Spacing.medium.rawValue)
         titleLabel.trailingToSuperview(offset: Spacing.medium.rawValue)
 
-        amountField.topToBottom(of: titleLabel, offset: Spacing.medium.rawValue)
+        subtitleLabel.topToBottom(of: titleLabel, offset: Spacing.small.rawValue)
+        subtitleLabel.leadingToSuperview(offset: Spacing.medium.rawValue)
+        subtitleLabel.trailingToSuperview(offset: Spacing.medium.rawValue)
+
+        amountField.topToBottom(of: subtitleLabel, offset: Spacing.medium.rawValue)
         amountField.leadingToSuperview(offset: Spacing.medium.rawValue)
         amountField.trailingToSuperview(offset: Spacing.medium.rawValue)
 
