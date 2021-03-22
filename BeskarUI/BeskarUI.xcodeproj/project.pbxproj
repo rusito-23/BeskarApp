@@ -23,6 +23,9 @@
 		78414A6725D3492F00F9351D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A6625D3492F00F9351D /* TabBarController.swift */; };
 		78414A6A25D3493A00F9351D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A6925D3493A00F9351D /* NavigationController.swift */; };
 		78438C4525D5FE21003B8A4E /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78438C4425D5FE21003B8A4E /* ImageView.swift */; };
+		784BEF902608168800058A59 /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784BEF8F2608168800058A59 /* ToolBar.swift */; };
+		784BEF932608179600058A59 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 784BEF922608179600058A59 /* Localizable.strings */; };
+		784BEF97260817D400058A59 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784BEF96260817D400058A59 /* String+Helpers.swift */; };
 		7889475725D9A62F00BB9BEE /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475625D9A62F00BB9BEE /* ActionButton.swift */; };
 		7889475B25D9C32F00BB9BEE /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475A25D9C32F00BB9BEE /* Separator.swift */; };
 		7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7890564A25D0ADE70027493F /* UIImage+Beskar.swift */; };
@@ -53,6 +56,9 @@
 		78414A6625D3492F00F9351D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		78414A6925D3493A00F9351D /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		78438C4425D5FE21003B8A4E /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		784BEF8F2608168800058A59 /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
+		784BEF922608179600058A59 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		784BEF96260817D400058A59 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		7889475625D9A62F00BB9BEE /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		7889475A25D9C32F00BB9BEE /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		7890564A25D0ADE70027493F /* UIImage+Beskar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Beskar.swift"; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				7832235C25C44B3300D466ED /* Info.plist */,
+				784BEF922608179600058A59 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 		7832235D25C44B3300D466ED /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				784BEF95260817C900058A59 /* Extensions */,
 				78B4C9D125F66EAA005085F5 /* Navigation */,
 				7829281925C5BF3A00F41574 /* System */,
 				782927D025C48F7300F41574 /* Component */,
@@ -152,6 +160,14 @@
 				78B4CA0925FBDAAC005085F5 /* Button */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		784BEF95260817C900058A59 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				784BEF96260817D400058A59 /* String+Helpers.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		78B4C9D125F66EAA005085F5 /* Navigation */ = {
@@ -179,6 +195,7 @@
 				78B4C9EC25FA5C5D005085F5 /* PickerInputField.swift */,
 				7829282725C5FE9300F41574 /* TextField.swift */,
 				780E98D025FD902200C8061E /* AmountField.swift */,
+				784BEF8F2608168800058A59 /* ToolBar.swift */,
 			);
 			path = FormComponents;
 			sourceTree = "<group>";
@@ -282,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				784BEF932608179600058A59 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +347,7 @@
 				78DAF05925DD95FB00060CBF /* Coordinator.swift in Sources */,
 				7889475B25D9C32F00BB9BEE /* Separator.swift in Sources */,
 				78BD8FDE25FD7F7000935915 /* ModalViewController.swift in Sources */,
+				784BEF97260817D400058A59 /* String+Helpers.swift in Sources */,
 				78B4C9ED25FA5C5D005085F5 /* PickerInputField.swift in Sources */,
 				780770E925C74DFC00071EF3 /* UIEdgeInsets+Beskar.swift in Sources */,
 				7829280E25C5AF3E00F41574 /* UIFont+Beskar.swift in Sources */,
@@ -338,6 +357,7 @@
 				7829281B25C5BF6700F41574 /* Dimensions.swift in Sources */,
 				7829282125C5CEE600F41574 /* InputField.swift in Sources */,
 				780770E225C63F2200071EF3 /* Button.swift in Sources */,
+				784BEF902608168800058A59 /* ToolBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

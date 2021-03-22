@@ -11,35 +11,17 @@ import TinyConstraints
 /// Beskar Design System Text Field
 public class TextField: UITextField {
 
-    // MARK: Properties
+    // MARK: Accessories
 
-    private var doneButtonText: String?
-
-    // MARK: Subviews
-
-    private lazy var toolBar: UIToolbar = {
-        let toolBar = UIToolbar()
-        toolBar.barStyle = .default
-        toolBar.backgroundColor = UIColor.beskar.base
-        toolBar.tintColor = UIColor.beskar.primary
-        toolBar.setItems([toolBarDoneButton], animated: false)
-        toolBar.sizeToFit()
-        return toolBar
-    }()
-
-    private lazy var toolBarDoneButton = UIBarButtonItem(
-        title: doneButtonText,
-        style: .plain,
-        target: self,
-        action: #selector(onDoneTapped)
+    private lazy var toolBar = ToolBar(
+        kind: .done,
+        textField: self
     )
 
     // MARK: Initializers
 
-    public init(doneButtonText: String?) {
-        self.doneButtonText = doneButtonText
-        super.init(frame: .zero)
-
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
         setUpKeyboard()
         setUpLayer()
         setUpConstraints()
@@ -80,11 +62,5 @@ public class TextField: UITextField {
 
     public override func editingRect(forBounds bounds: CGRect) -> CGRect {
         bounds.inset(by: UIEdgeInsets.beskar.horizontal(by: .medium))
-    }
-
-    // MARK: Private Actions
-
-    @objc func onDoneTapped(_ sender: UIBarButtonItem) {
-        resignFirstResponder()
     }
 }

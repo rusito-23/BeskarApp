@@ -46,10 +46,6 @@ public class PickerInputField<
             .eraseToAnyPublisher()
     }
 
-    // MARK: Private Properties
-
-    private var cancelButtonText: String
-
     // MARK: Subviews
 
     private lazy var itemPicker: UIPickerView = {
@@ -60,51 +56,17 @@ public class PickerInputField<
         return pickerView
     }()
 
-    private lazy var pickerToolBar: UIToolbar = {
-        let toolBar = UIToolbar()
-        toolBar.barStyle = .default
-        toolBar.backgroundColor = UIColor.beskar.base
-        toolBar.tintColor = UIColor.beskar.primary
-        toolBar.setItems([toolBarCancelButton], animated: false)
-        toolBar.sizeToFit()
-        return toolBar
-    }()
-
-    private lazy var toolBarCancelButton = UIBarButtonItem(
-        title: cancelButtonText,
-        style: .plain,
-        target: self,
-        action: #selector(onPickerCanceled)
-    )
-
     // MARK: Initializer
 
-    public init(
-        placeholder: String,
-        cancelButtonText: String,
-        identifier: String
-    ) {
-        self.cancelButtonText = cancelButtonText
-        super.init(
-            placeholder: placeholder,
-            doneButtonText: nil,
-            identifier: identifier
-        )
-
-        setUpTextField()
-    }
-
-    // MARK: Actions
-
-    @objc func onPickerCanceled(_ sender: UIBarButtonItem) {
-        textField.resignFirstResponder()
+    public init(placeholder: String, identifier: String) {
+        super.init(placeholder: placeholder, identifier: identifier)
+        setUpInputView()
     }
 
     // MARK: Private Methods
 
-    private func setUpTextField() {
+    private func setUpInputView() {
         textField.inputView = itemPicker
-        textField.inputAccessoryView = pickerToolBar
     }
 
     // MARK: Picker View Datasource Conformance

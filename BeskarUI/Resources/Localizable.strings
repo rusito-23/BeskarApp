@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  BeskarUI
+
+  Created by Igor on 21/03/2021.
+  
+*/
+
+// MARK: - Common usage
+
+"DONE" = "Done";
+
+"CANCEL" = "Cancel";

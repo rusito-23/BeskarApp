@@ -15,19 +15,16 @@ final class CreateWalletView: UIView {
 
     private(set) lazy var nameField = InputField(
         placeholder: "WALLET_NAME_PLACEHOLDER".localized,
-        doneButtonText: "DONE".localized,
         identifier: A.CreateWalletView.nameField
     )
 
     private(set) lazy var descriptionField = InputField(
         placeholder: "WALLET_DESCRIPTION_PLACEHOLDER".localized,
-        doneButtonText: "DONE".localized,
         identifier: A.CreateWalletView.descriptionField
     )
 
     private(set) lazy var currencyField = PickerInputField<Currency>(
         placeholder: "WALLET_CURRENCY_PLACEHOLDER".localized,
-        cancelButtonText: "CANCEL".localized,
         identifier: A.CreateWalletView.currencyField
     )
 

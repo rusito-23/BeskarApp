@@ -62,21 +62,9 @@ public class AmountField: UITextField {
 
     // MARK: Subviews
 
-    private lazy var toolBar: UIToolbar = {
-        let toolBar = UIToolbar()
-        toolBar.barStyle = .default
-        toolBar.backgroundColor = UIColor.beskar.base
-        toolBar.tintColor = UIColor.beskar.primary
-        toolBar.setItems([toolBarDoneButton], animated: false)
-        toolBar.sizeToFit()
-        return toolBar
-    }()
-
-    private lazy var toolBarDoneButton = UIBarButtonItem(
-        title: doneButtonText,
-        style: .plain,
-        target: self,
-        action: #selector(onDoneTapped)
+    private lazy var toolBar = ToolBar(
+        kind: .done,
+        textField: self
     )
 
     // MARK: Initializers
