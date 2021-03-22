@@ -8,7 +8,7 @@
 import BeskarUI
 import UIKit
 
-final class ErrorViewController: ViewController<ErrorView> {
+class ErrorViewController: ViewController<ErrorView> {
 
     // MARK: Properties
 

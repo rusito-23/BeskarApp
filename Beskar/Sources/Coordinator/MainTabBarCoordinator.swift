@@ -26,19 +26,19 @@ final class MainTabBarCoordinator: BaseCoordinator {
 
     private lazy var statsCoordinator: StatsCoordinator = {
         let coordinator = StatsCoordinator()
-        coordinator.presenter = tabBarController
+        coordinator.presenter = .presentation(tabBarController)
         return coordinator
     }()
 
     private lazy var walletListCoordinator: WalletListCoordinator = {
         let coordinator = WalletListCoordinator()
-        coordinator.presenter = tabBarController
+        coordinator.presenter = .presentation(tabBarController)
         return coordinator
     }()
 
     private lazy var settingsCoordinator: SettingsCoordinator = {
         let coordinator = SettingsCoordinator()
-        coordinator.presenter = tabBarController
+        coordinator.presenter = .presentation(tabBarController)
         return coordinator
     }()
 
@@ -51,8 +51,14 @@ final class MainTabBarCoordinator: BaseCoordinator {
     // MARK: Coordinator Conformance
 
     override func start() {
+        setUpTabs()
+        super.start()
+    }
+
+    // MARK: Private Methods
+
+    private func setUpTabs() {
         tabBarController.viewControllers = tabCoordinators.compactMap { $0.presented }
         tabBarController.selectedViewController = walletListCoordinator.presented
-        super.start()
     }
 }

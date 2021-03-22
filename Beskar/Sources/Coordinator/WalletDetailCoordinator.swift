@@ -16,9 +16,5 @@ final class WalletDetailCoordinator: BaseCoordinator {
 
     // MARK: Private Properties
 
-    private lazy var walletDetailViewController: WalletDetailViewController = {
-        let presented = WalletDetailViewController()
-        presented.modalPresentationStyle = .formSheet
-        return presented
-    }()
+    private lazy var walletDetailViewController = WalletDetailViewController()
 }

@@ -7,6 +7,21 @@
 
 import UIKit
 
+// MARK: - Coordinator Presenter Kinds
+
+public enum Presenter {
+    case navigation(UINavigationController?)
+    case presentation(UIViewController?)
+
+    /// The linked view controller
+    public var viewController: UIViewController? {
+        switch self {
+        case let .navigation(vc): return vc
+        case let .presentation(vc): return vc
+        }
+    }
+}
+
 // MARK: - Coordinator Protocol
 
 /// Coordinator Protocol
@@ -19,7 +34,7 @@ public protocol Coordinator: AnyObject {
     // MARK: Properties
 
     /// The view controller on top of which the coordinator will start
-    var presenter: UIViewController? { get set }
+    var presenter: Presenter? { get set }
 
     /// The presented view controller
     var presented: UIViewController? { get }

@@ -47,21 +47,21 @@ final class WalletListCoordinator: BaseCoordinator {
 extension WalletListCoordinator: WalletListCoordinatorFlow {
     func startNewWalletFlow() {
         let coordinator = CreateWalletCoordinator()
-        coordinator.presenter = presented
+        coordinator.presenter = .presentation(presented)
         coordinator.delegate = self
         start(child: coordinator)
     }
 
     func startWalletDetailFlow(for wallet: Wallet) {
         let coordinator = WalletDetailCoordinator()
-        coordinator.presenter = presented
+        coordinator.presenter = .navigation(presented?.navigationController)
         coordinator.delegate = self
         start(child: coordinator)
     }
 
     func startWalletActionFlow(for wallet: Wallet, kind: Transaction.Kind) {
         let coordinator = WalletActionCoordinator(wallet: wallet, kind: kind)
-        coordinator.presenter = presented
+        coordinator.presenter = .presentation(presented)
         coordinator.delegate = self
         start(child: coordinator)
     }

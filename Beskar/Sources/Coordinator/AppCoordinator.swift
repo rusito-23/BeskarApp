@@ -29,16 +29,16 @@ final class AppCoordinator: BaseCoordinator {
     /// We create the main window here, instead of using the `AppDelegate`
     private(set) lazy var window: UIWindow = {
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = presenter
+        window.rootViewController = presenter?.viewController
         window.tintColor = UIColor.beskar.primary
         return window
     }()
 
     // MARK: Initializers
 
-    init(presenter: UIViewController = NavigationController()) {
+    init(presenter: UINavigationController = NavigationController()) {
         super.init()
-        self.presenter = presenter
+        self.presenter = .navigation(presenter)
     }
 
     // MARK: Coordinator Conformance
@@ -78,15 +78,17 @@ extension AppCoordinator: AppCoordinatorFlow {
 
     /// Start Welcome Flow - only shown on first launch
     func startWelcomeFlow() {
-        let viewController = WelcomeViewController()
-        viewController.coordinator = self
-        presenter?.present(viewController, animated: true)
+        let coordinator = WelcomeCoordinator()
+        coordinator.delegate = self
+        coordinator.presenter = .presentation(presenter?.viewController)
+        start(child: coordinator)
     }
 
     /// Start Authentication Flow
     func startLoginFlow() {
-        let coordinator = LoginCoordinator(parent: self)
-        coordinator.start()
+        let coordinator = LoginCoordinator()
+        coordinator.loginDelegate = self
+        start(child: coordinator)
     }
 
     /// Start Main Flow - Tab Bar
@@ -98,27 +100,36 @@ extension AppCoordinator: AppCoordinatorFlow {
 
     /// Start Authentication Error Flow
     func startAuthErrorFlow(with error: AuthService.AuthError) {
-        var errorViewController: ErrorViewController
-        let retryCompletion: (() -> Void) = { [weak self] in self?.startLoginFlow() }
-
-        switch error {
-        case .unauthorized:
-            errorViewController = ErrorViewController(
-                subtitle: "AUTH_UNAUTHORIZED_ERROR_SUBTITLE".localized,
-                onButtonTappedCompletion: retryCompletion
-            )
-        case .canceled:
-            errorViewController = ErrorViewController(
-                subtitle: "AUTH_CANCELED_ERROR_SUBTITLE".localized,
-                onButtonTappedCompletion: retryCompletion
-            )
-        case .unavailable:
-            errorViewController = ErrorViewController(
-                subtitle: "AUTH_UNAVAILABLE_ERROR_SUBTITLE".localized,
-                onButtonTappedCompletion: retryCompletion
-            )
-        }
-
-        presenter?.present(errorViewController, animated: true)
+        let coordinator = AuthErrorCoordinator(error: error)
+        coordinator.delegate = self
+        coordinator.presenter = .presentation(presenter?.viewController)
+        start(child: coordinator)
     }
+}
+
+// MARK: - Coordinator Delegate Conformance
+
+extension AppCoordinator: CoordinatorDelegate {
+    /// The App Coordinator is delegate for many other coordinators and may need to take different actions
+    func coordinatorDidStop(_ coordinator: Coordinator) {
+        switch coordinator.self {
+        case is WelcomeCoordinator, is AuthErrorCoordinator: startLoginFlow()
+        default: break
+        }
+    }
+}
+
+// MARK: - Login Coordinator Delegate Conformance
+
+extension AppCoordinator: LoginCoordinatorDelegate {
+    /// If the login coordinator failed, start the error flow
+    func loginCoordinatorDidFail(
+        _ coordinator: LoginCoordinator,
+        withError error: AuthService.AuthError
+    ) { startAuthErrorFlow(with: error) }
+
+    /// If the login coordinator did succeed, start the main app flow
+    func loginCoordinatorDidSucceed(
+        _ coordinator: LoginCoordinator
+    ) { startMainFlow() }
 }

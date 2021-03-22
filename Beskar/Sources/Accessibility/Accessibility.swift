@@ -86,3 +86,9 @@ extension A {
         static let summaryField = "WalletActionView.summaryField"
     }
 }
+
+extension A {
+    struct WalletDetailView {
+        static let title = "WalletDetailView.title"
+    }
+}

@@ -12,7 +12,14 @@ final class WelcomeViewController: ViewController<WelcomeView> {
 
     // MARK: Properties
 
-    weak var coordinator: AppCoordinatorFlow?
+    weak var coordinator: Coordinator?
+
+    // MARK: Initializer
+
+    init(coordinator: Coordinator? = nil) {
+        super.init(nibName: nil, bundle: nil)
+        self.coordinator = coordinator
+    }
 
     // MARK: View Controller Overrides
 
@@ -35,7 +42,7 @@ final class WelcomeViewController: ViewController<WelcomeView> {
 
     @objc private func onAllowButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true) { [weak self] in
-            self?.coordinator?.startLoginFlow()
+            self?.coordinator?.stop()
         }
     }
 }

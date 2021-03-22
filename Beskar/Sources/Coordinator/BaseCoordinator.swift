@@ -17,7 +17,7 @@ class BaseCoordinator: Coordinator {
 
     // MARK: Coordinator Properties
 
-    var presenter: UIViewController?
+    var presenter: Presenter?
 
     var presented: UIViewController? { nil }
 
@@ -34,22 +34,38 @@ class BaseCoordinator: Coordinator {
     /// The default implementation for the start method
     /// is to call the default presentation method
     func start() {
-        guard let presented = presented else { return }
-        presenter?.present(presented, animated: true) { [weak self] in
-            guard let self = self else { return }
-            self.onStart?()
-            self.delegate?.coordinatorDidStart(self)
+        guard
+            let presented = presented,
+            let presenter = presenter
+        else { return }
+
+        switch presenter {
+        case let .presentation(viewController):
+            viewController?.present(presented, animated: true) { [weak self] in
+                guard let self = self else { return }
+                self.onStart?()
+                self.delegate?.coordinatorDidStart(self)
+            }
+        case let .navigation(navigationController):
+            navigationController?.pushViewController(presented, animated: true)
+            onStart?()
+            delegate?.coordinatorDidStart(self)
         }
     }
 
     /// The stop method default implementation
     /// is to dismiss the view controller and perform the callback
     func stop() {
-        guard let presented = presented else { return }
-        presented.dismiss(animated: true) { [weak self] in
-            guard let self = self else { return }
-            self.onStop?()
-            self.delegate?.coordinatorDidStop(self)
+        guard let presenter = presenter else { return }
+        switch presenter {
+        case .presentation:
+            presented?.dismiss(animated: true) { [weak self] in
+                guard let self = self else { return }
+                self.onStop?()
+                self.delegate?.coordinatorDidStop(self)
+            }
+        case let .navigation(navigationController):
+            navigationController?.popViewController(animated: true)
         }
     }
 

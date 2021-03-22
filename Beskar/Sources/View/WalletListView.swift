@@ -50,7 +50,7 @@ final class WalletListView: UIView {
 
     private func setUpViews() {
         addSubview(tableView)
-        tableView.edges(to: layoutMarginsGuide, insets: .vertical(Spacing.small.rawValue))
+        tableView.edges(to: layoutMarginsGuide)
     }
 }
 

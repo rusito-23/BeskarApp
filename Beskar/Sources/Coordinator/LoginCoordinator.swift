@@ -9,58 +9,77 @@ import UIKit
 import BeskarUI
 import BeskarKit
 
+// MARK: - Login Coordinator Delegate
+
+protocol LoginCoordinatorDelegate: class {
+    /// Called once the login coordinator succeed
+    func loginCoordinatorDidSucceed(_ coordinator: LoginCoordinator)
+
+    /// Called when the login coordinator failed
+    func loginCoordinatorDidFail(
+        _ coordinator: LoginCoordinator,
+        withError error: AuthService.AuthError
+    )
+}
+
+// MARK: - Login Coordinator
+
 final class LoginCoordinator: BaseCoordinator {
 
     // MARK: Properties
 
+    override var presented: UIViewController? { loadingViewController }
+
+    /// A reference to the parent flow, communication stuff
+    weak var loginDelegate: LoginCoordinatorDelegate?
+
+    // MARK: Private Properties
+
     /// Authentication Services, brought to you by `BeskarKit`
     private let authService: AuthServiceProtocol
 
-    /// A reference to the parent flow, communication stuff
-    var parent: AppCoordinatorFlow
+    /// A simple loading view controller
+    private lazy var loadingViewController: UIViewController = {
+        let viewController = ViewController<UIView>()
+        viewController.startLoading()
+        return viewController
+    }()
 
     // MARK: Initializer
 
-    init(
-        parent: AppCoordinatorFlow,
-        authService: AuthServiceProtocol = AuthService()
-    ) {
-        self.parent = parent
+    init(authService: AuthServiceProtocol = AuthService()) {
         self.authService = authService
     }
 
     // MARK: Coordinator conformance
 
     override func start() {
+        super.start()
+
         // Check for Auth Services availability
         guard authService.isAvailable() else {
-            parent.startAuthErrorFlow(with: .unavailable)
+            loginDelegate?.loginCoordinatorDidFail(self, withError: .unavailable)
+            stop()
             return
         }
 
-        #if DEBUG
-        parent.startMainFlow()
-        return
-        #endif
-
         // Start biometric authentication
-        authService.authenticate(
-            reason: "AUTH_REASON".localized
-        ) { [weak self] result in
+        authService.authenticate(reason: "AUTH_REASON".localized) { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }
+                defer { self.stop() }
 
                 switch result {
                 case let .success(success) where success:
                     // handle success case
-                    self.parent.startMainFlow()
+                    self.loginDelegate?.loginCoordinatorDidSucceed(self)
                 case let .failure(error):
                     // handle error
-                    self.parent.startAuthErrorFlow(with: error)
+                    self.loginDelegate?.loginCoordinatorDidFail(self, withError: error)
                 case .success:
                     // handle success response
                     // with incorrect success value
-                    self.parent.startAuthErrorFlow(with: .unavailable)
+                    self.loginDelegate?.loginCoordinatorDidFail(self, withError: .unauthorized)
                 }
             }
         }
