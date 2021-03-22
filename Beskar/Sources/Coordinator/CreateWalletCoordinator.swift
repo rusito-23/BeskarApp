@@ -8,22 +8,19 @@
 import BeskarUI
 import UIKit
 
-final class CreateWalletCoordinator: Coordinator {
+final class CreateWalletCoordinator: BaseCoordinator {
 
     // MARK: Coordinator Properties
 
-    var presenter: UIViewController?
+    override var presented: UIViewController? { createWalletViewController }
 
-    lazy var presented: UIViewController? = {
+    // MARK: Private Properties
+
+    private lazy var createWalletViewController: CreateWalletViewController = {
         let viewController = CreateWalletViewController()
         viewController.coordinator = self
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .overFullScreen
         return viewController
     }()
-
-    lazy var children: [Coordinator] = []
-    var onStop: (() -> Void)?
-    var onStart: (() -> Void)?
-    weak var delegate: CoordinatorDelegate?
 }

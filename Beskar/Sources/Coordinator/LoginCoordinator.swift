@@ -9,23 +9,15 @@ import UIKit
 import BeskarUI
 import BeskarKit
 
-final class LoginCoordinator: Coordinator {
+final class LoginCoordinator: BaseCoordinator {
 
     // MARK: Properties
 
     /// Authentication Services, brought to you by `BeskarKit`
     private let authService: AuthServiceProtocol
 
+    /// A reference to the parent flow, communication stuff
     var parent: AppCoordinatorFlow
-
-    // MARK: Coordinator Properties
-
-    var presenter: UIViewController?
-    var presented: UIViewController?
-    lazy var children: [Coordinator] = []
-    var onStop: (() -> Void)?
-    var onStart: (() -> Void)?
-    weak var delegate: CoordinatorDelegate?
 
     // MARK: Initializer
 
@@ -39,7 +31,7 @@ final class LoginCoordinator: Coordinator {
 
     // MARK: Coordinator conformance
 
-    func start() {
+    override func start() {
         // Check for Auth Services availability
         guard authService.isAvailable() else {
             parent.startAuthErrorFlow(with: .unavailable)

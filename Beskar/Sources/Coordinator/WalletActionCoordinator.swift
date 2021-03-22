@@ -10,34 +10,29 @@ import BeskarKit
 import UIKit
 import TinyConstraints
 
-final class WalletActionCoordinator: Coordinator {
+final class WalletActionCoordinator: BaseCoordinator {
 
     // MARK: Coordinator Properties
 
-    var presenter: UIViewController?
+    override var presented: UIViewController? { modalViewController }
 
-    lazy var viewModel = WalletActionViewModel(
+    // MARK: Private Properties
+
+    private lazy var viewModel = WalletActionViewModel(
         wallet: wallet,
         kind: kind
     )
 
-    lazy var presented: UIViewController? = ModalViewController(
-        viewController: viewController
-    )
-
-    lazy var viewController: UIViewController = {
+    private lazy var walletActionViewController: UIViewController = {
         let viewController = WalletActionViewController(viewModel: viewModel)
         viewController.modalPresentationStyle = .formSheet
         viewController.coordinator = self
         return viewController
     }()
 
-    lazy var children: [Coordinator] = []
-    var onStop: (() -> Void)?
-    var onStart: (() -> Void)?
-    weak var delegate: CoordinatorDelegate?
-
-    // MARK: Private properties
+    private lazy var modalViewController = ModalViewController(
+        viewController: walletActionViewController
+    )
 
     private let wallet: Wallet
     private let kind: Transaction.Kind

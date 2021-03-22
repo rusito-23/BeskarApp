@@ -8,22 +8,15 @@
 import BeskarUI
 import UIKit
 
-final class SettingsCoordinator: Coordinator {
+final class SettingsCoordinator: BaseCoordinator {
 
     // MARK: Coordinator Properties
 
-    var presenter: UIViewController?
-
-    var presented: UIViewController? { settingsViewController }
-
-    lazy var children: [Coordinator] = []
-    var onStop: (() -> Void)?
-    var onStart: (() -> Void)?
-    weak var delegate: CoordinatorDelegate?
+    override var presented: UIViewController? { settingsViewController }
 
     // MARK: Private Properties
 
-    lazy var settingsViewController: SettingsViewController = {
+    private lazy var settingsViewController: SettingsViewController = {
         let viewController = SettingsViewController()
         viewController.tabBarItem = tabBarItem
         return viewController

@@ -19,22 +19,15 @@ protocol WalletListCoordinatorFlow: class {
 
 // MARK: - Coordinator implementation
 
-final class WalletListCoordinator: Coordinator {
+final class WalletListCoordinator: BaseCoordinator {
 
     // MARK: Coordinator Properties
 
-    var presenter: UIViewController?
-
-    var presented: UIViewController? { walletListViewController }
-
-    lazy var children: [Coordinator] = []
-    var onStop: (() -> Void)?
-    var onStart: (() -> Void)?
-    weak var delegate: CoordinatorDelegate?
+    override var presented: UIViewController? { walletListViewController }
 
     // MARK: Private Properties
 
-    lazy var walletListViewController: WalletListViewController = {
+    private lazy var walletListViewController: WalletListViewController = {
         let viewController = WalletListViewController()
         viewController.coordinator = self
         viewController.tabBarItem = tabBarItem

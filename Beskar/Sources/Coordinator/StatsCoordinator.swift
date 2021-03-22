@@ -8,23 +8,19 @@
 import BeskarUI
 import UIKit
 
-final class StatsCoordinator: Coordinator {
+final class StatsCoordinator: BaseCoordinator {
 
     // MARK: Coordinator Properties
 
-    lazy var presented: UIViewController? = {
+    override var presented: UIViewController? { statsViewController }
+
+    // MARK: Private Properties
+
+    private lazy var statsViewController: StatsViewController = {
         let viewController = StatsViewController()
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
-
-    var presenter: UIViewController?
-    lazy var children: [Coordinator] = []
-    var onStop: (() -> Void)?
-    var onStart: (() -> Void)?
-    weak var delegate: CoordinatorDelegate?
-
-    // MARK: Private Properties
 
     private lazy var tabBarItem: UITabBarItem = {
         let item = UITabBarItem()

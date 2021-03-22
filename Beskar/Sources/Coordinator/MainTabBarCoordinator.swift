@@ -8,18 +8,11 @@
 import UIKit
 import BeskarUI
 
-final class MainTabBarCoordinator: Coordinator {
+final class MainTabBarCoordinator: BaseCoordinator {
 
     // MARK: Coordinator Properties
 
-    var presenter: UIViewController?
-
-    var presented: UIViewController? { tabBarController }
-
-    lazy var children: [Coordinator] = []
-    var onStop: (() -> Void)?
-    var onStart: (() -> Void)?
-    weak var delegate: CoordinatorDelegate?
+    override var presented: UIViewController? { tabBarController }
 
     // MARK: Controller
 
@@ -57,9 +50,9 @@ final class MainTabBarCoordinator: Coordinator {
 
     // MARK: Coordinator Conformance
 
-    func start() {
+    override func start() {
         tabBarController.viewControllers = tabCoordinators.compactMap { $0.presented }
         tabBarController.selectedViewController = walletListCoordinator.presented
-        presenter?.present(tabBarController, animated: true)
+        super.start()
     }
 }

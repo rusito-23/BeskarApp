@@ -72,7 +72,7 @@ final class CreateWalletViewController: ViewController<CreateWalletView> {
     // MARK: Actions
 
     @objc func onCloseButtonTapped(_ sender: UIBarButtonItem?) {
-        self.coordinator?.stop()
+        coordinator?.stop()
     }
 
     @objc func onCreateButtonTapped(_ sender: UIBarButtonItem) {

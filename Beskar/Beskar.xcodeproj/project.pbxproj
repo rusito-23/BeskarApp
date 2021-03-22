@@ -38,6 +38,7 @@
 		784C344B25CF342600DA24E1 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C344A25CF342600DA24E1 /* WelcomeViewController.swift */; };
 		784C345525CF55F600DA24E1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C345425CF55F600DA24E1 /* WelcomeView.swift */; };
 		78536BBC2608DDC300E9BA0E /* IQKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78536BBB2608DDC300E9BA0E /* IQKeyboardManager.swift */; };
+		78536BBF260900CC00E9BA0E /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78536BBE260900CC00E9BA0E /* BaseCoordinator.swift */; };
 		7889475F25D9CB3B00BB9BEE /* WalletListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475E25D9CB3B00BB9BEE /* WalletListFooterView.swift */; };
 		7889476425D9E87800BB9BEE /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889476325D9E87800BB9BEE /* UITableViewCellExtensions.swift */; };
 		7889476825D9E8BD00BB9BEE /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889476725D9E8BD00BB9BEE /* UITableViewExtensions.swift */; };
@@ -138,6 +139,7 @@
 		784C344A25CF342600DA24E1 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		784C345425CF55F600DA24E1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		78536BBB2608DDC300E9BA0E /* IQKeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IQKeyboardManager.swift; sourceTree = "<group>"; };
+		78536BBE260900CC00E9BA0E /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		7889475E25D9CB3B00BB9BEE /* WalletListFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListFooterView.swift; sourceTree = "<group>"; };
 		7889476325D9E87800BB9BEE /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
 		7889476725D9E8BD00BB9BEE /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 		783222FD25C37A6000D466ED /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				78536BBE260900CC00E9BA0E /* BaseCoordinator.swift */,
 				7832230225C37BC800D466ED /* AppCoordinator.swift */,
 				782BBD2825DD89A9007FB112 /* CreateWalletCoordinator.swift */,
 				78B4C9D325F671BA005085F5 /* LoginCoordinator.swift */,
@@ -615,6 +618,7 @@
 				78BD8FDB25FD6BC300935915 /* WalletActionCoordinator.swift in Sources */,
 				7897668825DB0AD1000E9552 /* CompactAmountFormatter.swift in Sources */,
 				78BD8FD225FD6AFB00935915 /* WalletDetailViewController.swift in Sources */,
+				78536BBF260900CC00E9BA0E /* BaseCoordinator.swift in Sources */,
 				78B4C9DA25F6789C005085F5 /* StatsCoordinator.swift in Sources */,
 				7889475F25D9CB3B00BB9BEE /* WalletListFooterView.swift in Sources */,
 				78DB116325C6375100335F7B /* String+Helpers.swift in Sources */,
