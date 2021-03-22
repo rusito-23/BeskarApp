@@ -7,6 +7,8 @@
 
 import BeskarUI
 import BeskarKit
+import IQKeyboardManagerSwift
+import SwiftyBeaver
 import UIKit
 
 // MARK: - App Coordinator Protocol
@@ -55,7 +57,25 @@ final class AppCoordinator: Coordinator {
     // MARK: Coordinator Conformance
 
     func start() {
-        // Show window
+        setUpServices()
+        startAppFlow()
+    }
+
+    // MARK: Private Methods
+
+    private func setUpServices() {
+        // Setup Logger
+        SwiftyBeaver.setup()
+
+        // Setup dependency repos
+        Swinject.setUp()
+
+        // Enable keyboard manager
+        IQKeyboardManager.shared.enable = true
+    }
+
+    private func startAppFlow() {
+        // show window
         window.makeKeyAndVisible()
 
         // Check if Welcome Flow must be shown

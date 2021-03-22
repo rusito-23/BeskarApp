@@ -10,6 +10,7 @@ target 'Beskar' do
     pod 'SwiftyBeaver'
     pod 'Swinject'
     pod 'CombineDataSources'
+    pod 'IQKeyboardManagerSwift'
 end
 
 target 'BeskarKit' do

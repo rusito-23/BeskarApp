@@ -5,9 +5,7 @@
 //  Created by Igor on 28/01/2021.
 //
 
-import BeskarKit
 import UIKit
-import SwiftyBeaver
 
 @main final class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -29,16 +27,10 @@ import SwiftyBeaver
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: Options
     ) -> Bool {
-
-        // Setup Logger
-        SwiftyBeaver.setup()
-
-        // Setup dependency repo
-        Swinject.setUp()
-
         // Start App Coordinator
         coordinator.start()
 
+        // Allow application launch
         return true
     }
 }
