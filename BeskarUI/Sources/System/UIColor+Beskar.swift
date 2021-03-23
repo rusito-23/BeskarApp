@@ -34,4 +34,10 @@ public extension BeskarWrapper where Base == UIColor {
     static var info: UIColor { .systemBlue }
 
     static var warning: UIColor { .systemYellow }
+
+    // MARK: Info
+
+    static var positive: UIColor { .systemGreen }
+
+    static var negative: UIColor { .systemRed }
 }

@@ -6,7 +6,9 @@
 //
 
 import BeskarKit
+import BeskarUI
 import Combine
+import UIKit
 
 /// Transaction View Model
 ///
@@ -42,6 +44,26 @@ final class TransactionViewModel: ViewModel, Resolvable {
         .map { transaction in
             guard let creationDate = transaction?.date else { return nil }
             return self.dateFormatter.string(for: creationDate)
+        }.eraseToAnyPublisher()
+
+    /// An image representing the kind
+    private(set) lazy var kindIconPublisher: AnyPublisher<UIImage?, Never> = $transaction
+        .map { transaction in
+            guard let kind = transaction?.kind else { return nil }
+            switch kind {
+            case .deposit: return UIImage.beskar.create(.deposit)
+            case .withdraw: return UIImage.beskar.create(.withdraw)
+            }
+        }.eraseToAnyPublisher()
+
+    /// A color representing the kind
+    private(set) lazy var kindColorPublisher: AnyPublisher<UIColor?, Never> = $transaction
+        .map { transaction in
+            guard let kind = transaction?.kind else { return nil }
+            switch kind {
+            case .deposit: return UIColor.beskar.positive
+            case .withdraw: return UIColor.beskar.negative
+            }
         }.eraseToAnyPublisher()
 
     // MARK: Private Properties

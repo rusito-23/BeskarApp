@@ -26,9 +26,9 @@ final class WalletDetailView: UIView {
         identifier: A.WalletDetailView.summary
     )
 
-    private(set) lazy var amountHeaderLabel = Label(
-        size: .extraSmall,
-        color: UIColor.beskar.secondary,
+    private(set) lazy var amountLabel = Label(
+        size: .large,
+        color: UIColor.beskar.primary,
         text: "WALLET_DETAIL_AMOUNT_HEADER".localized,
         identifier: A.WalletDetailView.amountHeader
     )

@@ -37,11 +37,13 @@ final class TransactionCell: UITableViewCell {
         alignment: .left
     )
 
-    private(set) lazy var kindIcon = ActionButton(
-        imageName: .deposit,
-        size: .small,
-        color: UIColor.beskar.primary
-    ).withHugging(.required, for: .horizontal)
+    private(set) lazy var kindIconView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.size(Size.typeMedium.size)
+        return imageView
+    }()
 
     // MARK: Private Subviews
 
@@ -53,10 +55,11 @@ final class TransactionCell: UITableViewCell {
         ])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.alignment = .fill
         stackView.spacing = Spacing.small.rawValue
         stackView.setCustomSpacing(Spacing.extraSmall.rawValue, after: summaryLabel)
+        stackView.setCompressionResistance(.required, for: .vertical)
         return stackView
     }()
 
@@ -87,12 +90,12 @@ final class TransactionCell: UITableViewCell {
 
     private func setUpViews() {
         translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubviews(kindIcon, contentStack)
+        contentView.addSubviews(kindIconView, contentStack)
 
-        kindIcon.leadingToSuperview(offset: Spacing.medium.rawValue)
-        kindIcon.centerYToSuperview()
+        kindIconView.leadingToSuperview(offset: Spacing.medium.rawValue)
+        kindIconView.centerYToSuperview()
 
-        contentStack.leadingToTrailing(of: kindIcon, offset: Spacing.medium.rawValue)
+        contentStack.leadingToTrailing(of: kindIconView, offset: Spacing.medium.rawValue)
         contentStack.trailingToSuperview(offset: Spacing.small.rawValue)
         contentStack.topToSuperview(offset: Spacing.small.rawValue)
         contentStack.bottomToSuperview(offset: -Spacing.small.rawValue)
@@ -109,6 +112,14 @@ final class TransactionCell: UITableViewCell {
 
         viewModel.compactAmountPublisher.assign(
             to: \.text, on: amountLabel
+        ).store(in: &subscriptions)
+
+        viewModel.kindIconPublisher.assign(
+            to: \.image, on: kindIconView
+        ).store(in: &subscriptions)
+
+        viewModel.kindColorPublisher.assign(
+            to: \.tintColor, on: kindIconView
         ).store(in: &subscriptions)
     }
 }
