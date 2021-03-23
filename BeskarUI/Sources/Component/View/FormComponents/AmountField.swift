@@ -97,7 +97,6 @@ public class AmountField: UITextField {
 
     private func setUpStyle() {
         font = UIFont.beskar.build(.extraLarge)
-        tintColor = UIColor.beskar.white
         textAlignment = .center
     }
 

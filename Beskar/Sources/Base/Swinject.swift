@@ -37,6 +37,10 @@ final class Swinject {
         container.register(CreateWalletViewModel.self) { (r: Resolver) in
             CreateWalletViewModel()
         }
+
+        container.register(TransactionViewModel.self) { (r: Resolver) in
+            TransactionViewModel()
+        }
     }
 }
 

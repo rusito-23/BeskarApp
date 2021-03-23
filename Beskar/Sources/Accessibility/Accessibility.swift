@@ -89,6 +89,9 @@ extension A {
 
 extension A {
     struct WalletDetailView {
-        static let title = "WalletDetailView.title"
+        static let name = "WalletDetailView.name"
+        static let summary = "WalletDetailView.summary"
+        static let amountHeader = "WalletDetailView.amountHeader"
+        static let table = "WalletDetailView.table"
     }
 }

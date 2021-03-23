@@ -53,7 +53,7 @@ extension WalletListCoordinator: WalletListCoordinatorFlow {
     }
 
     func startWalletDetailFlow(for wallet: Wallet) {
-        let coordinator = WalletDetailCoordinator()
+        let coordinator = WalletDetailCoordinator(wallet: wallet)
         coordinator.presenter = .navigation(presented?.navigationController)
         coordinator.delegate = self
         start(child: coordinator)

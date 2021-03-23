@@ -54,6 +54,8 @@ final class WalletListView: UIView {
     }
 }
 
+// MARK: - UITableViewDelegate Conformance
+
 extension WalletListView: UITableViewDelegate {
     func tableView(
         _ tableView: UITableView,

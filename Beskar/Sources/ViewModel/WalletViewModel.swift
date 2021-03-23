@@ -26,8 +26,18 @@ final class WalletViewModel: ViewModel, Resolvable {
         .map { $0?.name }
         .eraseToAnyPublisher()
 
+    /// The description of the wallet as a published string
+    private(set) lazy var summaryPublisher: AnyPublisher<String?, Never> = $wallet
+        .map { $0?.summary }
+        .eraseToAnyPublisher()
+
     /// The compact amount of the wallet with currency info as a published string
     private(set) lazy var compactAmountPublisher: AnyPublisher<String?, Never> =  $wallet
         .map { $0?.compactAmountFormatted }
+        .eraseToAnyPublisher()
+
+    /// The wallet transactions published
+    private(set) lazy var transactionsPublisher: AnyPublisher<[Transaction], Never> = $wallet
+        .map { $0?.transactions.compactMap { $0 } ?? [] }
         .eraseToAnyPublisher()
 }

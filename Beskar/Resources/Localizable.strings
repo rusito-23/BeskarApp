@@ -80,15 +80,13 @@ Please make sure you have set your passcode and configured biometrics in your de
 
 "CREATE_WALLET_TITLE" = "Create a new wallet";
 "CREATE_WALLET_SUBTITLE" = "All of your wallet information and transactions will be stored locally and won't be shared at any point";
-
 "WALLET_NAME_PLACEHOLDER" = "Wallet Name";
 "WALLET_DESCRIPTION_PLACEHOLDER" = "Wallet Description";
 "WALLET_CURRENCY_PLACEHOLDER" = "Wallet Currency";
-
 "WALLET_CREATION_ERROR" = "We failed to save your new wallet";
 
 // MARK: - Wallet Action View
 
 "WALLET_ACTION_SUMMARY_PLACEHOLDER" = "Summary";
-
 "TRANSACTION_SAVE_ERROR" = "We failed to save your transaction";
+

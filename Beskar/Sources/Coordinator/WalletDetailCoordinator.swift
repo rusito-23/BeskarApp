@@ -6,6 +6,7 @@
 //
 
 import BeskarUI
+import BeskarKit
 import UIKit
 
 final class WalletDetailCoordinator: BaseCoordinator {
@@ -16,5 +17,21 @@ final class WalletDetailCoordinator: BaseCoordinator {
 
     // MARK: Private Properties
 
-    private lazy var walletDetailViewController = WalletDetailViewController()
+    private let wallet: Wallet
+
+    private lazy var walletDetailViewController = WalletDetailViewController(
+        viewModel: walletViewModel
+    )
+
+    private lazy var walletViewModel: WalletViewModel = {
+        let viewModel = WalletViewModel()
+        viewModel.wallet = wallet
+        return viewModel
+    }()
+
+    // MARK: Initializer
+
+    init(wallet: Wallet) {
+        self.wallet = wallet
+    }
 }
