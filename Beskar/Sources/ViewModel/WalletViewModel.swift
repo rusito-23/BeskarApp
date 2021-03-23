@@ -39,9 +39,8 @@ final class WalletViewModel: ViewModel, Resolvable {
     /// The wallet transactions published - sorted by most recent
     private(set) lazy var transactionsPublisher: AnyPublisher<[Transaction], Never> = $wallet
         .map { wallet in
-            return wallet?.transactions
-                .compactMap { $0 }
+            return (wallet?.transactions
+                .compactMap { $0 } ?? [])
                 .sorted { $0.date.compare($1.date) == .orderedDescending }
-            ?? []
         }.eraseToAnyPublisher()
 }

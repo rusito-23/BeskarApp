@@ -44,6 +44,9 @@
 		78536BCD260956D600E9BA0E /* AuthErrorCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78536BCC260956D600E9BA0E /* AuthErrorCoordinator.swift */; };
 		78536BD9260A2FA700E9BA0E /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78536BD8260A2FA700E9BA0E /* TransactionCell.swift */; };
 		78536BDD260A69A400E9BA0E /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78536BDC260A69A400E9BA0E /* TransactionViewModel.swift */; };
+		78536BE0260A7F3C00E9BA0E /* BlockScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78536BDF260A7F3C00E9BA0E /* BlockScreenCoordinator.swift */; };
+		78536BEF260A888200E9BA0E /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78536BEE260A888200E9BA0E /* SplashView.swift */; };
+		78536BF2260A891F00E9BA0E /* BlockScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78536BF1260A891F00E9BA0E /* BlockScreenViewController.swift */; };
 		7889475F25D9CB3B00BB9BEE /* WalletListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889475E25D9CB3B00BB9BEE /* WalletListFooterView.swift */; };
 		7889476425D9E87800BB9BEE /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889476325D9E87800BB9BEE /* UITableViewCellExtensions.swift */; };
 		7889476825D9E8BD00BB9BEE /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7889476725D9E8BD00BB9BEE /* UITableViewExtensions.swift */; };
@@ -150,6 +153,9 @@
 		78536BCC260956D600E9BA0E /* AuthErrorCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrorCoordinator.swift; sourceTree = "<group>"; };
 		78536BD8260A2FA700E9BA0E /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		78536BDC260A69A400E9BA0E /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		78536BDF260A7F3C00E9BA0E /* BlockScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockScreenCoordinator.swift; sourceTree = "<group>"; };
+		78536BEE260A888200E9BA0E /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		78536BF1260A891F00E9BA0E /* BlockScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockScreenViewController.swift; sourceTree = "<group>"; };
 		7889475E25D9CB3B00BB9BEE /* WalletListFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListFooterView.swift; sourceTree = "<group>"; };
 		7889476325D9E87800BB9BEE /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
 		7889476725D9E8BD00BB9BEE /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
@@ -283,6 +289,7 @@
 				7824688525CF78EE00B1B9E4 /* ErrorView.swift */,
 				782E6D9725D060EE0057705E /* LoadingView.swift */,
 				78438C4025D5F69D003B8A4E /* WorkInProgressView.swift */,
+				78536BEE260A888200E9BA0E /* SplashView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -313,6 +320,7 @@
 			children = (
 				78438C3A25D5F462003B8A4E /* Extensions */,
 				782E6D9225D060B50057705E /* Common */,
+				78536BF1260A891F00E9BA0E /* BlockScreenViewController.swift */,
 				782BBD2425DD897E007FB112 /* CreateWalletViewController.swift */,
 				78414A5B25D2F50C00F9351D /* SettingsViewController.swift */,
 				78414A5525D2F4AA00F9351D /* StatsViewController.swift */,
@@ -378,6 +386,7 @@
 				78B4C9E225F67A37005085F5 /* SettingsCoordinator.swift */,
 				78536BC92609543600E9BA0E /* WelcomeCoordinator.swift */,
 				78536BCC260956D600E9BA0E /* AuthErrorCoordinator.swift */,
+				78536BDF260A7F3C00E9BA0E /* BlockScreenCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -648,6 +657,7 @@
 				7889475F25D9CB3B00BB9BEE /* WalletListFooterView.swift in Sources */,
 				78DB116325C6375100335F7B /* String+Helpers.swift in Sources */,
 				7832230325C37BC800D466ED /* AppCoordinator.swift in Sources */,
+				78536BE0260A7F3C00E9BA0E /* BlockScreenCoordinator.swift in Sources */,
 				78B4CA0325FBAFE9005085F5 /* InputFieldViewModel.swift in Sources */,
 				78536BBC2608DDC300E9BA0E /* IQKeyboardManager.swift in Sources */,
 				782BBD2525DD897E007FB112 /* CreateWalletViewController.swift in Sources */,
@@ -657,6 +667,8 @@
 				7897668425DB00F0000E9552 /* ViewModel.swift in Sources */,
 				782E6D9B25D061860057705E /* LoadingView.swift in Sources */,
 				78AC5E3C25D60729005F8D86 /* WalletCardView.swift in Sources */,
+				78536BF2260A891F00E9BA0E /* BlockScreenViewController.swift in Sources */,
+				78536BEF260A888200E9BA0E /* SplashView.swift in Sources */,
 				782927DE25C50AF800F41574 /* Preferences.swift in Sources */,
 				780770F125C769E300071EF3 /* FieldValidation.swift in Sources */,
 				78536BD9260A2FA700E9BA0E /* TransactionCell.swift in Sources */,

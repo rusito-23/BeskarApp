@@ -1,5 +1,6 @@
 PODS:
   - CombineDataSources (0.2.5)
+  - Eureka (5.3.3)
   - IQKeyboardManagerSwift (6.5.6)
   - Realm (10.5.1):
     - Realm/Headers (= 10.5.1)
@@ -12,6 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - CombineDataSources
+  - Eureka
   - IQKeyboardManagerSwift
   - RealmSwift
   - SwiftyBeaver
@@ -21,6 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - CombineDataSources
+    - Eureka
     - IQKeyboardManagerSwift
     - Realm
     - RealmSwift
@@ -30,6 +33,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   CombineDataSources: dcbc3b06a038ffdf620b3b4533d3ecaf76ca6a2e
+  Eureka: e6d720290c56bb23333ad1a0e020b2a98a0e9a43
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Realm: 77fcb4e0b9f2963ea06f584749a0d7dc9cab95e1
   RealmSwift: 6abe6aa6cd8b70cc1a87afcb9232cabea74ff1ac
@@ -37,6 +41,6 @@ SPEC CHECKSUMS:
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 94d185110fdc88cc4aa8e8621fe6cdef964416a6
+PODFILE CHECKSUM: 0740007c8e130e72a24a09e7916e70949d797ed0
 
 COCOAPODS: 1.10.0

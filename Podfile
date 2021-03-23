@@ -11,6 +11,7 @@ target 'Beskar' do
     pod 'Swinject'
     pod 'CombineDataSources'
     pod 'IQKeyboardManagerSwift'
+    pod 'Eureka'
 end
 
 target 'BeskarKit' do
