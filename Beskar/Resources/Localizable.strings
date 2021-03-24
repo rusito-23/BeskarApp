@@ -89,6 +89,8 @@ Please make sure you have set your passcode and configured biometrics in your de
 
 "WALLET_ACTION_SUMMARY_PLACEHOLDER" = "Summary";
 "TRANSACTION_SAVE_ERROR" = "We failed to save your transaction";
+"WALLET_ACTION_DISCLAIMER" = "All of this data will be stored locally and won't be shared.
+This transaction can't be removed later so please enter the information carefully.";
 
 // MARK: Settings
 

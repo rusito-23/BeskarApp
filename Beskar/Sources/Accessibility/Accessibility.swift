@@ -84,6 +84,7 @@ extension A {
         static let amountField = "WalletActionView.amountField"
         static let saveButton = "WalletActionView.saveButton"
         static let summaryField = "WalletActionView.summaryField"
+        static let disclaimer = "WalletActionView.disclaimer"
     }
 }
 

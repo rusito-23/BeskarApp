@@ -14,7 +14,7 @@ final class WalletActionCoordinator: BaseCoordinator {
 
     // MARK: Coordinator Properties
 
-    override var presented: UIViewController? { modalViewController }
+    override var presented: UIViewController? { walletActionViewController }
 
     // MARK: Private Properties
 

@@ -46,6 +46,8 @@ final class WalletActionViewModel: ViewModel {
 
     var buttonTitle: String { actionText.uppercased() }
 
+    var disclaimerText: String { "WALLET_ACTION_DISCLAIMER".localized }
+
     // MARK: Private Properties
 
     private let wallet: Wallet
