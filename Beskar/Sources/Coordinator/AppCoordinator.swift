@@ -54,6 +54,7 @@ final class AppCoordinator: BaseCoordinator {
         SwiftyBeaver.setup()
         Swinject.setUp()
         IQKeyboardManager.setUp()
+        Eureka.setUp()
     }
 
     private func startAppFlow() {

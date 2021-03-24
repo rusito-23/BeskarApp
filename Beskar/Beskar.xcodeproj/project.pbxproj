@@ -78,6 +78,7 @@
 		78C090A225D0841B00C8563B /* BeskarUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909925D0841B00C8563B /* BeskarUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		78C090A325D0841B00C8563B /* Pods_Beskar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909A25D0841B00C8563B /* Pods_Beskar.framework */; };
 		78C090A425D0841B00C8563B /* Pods_Beskar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909A25D0841B00C8563B /* Pods_Beskar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		78CCA251260AB5ED007060F3 /* EurekaSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CCA250260AB5ED007060F3 /* EurekaSetup.swift */; };
 		78DB116325C6375100335F7B /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB116225C6375100335F7B /* String+Helpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -188,6 +189,7 @@
 		78C0909C25D0841B00C8563B /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C0909D25D0841B00C8563B /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyBeaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C0909E25D0841B00C8563B /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78CCA250260AB5ED007060F3 /* EurekaSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaSetup.swift; sourceTree = "<group>"; };
 		78DB116225C6375100335F7B /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		DCCC7C8C290A48F8F57AC728 /* Pods-Beskar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.debug.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -367,6 +369,7 @@
 				7897667B25DAF0F6000E9552 /* Swinject.swift */,
 				78C0909125D083E900C8563B /* SwiftyBeaver.swift */,
 				78536BBB2608DDC300E9BA0E /* IQKeyboardManager.swift */,
+				78CCA250260AB5ED007060F3 /* EurekaSetup.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				780770F125C769E300071EF3 /* FieldValidation.swift in Sources */,
 				78536BD9260A2FA700E9BA0E /* TransactionCell.swift in Sources */,
 				7889477325DA20FB00BB9BEE /* WalletViewModel.swift in Sources */,
+				78CCA251260AB5ED007060F3 /* EurekaSetup.swift in Sources */,
 				782BBD2925DD89A9007FB112 /* CreateWalletCoordinator.swift in Sources */,
 				78C0909225D083E900C8563B /* SwiftyBeaver.swift in Sources */,
 				78BD8FD525FD6B2D00935915 /* WalletActionViewController.swift in Sources */,

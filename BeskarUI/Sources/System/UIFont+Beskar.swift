@@ -20,6 +20,7 @@ public extension BeskarWrapper where Base == UIFont {
         case medium = 32.0
         case typeMedium = 27.0
         case small = 23.0
+        case typeExtraSmall = 20.0
         case extraSmall = 17.0
         case tiny = 12.0
     }

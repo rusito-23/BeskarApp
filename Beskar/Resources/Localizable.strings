@@ -94,4 +94,6 @@ Please make sure you have set your passcode and configured biometrics in your de
 
 "SETTINGS_SECURITY_SECTION_TITLE" = "Security";
 "SETTINGS_BLOCK_SCREEN" = "Block screen on background";
-"SETTINGS_AUTH_TIMEOUT" = "Authentication Background Timeout";
+"SETTINGS_BLOCK_SCREEN_DETAIL" = "When enabled, this preference will block the screen whenever the app is in background";
+"SETTINGS_AUTH_TIMEOUT" = "Auth Timeout";
+"SETTINGS_AUTH_TIMEOUT_DETAIL" = "The number of minutes that you authentication session will stay active when the app is in background";
