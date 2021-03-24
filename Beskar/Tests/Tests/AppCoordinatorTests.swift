@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Nimble
 import BeskarKit
 @testable import Beskar
 
@@ -20,13 +21,15 @@ final class AppCoordinatorTests: XCTestCase {
     // MARK: Setup
 
     override func setUp() {
+        // Mocks
         navigationMock = NavigationControllerMock()
         authMock = AuthServiceMock()
 
-        coordinator = AppCoordinator(
-            presenter: navigationMock,
-            authService: authMock
-        )
+        // Testable object
+        coordinator = AppCoordinator(presenter: navigationMock)
+
+        // Dependencies repository mocks
+        injector.register(AuthServiceProtocol.self) { _ in self.authMock }
     }
 
     // MARK: Tests
@@ -39,7 +42,8 @@ final class AppCoordinatorTests: XCTestCase {
         coordinator.start()
 
         // Check last presented
-        XCTAssert(navigationMock.lastPresentedViewController is WelcomeViewController)
+        let presented = navigationMock.lastPresentedViewController
+        expect(presented).to(beAKindOf(WelcomeViewController.self))
     }
 
     func test_notOnFirstLaunch_shouldStartLoginFlow() {
@@ -47,7 +51,7 @@ final class AppCoordinatorTests: XCTestCase {
         Preferences.isNotFirstLaunch = true
 
         // Setup expectations
-        navigationMock.presentExpectation = expectation(description: "Present Login Flow")
+        navigationMock.pushExpectation = expectation(description: "Push Main Flow")
         authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
         authMock.authenticationExpectation = expectation(description: "Check Auth Authentication")
 
@@ -60,7 +64,8 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
-        XCTAssert(navigationMock.lastPresentedViewController is MainTabBarController)
+        let pushed = navigationMock.lastPushedViewController
+        expect(pushed).to(beAKindOf(UITabBarController.self))
     }
 
     func test_withAuthServiceNotAvailable_shouldShowError() {
@@ -78,7 +83,8 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
-        XCTAssert(navigationMock.lastPresentedViewController is ErrorViewController)
+        let presented = navigationMock.lastPresentedViewController
+        expect(presented).to(beAKindOf(ErrorViewController.self))
     }
 
     func test_onAuthenticationUnavailable_shouldShowError() {
@@ -98,7 +104,8 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
-        XCTAssert(navigationMock.lastPresentedViewController is ErrorViewController)
+        let presented = navigationMock.lastPresentedViewController
+        expect(presented).to(beAKindOf(ErrorViewController.self))
     }
 
     func test_onAuthenticationCanceled_shouldShowError() {
@@ -118,7 +125,8 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
-        XCTAssert(navigationMock.lastPresentedViewController is ErrorViewController)
+        let presented = navigationMock.lastPresentedViewController
+        expect(presented).to(beAKindOf(ErrorViewController.self))
     }
 
     func test_onAuthenticationFailure_shouldShowError() {
@@ -138,6 +146,7 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
-        XCTAssert(navigationMock.lastPresentedViewController is ErrorViewController)
+        let presented = navigationMock.lastPresentedViewController
+        expect(presented).to(beAKindOf(ErrorViewController.self))
     }
 }

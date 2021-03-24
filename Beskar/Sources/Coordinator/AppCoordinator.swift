@@ -39,12 +39,12 @@ final class AppCoordinator: BaseCoordinator {
     init(presenter: UINavigationController = NavigationController()) {
         super.init()
         self.presenter = .navigation(presenter)
+        setUpServices()
     }
 
     // MARK: Coordinator Conformance
 
     override func start() {
-        setUpServices()
         startAppFlow()
     }
 

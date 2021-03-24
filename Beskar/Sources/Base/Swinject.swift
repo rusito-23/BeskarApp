@@ -16,10 +16,14 @@ let injector = container
 final class Swinject {
     class func setUp() {
 
-        // MARK: Data Services
+        // MARK: Services
 
         container.register(WalletServiceProtocol.self) { _ in
             WalletService()
+        }
+
+        container.register(AuthServiceProtocol.self) { _ in
+            AuthService()
         }
 
         // MARK: View Models

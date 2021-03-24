@@ -36,7 +36,9 @@ final class LoginCoordinator: BaseCoordinator {
     // MARK: Private Properties
 
     /// Authentication Services, brought to you by `BeskarKit`
-    private let authService: AuthServiceProtocol
+    private let authService: AuthServiceProtocol = injector.resolve(
+        AuthServiceProtocol.self
+    ) ?? AuthService()
 
     /// A simple loading view controller
     private lazy var loadingViewController: UIViewController = {
@@ -44,12 +46,6 @@ final class LoginCoordinator: BaseCoordinator {
         viewController.startLoading()
         return viewController
     }()
-
-    // MARK: Initializer
-
-    init(authService: AuthServiceProtocol = AuthService()) {
-        self.authService = authService
-    }
 
     // MARK: Coordinator conformance
 

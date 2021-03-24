@@ -13,3 +13,4 @@ whiteList:
   - stackoverflow
   - swiftlint 
   - ss
+  - payoneer

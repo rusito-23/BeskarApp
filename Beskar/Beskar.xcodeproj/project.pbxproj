@@ -80,6 +80,7 @@
 		78C090A425D0841B00C8563B /* Pods_Beskar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909A25D0841B00C8563B /* Pods_Beskar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		78CCA251260AB5ED007060F3 /* EurekaSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CCA250260AB5ED007060F3 /* EurekaSetup.swift */; };
 		78DB116325C6375100335F7B /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB116225C6375100335F7B /* String+Helpers.swift */; };
+		D93AF5E2BAF24FB517D0F0A3 /* Pods_BeskarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010220F15C12C651251AD26B /* Pods_BeskarTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		010220F15C12C651251AD26B /* Pods_BeskarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeskarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36F6EF945829005FD033F5B5 /* Pods-Beskar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.release.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.release.xcconfig"; sourceTree = "<group>"; };
 		780770DE25C6391700071EF3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		780770EC25C75C0400071EF3 /* Collection+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Helpers.swift"; sourceTree = "<group>"; };
@@ -191,7 +193,9 @@
 		78C0909E25D0841B00C8563B /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CCA250260AB5ED007060F3 /* EurekaSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaSetup.swift; sourceTree = "<group>"; };
 		78DB116225C6375100335F7B /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
+		B864D67A44F1CCFFE306BEF9 /* Pods-BeskarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.release.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.release.xcconfig"; sourceTree = "<group>"; };
 		DCCC7C8C290A48F8F57AC728 /* Pods-Beskar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.debug.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.debug.xcconfig"; sourceTree = "<group>"; };
+		E13AAF319A43374AE54278B4 /* Pods-BeskarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.debug.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D93AF5E2BAF24FB517D0F0A3 /* Pods_BeskarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +412,7 @@
 				782927F725C50BB900F41574 /* BeskarKit.framework */,
 				7832236325C44B9800D466ED /* BeskarUI.framework */,
 				7839406890ED8CB937510255 /* Pods_Beskar.framework */,
+				010220F15C12C651251AD26B /* Pods_BeskarTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -476,6 +482,8 @@
 			children = (
 				DCCC7C8C290A48F8F57AC728 /* Pods-Beskar.debug.xcconfig */,
 				36F6EF945829005FD033F5B5 /* Pods-Beskar.release.xcconfig */,
+				E13AAF319A43374AE54278B4 /* Pods-BeskarTests.debug.xcconfig */,
+				B864D67A44F1CCFFE306BEF9 /* Pods-BeskarTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -488,9 +496,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7824689C25CF990300B1B9E4 /* Build configuration list for PBXNativeTarget "BeskarTests" */;
 			buildPhases = (
+				89809A69136AC41CBBE5CE49 /* [CP] Check Pods Manifest.lock */,
 				7824689125CF990300B1B9E4 /* Sources */,
 				7824689225CF990300B1B9E4 /* Frameworks */,
 				7824689325CF990300B1B9E4 /* Resources */,
+				A1CCE224ED2DF539238A3045 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -620,6 +630,45 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		89809A69136AC41CBBE5CE49 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BeskarTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1CCE224ED2DF539238A3045 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeskarTests/Pods-BeskarTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeskarTests/Pods-BeskarTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeskarTests/Pods-BeskarTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -724,6 +773,7 @@
 /* Begin XCBuildConfiguration section */
 		7824689D25CF990300B1B9E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E13AAF319A43374AE54278B4 /* Pods-BeskarTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -745,6 +795,7 @@
 		};
 		7824689E25CF990300B1B9E4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B864D67A44F1CCFFE306BEF9 /* Pods-BeskarTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

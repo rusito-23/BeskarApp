@@ -15,9 +15,13 @@ final class NavigationControllerMock: UINavigationController {
 
     var lastPresentedViewController: UIViewController?
 
+    var lastPushedViewController: UIViewController?
+
     // MARK: Expectations
 
     var presentExpectation: XCTestExpectation?
+
+    var pushExpectation: XCTestExpectation?
 
     // MARK: Navigation Controller Overrides
 
@@ -33,5 +37,14 @@ final class NavigationControllerMock: UINavigationController {
         )
         lastPresentedViewController = viewControllerToPresent
         presentExpectation?.fulfill()
+    }
+
+    override func pushViewController(
+        _ viewController: UIViewController,
+        animated: Bool
+    ) {
+        super.pushViewController(viewController, animated: animated)
+        lastPushedViewController = viewController
+        pushExpectation?.fulfill()
     }
 }

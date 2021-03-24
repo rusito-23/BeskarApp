@@ -7,6 +7,7 @@
 
 import BeskarKit
 
+/// A class to control the Wallet Service behavior
 final class WalletServiceMock: WalletServiceProtocol {
 
     // MARK: Mocks
@@ -23,6 +24,11 @@ final class WalletServiceMock: WalletServiceProtocol {
             case success
             case failure
         }
+
+        enum Update {
+            case success
+            case failure
+        }
     }
 
     // MARK: Properties
@@ -30,6 +36,8 @@ final class WalletServiceMock: WalletServiceProtocol {
     var fetchMock: Mock.Fetch = .manyWallets
 
     var writeMock: Mock.Write = .success
+
+    var updateMock: Mock.Update = .success
 
     // MARK: Protocol Conformance
 
@@ -66,6 +74,17 @@ final class WalletServiceMock: WalletServiceProtocol {
 
     func write(_ object: Wallet, _ completion: @escaping WriteResult) {
         switch writeMock {
+        case .failure: completion(.failure(.failure))
+        case .success: completion(.success(true))
+        }
+    }
+
+    func update(
+        _ object: Wallet,
+        _ action: @escaping UpdateAction,
+        _ completion: @escaping UpdateResult
+    ) {
+        switch updateMock {
         case .failure: completion(.failure(.failure))
         case .success: completion(.success(true))
         }
