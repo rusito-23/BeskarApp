@@ -20,7 +20,7 @@ final class CreateWalletCoordinator: BaseCoordinator {
         let viewController = CreateWalletViewController()
         viewController.coordinator = self
         viewController.modalTransitionStyle = .coverVertical
-        viewController.modalPresentationStyle = .overFullScreen
+        viewController.modalPresentationStyle = .formSheet
         return viewController
     }()
 }
