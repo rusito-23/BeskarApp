@@ -13,7 +13,7 @@ final class TransactionCell: UITableViewCell {
 
     // MARK: Properties
 
-    private(set) var viewModel: TransactionViewModel = .resolved
+    private(set) var viewModel: TransactionViewModel = resolve()
 
     private lazy var subscriptions = Set<AnyCancellable>()
 
@@ -114,12 +114,18 @@ final class TransactionCell: UITableViewCell {
             to: \.text, on: amountLabel
         ).store(in: &subscriptions)
 
-        viewModel.kindIconPublisher.assign(
-            to: \.image, on: kindIconView
-        ).store(in: &subscriptions)
-
-        viewModel.kindColorPublisher.assign(
-            to: \.tintColor, on: kindIconView
-        ).store(in: &subscriptions)
+        viewModel.kindPublisher.sink { kind in
+            switch kind {
+            case .deposit:
+                self.kindIconView.image = UIImage.beskar.create(.deposit)
+                self.kindIconView.tintColor = UIColor.beskar.positive
+            case .withdraw:
+                self.kindIconView.image = UIImage.beskar.create(.withdraw)
+                self.kindIconView.tintColor = UIColor.beskar.negative
+            default:
+                self.kindIconView.image = nil
+                self.kindIconView.tintColor = nil
+            }
+        }.store(in: &subscriptions)
     }
 }

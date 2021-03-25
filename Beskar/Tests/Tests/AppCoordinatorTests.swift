@@ -14,22 +14,22 @@ final class AppCoordinatorTests: XCTestCase {
 
     // MARK: Properties
 
-    private var authMock: AuthServiceMock!
-    private var coordinator: AppCoordinator!
+    private var authServiceMock: AuthServiceMock!
     private var navigationMock: NavigationControllerMock!
+    private var coordinator: AppCoordinator!
 
     // MARK: Setup
 
     override func setUp() {
         // Mocks
         navigationMock = NavigationControllerMock()
-        authMock = AuthServiceMock()
+        authServiceMock = AuthServiceMock()
 
         // Testable object
         coordinator = AppCoordinator(presenter: navigationMock)
 
         // Dependencies repository mocks
-        injector.register(AuthServiceProtocol.self) { _ in self.authMock }
+        injector.register(AuthServiceProtocol.self) { _ in self.authServiceMock }
     }
 
     // MARK: Tests
@@ -52,12 +52,12 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Setup expectations
         navigationMock.pushExpectation = expectation(description: "Push Main Flow")
-        authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
-        authMock.authenticationExpectation = expectation(description: "Check Auth Authentication")
+        authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
+        authServiceMock.authenticationExpectation = expectation(description: "Authentication")
 
         // Setup mock responses
-        authMock.isAvailableMock = true
-        authMock.authenticationSuccessMock = .success(true)
+        authServiceMock.isAvailableMock = true
+        authServiceMock.authenticationSuccessMock = .success(true)
 
         // Start coordinator
         coordinator.start()
@@ -73,10 +73,10 @@ final class AppCoordinatorTests: XCTestCase {
         Preferences.isNotFirstLaunch = true
 
         // Setup expectations
-        authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
+        authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
 
         // Setup mock responses
-        authMock.isAvailableMock = false
+        authServiceMock.isAvailableMock = false
 
         // Start coordinator
         coordinator.start()
@@ -93,11 +93,11 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Error")
-        authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
+        authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
 
         // Setup mock responses
-        authMock.isAvailableMock = true
-        authMock.authenticationSuccessMock = .failure(.unavailable)
+        authServiceMock.isAvailableMock = true
+        authServiceMock.authenticationSuccessMock = .failure(.unavailable)
 
         // Start coordinator
         coordinator.start()
@@ -114,11 +114,11 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Error")
-        authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
+        authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
 
         // Setup mock responses
-        authMock.isAvailableMock = true
-        authMock.authenticationSuccessMock = .failure(.canceled)
+        authServiceMock.isAvailableMock = true
+        authServiceMock.authenticationSuccessMock = .failure(.canceled)
 
         // Start coordinator
         coordinator.start()
@@ -135,11 +135,11 @@ final class AppCoordinatorTests: XCTestCase {
 
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Error")
-        authMock.availabilityExpectation = expectation(description: "Check Auth Availability")
+        authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
 
         // Setup mock responses
-        authMock.isAvailableMock = true
-        authMock.authenticationSuccessMock = .failure(.unauthorized)
+        authServiceMock.isAvailableMock = true
+        authServiceMock.authenticationSuccessMock = .failure(.unauthorized)
 
         // Start coordinator
         coordinator.start()

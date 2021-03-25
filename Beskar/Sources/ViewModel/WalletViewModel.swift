@@ -13,7 +13,7 @@ import Foundation
 ///
 /// # Description #
 /// A view model that handles the logic when displaying a Wallet.
-final class WalletViewModel: ViewModel, Resolvable {
+final class WalletViewModel: ViewModel {
 
     // MARK: Properties
 
@@ -38,9 +38,9 @@ final class WalletViewModel: ViewModel, Resolvable {
 
     /// The wallet transactions published - sorted by most recent
     private(set) lazy var transactionsPublisher: AnyPublisher<[Transaction], Never> = $wallet
-        .map { wallet in
-            return (wallet?.transactions
-                .compactMap { $0 } ?? [])
-                .sorted { $0.date.compare($1.date) == .orderedDescending }
+        .map { $0?.transactions
+            .compactMap { $0 }
+            .sorted { $0.date.compare($1.date) == .orderedDescending }
+            ?? []
         }.eraseToAnyPublisher()
 }

@@ -7,13 +7,13 @@
 
 import BeskarUI
 import BeskarKit
-import IQKeyboardManagerSwift
-import SwiftyBeaver
 import UIKit
 
 // MARK: - App Coordinator Protocol
 
-protocol AppCoordinatorFlow: class {
+protocol AppCoordinatorFlow: Coordinator {
+    var window: UIWindow { get }
+
     func startWelcomeFlow()
     func startLoginFlow()
     func startMainFlow()
@@ -39,25 +39,11 @@ final class AppCoordinator: BaseCoordinator {
     init(presenter: UINavigationController = NavigationController()) {
         super.init()
         self.presenter = .navigation(presenter)
-        setUpServices()
     }
 
     // MARK: Coordinator Conformance
 
     override func start() {
-        startAppFlow()
-    }
-
-    // MARK: Private Methods
-
-    private func setUpServices() {
-        SwiftyBeaver.setup()
-        Swinject.setUp()
-        IQKeyboardManager.setUp()
-        Eureka.setUp()
-    }
-
-    private func startAppFlow() {
         // show window
         window.makeKeyAndVisible()
 

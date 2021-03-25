@@ -54,7 +54,7 @@ final class WalletActionViewModel: ViewModel {
 
     private let kind: Transaction.Kind
 
-    private lazy var walletService = injector.resolve(WalletServiceProtocol.self)
+    private lazy var walletService: WalletServiceProtocol = resolve()
 
     // MARK: Initializer
 
@@ -83,7 +83,7 @@ final class WalletActionViewModel: ViewModel {
             date: Date()
         )
 
-        walletService?.update(wallet, { wallet in
+        walletService.update(wallet, { wallet in
             wallet.transactions.append(transaction)
         }, completion)
     }

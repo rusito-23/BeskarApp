@@ -14,7 +14,7 @@ import UIKit
 ///
 /// # Description #
 /// Retrieve the wallet list from the local DB and publishes the state
-final class WalletListViewModel: ViewModel, Resolvable {
+final class WalletListViewModel: ViewModel {
 
     // MARK: Published Properties
 

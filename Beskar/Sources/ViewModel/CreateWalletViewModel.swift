@@ -15,7 +15,7 @@ import Combine
 /// Provides the necessary logic to validate the new wallet properties
 /// Saves the wallet into the local DB
 /// Provides necessary data to fill the wallet
-final class CreateWalletViewModel: ViewModel, Resolvable {
+final class CreateWalletViewModel: ViewModel {
 
     // MARK: Model Properties
 
@@ -60,16 +60,12 @@ final class CreateWalletViewModel: ViewModel, Resolvable {
 
     // MARK: Private Properties
 
-    private lazy var walletService = injector.resolve(WalletServiceProtocol.self)
+    private lazy var walletService: WalletServiceProtocol = resolve()
 
     // MARK: Methods
 
     func start(_ completion: @escaping (Result<Bool, DataServiceError>) -> Void) {
-        guard
-            let name = name,
-            let currency = currency,
-            let walletService = walletService
-        else {
+        guard let name = name, let currency = currency else {
             completion(.failure(.unavailable))
             return
         }

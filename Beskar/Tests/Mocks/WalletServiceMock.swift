@@ -12,7 +12,7 @@ final class WalletServiceMock: WalletServiceProtocol {
 
     // MARK: Mocks
 
-    struct Mock {
+    struct MockCase {
         enum Fetch {
             case empty
             case error
@@ -33,11 +33,11 @@ final class WalletServiceMock: WalletServiceProtocol {
 
     // MARK: Properties
 
-    var fetchMock: Mock.Fetch = .manyWallets
+    var fetchMock: MockCase.Fetch = .manyWallets
 
-    var writeMock: Mock.Write = .success
+    var writeMock: MockCase.Write = .success
 
-    var updateMock: Mock.Update = .success
+    var updateMock: MockCase.Update = .success
 
     // MARK: Protocol Conformance
 
@@ -46,28 +46,12 @@ final class WalletServiceMock: WalletServiceProtocol {
         case .empty: completion(.success([]))
         case .error: completion(.failure(.failure))
         case .singleWallet: completion(.success([
-            Wallet(
-                name: "Payoneer",
-                creationDate: Date(),
-                currency: .dollars
-            ),
+            Mock.Wallets.withDollars,
         ]))
         case .manyWallets: completion(.success([
-            Wallet(
-                name: "Payoneer",
-                creationDate: Date(),
-                currency: .dollars
-            ),
-            Wallet(
-                name: "ICBC",
-                creationDate: Date(),
-                currency: .pesos
-            ),
-            Wallet(
-                name: "BPCE",
-                creationDate: Date(),
-                currency: .dollars
-            ),
+            Mock.Wallets.withDollars,
+            Mock.Wallets.withPesos,
+            Mock.Wallets.withEuros,
         ]))
         }
     }

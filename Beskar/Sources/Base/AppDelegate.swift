@@ -5,6 +5,8 @@
 //  Created by Igor on 28/01/2021.
 //
 
+import IQKeyboardManagerSwift
+import SwiftyBeaver
 import UIKit
 
 @main final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,11 +17,9 @@ import UIKit
 
     // MARK: Properties
 
-    private var window: UIWindow? {
-        coordinator.window
-    }
+    private var window: UIWindow? { coordinator.window }
 
-    private lazy var coordinator = AppCoordinator()
+    private lazy var coordinator: AppCoordinatorFlow = resolve()
 
     private lazy var blockScreenCoordinator = BlockScreenCoordinator()
 
@@ -29,6 +29,9 @@ import UIKit
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: Options
     ) -> Bool {
+        // Set Up
+        setUpServices()
+
         // Start App Coordinator
         coordinator.start()
 
@@ -49,5 +52,14 @@ import UIKit
             blockScreenCoordinator.presenter = .presentation(window?.rootViewController)
             blockScreenCoordinator.start()
         }
+    }
+
+    // MARK: Private Methods
+
+    private func setUpServices() {
+        SwiftyBeaver.setup()
+        Swinject.setUp()
+        IQKeyboardManager.setUp()
+        Eureka.setUp()
     }
 }

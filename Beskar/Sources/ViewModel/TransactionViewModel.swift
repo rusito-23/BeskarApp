@@ -6,15 +6,13 @@
 //
 
 import BeskarKit
-import BeskarUI
 import Combine
-import UIKit
 
 /// Transaction View Model
 ///
 /// # Discussion #
 /// A view model that handles the logic when displaying a Wallet Transaction
-final class TransactionViewModel: ViewModel, Resolvable {
+final class TransactionViewModel: ViewModel {
 
     // MARK: Published Properties
 
@@ -46,25 +44,9 @@ final class TransactionViewModel: ViewModel, Resolvable {
             return self.dateFormatter.string(for: creationDate)
         }.eraseToAnyPublisher()
 
-    /// An image representing the kind
-    private(set) lazy var kindIconPublisher: AnyPublisher<UIImage?, Never> = $transaction
-        .map { transaction in
-            guard let kind = transaction?.kind else { return nil }
-            switch kind {
-            case .deposit: return UIImage.beskar.create(.deposit)
-            case .withdraw: return UIImage.beskar.create(.withdraw)
-            }
-        }.eraseToAnyPublisher()
-
-    /// A color representing the kind
-    private(set) lazy var kindColorPublisher: AnyPublisher<UIColor?, Never> = $transaction
-        .map { transaction in
-            guard let kind = transaction?.kind else { return nil }
-            switch kind {
-            case .deposit: return UIColor.beskar.positive
-            case .withdraw: return UIColor.beskar.negative
-            }
-        }.eraseToAnyPublisher()
+    /// The transaction kind, published
+    private(set) lazy var kindPublisher: AnyPublisher<Transaction.Kind?, Never> = $transaction
+        .map { $0?.kind }.eraseToAnyPublisher()
 
     // MARK: Private Properties
 

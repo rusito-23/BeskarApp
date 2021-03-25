@@ -8,58 +8,56 @@
 import BeskarKit
 import Swinject
 
-// Setup default container
+// MARK: - Container
+
 private let container = Container()
 let injector = container
 
-/// Setup container and register required dependencies
-final class Swinject {
-    class func setUp() {
+// MARK: - Resolve
 
-        // MARK: Services
-
-        container.register(WalletServiceProtocol.self) { _ in
-            WalletService()
-        }
-
-        container.register(AuthServiceProtocol.self) { _ in
-            AuthService()
-        }
-
-        // MARK: View Models
-
-        container.register(WalletListViewModel.self) { (r: Resolver) in
-            WalletListViewModel(
-                walletService: r.resolve(WalletServiceProtocol.self)
-            )
-        }
-
-        container.register(WalletViewModel.self) { (r: Resolver) in
-            WalletViewModel()
-        }
-
-        container.register(CreateWalletViewModel.self) { (r: Resolver) in
-            CreateWalletViewModel()
-        }
-
-        container.register(TransactionViewModel.self) { (r: Resolver) in
-            TransactionViewModel()
-        }
+/// Util Resolver
+///
+/// # Discussion #
+/// This is a util to resolve dependencies with the injector
+/// This method will resolve the required dependency or fail with a fatalError
+func resolve<Service>() -> Service {
+    guard let resolved = container.resolve(Service.self) else {
+        fatalError("Failed to resolve \(Service.self)")
     }
+
+    return resolved
 }
 
-/// A protocol to facilitate resolutions
-protocol Resolvable {
-    /// Resolve self or throw a fatalError
-    static var resolved: Self { get }
-}
+// MARK: - Setup
 
-/// Default Resolvable implementation
-extension Resolvable {
-    static var resolved: Self {
-        guard let resolved = injector.resolve(Self.self) else {
-            fatalError("Failed to resolve \(String(describing: Self.self))")
-        }
-        return resolved
+/// Setup container and register required dependencies
+struct Swinject {
+
+    // MARK: Set Up
+
+    static func setUp() {
+        registerServices()
+        registerViewModels()
+        registerCoordinators()
+    }
+
+    // MARK: Private Class Methods
+
+    private static func registerServices() {
+        container.register(WalletServiceProtocol.self) { _ in WalletService() }
+        container.register(AuthServiceProtocol.self) { _ in AuthService() }
+    }
+
+    private static func registerViewModels() {
+        container.register(WalletViewModel.self) { _ in WalletViewModel() }
+        container.register(CreateWalletViewModel.self) { _ in CreateWalletViewModel() }
+        container.register(TransactionViewModel.self) { _ in TransactionViewModel() }
+        container.register(WalletListViewModel.self) { r in WalletListViewModel(
+            walletService: r.resolve(WalletServiceProtocol.self)
+        )}
+    }
+
+    private static func registerCoordinators() {
+        container.register(AppCoordinatorFlow.self) { _ in AppCoordinator() }
     }
 }

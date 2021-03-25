@@ -31,7 +31,7 @@ final class WalletCardView: UITableViewCell {
 
     weak var delegate: WalletCardViewDelegate?
 
-    private(set) var viewModel: WalletViewModel = .resolved
+    private(set) var viewModel: WalletViewModel = resolve()
 
     private lazy var subscriptions = Set<AnyCancellable>()
 

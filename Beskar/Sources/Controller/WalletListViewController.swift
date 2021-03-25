@@ -18,7 +18,7 @@ final class WalletListViewController: ViewController<WalletListView> {
 
     // MARK: Private Properties
 
-    private lazy var viewModel: WalletListViewModel = .resolved
+    private lazy var viewModel: WalletListViewModel = resolve()
 
     // MARK: View Lifecycle
 

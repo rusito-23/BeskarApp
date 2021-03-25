@@ -17,7 +17,7 @@ final class CreateWalletViewController: ViewController<CreateWalletView> {
 
     // MARK: Private Properties
 
-    private lazy var viewModel: CreateWalletViewModel = .resolved
+    private lazy var viewModel: CreateWalletViewModel = resolve()
 
     // MARK: View Controller Overrides
 
