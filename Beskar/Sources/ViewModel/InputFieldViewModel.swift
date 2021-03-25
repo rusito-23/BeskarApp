@@ -8,23 +8,37 @@
 import BeskarUI
 import Combine
 
+// MARK: - Input Field View Model Protocol
+
+protocol InputFieldViewModelProtocol {
+    var isValid: Bool { get }
+    var messagesPublisher: AnyPublisher<[Message], Never> { get }
+
+    func validate(_ value: String?)
+}
+
+// MARK: - Input Field View Model Implementation
+
 /// Form Input Field View Model
 ///
 /// # Discussion #
 /// An util to be used with Combine to capture the validation logic
 /// and publish an array of messages that need to be displayed on the field.
-class InputFieldViewModel: ViewModel {
+class InputFieldViewModel: InputFieldViewModelProtocol {
 
     // MARK: Published Properties
 
     /// The messages to be shown in the field
     @Published var messages: [Message] = []
 
+    /// An extra publisher for the messages to conform the protocol
+    private(set) lazy var messagesPublisher = $messages.eraseToAnyPublisher()
+
     // MARK: Properties
 
     /// Indicates if all the validations passed
     /// Initial value is `false` if the field is required, `true` otherwise
-    lazy var isValid: Bool = !isRequired
+    var isValid: Bool
 
     /// Indicates if the field can be nil or empty at any point
     let isRequired: Bool
@@ -45,6 +59,7 @@ class InputFieldViewModel: ViewModel {
         delegate: InputFieldViewModelDelegate? = nil
     ) {
         self.isRequired = isRequired
+        self.isValid = !isRequired
         self.validations = validations
         self.delegate = delegate
     }

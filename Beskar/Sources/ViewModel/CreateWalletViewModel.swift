@@ -27,30 +27,21 @@ final class CreateWalletViewModel: ViewModel {
 
     // MARK: Sub View Models
 
-    private(set) lazy var nameFieldViewModel = InputFieldViewModel(
-        isRequired: true,
-        validations: [
-            .minimumCharacterCount(min: 3, trim: true),
-            .maximumCharacterCount(max: 15, trim: true),
-            .regex(regex: .onlyUppercasedLetters, trim: true),
-        ],
-        delegate: self
+    private(set) lazy var nameFieldViewModel = injector.resolve(
+        InputFieldViewModelProtocol.self,
+        arguments: true, nameValidations, fieldDelegate
     )
 
-    private(set) lazy var descriptionFieldViewModel = InputFieldViewModel(
-        isRequired: false,
-        validations: [
-            .minimumCharacterCount(min: 3, trim: true),
-            .maximumCharacterCount(max: 30, trim: false),
-            .regex(regex: .startsWithUppercase, trim: false),
-        ],
-        delegate: self
+    private(set) lazy var descriptionFieldViewModel = injector.resolve(
+        InputFieldViewModelProtocol.self,
+        arguments: false, descriptionValidations, fieldDelegate
     )
 
-    private(set) lazy var currencyFieldViewModel = PickerInputFieldViewModel<Currency>(
-        isRequired: true,
-        delegate: self
-    )
+    private(set) lazy var currencyFieldViewModel: CurrencyInputFieldViewModelProtocol? =
+        injector.resolve(
+            CurrencyInputFieldViewModelProtocol.self,
+            arguments: true, fieldDelegate
+        )
 
     // MARK: Published Properties
 
@@ -61,6 +52,20 @@ final class CreateWalletViewModel: ViewModel {
     // MARK: Private Properties
 
     private lazy var walletService: WalletServiceProtocol = resolve()
+
+    private var nameValidations: [FieldValidation] = [
+        .minimumCharacterCount(min: 3, trim: true),
+        .maximumCharacterCount(max: 15, trim: true),
+        .regex(regex: .onlyUppercasedLetters, trim: true),
+    ]
+
+    private var descriptionValidations: [FieldValidation] = [
+        .minimumCharacterCount(min: 3, trim: true),
+        .maximumCharacterCount(max: 30, trim: false),
+        .regex(regex: .startsWithUppercase, trim: false),
+    ]
+
+    private var fieldDelegate: InputFieldViewModelDelegate? { self }
 
     // MARK: Methods
 
@@ -86,9 +91,9 @@ final class CreateWalletViewModel: ViewModel {
 extension CreateWalletViewModel: InputFieldViewModelDelegate {
     func inputFieldViewModel(_ viewModel: InputFieldViewModel, didFinishValidations: Bool) {
         shouldEnableCreateButton = [
-            nameFieldViewModel.isValid,
-            descriptionFieldViewModel.isValid,
-            currencyFieldViewModel.isValid,
+            nameFieldViewModel?.isValid ?? false,
+            descriptionFieldViewModel?.isValid ?? false,
+            currencyFieldViewModel?.isValid ?? false,
         ].allSatisfy { $0 }
     }
 }

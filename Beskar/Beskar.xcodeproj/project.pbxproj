@@ -57,6 +57,8 @@
 		7895FAD2260CCA8500647E3F /* WalletViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895FAD1260CCA8500647E3F /* WalletViewModelTests.swift */; };
 		7895FAD5260CD17200647E3F /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895FAD4260CD17200647E3F /* Mock.swift */; };
 		7895FAD9260CD63B00647E3F /* TransactionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895FAD8260CD63B00647E3F /* TransactionViewModelTests.swift */; };
+		7895FADF260D028D00647E3F /* ConcreteInputFieldViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895FADB260D012500647E3F /* ConcreteInputFieldViewModels.swift */; };
+		7895FAF3260D046900647E3F /* InputFieldViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895FAF2260D046900647E3F /* InputFieldViewModelMock.swift */; };
 		7897667C25DAF0F6000E9552 /* Swinject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897667B25DAF0F6000E9552 /* Swinject.swift */; };
 		7897668425DB00F0000E9552 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897668325DB00F0000E9552 /* ViewModel.swift */; };
 		7897668825DB0AD1000E9552 /* CompactAmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897668725DB0AD1000E9552 /* CompactAmountFormatter.swift */; };
@@ -174,6 +176,8 @@
 		7895FAD1260CCA8500647E3F /* WalletViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewModelTests.swift; sourceTree = "<group>"; };
 		7895FAD4260CD17200647E3F /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		7895FAD8260CD63B00647E3F /* TransactionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModelTests.swift; sourceTree = "<group>"; };
+		7895FADB260D012500647E3F /* ConcreteInputFieldViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcreteInputFieldViewModels.swift; sourceTree = "<group>"; };
+		7895FAF2260D046900647E3F /* InputFieldViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldViewModelMock.swift; sourceTree = "<group>"; };
 		7897667B25DAF0F6000E9552 /* Swinject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swinject.swift; sourceTree = "<group>"; };
 		7897668325DB00F0000E9552 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7897668725DB0AD1000E9552 /* CompactAmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactAmountFormatter.swift; sourceTree = "<group>"; };
@@ -267,6 +271,7 @@
 				782468AA25D03E5600B1B9E4 /* NavigationControllerMock.swift */,
 				782E6D8C25D0404F0057705E /* AuthServiceMock.swift */,
 				7895FAD4260CD17200647E3F /* Mock.swift */,
+				7895FAF2260D046900647E3F /* InputFieldViewModelMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 				78536BDC260A69A400E9BA0E /* TransactionViewModel.swift */,
 				78B4CA0225FBAFE9005085F5 /* InputFieldViewModel.swift */,
 				78B4CA0625FBD712005085F5 /* PickerInputFieldViewModel.swift */,
+				7895FADB260D012500647E3F /* ConcreteInputFieldViewModels.swift */,
 				784BEF9A26081F1800058A59 /* WalletActionViewModel.swift */,
 			);
 			path = ViewModel;
@@ -698,6 +704,7 @@
 				782468A425CF992B00B1B9E4 /* AppCoordinatorTests.swift in Sources */,
 				789766B425DB2BC4000E9552 /* WalletServiceMock.swift in Sources */,
 				782468AE25D03E8A00B1B9E4 /* NavigationControllerMock.swift in Sources */,
+				7895FAF3260D046900647E3F /* InputFieldViewModelMock.swift in Sources */,
 				7895FACE260B8EE100647E3F /* WalletListViewModelTest.swift in Sources */,
 				7895FAD5260CD17200647E3F /* Mock.swift in Sources */,
 			);
@@ -716,6 +723,7 @@
 				78B4C9F025FAB939005085F5 /* CreateWalletViewModel.swift in Sources */,
 				78B4C9D725F6773D005085F5 /* MainTabBarCoordinator.swift in Sources */,
 				7897667C25DAF0F6000E9552 /* Swinject.swift in Sources */,
+				7895FADF260D028D00647E3F /* ConcreteInputFieldViewModels.swift in Sources */,
 				782BBD2225DD8955007FB112 /* CreateWalletView.swift in Sources */,
 				7824688425CF78C600B1B9E4 /* ErrorViewController.swift in Sources */,
 				78B4C9E025F679EA005085F5 /* WalletListCoordinator.swift in Sources */,

@@ -5,9 +5,10 @@
 //  Created by Igor on 24/03/2021.
 //
 
-import XCTest
-import Nimble
 import BeskarKit
+import Nimble
+import Swinject
+import XCTest
 @testable import Beskar
 
 final class CreateWalletViewModelTests: XCTestCase {
@@ -17,12 +18,48 @@ final class CreateWalletViewModelTests: XCTestCase {
     private var walletServiceMock: WalletServiceMock!
     private var viewModel: CreateWalletViewModel!
 
+    private var nameFieldViewModelMock: NameInputFieldViewModelMock!
+    private var descriptionFieldViewModelMock: DescriptionInputFieldViewModelMock!
+    private var currencyFieldViewModelMock: CurrencyInputFieldViewModelMock!
+    private lazy var someFieldViewModel = InputFieldViewModel(isRequired: false)
+
     // MARK: SetUp
 
     override func setUp() {
         walletServiceMock = WalletServiceMock()
+
+        nameFieldViewModelMock = NameInputFieldViewModelMock()
+        descriptionFieldViewModelMock = DescriptionInputFieldViewModelMock()
+        currencyFieldViewModelMock = CurrencyInputFieldViewModelMock()
+
+        setUpSwinject()
+        viewModel = resolve()
+    }
+
+    private func setUpSwinject() {
+        // swiftlint:disable unused_closure_parameter identifier_name
+
         injector.register(WalletServiceProtocol.self) { _ in self.walletServiceMock }
-        viewModel = CreateWalletViewModel()
+
+        injector.register(
+            NameInputFieldViewModelProtocol.self
+        ) { (r: Resolver, s: Bool, a: [FieldValidation], d: InputFieldViewModelDelegate?) in
+            self.nameFieldViewModelMock
+        }
+
+        injector.register(
+            DescriptionInputFieldViewModelMock.self
+        ) { (r: Resolver, s: Bool, a: [FieldValidation], d: InputFieldViewModelDelegate?) in
+            self.descriptionFieldViewModelMock
+        }
+
+        injector.register(
+            CurrencyInputFieldViewModelProtocol.self
+        ) { (r: Resolver, s: Bool, d: InputFieldViewModelDelegate?) in
+            self.currencyFieldViewModelMock
+        }
+
+        // swiftlint:enable unused_closure_parameter identifier_name
     }
 
     // MARK: Tests
@@ -59,34 +96,34 @@ final class CreateWalletViewModelTests: XCTestCase {
     }
 
     func test_validation_withInvalidName_shouldBeInvalid() {
-        viewModel.nameFieldViewModel.validate(nil)
-        viewModel.descriptionFieldViewModel.validate("Something")
-        viewModel.currencyFieldViewModel.validate(.dollars)
-
+        nameFieldViewModelMock.isValid = false
+        descriptionFieldViewModelMock.isValid = true
+        currencyFieldViewModelMock.isValid = true
+        viewModel.inputFieldViewModel(someFieldViewModel, didFinishValidations: true)
         XCTAssertFalse(viewModel.shouldEnableCreateButton)
     }
 
     func test_validation_withInvalidDescription_shouldBeInvalid() {
-        viewModel.nameFieldViewModel.validate("NAME")
-        viewModel.descriptionFieldViewModel.validate(" ")
-        viewModel.currencyFieldViewModel.validate(.dollars)
-
+        nameFieldViewModelMock.isValid = true
+        descriptionFieldViewModelMock.isValid = false
+        currencyFieldViewModelMock.isValid = true
+        viewModel.inputFieldViewModel(someFieldViewModel, didFinishValidations: true)
         XCTAssertFalse(viewModel.shouldEnableCreateButton)
     }
 
     func test_validation_withInvalidCurrency_shouldBeInvalid() {
-        viewModel.nameFieldViewModel.validate("NAME")
-        viewModel.descriptionFieldViewModel.validate(" ")
-        viewModel.currencyFieldViewModel.validate(.dollars)
-
+        nameFieldViewModelMock.isValid = true
+        descriptionFieldViewModelMock.isValid = true
+        currencyFieldViewModelMock.isValid = false
+        viewModel.inputFieldViewModel(someFieldViewModel, didFinishValidations: true)
         XCTAssertFalse(viewModel.shouldEnableCreateButton)
     }
 
     func test_validation_withValidProperties_shouldBeValid() {
-        viewModel.nameFieldViewModel.validate("NAME")
-        viewModel.descriptionFieldViewModel.validate("Description")
-        viewModel.currencyFieldViewModel.validate(.dollars)
-
-        XCTAssert(viewModel.shouldEnableCreateButton)
+        nameFieldViewModelMock.isValid = true
+        descriptionFieldViewModelMock.isValid = true
+        currencyFieldViewModelMock.isValid = true
+        viewModel.inputFieldViewModel(someFieldViewModel, didFinishValidations: true)
+        XCTAssertFalse(viewModel.shouldEnableCreateButton)
     }
 }

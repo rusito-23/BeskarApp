@@ -7,6 +7,7 @@
 // Beskar UI View Controller Extensions
 
 import BeskarUI
+import BeskarKit
 
 // MARK: - Loading
 
@@ -67,27 +68,31 @@ extension ViewController {
     /// Helps binding a Form Input View with a given Field View Model
     func bind(
         _ inputField: InputField,
-        with viewModel: InputFieldViewModel
+        with viewModel: InputFieldViewModelProtocol?
     ) {
+        guard let viewModel = viewModel else { return }
+
         inputField.textPublisher.sink(
             receiveValue: viewModel.validate
         ).store(in: &subscriptions)
 
-        viewModel.$messages.assign(
+        viewModel.messagesPublisher.assign(
             to: \.messages, on: inputField
         ).store(in: &subscriptions)
     }
 
     /// Helps binding a Form Picker Input View with a given Picker Field View Model
-    func bindPicker<OptionType>(
-        _ inputField: PickerInputField<OptionType>,
-        with viewModel: PickerInputFieldViewModel<OptionType>
+    func bindPicker(
+        _ inputField: PickerInputField<Currency>,
+        with viewModel: CurrencyInputFieldViewModelProtocol?
     ) {
+        guard let viewModel = viewModel else { return }
+
         inputField.$selected.sink(
             receiveValue: viewModel.validate
         ).store(in: &subscriptions)
 
-        viewModel.$messages.assign(
+        viewModel.messagesPublisher.assign(
             to: \.messages, on: inputField
         ).store(in: &subscriptions)
     }

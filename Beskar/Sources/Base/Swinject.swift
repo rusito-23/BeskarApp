@@ -52,9 +52,49 @@ struct Swinject {
         container.register(WalletViewModel.self) { _ in WalletViewModel() }
         container.register(CreateWalletViewModel.self) { _ in CreateWalletViewModel() }
         container.register(TransactionViewModel.self) { _ in TransactionViewModel() }
-        container.register(WalletListViewModel.self) { r in WalletListViewModel(
-            walletService: r.resolve(WalletServiceProtocol.self)
-        )}
+
+        container.register(
+            WalletListViewModel.self
+        ) { r in WalletListViewModel(walletService: r.resolve(WalletServiceProtocol.self))}
+
+        container.register(
+            InputFieldViewModelProtocol.self
+        ) { _, isRequired, validations, delegate in
+            InputFieldViewModel(
+                isRequired: isRequired,
+                validations: validations,
+                delegate: delegate
+            )
+        }
+
+        container.register(
+            NameInputFieldViewModelProtocol.self
+        ) { _, isRequired, validations, delegate in
+            NameInputFieldViewModel(
+                isRequired: isRequired,
+                validations: validations,
+                delegate: delegate
+            )
+        }
+
+        container.register(
+            DescriptionInputFieldViewModelProtocol.self
+        ) { _, isRequired, validations, delegate in
+            DescriptionInputFieldViewModel(
+                isRequired: isRequired,
+                validations: validations,
+                delegate: delegate
+            )
+        }
+
+        container.register(
+            CurrencyInputFieldViewModelProtocol.self
+        ) { _, isRequired, delegate in
+            CurrencyInputFieldViewModel(
+                isRequired: isRequired,
+                delegate: delegate
+            )
+        }
     }
 
     private static func registerCoordinators() {
