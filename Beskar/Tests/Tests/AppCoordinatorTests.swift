@@ -144,4 +144,28 @@ final class AppCoordinatorTests: XCTestCase {
         let presented = navigationMock.lastPresentedViewController
         expect(presented).to(beAKindOf(ErrorViewController.self))
     }
+
+    func test_welcomeCoordinatorDidStop_shouldStartLoginFlow() {
+        let welcomeCoordinator = WelcomeCoordinator()
+        coordinator.coordinatorDidStop(welcomeCoordinator)
+
+        expect(self.coordinator.children)
+            .to(containElementSatisfying {$0 is LoginCoordinator})
+    }
+
+    func test_authErrorCoordinatorDidStop_shouldStartLoginFlow() {
+        let authErrorCoordinator = AuthErrorCoordinator(error: .canceled)
+        coordinator.coordinatorDidStop(authErrorCoordinator)
+
+        expect(self.coordinator.children)
+            .to(containElementSatisfying {$0 is LoginCoordinator})
+    }
+
+    func test_otherCoordinatorDidStop_shouldNotStartLoginFlow() {
+        let otherCoordinator = BaseCoordinator()
+        coordinator.coordinatorDidStop(otherCoordinator)
+
+        expect(self.coordinator.children)
+            .notTo(containElementSatisfying {$0 is LoginCoordinator})
+    }
 }
