@@ -1,0 +1,48 @@
+name: BeskarCI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  setup:
+    name: Build & Coverage
+    runs-on: macos-latest
+
+    env:
+      workspace: 'BeskarWorkspace.xcworkspace'
+      scheme: 'Beskar'
+      destination: 'platform=iOS Simulator,name=iPhone 12'
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: setup-cocoapods
+        uses: maxim-lobanov/setup-cocoapods@v1
+        with:
+          podfile-path: Podfile.lock
+
+      - name: install-pods
+        run: pod install
+        shell: bash
+
+      - name: build
+        uses: sersoft-gmbh/xcodebuild-action@v1
+        with:
+          workspace: ${{ env.workspace }}
+          scheme: ${{ env.scheme }}
+          destination: ${{ env.destination }}
+          action: build
+
+      - name: test
+        uses: sersoft-gmbh/xcodebuild-action@v1
+        with:
+          workspace: ${{ env.workspace }}
+          scheme: ${{ env.scheme }}
+          destination: ${{ env.destination }}
+          action: test
+          enable-code-coverage: true
+
+      - name: codecov
+        run: bash <(curl -s https://codecov.io/bash) -J 'Beskar' -t {{ secrets.CODECOV_TOKEN }}
