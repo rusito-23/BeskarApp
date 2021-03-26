@@ -49,13 +49,13 @@ class InputFieldViewModel: InputFieldViewModelProtocol {
     // MARK: Private Properties
 
     /// An array with Validations to be checked every time the value changes
-    private let validations: [FieldValidation]
+    private let validations: [FieldValidationProtocol]
 
     // MARK: Initializer
 
     init(
         isRequired: Bool,
-        validations: [FieldValidation] = [],
+        validations: [FieldValidationProtocol] = [],
         delegate: InputFieldViewModelDelegate? = nil
     ) {
         self.isRequired = isRequired

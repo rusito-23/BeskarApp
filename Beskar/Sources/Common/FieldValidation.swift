@@ -7,9 +7,18 @@
 
 import Foundation
 
+// MARK: - Field Validation Protocol
+
+protocol FieldValidationProtocol {
+    var failureMessage: String { get }
+    func eval(string: String?) -> Bool
+}
+
+// MARK: - Field Validation
+
 /// Field Validation
 /// Provides a simple enum and methods with logic to validate different fields and avoid duplications
-enum FieldValidation {
+enum FieldValidation: FieldValidationProtocol {
     case minimumCharacterCount(min: Int, trim: Bool)
     case maximumCharacterCount(max: Int, trim: Bool)
     case isNotEmpty

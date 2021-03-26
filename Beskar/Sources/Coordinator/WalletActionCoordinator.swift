@@ -18,10 +18,7 @@ final class WalletActionCoordinator: BaseCoordinator {
 
     // MARK: Private Properties
 
-    private lazy var viewModel = WalletActionViewModel(
-        wallet: wallet,
-        kind: kind
-    )
+    private var viewModel: WalletActionViewModel
 
     private lazy var walletActionViewController: UIViewController = {
         let viewController = WalletActionViewController(viewModel: viewModel)
@@ -30,17 +27,12 @@ final class WalletActionCoordinator: BaseCoordinator {
         return viewController
     }()
 
-    private lazy var modalViewController = ModalViewController(
-        viewController: walletActionViewController
-    )
-
-    private let wallet: Wallet
-    private let kind: Transaction.Kind
-
     // MARK: Initializer
 
     init(wallet: Wallet, kind: Transaction.Kind) {
-        self.wallet = wallet
-        self.kind = kind
+        viewModel = WalletActionViewModel(
+            wallet: wallet,
+            kind: kind
+        )
     }
 }
