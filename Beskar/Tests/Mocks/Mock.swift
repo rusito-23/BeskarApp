@@ -35,6 +35,17 @@ struct Mock {
             creationDate: Date(),
             currency: .euros
         )
+
+        static var withDollarsAndManyTransactions: Wallet {
+            let wallet = withDollars
+            wallet.transactions.append(objectsIn: [
+                Transactions.deposit,
+                Transactions.withdraw,
+                Transactions.highDeposit,
+                Transactions.highWithdraw,
+            ])
+            return wallet
+        }
     }
 
     // MARK: Transactions

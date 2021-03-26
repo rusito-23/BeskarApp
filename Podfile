@@ -18,6 +18,7 @@ target 'BeskarTests' do
     project 'Beskar/Beskar.xcodeproj'
     use_frameworks!
 
+    pod 'RealmSwift'
     pod 'Swinject'
     pod 'Quick'
     pod 'Nimble'

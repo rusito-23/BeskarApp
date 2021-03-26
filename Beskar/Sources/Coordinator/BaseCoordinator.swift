@@ -39,17 +39,16 @@ class BaseCoordinator: Coordinator {
             let presenter = presenter
         else { return }
 
-        switch presenter {
-        case let .presentation(viewController):
-            viewController?.present(presented, animated: true) { [weak self] in
-                guard let self = self else { return }
-                self.onStart?()
-                self.delegate?.coordinatorDidStart(self)
-            }
-        case let .navigation(navigationController):
-            navigationController?.pushViewController(presented, animated: true)
+        defer {
             onStart?()
             delegate?.coordinatorDidStart(self)
+        }
+
+        switch presenter {
+        case let .presentation(viewController):
+            viewController?.present(presented, animated: true)
+        case let .navigation(navigationController):
+            navigationController?.pushViewController(presented, animated: true)
         }
     }
 
@@ -57,13 +56,15 @@ class BaseCoordinator: Coordinator {
     /// is to dismiss the view controller and perform the callback
     func stop() {
         guard let presenter = presenter else { return }
+
+        defer {
+            onStop?()
+            delegate?.coordinatorDidStop(self)
+        }
+
         switch presenter {
         case .presentation:
-            presented?.dismiss(animated: true) { [weak self] in
-                guard let self = self else { return }
-                self.onStop?()
-                self.delegate?.coordinatorDidStop(self)
-            }
+            presented?.dismiss(animated: true)
         case let .navigation(navigationController):
             navigationController?.popViewController(animated: true)
         }

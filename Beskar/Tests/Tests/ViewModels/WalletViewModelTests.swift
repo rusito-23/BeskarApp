@@ -69,4 +69,14 @@ final class WalletViewModelTests: XCTestCase {
             .sink { expect($0).to(haveCount(0))}
             .store(in: &subscriptions)
     }
+
+    func test_transactionsPublisher_withWalletWithTransactions_shouldPublishTheCorrectValue() {
+        let wallet = Mock.Wallets.withDollarsAndManyTransactions
+        viewModel.wallet = wallet
+        viewModel.transactionsPublisher
+            .receive(on: RunLoop.main)
+            .removeDuplicates()
+            .sink { expect($0).to(haveCount(4))}
+            .store(in: &subscriptions)
+    }
 }

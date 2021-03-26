@@ -145,6 +145,27 @@ final class AppCoordinatorTests: XCTestCase {
         expect(presented).to(beAKindOf(ErrorViewController.self))
     }
 
+    func test_onAuthenticationPartialFailure_shouldShowError() {
+        // Setup first launch
+        Preferences.isNotFirstLaunch = true
+
+        // Setup expectations
+        navigationMock.presentExpectation = expectation(description: "Present Error")
+        authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
+
+        // Setup mock responses
+        authServiceMock.isAvailableMock = true
+        authServiceMock.authenticationSuccessMock = .success(false)
+
+        // Start coordinator
+        coordinator.start()
+
+        // Check last presented
+        waitForExpectations(timeout: 3.0)
+        let presented = navigationMock.lastPresentedViewController
+        expect(presented).to(beAKindOf(ErrorViewController.self))
+    }
+
     func test_welcomeCoordinatorDidStop_shouldStartLoginFlow() {
         let welcomeCoordinator = WelcomeCoordinator()
         coordinator.coordinatorDidStop(welcomeCoordinator)
