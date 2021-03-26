@@ -21,15 +21,10 @@ final class AppCoordinatorTests: XCTestCase {
     // MARK: Setup
 
     override func setUp() {
-        // Mocks
         navigationMock = NavigationControllerMock()
         authServiceMock = AuthServiceMock()
-
-        // Testable object
-        coordinator = AppCoordinator(presenter: navigationMock)
-
-        // Dependencies repository mocks
         injector.register(AuthServiceProtocol.self) { _ in self.authServiceMock }
+        coordinator = AppCoordinator(presenter: navigationMock)
     }
 
     // MARK: Tests

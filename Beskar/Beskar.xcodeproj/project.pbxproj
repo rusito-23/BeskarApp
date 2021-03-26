@@ -59,6 +59,7 @@
 		7895FAD9260CD63B00647E3F /* TransactionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895FAD8260CD63B00647E3F /* TransactionViewModelTests.swift */; };
 		7895FADF260D028D00647E3F /* ConcreteInputFieldViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895FADB260D012500647E3F /* ConcreteInputFieldViewModels.swift */; };
 		7895FAF3260D046900647E3F /* InputFieldViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895FAF2260D046900647E3F /* InputFieldViewModelMock.swift */; };
+		7895FAF8260D1CC900647E3F /* WalletActionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7895FAF7260D1CC900647E3F /* WalletActionViewModelTests.swift */; };
 		7897667C25DAF0F6000E9552 /* Swinject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897667B25DAF0F6000E9552 /* Swinject.swift */; };
 		7897668425DB00F0000E9552 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897668325DB00F0000E9552 /* ViewModel.swift */; };
 		7897668825DB0AD1000E9552 /* CompactAmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897668725DB0AD1000E9552 /* CompactAmountFormatter.swift */; };
@@ -178,6 +179,7 @@
 		7895FAD8260CD63B00647E3F /* TransactionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModelTests.swift; sourceTree = "<group>"; };
 		7895FADB260D012500647E3F /* ConcreteInputFieldViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcreteInputFieldViewModels.swift; sourceTree = "<group>"; };
 		7895FAF2260D046900647E3F /* InputFieldViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldViewModelMock.swift; sourceTree = "<group>"; };
+		7895FAF7260D1CC900647E3F /* WalletActionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletActionViewModelTests.swift; sourceTree = "<group>"; };
 		7897667B25DAF0F6000E9552 /* Swinject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swinject.swift; sourceTree = "<group>"; };
 		7897668325DB00F0000E9552 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7897668725DB0AD1000E9552 /* CompactAmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactAmountFormatter.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				7895FACD260B8EE100647E3F /* WalletListViewModelTest.swift */,
 				7895FAD1260CCA8500647E3F /* WalletViewModelTests.swift */,
 				7895FAD8260CD63B00647E3F /* TransactionViewModelTests.swift */,
+				7895FAF7260D1CC900647E3F /* WalletActionViewModelTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -704,6 +707,7 @@
 				782468A425CF992B00B1B9E4 /* AppCoordinatorTests.swift in Sources */,
 				789766B425DB2BC4000E9552 /* WalletServiceMock.swift in Sources */,
 				782468AE25D03E8A00B1B9E4 /* NavigationControllerMock.swift in Sources */,
+				7895FAF8260D1CC900647E3F /* WalletActionViewModelTests.swift in Sources */,
 				7895FAF3260D046900647E3F /* InputFieldViewModelMock.swift in Sources */,
 				7895FACE260B8EE100647E3F /* WalletListViewModelTest.swift in Sources */,
 				7895FAD5260CD17200647E3F /* Mock.swift in Sources */,

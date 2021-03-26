@@ -22,13 +22,9 @@ final class WalletActionViewModel: ViewModel {
 
     // MARK: Sub ViewModels
 
-    private(set) lazy var summaryFieldViewModel = InputFieldViewModel(
-        isRequired: true,
-        validations: [
-            .minimumCharacterCount(min: 3, trim: true),
-            .maximumCharacterCount(max: 30, trim: true),
-        ],
-        delegate: self
+    private(set) lazy var summaryFieldViewModel = injector.resolve(
+        DescriptionInputFieldViewModelProtocol.self,
+        arguments: true, summaryValidations, fieldDelegate
     )
 
     // MARK: Fixed Properties
@@ -55,6 +51,13 @@ final class WalletActionViewModel: ViewModel {
     private let kind: Transaction.Kind
 
     private lazy var walletService: WalletServiceProtocol = resolve()
+
+    private var fieldDelegate: InputFieldViewModelDelegate? { self }
+
+    private var summaryValidations: [FieldValidation] = [
+        .minimumCharacterCount(min: 3, trim: true),
+        .maximumCharacterCount(max: 30, trim: true),
+    ]
 
     // MARK: Initializer
 
@@ -90,8 +93,8 @@ final class WalletActionViewModel: ViewModel {
 
     func updateSaveButtonAvailability() {
         shouldEnableSaveButton = [
-            summaryFieldViewModel.isValid,
-            amount != 0,
+            summaryFieldViewModel?.isValid ?? false,
+            amount > 0,
         ].allSatisfy { $0 }
     }
 }

@@ -34,7 +34,7 @@ final class NameInputFieldViewModelMock:
 
 final class DescriptionInputFieldViewModelMock:
     InputFieldViewModelMock,
-    NameInputFieldViewModelProtocol {}
+    DescriptionInputFieldViewModelProtocol {}
 
 final class CurrencyInputFieldViewModelMock:
     InputFieldViewModelMock,

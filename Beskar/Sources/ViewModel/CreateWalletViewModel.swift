@@ -28,20 +28,19 @@ final class CreateWalletViewModel: ViewModel {
     // MARK: Sub View Models
 
     private(set) lazy var nameFieldViewModel = injector.resolve(
-        InputFieldViewModelProtocol.self,
+        NameInputFieldViewModelProtocol.self,
         arguments: true, nameValidations, fieldDelegate
     )
 
     private(set) lazy var descriptionFieldViewModel = injector.resolve(
-        InputFieldViewModelProtocol.self,
+        DescriptionInputFieldViewModelProtocol.self,
         arguments: false, descriptionValidations, fieldDelegate
     )
 
-    private(set) lazy var currencyFieldViewModel: CurrencyInputFieldViewModelProtocol? =
-        injector.resolve(
-            CurrencyInputFieldViewModelProtocol.self,
-            arguments: true, fieldDelegate
-        )
+    private(set) lazy var currencyFieldViewModel = injector.resolve(
+        CurrencyInputFieldViewModelProtocol.self,
+        arguments: true, fieldDelegate
+    )
 
     // MARK: Published Properties
 

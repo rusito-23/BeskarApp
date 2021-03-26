@@ -48,7 +48,7 @@ final class CreateWalletViewModelTests: XCTestCase {
         }
 
         injector.register(
-            DescriptionInputFieldViewModelMock.self
+            DescriptionInputFieldViewModelProtocol.self
         ) { (r: Resolver, s: Bool, a: [FieldValidation], d: InputFieldViewModelDelegate?) in
             self.descriptionFieldViewModelMock
         }
@@ -95,35 +95,35 @@ final class CreateWalletViewModelTests: XCTestCase {
         }
     }
 
-    func test_validation_withInvalidName_shouldBeInvalid() {
+    func test_validation_withInvalidName_shouldDisableSaveCreateButton() {
         nameFieldViewModelMock.isValid = false
         descriptionFieldViewModelMock.isValid = true
         currencyFieldViewModelMock.isValid = true
         viewModel.inputFieldViewModel(someFieldViewModel, didFinishValidations: true)
-        XCTAssertFalse(viewModel.shouldEnableCreateButton)
+        expect(self.viewModel.shouldEnableCreateButton).to(beFalse())
     }
 
-    func test_validation_withInvalidDescription_shouldBeInvalid() {
+    func test_validation_withInvalidDescription_shouldDisableSaveCreateButton() {
         nameFieldViewModelMock.isValid = true
         descriptionFieldViewModelMock.isValid = false
         currencyFieldViewModelMock.isValid = true
         viewModel.inputFieldViewModel(someFieldViewModel, didFinishValidations: true)
-        XCTAssertFalse(viewModel.shouldEnableCreateButton)
+        expect(self.viewModel.shouldEnableCreateButton).to(beFalse())
     }
 
-    func test_validation_withInvalidCurrency_shouldBeInvalid() {
+    func test_validation_withInvalidCurrency_shouldDisableSaveCreateButton() {
         nameFieldViewModelMock.isValid = true
         descriptionFieldViewModelMock.isValid = true
         currencyFieldViewModelMock.isValid = false
         viewModel.inputFieldViewModel(someFieldViewModel, didFinishValidations: true)
-        XCTAssertFalse(viewModel.shouldEnableCreateButton)
+        expect(self.viewModel.shouldEnableCreateButton).to(beFalse())
     }
 
-    func test_validation_withValidProperties_shouldBeValid() {
+    func test_validation_withValidProperties_shouldEnableCreateButton() {
         nameFieldViewModelMock.isValid = true
         descriptionFieldViewModelMock.isValid = true
         currencyFieldViewModelMock.isValid = true
         viewModel.inputFieldViewModel(someFieldViewModel, didFinishValidations: true)
-        XCTAssertFalse(viewModel.shouldEnableCreateButton)
+        expect(self.viewModel.shouldEnableCreateButton).to(beTrue())
     }
 }
