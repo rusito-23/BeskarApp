@@ -1,3 +1,10 @@
 coverage:
   round: down
-  range: 5..10
+  range: 6..10
+
+ignore:
+  - "BeskarKit/**/*"
+  - "BeskarUI/**/*"
+  - "Beskar/Sources/View/**/*"
+  - "Beskar/Sources/Controller/**/*"
+  - "Beskar/Sources/Accessibility/**/*"
