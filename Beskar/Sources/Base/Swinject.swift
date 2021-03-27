@@ -69,7 +69,12 @@ struct Swinject {
 
         container.register(
             NameInputFieldViewModelProtocol.self
-        ) { _, isRequired, validations, delegate in
+        ) { (
+            _,
+            isRequired: Bool,
+            validations: [FieldValidation],
+            delegate: InputFieldViewModelDelegate?
+        ) in
             NameInputFieldViewModel(
                 isRequired: isRequired,
                 validations: validations,
@@ -79,7 +84,12 @@ struct Swinject {
 
         container.register(
             DescriptionInputFieldViewModelProtocol.self
-        ) { _, isRequired, validations, delegate in
+        ) { (
+            _,
+            isRequired: Bool,
+            validations: [FieldValidation],
+            delegate: InputFieldViewModelDelegate?
+        ) in
             DescriptionInputFieldViewModel(
                 isRequired: isRequired,
                 validations: validations,
