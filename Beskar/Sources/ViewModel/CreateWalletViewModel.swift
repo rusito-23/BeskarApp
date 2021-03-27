@@ -77,7 +77,7 @@ final class CreateWalletViewModel: ViewModel {
         let wallet = Wallet(
             name: name,
             summary: description,
-            creationDate: Date(),
+            creationDate: .now(),
             currency: currency
         )
 

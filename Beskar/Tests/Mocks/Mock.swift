@@ -6,6 +6,7 @@
 //
 
 import BeskarKit
+@testable import Beskar
 
 /// Mock
 ///
@@ -18,21 +19,21 @@ struct Mock {
         static let withDollars = Wallet(
             name: "WALLET WITH DOLLARS",
             summary: "Wallet Summary",
-            creationDate: Date(),
+            creationDate: .now(),
             currency: .dollars
         )
 
         static let withPesos = Wallet(
             name: "WALLET WITH PESOS",
             summary: "Wallet Summary",
-            creationDate: Date(),
+            creationDate: .now(),
             currency: .pesos
         )
 
         static let withEuros = Wallet(
             name: "WALLET WITH PESOS",
             summary: "Wallet Summary",
-            creationDate: Date(),
+            creationDate: .now(),
             currency: .euros
         )
 
@@ -55,28 +56,28 @@ struct Mock {
             summary: "Deposit Example",
             amount: 23.0,
             kind: .deposit,
-            date: Date()
+            date: .now()
         )
 
         static let withdraw = Transaction(
             summary: "Deposit Example",
             amount: 23.0,
             kind: .withdraw,
-            date: Date()
+            date: .now()
         )
 
         static let highDeposit = Transaction(
             summary: "Deposit Example",
             amount: 230_000.0,
             kind: .deposit,
-            date: Date()
+            date: .now()
         )
 
         static let highWithdraw = Transaction(
             summary: "Deposit Example",
             amount: 230_000.0,
             kind: .withdraw,
-            date: Date()
+            date: .now()
         )
     }
 }

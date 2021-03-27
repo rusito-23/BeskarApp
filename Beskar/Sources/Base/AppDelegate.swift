@@ -21,8 +21,6 @@ import UIKit
 
     private lazy var coordinator: AppCoordinatorFlow = resolve()
 
-    private lazy var blockScreenCoordinator = BlockScreenCoordinator()
-
     // MARK: AppDelegate Conformance
 
     func application(
@@ -39,19 +37,14 @@ import UIKit
         return true
     }
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Unblock screen - always
-        if Preferences.blockScreenOnBackground {
-            blockScreenCoordinator.stop()
-        }
+    func applicationWillResignActive(_ application: UIApplication) {
+        // Pause app coordinator
+        coordinator.pause()
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Block screen if needed
-        if Preferences.blockScreenOnBackground {
-            blockScreenCoordinator.presenter = .presentation(window?.rootViewController)
-            blockScreenCoordinator.start()
-        }
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Resume app coordinator
+        coordinator.resume()
     }
 
     // MARK: Private Methods

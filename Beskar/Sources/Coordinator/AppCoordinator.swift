@@ -12,7 +12,19 @@ import UIKit
 // MARK: - App Coordinator Protocol
 
 protocol AppCoordinatorFlow: Coordinator {
+
+    // MARK: Properties
+
     var window: UIWindow { get }
+
+    // MARK: App Coordinator Methods
+
+    func start()
+    func pause()
+    func resume()
+    func stop()
+
+    // MARK: Flows
 
     func startWelcomeFlow()
     func startLoginFlow()
@@ -22,7 +34,7 @@ protocol AppCoordinatorFlow: Coordinator {
 
 // MARK: - App Coordinator
 
-final class AppCoordinator: BaseCoordinator {
+final class AppCoordinator: BaseCoordinator, AppCoordinatorFlow {
 
     // MARK: Coordinator Properties
 
@@ -34,6 +46,9 @@ final class AppCoordinator: BaseCoordinator {
         return window
     }()
 
+    /// A coordinator to block the main window
+    private var blockScreenCoordinator: BlockScreenCoordinator?
+
     // MARK: Initializers
 
     init(presenter: UINavigationController = NavigationController()) {
@@ -41,11 +56,28 @@ final class AppCoordinator: BaseCoordinator {
         self.presenter = .navigation(presenter)
     }
 
-    // MARK: Coordinator Conformance
+    // MARK: App Coordinator Conformance
 
     override func start() {
         // show window
         window.makeKeyAndVisible()
+    }
+
+    func pause() {
+        // Block screen if needed
+        if Preferences.blockScreenOnBackground {
+            blockScreenCoordinator = BlockScreenCoordinator()
+            blockScreenCoordinator?.presenter = .presentation(window.rootViewController)
+            blockScreenCoordinator?.start()
+        }
+
+        // Store time
+        Preferences.lastLoginTime = .now()
+    }
+
+    func resume() {
+        // Unblock screen - always
+        blockScreenCoordinator?.stop()
 
         // Check if Welcome Flow must be shown
         guard Preferences.isNotFirstLaunch else {
@@ -54,14 +86,20 @@ final class AppCoordinator: BaseCoordinator {
             return
         }
 
-        // Start Login Flow
-        startLoginFlow()
+        // Check if login flow needs to be executed
+        if Preferences.lastLoginTime.minutesElapsed > Preferences.authMinutesTimeout {
+            // Stop current flows
+            children.forEach { $0.stop() }
+
+            // Start login flow all over
+            startLoginFlow()
+        }
     }
 }
 
 // MARK: App Coordinator Flow Conformance
 
-extension AppCoordinator: AppCoordinatorFlow {
+extension AppCoordinator {
 
     /// Start Welcome Flow - only shown on first launch
     func startWelcomeFlow() {

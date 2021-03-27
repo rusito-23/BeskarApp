@@ -20,6 +20,7 @@ struct Preferences {
         case isNotFirstLaunch = "is_first_launch"
         case authMinutesTimeout = "auth_minutes_timeout"
         case blockScreenOnBackground = "block_screen_on_background"
+        case lastLoginTime = "last_login_time"
     }
 
     // MARK: Getters & Setters
@@ -37,5 +38,10 @@ struct Preferences {
     static var blockScreenOnBackground: Bool {
         get { defaults.bool(forKey: Kind.blockScreenOnBackground.rawValue) }
         set { defaults.set(newValue, forKey: Kind.blockScreenOnBackground.rawValue) }
+    }
+
+    static var lastLoginTime: Date {
+        get { Date(timeIntervalSince1970: defaults.double(forKey: Kind.lastLoginTime.rawValue)) }
+        set { defaults.set(newValue.timeIntervalSince1970, forKey: Kind.lastLoginTime.rawValue) }
     }
 }

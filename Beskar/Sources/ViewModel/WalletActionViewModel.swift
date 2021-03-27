@@ -83,7 +83,7 @@ final class WalletActionViewModel: ViewModel {
             summary: summary,
             amount: amount,
             kind: kind,
-            date: Date()
+            date: .now()
         )
 
         walletService.update(wallet, { wallet in
