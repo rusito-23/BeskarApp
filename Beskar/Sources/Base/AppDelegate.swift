@@ -5,8 +5,6 @@
 //  Created by Igor on 28/01/2021.
 //
 
-import IQKeyboardManagerSwift
-import SwiftyBeaver
 import UIKit
 
 @main final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +17,7 @@ import UIKit
 
     private var window: UIWindow? { coordinator.window }
 
-    private lazy var coordinator: AppCoordinatorFlow = resolve()
+    private lazy var coordinator: AppCoordinatorFlow = AppCoordinator()
 
     // MARK: AppDelegate Conformance
 
@@ -27,32 +25,18 @@ import UIKit
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: Options
     ) -> Bool {
-        // Set Up
-        setUpServices()
-
         // Start App Coordinator
         coordinator.start()
-
-        // Allow application launch
         return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        // Pause app coordinator
+        // Pause App coordinator
         coordinator.pause()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Resume app coordinator
+        // Resume App coordinator
         coordinator.resume()
-    }
-
-    // MARK: Private Methods
-
-    private func setUpServices() {
-        SwiftyBeaver.setup()
-        Swinject.setUp()
-        IQKeyboardManager.setUp()
-        Eureka.setUp()
     }
 }

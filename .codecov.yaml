@@ -1,6 +1,6 @@
 coverage:
   round: down
-  range: 6..10
+  range: 5..10
 
 ignore:
   - "BeskarKit/**/*"

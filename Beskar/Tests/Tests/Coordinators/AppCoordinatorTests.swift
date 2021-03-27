@@ -29,6 +29,18 @@ final class AppCoordinatorTests: XCTestCase {
 
     // MARK: Tests
 
+    func test_start_shouldMakeWindowKeyAndVisible() {
+        coordinator.start()
+
+        expect(
+            self.coordinator.window.isKeyWindow
+        ).to(beTrue())
+
+        expect(
+            self.coordinator.window.isHidden
+        ).to(beFalse())
+    }
+
     func test_onFirstLaunch_shouldStartWelcomeFlow() {
         // Setup first launch
         Preferences.isNotFirstLaunch = false

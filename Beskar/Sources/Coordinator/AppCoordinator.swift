@@ -7,6 +7,8 @@
 
 import BeskarUI
 import BeskarKit
+import IQKeyboardManagerSwift
+import SwiftyBeaver
 import UIKit
 
 // MARK: - App Coordinator Protocol
@@ -59,8 +61,11 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorFlow {
     // MARK: App Coordinator Conformance
 
     override func start() {
-        // show window
+        // Show Main Window
         window.makeKeyAndVisible()
+
+        // Setup services
+        setUpUtils()
     }
 
     func pause() {
@@ -94,6 +99,15 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorFlow {
             // Start login flow all over
             startLoginFlow()
         }
+    }
+
+    // MARK: Private Methods
+
+    private func setUpUtils() {
+        SwiftyBeaver.setup()
+        Swinject.setUp()
+        IQKeyboardManager.setUp()
+        Eureka.setUp()
     }
 }
 
