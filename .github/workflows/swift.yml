@@ -50,7 +50,7 @@ jobs:
         run: bash <(curl -s https://codecov.io/bash -J ${{ env.scheme }} -t ${{ env.codecov_token }})
 
   lint:
-    name: Lint
+    name: Lint All Files
     runs-on: macos-latest
 
     steps:
