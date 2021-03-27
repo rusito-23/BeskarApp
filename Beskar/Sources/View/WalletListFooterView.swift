@@ -51,7 +51,7 @@ final class WalletListFooterView: UIView {
         titleLabel.trailing(to: layoutMarginsGuide)
 
         createWalletButton.topToBottom(of: titleLabel)
-        createWalletButton.size(Size.medium.size)
+        createWalletButton.width(Size.medium.rawValue)
         createWalletButton.centerX(to: layoutMarginsGuide)
         createWalletButton.bottom(to: layoutMarginsGuide)
     }

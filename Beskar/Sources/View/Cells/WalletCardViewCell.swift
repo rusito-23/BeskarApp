@@ -1,5 +1,5 @@
 //
-//  WalletCardView.swift
+//  WalletCardViewCell.swift
 //  Beskar
 //
 //  Created by Igor on 11/02/2021.
@@ -12,20 +12,14 @@ import UIKit
 // MARK: - Wallet Card View Delegate
 
 protocol WalletCardViewDelegate: class {
-    func walletCardViewDidTapDeposit(_ view: WalletCardView)
-    func walletCardViewDidTapDetails(_ view: WalletCardView)
-    func walletCardViewDidTapWithdraw(_ view: WalletCardView)
+    func walletCardViewDidTapDeposit(_ view: WalletCardViewCell)
+    func walletCardViewDidTapDetails(_ view: WalletCardViewCell)
+    func walletCardViewDidTapWithdraw(_ view: WalletCardViewCell)
 }
 
 // MARK: - Wallet Card View
 
-final class WalletCardView: UITableViewCell {
-
-    // MARK: Constants
-
-    private struct Constants {
-        static let numberOfLinesForTitle = 3
-    }
+final class WalletCardViewCell: UITableViewCell {
 
     // MARK: Properties
 
@@ -41,37 +35,40 @@ final class WalletCardView: UITableViewCell {
         size: .small,
         weight: .traitBold,
         color: UIColor.beskar.tertiary,
+        breakMode: .byCharWrapping,
         alignment: .left,
-        lines: Constants.numberOfLinesForTitle,
-        identifier: A.WalletCardView.title
-    ).withCompressionResistance(.required, for: .vertical)
+        identifier: A.WalletCardViewCell.title
+    )
+    .withCompressionResistance(.required, for: .vertical)
+    .withCompressionResistance(.required, for: .horizontal)
 
     private lazy var amountLabel = Label(
         size: .small,
         color: UIColor.beskar.tertiary,
         alignment: .right,
-        lines: Constants.numberOfLinesForTitle,
-        identifier: A.WalletCardView.amount
-    ).withCompressionResistance(.required, for: .vertical)
+        identifier: A.WalletCardViewCell.amount
+    )
+    .withCompressionResistance(.required, for: .vertical)
+    .withCompressionResistance(.defaultHigh, for: .horizontal)
 
     // MARK: Buttons
 
     private lazy var depositButton = ActionButton(
         imageName: .deposit,
         size: .typeLarge,
-        identifier: A.WalletCardView.deposit
+        identifier: A.WalletCardViewCell.deposit
     )
 
     private lazy var detailsButton = ActionButton(
         imageName: .details,
         size: .small,
-        identifier: A.WalletCardView.detailsButton
+        identifier: A.WalletCardViewCell.detailsButton
     )
 
     private lazy var withdrawButton = ActionButton(
         imageName: .withdraw,
         size: .typeLarge,
-        identifier: A.WalletCardView.withdraw
+        identifier: A.WalletCardViewCell.withdraw
     )
 
     // MARK: Content Stacks
@@ -89,8 +86,10 @@ final class WalletCardView: UITableViewCell {
         ])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.alignment = .top
-        stackView.accessibilityIdentifier = A.WalletCardView.header
+        stackView.distribution = .fill
+        stackView.alignment = .center
+        stackView.accessibilityIdentifier = A.WalletCardViewCell.header
+        stackView.setCompressionResistance(.required, for: .vertical)
         return stackView
     }()
 
@@ -104,7 +103,8 @@ final class WalletCardView: UITableViewCell {
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
-        stackView.accessibilityIdentifier = A.WalletCardView.buttons
+        stackView.accessibilityIdentifier = A.WalletCardViewCell.buttons
+        stackView.setCompressionResistance(.required, for: .vertical)
         return stackView
     }()
 
@@ -117,9 +117,9 @@ final class WalletCardView: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = Spacing.medium.rawValue
         stackView.axis = .vertical
-        stackView.distribution = .fill
+        stackView.distribution = .fillProportionally
         stackView.alignment = .fill
-        stackView.accessibilityIdentifier = A.WalletCardView.content
+        stackView.accessibilityIdentifier = A.WalletCardViewCell.content
         return stackView
     }()
 

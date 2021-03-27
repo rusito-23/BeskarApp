@@ -72,6 +72,6 @@ extension WalletListCoordinator: WalletListCoordinatorFlow {
 extension WalletListCoordinator: CoordinatorDelegate {
     /// Every time on of the children stops, we reload the table view
     func coordinatorDidStop(_ coordinator: Coordinator) {
-        walletListViewController.reload()
+        walletListViewController.reloadWallets()
     }
 }

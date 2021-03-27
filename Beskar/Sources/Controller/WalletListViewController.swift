@@ -29,12 +29,12 @@ final class WalletListViewController: ViewController<WalletListView> {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        reload()
+        reloadWallets()
     }
 
     // MARK: Methods
 
-    func reload() {
+    func reloadWallets() {
         startLoadingAndHideFooter()
         viewModel.start { [weak self] result in
             guard let self = self else { return }
@@ -53,8 +53,8 @@ final class WalletListViewController: ViewController<WalletListView> {
         // Bind view model `wallets` as table data source
         viewModel.$wallets.bind(
             subscriber: ui.tableView.rowsSubscriber(
-                cellIdentifier: WalletCardView.identifier,
-                cellType: WalletCardView.self,
+                cellIdentifier: WalletCardViewCell.identifier,
+                cellType: WalletCardViewCell.self,
                 cellConfig: { cell, _, wallet in
                     cell.viewModel.wallet = wallet
                     cell.delegate = self
@@ -104,17 +104,17 @@ final class WalletListViewController: ViewController<WalletListView> {
 // MARK: - Wallet Card View Delegate
 
 extension WalletListViewController: WalletCardViewDelegate {
-    func walletCardViewDidTapDeposit(_ view: WalletCardView) {
+    func walletCardViewDidTapDeposit(_ view: WalletCardViewCell) {
         guard let wallet = view.viewModel.wallet else { return }
         coordinator?.startWalletActionFlow(for: wallet, kind: .deposit)
     }
 
-    func walletCardViewDidTapDetails(_ view: WalletCardView) {
+    func walletCardViewDidTapDetails(_ view: WalletCardViewCell) {
         guard let wallet = view.viewModel.wallet else { return }
         coordinator?.startWalletDetailFlow(for: wallet)
     }
 
-    func walletCardViewDidTapWithdraw(_ view: WalletCardView) {
+    func walletCardViewDidTapWithdraw(_ view: WalletCardViewCell) {
         guard let wallet = view.viewModel.wallet else { return }
         coordinator?.startWalletActionFlow(for: wallet, kind: .withdraw)
     }

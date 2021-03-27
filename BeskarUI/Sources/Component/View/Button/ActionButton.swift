@@ -25,7 +25,6 @@ public class ActionButton: UIButton {
         label: String? = nil
     ) {
         super.init(frame: .zero)
-        translatesAutoresizingMaskIntoConstraints = false
         accessibilityIdentifier = identifier
         accessibilityLabel = label
 

@@ -28,7 +28,7 @@ final class WalletListView: UIView {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.accessibilityIdentifier = A.WalletListView.table
-        tableView.register(WalletCardView.self)
+        tableView.register(WalletCardViewCell.self)
         return tableView
     }()
 

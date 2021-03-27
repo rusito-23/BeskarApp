@@ -47,16 +47,16 @@ extension A {
 }
 
 extension A {
-    struct WalletCardView {
-        static let title = "WalletCardView.title"
-        static let amount = "WalletCardView.amount"
-        static let withdraw = "WalletCardView.withdraw"
-        static let detailsButton = "WalletCardView.detailsButton"
-        static let deposit = "WalletCardView.deposit"
-        static let header = "WalletCardView.header"
-        static let separator = "WalletCardView.separator"
-        static let buttons = "WalletCardView.buttons"
-        static let content = "WalletCardView.content"
+    struct WalletCardViewCell {
+        static let title = "WalletCardViewCell.title"
+        static let amount = "WalletCardViewCell.amount"
+        static let withdraw = "WalletCardViewCell.withdraw"
+        static let detailsButton = "WalletCardViewCell.detailsButton"
+        static let deposit = "WalletCardViewCell.deposit"
+        static let header = "WalletCardViewCell.header"
+        static let separator = "WalletCardViewCell.separator"
+        static let buttons = "WalletCardViewCell.buttons"
+        static let content = "WalletCardViewCell.content"
     }
 }
 
