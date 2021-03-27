@@ -15,9 +15,11 @@ jobs:
       workspace: 'BeskarWorkspace.xcworkspace'
       scheme: 'Beskar'
       destination: 'platform=iOS Simulator,name=iPhone 12'
+      codecov_token: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
       - uses: actions/checkout@v1
+
       - name: setup-cocoapods
         uses: maxim-lobanov/setup-cocoapods@v1
         with:
@@ -45,4 +47,23 @@ jobs:
           enable-code-coverage: true
 
       - name: codecov
-        run: bash <(curl -s https://codecov.io/bash) -J 'Beskar' -t {{ secrets.CODECOV_TOKEN }}
+        run: bash <(curl -s https://codecov.io/bash -J ${{ env.scheme }} -t ${{ env.codecov_token }})
+
+  lint:
+    name: Lint
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: install-mint
+        shell: bash
+        run: brew install mint
+
+      - name: mint-bootstrap
+        shell: bash
+        run: mint bootstrap
+
+      - name: lint-all
+        shell: bash
+        run: ./scripts/lint_all
