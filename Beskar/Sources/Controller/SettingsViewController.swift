@@ -45,7 +45,7 @@ final class SettingsViewController: FormViewController {
                 guard let value = $0.value else { return }
                 Preferences.authMinutesTimeout = value
             } <<< TextRow {
-                $0.title = "SETTINGS_BLOCK_SCREEN_DETAIL".localized
+                $0.title = "SETTINGS_AUTH_TIMEOUT_DETAIL".localized
             }
     }
 }
