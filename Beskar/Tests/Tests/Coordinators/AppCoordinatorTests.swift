@@ -66,6 +66,9 @@ final class AppCoordinatorTests: XCTestCase {
     }
 
     func test_resume_afterFirstLaunch_shouldStartLoginFlow() {
+        // Setup first launch
+        Preferences.isNotFirstLaunch = true
+
         // Setup expectations
         navigationMock.pushExpectation = expectation(description: "Push Main Flow")
         authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")

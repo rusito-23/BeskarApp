@@ -33,7 +33,7 @@ final class TransactionCell: UITableViewCell {
 
     private(set) lazy var amountLabel = Label(
         size: .small,
-        color: .white,
+        color: UIColor.beskar.basic,
         alignment: .left
     )
 
