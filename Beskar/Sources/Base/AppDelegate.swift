@@ -39,4 +39,9 @@ import UIKit
         // Resume App coordinator
         coordinator.resume()
     }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        // Stop App Coordinator
+        coordinator.stop()
+    }
 }

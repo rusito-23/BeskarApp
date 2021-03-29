@@ -18,9 +18,10 @@ struct Preferences {
 
     enum Kind: String {
         case isNotFirstLaunch = "is_first_launch"
-        case authMinutesTimeout = "auth_minutes_timeout"
+        case sessionTimeoutInMinutes = "session_timeout_in_minutes"
         case blockScreenOnBackground = "block_screen_on_background"
-        case lastLoginTime = "last_login_time"
+        case sessionPauseDate = "session_pause_date"
+        case shouldForceLogin = "should_force_login"
     }
 
     // MARK: Getters & Setters
@@ -30,9 +31,9 @@ struct Preferences {
         set { defaults.set(newValue, forKey: Kind.isNotFirstLaunch.rawValue) }
     }
 
-    static var authMinutesTimeout: Int {
-        get { defaults.integer(forKey: Kind.authMinutesTimeout.rawValue) }
-        set { defaults.set(newValue, forKey: Kind.authMinutesTimeout.rawValue) }
+    static var sessionTimeoutInMinutes: Int {
+        get { defaults.integer(forKey: Kind.sessionTimeoutInMinutes.rawValue) }
+        set { defaults.set(newValue, forKey: Kind.sessionTimeoutInMinutes.rawValue) }
     }
 
     static var blockScreenOnBackground: Bool {
@@ -40,8 +41,13 @@ struct Preferences {
         set { defaults.set(newValue, forKey: Kind.blockScreenOnBackground.rawValue) }
     }
 
-    static var lastLoginTime: Date {
-        get { Date(timeIntervalSince1970: defaults.double(forKey: Kind.lastLoginTime.rawValue)) }
-        set { defaults.set(newValue.timeIntervalSince1970, forKey: Kind.lastLoginTime.rawValue) }
+    static var sessionPauseDate: Date {
+        get { Date(timeIntervalSince1970: defaults.double(forKey: Kind.sessionPauseDate.rawValue)) }
+        set { defaults.set(newValue.timeIntervalSince1970, forKey: Kind.sessionPauseDate.rawValue) }
+    }
+
+    static var shouldForceLogin: Bool {
+        get { defaults.bool(forKey: Kind.shouldForceLogin.rawValue) }
+        set { defaults.set(newValue, forKey: Kind.shouldForceLogin.rawValue) }
     }
 }

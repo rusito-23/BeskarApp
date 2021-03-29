@@ -39,11 +39,11 @@ final class SettingsViewController: FormViewController {
             }
         +++ IntRow {
                 $0.title = "SETTINGS_AUTH_TIMEOUT".localized
-                $0.value = Preferences.authMinutesTimeout
+                $0.value = Preferences.sessionTimeoutInMinutes
                 $0.formatter = nil
             }.onChange {
                 guard let value = $0.value else { return }
-                Preferences.authMinutesTimeout = value
+                Preferences.sessionTimeoutInMinutes = value
             } <<< TextRow {
                 $0.title = "SETTINGS_AUTH_TIMEOUT_DETAIL".localized
             }

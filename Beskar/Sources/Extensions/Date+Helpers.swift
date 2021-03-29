@@ -12,8 +12,8 @@ extension Date {
     /// A convenience function to obtain the current date
     static func now() -> Date { Date() }
 
-    /// A var to get the minutes between now and the date
-    var minutesElapsed: Int {
-        -Int(timeIntervalSinceNow / 60)
+    /// Check minutes elapsed since date
+    func elapsed(minutes: Int) -> Bool {
+        -Int(timeIntervalSinceNow / 60) > minutes
     }
 }

@@ -23,8 +23,19 @@ final class AppCoordinatorTests: XCTestCase {
     override func setUp() {
         navigationMock = NavigationControllerMock()
         authServiceMock = AuthServiceMock()
-        injector.register(AuthServiceProtocol.self) { _ in self.authServiceMock }
+        setUpSwinject()
         coordinator = AppCoordinator(presenter: navigationMock)
+        setUpPreferences()
+    }
+
+    private func setUpSwinject() {
+        injector.register(AuthServiceProtocol.self) { _ in self.authServiceMock }
+    }
+
+    private func setUpPreferences() {
+        Preferences.isNotFirstLaunch = true
+        Preferences.sessionTimeoutInMinutes = 0
+        Preferences.sessionPauseDate = Date(timeIntervalSinceNow: -120)
     }
 
     // MARK: Tests
@@ -41,7 +52,7 @@ final class AppCoordinatorTests: XCTestCase {
         ).to(beFalse())
     }
 
-    func test_onFirstLaunch_shouldStartWelcomeFlow() {
+    func test_resume_onFirstLaunch_shouldStartWelcomeFlow() {
         // Setup first launch
         Preferences.isNotFirstLaunch = false
 
@@ -54,12 +65,7 @@ final class AppCoordinatorTests: XCTestCase {
         ).to(beAKindOf(WelcomeViewController.self))
     }
 
-    func test_notOnFirstLaunch_shouldStartLoginFlow() {
-        // Setup first launch
-        Preferences.isNotFirstLaunch = true
-        Preferences.authMinutesTimeout = 0
-        Preferences.lastLoginTime = Date(timeIntervalSinceNow: -120)
-
+    func test_resume_afterFirstLaunch_shouldStartLoginFlow() {
         // Setup expectations
         navigationMock.pushExpectation = expectation(description: "Push Main Flow")
         authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
@@ -79,20 +85,15 @@ final class AppCoordinatorTests: XCTestCase {
         ).to(beAKindOf(UITabBarController.self))
     }
 
-    func test_withAuthServiceNotAvailable_shouldShowError() {
-        // Setup first launch
-        Preferences.isNotFirstLaunch = true
-        Preferences.authMinutesTimeout = 0
-        Preferences.lastLoginTime = Date(timeIntervalSinceNow: -120)
-
+    func test_startLoginFlow_withAuthServiceUnavailable_shouldShowError() {
         // Setup expectations
         authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
 
         // Setup mock responses
         authServiceMock.isAvailableMock = false
 
-        // Resume coordinator
-        coordinator.resume()
+        // Start Login Flow
+        coordinator.startLoginFlow()
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
@@ -101,12 +102,7 @@ final class AppCoordinatorTests: XCTestCase {
         ).to(beAKindOf(ErrorViewController.self))
     }
 
-    func test_onAuthenticationUnavailable_shouldShowError() {
-        // Setup first launch
-        Preferences.isNotFirstLaunch = true
-        Preferences.authMinutesTimeout = 0
-        Preferences.lastLoginTime = Date(timeIntervalSinceNow: -120)
-
+    func test_startLoginFlow_withAuthServiceUnavailableResponse_shouldShowError() {
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Error")
         authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
@@ -115,8 +111,8 @@ final class AppCoordinatorTests: XCTestCase {
         authServiceMock.isAvailableMock = true
         authServiceMock.authenticationSuccessMock = .failure(.unavailable)
 
-        // Resume coordinator
-        coordinator.resume()
+        // Start Login Flow
+        coordinator.startLoginFlow()
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
@@ -125,12 +121,7 @@ final class AppCoordinatorTests: XCTestCase {
         ).to(beAKindOf(ErrorViewController.self))
     }
 
-    func test_onAuthenticationCanceled_shouldShowError() {
-        // Setup first launch
-        Preferences.isNotFirstLaunch = true
-        Preferences.authMinutesTimeout = 0
-        Preferences.lastLoginTime = Date(timeIntervalSinceNow: -120)
-
+    func test_startLoginFlow_withAuthCanceled_shouldShowError() {
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Error")
         authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
@@ -139,8 +130,8 @@ final class AppCoordinatorTests: XCTestCase {
         authServiceMock.isAvailableMock = true
         authServiceMock.authenticationSuccessMock = .failure(.canceled)
 
-        // Resume coordinator
-        coordinator.resume()
+        // Start Login Flow
+        coordinator.startLoginFlow()
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
@@ -149,12 +140,7 @@ final class AppCoordinatorTests: XCTestCase {
         ).to(beAKindOf(ErrorViewController.self))
     }
 
-    func test_onAuthenticationFailure_shouldShowError() {
-        // Setup first launch
-        Preferences.isNotFirstLaunch = true
-        Preferences.authMinutesTimeout = 0
-        Preferences.lastLoginTime = Date(timeIntervalSinceNow: -120)
-
+    func test_startLoginFlow_withAuthFailure_shouldShowError() {
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Error")
         authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
@@ -163,8 +149,8 @@ final class AppCoordinatorTests: XCTestCase {
         authServiceMock.isAvailableMock = true
         authServiceMock.authenticationSuccessMock = .failure(.unauthorized)
 
-        // Resume coordinator
-        coordinator.resume()
+        // Start Login Flow
+        coordinator.startLoginFlow()
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
@@ -173,12 +159,7 @@ final class AppCoordinatorTests: XCTestCase {
         ).to(beAKindOf(ErrorViewController.self))
     }
 
-    func test_onAuthenticationPartialFailure_shouldShowError() {
-        // Setup first launch
-        Preferences.isNotFirstLaunch = true
-        Preferences.authMinutesTimeout = 0
-        Preferences.lastLoginTime = Date(timeIntervalSinceNow: -120)
-
+    func test_startLoginFlow_wuthAuthenticationPartialFailure_shouldShowError() {
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Error")
         authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
@@ -187,8 +168,8 @@ final class AppCoordinatorTests: XCTestCase {
         authServiceMock.isAvailableMock = true
         authServiceMock.authenticationSuccessMock = .success(false)
 
-        // Resume coordinator
-        coordinator.resume()
+        // Start Login Flow
+        coordinator.startLoginFlow()
 
         // Check last presented
         waitForExpectations(timeout: 3.0)
@@ -197,14 +178,8 @@ final class AppCoordinatorTests: XCTestCase {
         ).to(beAKindOf(ErrorViewController.self))
     }
 
-    func test_resume_withLoginTimeout_shouldStopCoordinator() {
-        // Setup first launch
-        Preferences.isNotFirstLaunch = true
-        Preferences.authMinutesTimeout = 0
-        Preferences.lastLoginTime = Date(timeIntervalSinceNow: -120)
-
+    func test_resume_withLoginTimeout_shouldStopAllCoordinators() {
         // Setup child
-
         let coordinatorSpy = CoordinatorSpy()
         coordinator.start(child: coordinatorSpy)
         expect(coordinatorSpy.didStart).to(beTrue())
@@ -255,5 +230,30 @@ final class AppCoordinatorTests: XCTestCase {
         expect(
             self.coordinator.children
         ).notTo(containElementSatisfying {$0 is LoginCoordinator})
+    }
+
+    func test_pause_withBlockScreenPreferenceOn_shouldShowBlockScreen() {
+        Preferences.blockScreenOnBackground = true
+        navigationMock.presentExpectation = expectation(description: "Present Block Screen")
+        coordinator.pause()
+
+        waitForExpectations(timeout: 3.0)
+        expect(
+            self.navigationMock.lastPresentedViewController
+        ).to(beAKindOf(BlockScreenViewController.self))
+    }
+
+    func test_pause_withBlockScreenPreferenceOff_shouldNotShowBlockScreen() {
+        Preferences.blockScreenOnBackground = false
+        coordinator.pause()
+        expect(
+            self.navigationMock.lastPresentedViewController
+        ).to(beNil())
+    }
+
+    func test_stop_shouldSetForceLogin() {
+        Preferences.shouldForceLogin = false
+        coordinator.stop()
+        expect(Preferences.shouldForceLogin).to(beTrue())
     }
 }

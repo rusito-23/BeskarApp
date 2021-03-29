@@ -77,7 +77,7 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorFlow {
         }
 
         // Store time
-        Preferences.lastLoginTime = .now()
+        Preferences.sessionPauseDate = .now()
     }
 
     func resume() {
@@ -91,14 +91,27 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorFlow {
             return
         }
 
-        // Check if login flow needs to be executed
-        if Preferences.lastLoginTime.minutesElapsed > Preferences.authMinutesTimeout {
+        // Check if session did expire
+        let sessionDidExpire = Preferences.sessionPauseDate.elapsed(
+            minutes: Preferences.sessionTimeoutInMinutes
+        )
+
+        // Check if login flow should start
+        if sessionDidExpire || Preferences.shouldForceLogin {
+            // Prevent force login when coordinator starts
+            Preferences.shouldForceLogin = false
+
             // Stop current flows
             children.forEach { $0.stop() }
 
             // Start login flow all over
             startLoginFlow()
         }
+    }
+
+    override func stop() {
+        // Force login if coordinator stopped
+        Preferences.shouldForceLogin = true
     }
 
     // MARK: Private Methods
