@@ -70,11 +70,7 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorFlow {
 
     func pause() {
         // Block screen if needed
-        if Preferences.blockScreenOnBackground {
-            blockScreenCoordinator = BlockScreenCoordinator()
-            blockScreenCoordinator?.presenter = .presentation(window.rootViewController)
-            blockScreenCoordinator?.start()
-        }
+        if Preferences.blockScreenOnBackground { startBlockFlow() }
 
         // Store time
         Preferences.sessionPauseDate = .now()
@@ -156,6 +152,14 @@ extension AppCoordinator {
         coordinator.delegate = self
         coordinator.presenter = .presentation(presenter?.viewController)
         start(child: coordinator)
+    }
+
+    /// Start block flow
+    func startBlockFlow() {
+        let blockScreenCoordinator = BlockScreenCoordinator()
+        blockScreenCoordinator.presenter = .presentation(presenter?.viewController)
+        self.blockScreenCoordinator = blockScreenCoordinator
+        start(child: blockScreenCoordinator)
     }
 }
 

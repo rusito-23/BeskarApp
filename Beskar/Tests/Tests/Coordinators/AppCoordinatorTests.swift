@@ -238,6 +238,7 @@ final class AppCoordinatorTests: XCTestCase {
     func test_pause_withBlockScreenPreferenceOn_shouldShowBlockScreen() {
         Preferences.blockScreenOnBackground = true
         navigationMock.presentExpectation = expectation(description: "Present Block Screen")
+        coordinator.start()
         coordinator.pause()
 
         waitForExpectations(timeout: 3.0)
@@ -248,6 +249,7 @@ final class AppCoordinatorTests: XCTestCase {
 
     func test_pause_withBlockScreenPreferenceOff_shouldNotShowBlockScreen() {
         Preferences.blockScreenOnBackground = false
+        coordinator.start()
         coordinator.pause()
         expect(
             self.navigationMock.lastPresentedViewController
@@ -256,6 +258,7 @@ final class AppCoordinatorTests: XCTestCase {
 
     func test_stop_shouldSetForceLogin() {
         Preferences.shouldForceLogin = false
+        coordinator.start()
         coordinator.stop()
         expect(Preferences.shouldForceLogin).to(beTrue())
     }
