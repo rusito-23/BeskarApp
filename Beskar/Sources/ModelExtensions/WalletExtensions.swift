@@ -23,4 +23,15 @@ extension Wallet {
     var compactAmountFormatted: String {
         CompactAmountFormatter(currency: currency).string(for: amount)
     }
+
+    /// The amount display with currency information
+    var amountFormatted: String {
+        var components = ["\(amount)", currency.display]
+
+        switch currency {
+        case .dollars, .pesos: break
+        case .euros: components.reverse()
+        }
+        return components.joined(separator: "")
+    }
 }

@@ -32,8 +32,14 @@ final class WalletViewModel: ViewModel {
         .eraseToAnyPublisher()
 
     /// The compact amount of the wallet with currency info as a published string
+    /// compact means that we use the CompactAmountFormatter
     private(set) lazy var compactAmountPublisher: AnyPublisher<String?, Never> =  $wallet
         .map { $0?.compactAmountFormatted }
+        .eraseToAnyPublisher()
+
+    /// The amount of the wallet with currency info as a published string
+    private(set) lazy var amountPublisher: AnyPublisher<String?, Never> = $wallet
+        .map { $0?.amountFormatted }
         .eraseToAnyPublisher()
 
     /// The wallet transactions published - sorted by most recent

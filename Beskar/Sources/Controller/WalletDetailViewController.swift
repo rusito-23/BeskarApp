@@ -51,7 +51,7 @@ final class WalletDetailViewController: ViewController<WalletDetailView> {
             to: \.text, on: ui.summaryLabel
         ).store(in: &subscriptions)
 
-        viewModel.compactAmountPublisher.assign(
+        viewModel.amountPublisher.assign(
             to: \.text, on: ui.amountLabel
         ).store(in: &subscriptions)
 
