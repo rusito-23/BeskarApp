@@ -95,7 +95,7 @@ class InputFieldViewModel: InputFieldViewModelProtocol {
 
 // MARK: - Field View Model Parent Delegate
 
-protocol InputFieldViewModelDelegate: class {
+protocol InputFieldViewModelDelegate: AnyObject {
     func inputFieldViewModel(
         _ viewModel: InputFieldViewModel,
         didFinishValidations: Bool

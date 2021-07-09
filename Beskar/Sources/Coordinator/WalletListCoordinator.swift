@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: - Flow Protocol
 
-protocol WalletListCoordinatorFlow: class {
+protocol WalletListCoordinatorFlow: AnyObject {
     func startNewWalletFlow()
     func startWalletDetailFlow(for wallet: Wallet)
     func startWalletActionFlow(for wallet: Wallet, kind: Transaction.Kind)

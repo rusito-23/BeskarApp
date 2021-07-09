@@ -72,7 +72,7 @@ public protocol Coordinator: AnyObject {
 
 // MARK: - Coordinator Delegate
 
-public protocol CoordinatorDelegate: class {
+public protocol CoordinatorDelegate: AnyObject {
     func coordinatorDidStop(_ coordinator: Coordinator)
     func coordinatorDidStart(_ coordinator: Coordinator)
     func coordinatorDidFail(_ coordinator: Coordinator)

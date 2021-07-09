@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: - Wallet Card View Delegate
 
-protocol WalletCardViewDelegate: class {
+protocol WalletCardViewDelegate: AnyObject {
     func walletCardViewDidTapDeposit(_ view: WalletCardViewCell)
     func walletCardViewDidTapDetails(_ view: WalletCardViewCell)
     func walletCardViewDidTapWithdraw(_ view: WalletCardViewCell)

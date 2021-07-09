@@ -11,7 +11,7 @@ import BeskarKit
 
 // MARK: - Login Coordinator Delegate
 
-protocol LoginCoordinatorDelegate: class {
+protocol LoginCoordinatorDelegate: AnyObject {
     /// Called once the login coordinator succeed
     func loginCoordinatorDidSucceed(_ coordinator: LoginCoordinator)
 
