@@ -18,6 +18,7 @@ final class BlockScreenCoordinator: BaseCoordinator {
     private lazy var blockScreenViewController: UIViewController = {
         let viewController = BlockScreenViewController()
         viewController.modalPresentationStyle = .fullScreen
+        viewController.modalTransitionStyle = .crossDissolve
         return viewController
     }()
 }
