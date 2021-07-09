@@ -25,13 +25,17 @@ extension Wallet {
     }
 
     /// The amount display with currency information
+    /// Cents are limited to 2 decimals
     var amountFormatted: String {
-        var components = ["\(amount)", currency.display]
+        var components = [
+            String(format: "%.2f", amount),
+            currency.display,
+        ]
 
-        switch currency {
-        case .dollars, .pesos: break
-        case .euros: components.reverse()
+        if case .euros = currency {
+            components.reverse()
         }
+
         return components.joined(separator: "")
     }
 }

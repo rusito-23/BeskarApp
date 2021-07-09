@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FA7E0D6C6471DC040754887 /* Pods_BeskarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF341C0EF3F15B22490B27E9 /* Pods_BeskarTests.framework */; };
 		780770DF25C6391700071EF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 780770DE25C6391700071EF3 /* Localizable.strings */; };
 		780770ED25C75C0400071EF3 /* Collection+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770EC25C75C0400071EF3 /* Collection+Helpers.swift */; };
 		780770F125C769E300071EF3 /* FieldValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770F025C769E300071EF3 /* FieldValidation.swift */; };
@@ -95,11 +96,10 @@
 		78C090A025D0841B00C8563B /* BeskarKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909825D0841B00C8563B /* BeskarKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		78C090A125D0841B00C8563B /* BeskarUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909925D0841B00C8563B /* BeskarUI.framework */; };
 		78C090A225D0841B00C8563B /* BeskarUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909925D0841B00C8563B /* BeskarUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		78C090A325D0841B00C8563B /* Pods_Beskar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909A25D0841B00C8563B /* Pods_Beskar.framework */; };
-		78C090A425D0841B00C8563B /* Pods_Beskar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909A25D0841B00C8563B /* Pods_Beskar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		78C090A425D0841B00C8563B /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		78CCA251260AB5ED007060F3 /* EurekaSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CCA250260AB5ED007060F3 /* EurekaSetup.swift */; };
 		78DB116325C6375100335F7B /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB116225C6375100335F7B /* String+Helpers.swift */; };
-		D93AF5E2BAF24FB517D0F0A3 /* Pods_BeskarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 010220F15C12C651251AD26B /* Pods_BeskarTests.framework */; };
+		C2D7543E54FBC93D23A8D2CE /* Pods_Beskar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 233410522FEE5FB87C9F0535 /* Pods_Beskar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,7 +120,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				78C090A225D0841B00C8563B /* BeskarUI.framework in Embed Frameworks */,
-				78C090A425D0841B00C8563B /* Pods_Beskar.framework in Embed Frameworks */,
+				78C090A425D0841B00C8563B /* BuildFile in Embed Frameworks */,
 				78C090A025D0841B00C8563B /* BeskarKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -129,8 +129,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		010220F15C12C651251AD26B /* Pods_BeskarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeskarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		36F6EF945829005FD033F5B5 /* Pods-Beskar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.release.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.release.xcconfig"; sourceTree = "<group>"; };
+		233410522FEE5FB87C9F0535 /* Pods_Beskar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beskar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E100C9EBA01CDDBCD36EA29 /* Pods-Beskar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.release.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.release.xcconfig"; sourceTree = "<group>"; };
+		5B62ACA9F5BDABF70CBC2095 /* Pods-BeskarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.release.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.release.xcconfig"; sourceTree = "<group>"; };
 		780770DE25C6391700071EF3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		780770EC25C75C0400071EF3 /* Collection+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Helpers.swift"; sourceTree = "<group>"; };
 		780770F025C769E300071EF3 /* FieldValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValidation.swift; sourceTree = "<group>"; };
@@ -157,7 +158,6 @@
 		783222E925C378F000D466ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7832230225C37BC800D466ED /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7832236325C44B9800D466ED /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7839406890ED8CB937510255 /* Pods_Beskar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beskar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78414A4E25D2F45D00F9351D /* WalletListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListViewController.swift; sourceTree = "<group>"; };
 		78414A5225D2F48400F9351D /* WalletListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListView.swift; sourceTree = "<group>"; };
 		78414A5525D2F4AA00F9351D /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -224,16 +224,15 @@
 		78C0909125D083E900C8563B /* SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
 		78C0909825D0841B00C8563B /* BeskarKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C0909925D0841B00C8563B /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		78C0909A25D0841B00C8563B /* Pods_Beskar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Beskar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C0909B25D0841B00C8563B /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C0909C25D0841B00C8563B /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C0909D25D0841B00C8563B /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyBeaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C0909E25D0841B00C8563B /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CCA250260AB5ED007060F3 /* EurekaSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaSetup.swift; sourceTree = "<group>"; };
 		78DB116225C6375100335F7B /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
-		B864D67A44F1CCFFE306BEF9 /* Pods-BeskarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.release.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.release.xcconfig"; sourceTree = "<group>"; };
-		DCCC7C8C290A48F8F57AC728 /* Pods-Beskar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.debug.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.debug.xcconfig"; sourceTree = "<group>"; };
-		E13AAF319A43374AE54278B4 /* Pods-BeskarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.debug.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		909586B4728B47ACE7D2ABF6 /* Pods-Beskar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.debug.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.debug.xcconfig"; sourceTree = "<group>"; };
+		9FC1C3E0C7B2C79F94B173AA /* Pods-BeskarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.debug.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BF341C0EF3F15B22490B27E9 /* Pods_BeskarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeskarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,7 +240,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D93AF5E2BAF24FB517D0F0A3 /* Pods_BeskarTests.framework in Frameworks */,
+				0FA7E0D6C6471DC040754887 /* Pods_BeskarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,8 +249,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				78C090A125D0841B00C8563B /* BeskarUI.framework in Frameworks */,
-				78C090A325D0841B00C8563B /* Pods_Beskar.framework in Frameworks */,
 				78C0909F25D0841B00C8563B /* BeskarKit.framework in Frameworks */,
+				C2D7543E54FBC93D23A8D2CE /* Pods_Beskar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +353,7 @@
 				7824689025CF98A900B1B9E4 /* Tests */,
 				783222D925C378EF00D466ED /* Products */,
 				7832236225C44B9700D466ED /* Frameworks */,
-				96BE48E766B528A62D2B1EFA /* Pods */,
+				C9A018FEB8193CFBB848909F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -449,15 +448,14 @@
 			children = (
 				78C0909825D0841B00C8563B /* BeskarKit.framework */,
 				78C0909925D0841B00C8563B /* BeskarUI.framework */,
-				78C0909A25D0841B00C8563B /* Pods_Beskar.framework */,
 				78C0909B25D0841B00C8563B /* Realm.framework */,
 				78C0909C25D0841B00C8563B /* RealmSwift.framework */,
 				78C0909D25D0841B00C8563B /* SwiftyBeaver.framework */,
 				78C0909E25D0841B00C8563B /* TinyConstraints.framework */,
 				782927F725C50BB900F41574 /* BeskarKit.framework */,
 				7832236325C44B9800D466ED /* BeskarUI.framework */,
-				7839406890ED8CB937510255 /* Pods_Beskar.framework */,
-				010220F15C12C651251AD26B /* Pods_BeskarTests.framework */,
+				233410522FEE5FB87C9F0535 /* Pods_Beskar.framework */,
+				BF341C0EF3F15B22490B27E9 /* Pods_BeskarTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -558,13 +556,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		96BE48E766B528A62D2B1EFA /* Pods */ = {
+		C9A018FEB8193CFBB848909F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DCCC7C8C290A48F8F57AC728 /* Pods-Beskar.debug.xcconfig */,
-				36F6EF945829005FD033F5B5 /* Pods-Beskar.release.xcconfig */,
-				E13AAF319A43374AE54278B4 /* Pods-BeskarTests.debug.xcconfig */,
-				B864D67A44F1CCFFE306BEF9 /* Pods-BeskarTests.release.xcconfig */,
+				909586B4728B47ACE7D2ABF6 /* Pods-Beskar.debug.xcconfig */,
+				4E100C9EBA01CDDBCD36EA29 /* Pods-Beskar.release.xcconfig */,
+				9FC1C3E0C7B2C79F94B173AA /* Pods-BeskarTests.debug.xcconfig */,
+				5B62ACA9F5BDABF70CBC2095 /* Pods-BeskarTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -577,11 +575,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7824689C25CF990300B1B9E4 /* Build configuration list for PBXNativeTarget "BeskarTests" */;
 			buildPhases = (
-				89809A69136AC41CBBE5CE49 /* [CP] Check Pods Manifest.lock */,
+				3613F2385704406186942724 /* [CP] Check Pods Manifest.lock */,
 				7824689125CF990300B1B9E4 /* Sources */,
 				7824689225CF990300B1B9E4 /* Frameworks */,
 				7824689325CF990300B1B9E4 /* Resources */,
-				A1CCE224ED2DF539238A3045 /* [CP] Embed Pods Frameworks */,
+				6D3E4D424D366833927FFB52 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -597,12 +595,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 783222EC25C378F000D466ED /* Build configuration list for PBXNativeTarget "Beskar" */;
 			buildPhases = (
-				5520B2381E25DA9726A68894 /* [CP] Check Pods Manifest.lock */,
+				CCA0F8FEE8E5AEB957E2BE13 /* [CP] Check Pods Manifest.lock */,
 				783222D425C378EF00D466ED /* Sources */,
 				783222D525C378EF00D466ED /* Frameworks */,
 				783222D625C378EF00D466ED /* Resources */,
-				0D17D0D57CF3F338086F1913 /* [CP] Embed Pods Frameworks */,
 				78C090AD25D0841B00C8563B /* Embed Frameworks */,
+				69AE21E55F2E76E724BF557B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -672,46 +670,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D17D0D57CF3F338086F1913 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Beskar/Pods-Beskar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Beskar/Pods-Beskar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Beskar/Pods-Beskar-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5520B2381E25DA9726A68894 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Beskar-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		89809A69136AC41CBBE5CE49 /* [CP] Check Pods Manifest.lock */ = {
+		3613F2385704406186942724 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -733,7 +692,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A1CCE224ED2DF539238A3045 /* [CP] Embed Pods Frameworks */ = {
+		69AE21E55F2E76E724BF557B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Beskar/Pods-Beskar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Beskar/Pods-Beskar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Beskar/Pods-Beskar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D3E4D424D366833927FFB52 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -748,6 +724,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeskarTests/Pods-BeskarTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCA0F8FEE8E5AEB957E2BE13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Beskar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -873,7 +871,7 @@
 /* Begin XCBuildConfiguration section */
 		7824689D25CF990300B1B9E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E13AAF319A43374AE54278B4 /* Pods-BeskarTests.debug.xcconfig */;
+			baseConfigurationReference = 9FC1C3E0C7B2C79F94B173AA /* Pods-BeskarTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -895,7 +893,7 @@
 		};
 		7824689E25CF990300B1B9E4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B864D67A44F1CCFFE306BEF9 /* Pods-BeskarTests.release.xcconfig */;
+			baseConfigurationReference = 5B62ACA9F5BDABF70CBC2095 /* Pods-BeskarTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1033,7 +1031,7 @@
 		};
 		783222ED25C378F000D466ED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCCC7C8C290A48F8F57AC728 /* Pods-Beskar.debug.xcconfig */;
+			baseConfigurationReference = 909586B4728B47ACE7D2ABF6 /* Pods-Beskar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1054,7 +1052,7 @@
 		};
 		783222EE25C378F000D466ED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36F6EF945829005FD033F5B5 /* Pods-Beskar.release.xcconfig */;
+			baseConfigurationReference = 4E100C9EBA01CDDBCD36EA29 /* Pods-Beskar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
