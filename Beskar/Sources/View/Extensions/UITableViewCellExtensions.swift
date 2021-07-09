@@ -8,7 +8,13 @@
 import UIKit
 
 extension UITableViewCell {
+    /// Default cell identifier using class name
+    static var identifier: String {
+        String(describing: self)
+    }
+}
 
+extension UICollectionViewCell {
     /// Default cell identifier using class name
     static var identifier: String {
         String(describing: self)

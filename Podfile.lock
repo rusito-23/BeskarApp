@@ -2,6 +2,7 @@ PODS:
   - CombineDataSources (0.2.5)
   - Eureka (5.3.3)
   - IQKeyboardManagerSwift (6.5.6)
+  - Loaf (0.7.0)
   - Nimble (9.2.0)
   - Quick (4.0.0)
   - Realm (10.10.0):
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - CombineDataSources
   - Eureka
   - IQKeyboardManagerSwift
+  - Loaf
   - Nimble
   - Quick
   - RealmSwift
@@ -29,6 +31,7 @@ SPEC REPOS:
     - CombineDataSources
     - Eureka
     - IQKeyboardManagerSwift
+    - Loaf
     - Nimble
     - Quick
     - Realm
@@ -41,6 +44,7 @@ SPEC CHECKSUMS:
   CombineDataSources: dcbc3b06a038ffdf620b3b4533d3ecaf76ca6a2e
   Eureka: e6d720290c56bb23333ad1a0e020b2a98a0e9a43
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
   Realm: f501df41a4222c67850c77cf135d472192ecf294
@@ -49,6 +53,6 @@ SPEC CHECKSUMS:
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 62075faf3ccfd64c3162143a03c07f91dec34fd9
+PODFILE CHECKSUM: 1913b3770af46ae1c8fbd3e8dbe7802bb8adac6c
 
 COCOAPODS: 1.10.1

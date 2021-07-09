@@ -7,18 +7,22 @@
 
 import BeskarUI
 import CombineDataSources
+import Loaf
 import UIKit
 
 final class WalletDetailViewController: ViewController<WalletDetailView> {
 
     // MARK: Properties
 
-    let viewModel: WalletViewModel
+    private let viewModel: WalletViewModel
+
+    private weak var coordinator: WalletDetailCoordinatorFlow?
 
     // MARK: Initializer
 
-    init(viewModel: WalletViewModel) {
+    init(viewModel: WalletViewModel, coordinator: WalletDetailCoordinatorFlow) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -32,7 +36,7 @@ final class WalletDetailViewController: ViewController<WalletDetailView> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.isNavigationBarHidden = false
-        ui.tableView.reloadData()
+        ui.transactionsTableView.reloadData()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -55,15 +59,25 @@ final class WalletDetailViewController: ViewController<WalletDetailView> {
             to: \.text, on: ui.amountLabel
         ).store(in: &subscriptions)
 
-        viewModel.transactionsPublisher.bind(
-            subscriber: ui.tableView.rowsSubscriber(
-                cellIdentifier: TransactionCell.identifier,
-                cellType: TransactionCell.self,
-                cellConfig: { cell, _, transaction in
-                    cell.viewModel.wallet = self.viewModel.wallet
-                    cell.viewModel.transaction = transaction
-                }
-            )
-        ).store(in: &subscriptions)
+        viewModel.transactionsPublisher.bind(subscriber: ui.transactionsTableView.rowsSubscriber(
+            cellIdentifier: TransactionCell.identifier,
+            cellType: TransactionCell.self,
+            cellConfig: { $0.configure(wallet: self.viewModel.wallet, transaction: $2)}
+        )).store(in: &subscriptions)
+
+        viewModel.actionsPublisher.bind(subscriber: ui.actionsCollection.itemsSubscriber(
+            cellIdentifier: WalletActionItemViewCell.identifier,
+            cellType: WalletActionItemViewCell.self,
+            cellConfig: { cell, _, action in cell.configure(with: action, delegate: self) }
+        )).store(in: &subscriptions)
+    }
+}
+
+// MARK: - WalletActionItemViewCellDelegate Conformance
+
+extension WalletDetailViewController: WalletActionItemViewCellDelegate {
+    func didSelect(_ action: WalletAction) {
+        Loaf.dismiss(sender: self)
+        coordinator?.startWalletActionFlow(action)
     }
 }

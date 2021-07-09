@@ -44,6 +44,7 @@ In the future, the idea would be to provide *stats* to understand and predict wa
 - [Swinject](https://github.com/Swinject/Swinject) (DI)
 - [Eureka](https://github.com/xmartlabs/Eureka) (Settings Table View)
 - [IQKeyboardManager](https://github.com/hackiftekhar/IQKeyboardManager) (Auto-Keyboard Management)
+- [Loaf](https://github.com/schmidyy/Loaf) (Easy iOS Toasts with Loaf)
 
 ## Tools
 

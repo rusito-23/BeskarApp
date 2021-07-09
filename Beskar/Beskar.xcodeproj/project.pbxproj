@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0FA7E0D6C6471DC040754887 /* Pods_BeskarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF341C0EF3F15B22490B27E9 /* Pods_BeskarTests.framework */; };
 		780770DF25C6391700071EF3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 780770DE25C6391700071EF3 /* Localizable.strings */; };
 		780770ED25C75C0400071EF3 /* Collection+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770EC25C75C0400071EF3 /* Collection+Helpers.swift */; };
 		780770F125C769E300071EF3 /* FieldValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780770F025C769E300071EF3 /* FieldValidation.swift */; };
@@ -77,6 +76,7 @@
 		7897668825DB0AD1000E9552 /* CompactAmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897668725DB0AD1000E9552 /* CompactAmountFormatter.swift */; };
 		7897669025DB1460000E9552 /* WalletExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7897668F25DB1460000E9552 /* WalletExtensions.swift */; };
 		789766B425DB2BC4000E9552 /* WalletServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789766B025DB2BBA000E9552 /* WalletServiceMock.swift */; };
+		78A5B28C2698E4120055321D /* WalletActionItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A5B28B2698E4120055321D /* WalletActionItemViewCell.swift */; };
 		78AC5E3C25D60729005F8D86 /* WalletCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC5E3B25D60729005F8D86 /* WalletCardViewCell.swift */; };
 		78B4C9D425F671BA005085F5 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C9D325F671BA005085F5 /* LoginCoordinator.swift */; };
 		78B4C9D725F6773D005085F5 /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B4C9D625F6773D005085F5 /* MainTabBarCoordinator.swift */; };
@@ -99,7 +99,9 @@
 		78C090A425D0841B00C8563B /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		78CCA251260AB5ED007060F3 /* EurekaSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CCA250260AB5ED007060F3 /* EurekaSetup.swift */; };
 		78DB116325C6375100335F7B /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB116225C6375100335F7B /* String+Helpers.swift */; };
-		C2D7543E54FBC93D23A8D2CE /* Pods_Beskar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 233410522FEE5FB87C9F0535 /* Pods_Beskar.framework */; };
+		78ED93842698F75600A25562 /* WalletAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78ED93832698F75600A25562 /* WalletAction.swift */; };
+		88940ED2B920DF768255B7A3 /* Pods_BeskarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14071B01103AE20C2819AAC9 /* Pods_BeskarTests.framework */; };
+		CE020F6AFEB27F18DE74CCD8 /* Pods_Beskar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C3279EEF1BA662A2067AC4 /* Pods_Beskar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,9 +131,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		233410522FEE5FB87C9F0535 /* Pods_Beskar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beskar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E100C9EBA01CDDBCD36EA29 /* Pods-Beskar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.release.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.release.xcconfig"; sourceTree = "<group>"; };
-		5B62ACA9F5BDABF70CBC2095 /* Pods-BeskarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.release.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.release.xcconfig"; sourceTree = "<group>"; };
+		14071B01103AE20C2819AAC9 /* Pods_BeskarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeskarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18C3279EEF1BA662A2067AC4 /* Pods_Beskar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beskar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		780770DE25C6391700071EF3 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		780770EC25C75C0400071EF3 /* Collection+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Helpers.swift"; sourceTree = "<group>"; };
 		780770F025C769E300071EF3 /* FieldValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValidation.swift; sourceTree = "<group>"; };
@@ -207,6 +208,7 @@
 		7897668725DB0AD1000E9552 /* CompactAmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactAmountFormatter.swift; sourceTree = "<group>"; };
 		7897668F25DB1460000E9552 /* WalletExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletExtensions.swift; sourceTree = "<group>"; };
 		789766B025DB2BBA000E9552 /* WalletServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletServiceMock.swift; sourceTree = "<group>"; };
+		78A5B28B2698E4120055321D /* WalletActionItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletActionItemViewCell.swift; sourceTree = "<group>"; };
 		78AC5E3B25D60729005F8D86 /* WalletCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCardViewCell.swift; sourceTree = "<group>"; };
 		78B4C9D325F671BA005085F5 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		78B4C9D625F6773D005085F5 /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -230,9 +232,11 @@
 		78C0909E25D0841B00C8563B /* TinyConstraints.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyConstraints.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78CCA250260AB5ED007060F3 /* EurekaSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EurekaSetup.swift; sourceTree = "<group>"; };
 		78DB116225C6375100335F7B /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
-		909586B4728B47ACE7D2ABF6 /* Pods-Beskar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.debug.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.debug.xcconfig"; sourceTree = "<group>"; };
-		9FC1C3E0C7B2C79F94B173AA /* Pods-BeskarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.debug.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BF341C0EF3F15B22490B27E9 /* Pods_BeskarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeskarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78ED93832698F75600A25562 /* WalletAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAction.swift; sourceTree = "<group>"; };
+		7DA018436104CD47B9518680 /* Pods-Beskar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.debug.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.debug.xcconfig"; sourceTree = "<group>"; };
+		7E0F3E1DA08DBA35ACECF9D9 /* Pods-Beskar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.release.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.release.xcconfig"; sourceTree = "<group>"; };
+		9CE777BEE2EC6156E2541E3F /* Pods-BeskarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.release.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.release.xcconfig"; sourceTree = "<group>"; };
+		D6347332EB1C6A3C14EC6866 /* Pods-BeskarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.debug.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,7 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FA7E0D6C6471DC040754887 /* Pods_BeskarTests.framework in Frameworks */,
+				88940ED2B920DF768255B7A3 /* Pods_BeskarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +254,7 @@
 			files = (
 				78C090A125D0841B00C8563B /* BeskarUI.framework in Frameworks */,
 				78C0909F25D0841B00C8563B /* BeskarKit.framework in Frameworks */,
-				C2D7543E54FBC93D23A8D2CE /* Pods_Beskar.framework in Frameworks */,
+				CE020F6AFEB27F18DE74CCD8 /* Pods_Beskar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,7 +357,7 @@
 				7824689025CF98A900B1B9E4 /* Tests */,
 				783222D925C378EF00D466ED /* Products */,
 				7832236225C44B9700D466ED /* Frameworks */,
-				C9A018FEB8193CFBB848909F /* Pods */,
+				F725179961C53B2A3868E047 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -454,8 +458,8 @@
 				78C0909E25D0841B00C8563B /* TinyConstraints.framework */,
 				782927F725C50BB900F41574 /* BeskarKit.framework */,
 				7832236325C44B9800D466ED /* BeskarUI.framework */,
-				233410522FEE5FB87C9F0535 /* Pods_Beskar.framework */,
-				BF341C0EF3F15B22490B27E9 /* Pods_BeskarTests.framework */,
+				18C3279EEF1BA662A2067AC4 /* Pods_Beskar.framework */,
+				14071B01103AE20C2819AAC9 /* Pods_BeskarTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -471,8 +475,9 @@
 		78536BD7260A2F9100E9BA0E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				78AC5E3B25D60729005F8D86 /* WalletCardViewCell.swift */,
 				78536BD8260A2FA700E9BA0E /* TransactionCell.swift */,
+				78A5B28B2698E4120055321D /* WalletActionItemViewCell.swift */,
+				78AC5E3B25D60729005F8D86 /* WalletCardViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -536,6 +541,7 @@
 			children = (
 				7897668F25DB1460000E9552 /* WalletExtensions.swift */,
 				78B4C9FF25FBA71D005085F5 /* CurrencyExtensions.swift */,
+				78ED93832698F75600A25562 /* WalletAction.swift */,
 			);
 			path = ModelExtensions;
 			sourceTree = "<group>";
@@ -556,13 +562,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		C9A018FEB8193CFBB848909F /* Pods */ = {
+		F725179961C53B2A3868E047 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				909586B4728B47ACE7D2ABF6 /* Pods-Beskar.debug.xcconfig */,
-				4E100C9EBA01CDDBCD36EA29 /* Pods-Beskar.release.xcconfig */,
-				9FC1C3E0C7B2C79F94B173AA /* Pods-BeskarTests.debug.xcconfig */,
-				5B62ACA9F5BDABF70CBC2095 /* Pods-BeskarTests.release.xcconfig */,
+				7DA018436104CD47B9518680 /* Pods-Beskar.debug.xcconfig */,
+				7E0F3E1DA08DBA35ACECF9D9 /* Pods-Beskar.release.xcconfig */,
+				D6347332EB1C6A3C14EC6866 /* Pods-BeskarTests.debug.xcconfig */,
+				9CE777BEE2EC6156E2541E3F /* Pods-BeskarTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -575,11 +581,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7824689C25CF990300B1B9E4 /* Build configuration list for PBXNativeTarget "BeskarTests" */;
 			buildPhases = (
-				3613F2385704406186942724 /* [CP] Check Pods Manifest.lock */,
+				765C26680177896DAF6DF609 /* [CP] Check Pods Manifest.lock */,
 				7824689125CF990300B1B9E4 /* Sources */,
 				7824689225CF990300B1B9E4 /* Frameworks */,
 				7824689325CF990300B1B9E4 /* Resources */,
-				6D3E4D424D366833927FFB52 /* [CP] Embed Pods Frameworks */,
+				293A01DB5F1EB3F871AC382D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -595,12 +601,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 783222EC25C378F000D466ED /* Build configuration list for PBXNativeTarget "Beskar" */;
 			buildPhases = (
-				CCA0F8FEE8E5AEB957E2BE13 /* [CP] Check Pods Manifest.lock */,
+				DAC529955AEB4853111170EE /* [CP] Check Pods Manifest.lock */,
 				783222D425C378EF00D466ED /* Sources */,
 				783222D525C378EF00D466ED /* Frameworks */,
 				783222D625C378EF00D466ED /* Resources */,
 				78C090AD25D0841B00C8563B /* Embed Frameworks */,
-				69AE21E55F2E76E724BF557B /* [CP] Embed Pods Frameworks */,
+				45C052073A50592DCB18278A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -670,7 +676,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3613F2385704406186942724 /* [CP] Check Pods Manifest.lock */ = {
+		293A01DB5F1EB3F871AC382D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeskarTests/Pods-BeskarTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BeskarTests/Pods-BeskarTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeskarTests/Pods-BeskarTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45C052073A50592DCB18278A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Beskar/Pods-Beskar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Beskar/Pods-Beskar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Beskar/Pods-Beskar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		765C26680177896DAF6DF609 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -692,41 +732,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		69AE21E55F2E76E724BF557B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Beskar/Pods-Beskar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Beskar/Pods-Beskar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Beskar/Pods-Beskar-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6D3E4D424D366833927FFB52 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BeskarTests/Pods-BeskarTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BeskarTests/Pods-BeskarTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeskarTests/Pods-BeskarTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CCA0F8FEE8E5AEB957E2BE13 /* [CP] Check Pods Manifest.lock */ = {
+		DAC529955AEB4853111170EE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -831,6 +837,7 @@
 				78536BCD260956D600E9BA0E /* AuthErrorCoordinator.swift in Sources */,
 				78438C4125D5F69D003B8A4E /* WorkInProgressView.swift in Sources */,
 				78B4C9E325F67A37005085F5 /* SettingsCoordinator.swift in Sources */,
+				78ED93842698F75600A25562 /* WalletAction.swift in Sources */,
 				78536BC7260952B900E9BA0E /* WalletDetailView.swift in Sources */,
 				78B4CA0025FBA71D005085F5 /* CurrencyExtensions.swift in Sources */,
 				78414A5C25D2F50D00F9351D /* SettingsViewController.swift in Sources */,
@@ -839,6 +846,7 @@
 				7889476C25D9F40200BB9BEE /* WalletListViewModel.swift in Sources */,
 				784BEF9B26081F1800058A59 /* WalletActionViewModel.swift in Sources */,
 				7889476425D9E87800BB9BEE /* UITableViewCellExtensions.swift in Sources */,
+				78A5B28C2698E4120055321D /* WalletActionItemViewCell.swift in Sources */,
 				780770ED25C75C0400071EF3 /* Collection+Helpers.swift in Sources */,
 				7824688925CF7B4A00B1B9E4 /* Accessibility.swift in Sources */,
 				780E98CD25FD870500C8061E /* WalletActionView.swift in Sources */,
@@ -871,7 +879,7 @@
 /* Begin XCBuildConfiguration section */
 		7824689D25CF990300B1B9E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9FC1C3E0C7B2C79F94B173AA /* Pods-BeskarTests.debug.xcconfig */;
+			baseConfigurationReference = D6347332EB1C6A3C14EC6866 /* Pods-BeskarTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -893,7 +901,7 @@
 		};
 		7824689E25CF990300B1B9E4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B62ACA9F5BDABF70CBC2095 /* Pods-BeskarTests.release.xcconfig */;
+			baseConfigurationReference = 9CE777BEE2EC6156E2541E3F /* Pods-BeskarTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1031,7 +1039,7 @@
 		};
 		783222ED25C378F000D466ED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 909586B4728B47ACE7D2ABF6 /* Pods-Beskar.debug.xcconfig */;
+			baseConfigurationReference = 7DA018436104CD47B9518680 /* Pods-Beskar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1052,7 +1060,7 @@
 		};
 		783222EE25C378F000D466ED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E100C9EBA01CDDBCD36EA29 /* Pods-Beskar.release.xcconfig */;
+			baseConfigurationReference = 7E0F3E1DA08DBA35ACECF9D9 /* Pods-Beskar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

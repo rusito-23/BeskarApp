@@ -7,7 +7,16 @@
 
 import BeskarUI
 import BeskarKit
+import Loaf
 import UIKit
+
+// MARK: - Flow Protocol
+
+protocol WalletDetailCoordinatorFlow: AnyObject {
+    func startWalletActionFlow(_ action: WalletAction)
+}
+
+// MARK: - Coordinator Implementation
 
 final class WalletDetailCoordinator: BaseCoordinator {
 
@@ -20,7 +29,8 @@ final class WalletDetailCoordinator: BaseCoordinator {
     private let wallet: Wallet
 
     private lazy var walletDetailViewController = WalletDetailViewController(
-        viewModel: walletViewModel
+        viewModel: walletViewModel,
+        coordinator: self
     )
 
     private lazy var walletViewModel: WalletViewModel = {
@@ -33,5 +43,48 @@ final class WalletDetailCoordinator: BaseCoordinator {
 
     init(wallet: Wallet) {
         self.wallet = wallet
+    }
+}
+
+// MARK: - Flows
+
+extension WalletDetailCoordinator: WalletDetailCoordinatorFlow {
+    func startWalletActionFlow(_ action: WalletAction) {
+        switch action {
+        case .deposit:
+            startWalletActionFlow(kind: .deposit)
+        case .withdraw:
+            startWalletActionFlow(kind: .withdraw)
+        case .edit:
+            startEditWalletFlow()
+        default:
+            break
+        }
+    }
+}
+
+// MARK: - Private Flows
+
+private extension WalletDetailCoordinator {
+    func startWalletActionFlow(kind: Transaction.Kind) {
+        let coordinator = WalletActionCoordinator(wallet: wallet, kind: kind)
+        coordinator.presenter = .presentation(presented)
+        coordinator.delegate = self
+        start(child: coordinator)
+    }
+
+    func startEditWalletFlow() {
+        // TODO: Create Edit Wallet Flow
+        Loaf("SOON: Edit Wallet Flow", location: .bottom, sender: walletDetailViewController).show()
+    }
+}
+
+// MARK: - Coordinator Delegate Conformance
+
+extension WalletDetailCoordinator: CoordinatorDelegate {
+    func coordinatorDidStop(_ coordinator: Coordinator) {
+        // Trigger a manual refresh to ensure we show the latest transactions
+        wallet.realm?.refresh()
+        walletViewModel.wallet = wallet
     }
 }

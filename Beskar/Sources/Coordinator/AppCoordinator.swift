@@ -51,6 +51,11 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorFlow {
     /// A coordinator to block the main window
     private var blockScreenCoordinator: BlockScreenCoordinator?
 
+    /// Indicates if the session timed out
+    private var sessionDidExpire: Bool {
+        Preferences.sessionPauseDate.elapsed(minutes: Preferences.sessionTimeoutInMinutes)
+    }
+
     // MARK: Initializers
 
     init(presenter: UINavigationController = NavigationController()) {
@@ -86,11 +91,6 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorFlow {
             startWelcomeFlow()
             return
         }
-
-        // Check if session did expire
-        let sessionDidExpire = Preferences.sessionPauseDate.elapsed(
-            minutes: Preferences.sessionTimeoutInMinutes
-        )
 
         // Check if login flow should start
         if sessionDidExpire || Preferences.shouldForceLogin {

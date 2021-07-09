@@ -6,6 +6,7 @@
 //
 
 import BeskarUI
+import BeskarKit
 import Combine
 import UIKit
 
@@ -13,7 +14,7 @@ final class TransactionCell: UITableViewCell {
 
     // MARK: Properties
 
-    private(set) var viewModel: TransactionViewModel = resolve()
+    private var viewModel: TransactionViewModel = resolve()
 
     private lazy var subscriptions = Set<AnyCancellable>()
 
@@ -78,6 +79,13 @@ final class TransactionCell: UITableViewCell {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: Methods
+
+    func configure(wallet: Wallet?, transaction: Transaction) {
+        viewModel.wallet = wallet
+        viewModel.transaction = transaction
     }
 
     // MARK: Private Methods

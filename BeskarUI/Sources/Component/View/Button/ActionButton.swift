@@ -10,30 +10,37 @@ import UIKit
 /// A Round button without a title
 /// # Discussion #
 /// Requires a system icon that reflects exactly the kind of action that the button triggers.
-/// Users the SF System Icons and uses them with a large point size, all configured from
+/// Uses the SF System Icons and uses them with a large point size, all configured from
 /// within this view. Uses `tertiary` tinto color for normal state and `secondary` for highlighted.
 public class ActionButton: UIButton {
+
+    // MARK: Properties
+
+    private let pointSize: CGFloat
+
+    private let color: UIColor
+
+    private let highlightColor: UIColor
 
     // MARK: Initializers
 
     public init(
-        imageName: UIImage.Beskar.Name.System,
+        imageName: UIImage.Beskar.Name.System? = nil,
         size: UIFont.Beskar.Size = .typeMedium,
         color: UIColor = UIColor.beskar.tertiary,
         highlightColor: UIColor = UIColor.beskar.secondary,
         identifier: String? = nil,
         label: String? = nil
     ) {
+        self.pointSize = size.rawValue
+        self.color = color
+        self.highlightColor = highlightColor
+
         super.init(frame: .zero)
         accessibilityIdentifier = identifier
         accessibilityLabel = label
 
-        setUpImage(
-            with: imageName,
-            pointSize: size.rawValue,
-            color: color,
-            highlightColor: highlightColor
-        )
+        if let imageName = imageName { update(with: imageName) }
     }
 
     @available(*, unavailable)
@@ -41,14 +48,9 @@ public class ActionButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: Private Methods
+    // MARK: Public Methods
 
-    private func setUpImage(
-        with imageName: UIImage.Beskar.Name.System,
-        pointSize: CGFloat,
-        color: UIColor,
-        highlightColor: UIColor
-    ) {
+    public func update(with imageName: UIImage.Beskar.Name.System) {
         setImage(
             UIImage.beskar
                 .create(imageName)?

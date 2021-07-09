@@ -49,4 +49,9 @@ final class WalletViewModel: ViewModel {
             .sorted { $0.date.compare($1.date) == .orderedDescending }
             ?? []
         }.eraseToAnyPublisher()
+
+    /// The available actions to be taken with the wallet
+    private(set) lazy var actionsPublisher: AnyPublisher<[WalletAction], Never> = $wallet
+        .map { _ in [ .withdraw, .edit, .deposit ] }
+        .eraseToAnyPublisher()
 }
