@@ -53,7 +53,7 @@ public final class AuthService: AuthServiceProtocol {
 
     public init(
         context: LAContext = LAContext(),
-        policy: LAPolicy = .deviceOwnerAuthenticationWithBiometrics
+        policy: LAPolicy = .deviceOwnerAuthentication
     ) {
         self.context = context
         self.policy = policy
