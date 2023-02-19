@@ -5,7 +5,8 @@ target 'Beskar' do
     project 'Beskar/Beskar.xcodeproj'
     use_frameworks!
 
-    pod 'RealmSwift'
+    pod 'Realm', '10.18.0'
+    pod 'RealmSwift', '10.18.0'
     pod 'TinyConstraints'
     pod 'SwiftyBeaver'
     pod 'Swinject'
@@ -19,7 +20,8 @@ target 'BeskarTests' do
     project 'Beskar/Beskar.xcodeproj'
     use_frameworks!
 
-    pod 'RealmSwift'
+    pod 'Realm', '10.18.0'
+    pod 'RealmSwift', '10.18.0'
     pod 'Swinject'
     pod 'Quick'
     pod 'Nimble'
@@ -29,7 +31,8 @@ target 'BeskarKit' do
     project 'BeskarKit/BeskarKit.xcodeproj'
     use_frameworks!
 
-    pod 'RealmSwift'
+    pod 'Realm', '10.18.0'
+    pod 'RealmSwift', '10.18.0'
     pod 'SwiftyBeaver'
 end
 

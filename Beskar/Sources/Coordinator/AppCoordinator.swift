@@ -157,7 +157,7 @@ extension AppCoordinator {
     /// Start block flow
     func startBlockFlow() {
         let blockScreenCoordinator = BlockScreenCoordinator()
-        blockScreenCoordinator.presenter = .presentation(presenter?.viewController)
+        blockScreenCoordinator.presenter = .cover(window)
         self.blockScreenCoordinator = blockScreenCoordinator
         start(child: blockScreenCoordinator)
     }
@@ -189,3 +189,7 @@ extension AppCoordinator: LoginCoordinatorDelegate {
         _ coordinator: LoginCoordinator
     ) { startMainFlow() }
 }
+
+// TODO:
+// - rename block flow to obfuscation flow or similar
+// - rename login flow to authentication flow

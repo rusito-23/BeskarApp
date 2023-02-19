@@ -162,7 +162,7 @@ final class AppCoordinatorTests: XCTestCase {
         ).to(beAKindOf(ErrorViewController.self))
     }
 
-    func test_startLoginFlow_wuthAuthenticationPartialFailure_shouldShowError() {
+    func test_startLoginFlow_withAuthenticationPartialFailure_shouldShowError() {
         // Setup expectations
         navigationMock.presentExpectation = expectation(description: "Present Error")
         authServiceMock.availabilityExpectation = expectation(description: "Auth Availability")
@@ -243,8 +243,8 @@ final class AppCoordinatorTests: XCTestCase {
 
         waitForExpectations(timeout: 3.0)
         expect(
-            self.navigationMock.lastPresentedViewController
-        ).to(beAKindOf(BlockScreenViewController.self))
+            self.coordinator.window.subviews.last
+        ).to(beAKindOf(SplashView.self))
     }
 
     func test_pause_withBlockScreenPreferenceOff_shouldNotShowBlockScreen() {
@@ -252,8 +252,8 @@ final class AppCoordinatorTests: XCTestCase {
         coordinator.start()
         coordinator.pause()
         expect(
-            self.navigationMock.lastPresentedViewController
-        ).to(beNil())
+            self.coordinator.window.subviews.last
+        ).toNot(beAKindOf(SplashView.self))
     }
 
     func test_stop_shouldSetForceLogin() {

@@ -5,11 +5,11 @@ PODS:
   - Loaf (0.7.0)
   - Nimble (9.2.0)
   - Quick (4.0.0)
-  - Realm (10.10.0):
-    - Realm/Headers (= 10.10.0)
-  - Realm/Headers (10.10.0)
-  - RealmSwift (10.10.0):
-    - Realm (= 10.10.0)
+  - Realm (10.18.0):
+    - Realm/Headers (= 10.18.0)
+  - Realm/Headers (10.18.0)
+  - RealmSwift (10.18.0):
+    - Realm (= 10.18.0)
   - SwiftyBeaver (1.9.5)
   - Swinject (2.7.1)
   - TinyConstraints (4.0.1)
@@ -21,7 +21,8 @@ DEPENDENCIES:
   - Loaf
   - Nimble
   - Quick
-  - RealmSwift
+  - Realm (= 10.18.0)
+  - RealmSwift (= 10.18.0)
   - SwiftyBeaver
   - Swinject
   - TinyConstraints
@@ -47,12 +48,12 @@ SPEC CHECKSUMS:
   Loaf: d69937cd00649f3fa260beb8b7aef0a1feb861ef
   Nimble: 4f4a345c80b503b3ea13606a4f98405974ee4d0b
   Quick: 6473349e43b9271a8d43839d9ba1c442ed1b7ac4
-  Realm: f501df41a4222c67850c77cf135d472192ecf294
-  RealmSwift: c69aadfc7db0d60075178d037c2f34ada73d5201
+  Realm: b8b0a36bf48c39c50fd8cee7ac34005e6d887ddd
+  RealmSwift: fe2f33d731f47aaf4c3618930f9f7cf7b935c33f
   SwiftyBeaver: 84069991dd5dca07d7069100985badaca7f0ce82
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 1913b3770af46ae1c8fbd3e8dbe7802bb8adac6c
+PODFILE CHECKSUM: e0d1e4941371de9a8bf0d0951bb7ecdb3975cdf0
 
 COCOAPODS: 1.10.1

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -96,7 +96,7 @@
 		78C090A025D0841B00C8563B /* BeskarKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909825D0841B00C8563B /* BeskarKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		78C090A125D0841B00C8563B /* BeskarUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909925D0841B00C8563B /* BeskarUI.framework */; };
 		78C090A225D0841B00C8563B /* BeskarUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 78C0909925D0841B00C8563B /* BeskarUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		78C090A425D0841B00C8563B /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		78C090A425D0841B00C8563B /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		78CCA251260AB5ED007060F3 /* EurekaSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78CCA250260AB5ED007060F3 /* EurekaSetup.swift */; };
 		78DB116325C6375100335F7B /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB116225C6375100335F7B /* String+Helpers.swift */; };
 		78ED93842698F75600A25562 /* WalletAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78ED93832698F75600A25562 /* WalletAction.swift */; };
@@ -122,7 +122,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				78C090A225D0841B00C8563B /* BeskarUI.framework in Embed Frameworks */,
-				78C090A425D0841B00C8563B /* BuildFile in Embed Frameworks */,
+				78C090A425D0841B00C8563B /* (null) in Embed Frameworks */,
 				78C090A025D0841B00C8563B /* BeskarKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -695,6 +695,7 @@
 		};
 		45C052073A50592DCB18278A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -734,6 +735,7 @@
 		};
 		DAC529955AEB4853111170EE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);

@@ -45,6 +45,10 @@ class BaseCoordinator: Coordinator {
         }
 
         switch presenter {
+        case let .cover(window):
+            window?.addSubview(presented.view)
+            presented.view.edgesToSuperview()
+            presented.view.centerInSuperview()
         case let .presentation(viewController):
             viewController?.present(presented, animated: true)
         case let .navigation(navigationController):
@@ -63,6 +67,8 @@ class BaseCoordinator: Coordinator {
         }
 
         switch presenter {
+        case .cover:
+            presented?.view.removeFromSuperview()
         case .presentation:
             presented?.dismiss(animated: true)
         case let .navigation(navigationController):

@@ -10,6 +10,7 @@ import UIKit
 // MARK: - Coordinator Presenter Kinds
 
 public enum Presenter {
+    case cover(UIWindow?)
     case navigation(UINavigationController?)
     case presentation(UIViewController?)
 
@@ -18,6 +19,7 @@ public enum Presenter {
         switch self {
         case let .navigation(vc): return vc
         case let .presentation(vc): return vc
+        case .cover: return nil
         }
     }
 }
