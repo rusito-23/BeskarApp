@@ -33,16 +33,16 @@ final class WalletActionViewModel: ViewModel {
 
     var titleText: String { wallet.name }
 
+    var buttonTitle: String { actionText.uppercased() }
+
+    var disclaimerText: String { "WALLET_ACTION_DISCLAIMER".localized }
+
     var actionText: String {
         switch kind {
         case .deposit: return "DEPOSIT".localized
         case .withdraw: return "WITHDRAW".localized
         }
     }
-
-    var buttonTitle: String { actionText.uppercased() }
-
-    var disclaimerText: String { "WALLET_ACTION_DISCLAIMER".localized }
 
     // MARK: Private Properties
 

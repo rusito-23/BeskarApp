@@ -29,7 +29,7 @@ extension BeskarWrapper where Base == UIImage {
             case deposit = "plus.circle"
             case withdraw = "minus.circle"
             case details = "list.dash"
-            case edit = "pencil.circle"
+            case remove = "trash.circle"
             case create = "plus.circle.fill"
 
             // Other

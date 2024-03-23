@@ -52,6 +52,6 @@ final class WalletViewModel: ViewModel {
 
     /// The available actions to be taken with the wallet
     private(set) lazy var actionsPublisher: AnyPublisher<[WalletAction], Never> = $wallet
-        .map { _ in [ .withdraw, .edit, .deposit ] }
+        .map { _ in [ .withdraw, .remove, .deposit ] }
         .eraseToAnyPublisher()
 }

@@ -30,9 +30,6 @@ final class WalletActionCoordinator: BaseCoordinator {
     // MARK: Initializer
 
     init(wallet: Wallet, kind: Transaction.Kind) {
-        viewModel = WalletActionViewModel(
-            wallet: wallet,
-            kind: kind
-        )
+        viewModel = WalletActionViewModel(wallet: wallet, kind: kind)
     }
 }

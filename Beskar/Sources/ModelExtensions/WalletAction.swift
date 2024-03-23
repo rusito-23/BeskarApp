@@ -14,8 +14,8 @@ enum WalletAction {
     case withdraw
     /// Deposit founds into the wallet
     case deposit
-    /// Edit the Wallet
-    case edit
+    /// Remove the Wallet
+    case remove
     /// Open the Wallet details
     case details
 }
@@ -27,7 +27,7 @@ extension WalletAction {
         switch self {
         case .withdraw: return .withdraw
         case .deposit: return .deposit
-        case .edit: return .edit
+        case .remove: return .remove
         case .details: return .details
         }
     }

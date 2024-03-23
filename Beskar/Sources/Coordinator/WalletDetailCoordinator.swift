@@ -55,8 +55,8 @@ extension WalletDetailCoordinator: WalletDetailCoordinatorFlow {
             startWalletActionFlow(kind: .deposit)
         case .withdraw:
             startWalletActionFlow(kind: .withdraw)
-        case .edit:
-            startEditWalletFlow()
+        case .remove:
+            startRemoveWalletFlow()
         default:
             break
         }
@@ -73,9 +73,9 @@ private extension WalletDetailCoordinator {
         start(child: coordinator)
     }
 
-    func startEditWalletFlow() {
-        // TODO: Create Edit Wallet Flow
-        Loaf("SOON: Edit Wallet Flow", location: .bottom, sender: walletDetailViewController).show()
+    func startRemoveWalletFlow() {
+        // TODO: Create Remove Wallet Flow
+        Loaf("SOON: Remove Wallet Flow", location: .bottom, sender: walletDetailViewController).show()
     }
 }
 

@@ -102,6 +102,8 @@
 		78ED93842698F75600A25562 /* WalletAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78ED93832698F75600A25562 /* WalletAction.swift */; };
 		88940ED2B920DF768255B7A3 /* Pods_BeskarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14071B01103AE20C2819AAC9 /* Pods_BeskarTests.framework */; };
 		CE020F6AFEB27F18DE74CCD8 /* Pods_Beskar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C3279EEF1BA662A2067AC4 /* Pods_Beskar.framework */; };
+		F29787F02BA9012C009F23AC /* WalletRemoveCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29787EF2BA9012C009F23AC /* WalletRemoveCoordinator.swift */; };
+		F29787F22BA9033C009F23AC /* WalletRemoveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29787F12BA9033C009F23AC /* WalletRemoveViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +239,8 @@
 		7E0F3E1DA08DBA35ACECF9D9 /* Pods-Beskar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.release.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.release.xcconfig"; sourceTree = "<group>"; };
 		9CE777BEE2EC6156E2541E3F /* Pods-BeskarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.release.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.release.xcconfig"; sourceTree = "<group>"; };
 		D6347332EB1C6A3C14EC6866 /* Pods-BeskarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.debug.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F29787EF2BA9012C009F23AC /* WalletRemoveCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRemoveCoordinator.swift; sourceTree = "<group>"; };
+		F29787F12BA9033C009F23AC /* WalletRemoveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRemoveViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +443,7 @@
 				78B4C9DF25F679EA005085F5 /* WalletListCoordinator.swift */,
 				78BD8FD725FD6B5E00935915 /* WalletDetailCoordinator.swift */,
 				78BD8FDA25FD6BC300935915 /* WalletActionCoordinator.swift */,
+				F29787EF2BA9012C009F23AC /* WalletRemoveCoordinator.swift */,
 				78B4C9E225F67A37005085F5 /* SettingsCoordinator.swift */,
 				78536BC92609543600E9BA0E /* WelcomeCoordinator.swift */,
 				78536BCC260956D600E9BA0E /* AuthErrorCoordinator.swift */,
@@ -558,6 +563,7 @@
 				78B4CA0625FBD712005085F5 /* PickerInputFieldViewModel.swift */,
 				7895FADB260D012500647E3F /* ConcreteInputFieldViewModels.swift */,
 				784BEF9A26081F1800058A59 /* WalletActionViewModel.swift */,
+				F29787F12BA9033C009F23AC /* WalletRemoveViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -810,6 +816,7 @@
 				78BD8FDB25FD6BC300935915 /* WalletActionCoordinator.swift in Sources */,
 				7897668825DB0AD1000E9552 /* CompactAmountFormatter.swift in Sources */,
 				78BD8FD225FD6AFB00935915 /* WalletDetailViewController.swift in Sources */,
+				F29787F02BA9012C009F23AC /* WalletRemoveCoordinator.swift in Sources */,
 				78536BBF260900CC00E9BA0E /* BaseCoordinator.swift in Sources */,
 				78B4C9DA25F6789C005085F5 /* StatsCoordinator.swift in Sources */,
 				7889475F25D9CB3B00BB9BEE /* WalletListFooterView.swift in Sources */,
@@ -835,6 +842,7 @@
 				782BBD2925DD89A9007FB112 /* CreateWalletCoordinator.swift in Sources */,
 				78C0909225D083E900C8563B /* SwiftyBeaver.swift in Sources */,
 				78BD8FD525FD6B2D00935915 /* WalletActionViewController.swift in Sources */,
+				F29787F22BA9033C009F23AC /* WalletRemoveViewModel.swift in Sources */,
 				784C345525CF55F600DA24E1 /* WelcomeView.swift in Sources */,
 				78536BCD260956D600E9BA0E /* AuthErrorCoordinator.swift in Sources */,
 				78438C4125D5F69D003B8A4E /* WorkInProgressView.swift in Sources */,
