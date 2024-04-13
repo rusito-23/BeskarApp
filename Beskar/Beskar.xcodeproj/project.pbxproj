@@ -29,7 +29,6 @@
 		7832230325C37BC800D466ED /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832230225C37BC800D466ED /* AppCoordinator.swift */; };
 		78414A4F25D2F45D00F9351D /* WalletListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A4E25D2F45D00F9351D /* WalletListViewController.swift */; };
 		78414A5325D2F48400F9351D /* WalletListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A5225D2F48400F9351D /* WalletListView.swift */; };
-		78414A5625D2F4AA00F9351D /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A5525D2F4AA00F9351D /* StatsViewController.swift */; };
 		78414A5C25D2F50D00F9351D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78414A5B25D2F50C00F9351D /* SettingsViewController.swift */; };
 		78438C3C25D5F472003B8A4E /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78438C3B25D5F472003B8A4E /* ViewControllerExtensions.swift */; };
 		78438C4125D5F69D003B8A4E /* WorkInProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78438C4025D5F69D003B8A4E /* WorkInProgressView.swift */; };
@@ -102,6 +101,8 @@
 		78ED93842698F75600A25562 /* WalletAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78ED93832698F75600A25562 /* WalletAction.swift */; };
 		88940ED2B920DF768255B7A3 /* Pods_BeskarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14071B01103AE20C2819AAC9 /* Pods_BeskarTests.framework */; };
 		CE020F6AFEB27F18DE74CCD8 /* Pods_Beskar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C3279EEF1BA662A2067AC4 /* Pods_Beskar.framework */; };
+		F226E1CB2BCB20F400AD0518 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226E1CA2BCB20F400AD0518 /* StatsView.swift */; };
+		F226E1CD2BCB21D600AD0518 /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226E1CC2BCB21D600AD0518 /* StatsViewModel.swift */; };
 		F29787F02BA9012C009F23AC /* WalletRemoveCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29787EF2BA9012C009F23AC /* WalletRemoveCoordinator.swift */; };
 		F29787F22BA9033C009F23AC /* WalletRemoveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29787F12BA9033C009F23AC /* WalletRemoveViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -163,7 +164,6 @@
 		7832236325C44B9800D466ED /* BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78414A4E25D2F45D00F9351D /* WalletListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListViewController.swift; sourceTree = "<group>"; };
 		78414A5225D2F48400F9351D /* WalletListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletListView.swift; sourceTree = "<group>"; };
-		78414A5525D2F4AA00F9351D /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		78414A5B25D2F50C00F9351D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		78438C3B25D5F472003B8A4E /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		78438C4025D5F69D003B8A4E /* WorkInProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkInProgressView.swift; sourceTree = "<group>"; };
@@ -239,6 +239,8 @@
 		7E0F3E1DA08DBA35ACECF9D9 /* Pods-Beskar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beskar.release.xcconfig"; path = "Target Support Files/Pods-Beskar/Pods-Beskar.release.xcconfig"; sourceTree = "<group>"; };
 		9CE777BEE2EC6156E2541E3F /* Pods-BeskarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.release.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.release.xcconfig"; sourceTree = "<group>"; };
 		D6347332EB1C6A3C14EC6866 /* Pods-BeskarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.debug.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F226E1CA2BCB20F400AD0518 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		F226E1CC2BCB21D600AD0518 /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
 		F29787EF2BA9012C009F23AC /* WalletRemoveCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRemoveCoordinator.swift; sourceTree = "<group>"; };
 		F29787F12BA9033C009F23AC /* WalletRemoveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRemoveViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -625,7 +627,8 @@
 		F226E1C82BCAFF7200AD0518 /* Stats */ = {
 			isa = PBXGroup;
 			children = (
-				78414A5525D2F4AA00F9351D /* StatsViewController.swift */,
+				F226E1CA2BCB20F400AD0518 /* StatsView.swift */,
+				F226E1CC2BCB21D600AD0518 /* StatsViewModel.swift */,
 				78B4C9D925F6789C005085F5 /* StatsCoordinator.swift */,
 			);
 			path = Stats;
@@ -885,6 +888,7 @@
 				78B4CA0725FBD712005085F5 /* PickerInputFieldViewModel.swift in Sources */,
 				78854C64260F9A51008C7A5A /* Date+Helpers.swift in Sources */,
 				7889476825D9E8BD00BB9BEE /* UITableViewExtensions.swift in Sources */,
+				F226E1CD2BCB21D600AD0518 /* StatsViewModel.swift in Sources */,
 				78BD8FDB25FD6BC300935915 /* WalletActionCoordinator.swift in Sources */,
 				7897668825DB0AD1000E9552 /* CompactAmountFormatter.swift in Sources */,
 				78BD8FD225FD6AFB00935915 /* WalletDetailViewController.swift in Sources */,
@@ -900,7 +904,6 @@
 				782BBD2525DD897E007FB112 /* CreateWalletViewController.swift in Sources */,
 				78414A5325D2F48400F9351D /* WalletListView.swift in Sources */,
 				7897669025DB1460000E9552 /* WalletExtensions.swift in Sources */,
-				78414A5625D2F4AA00F9351D /* StatsViewController.swift in Sources */,
 				7897668425DB00F0000E9552 /* ViewModel.swift in Sources */,
 				782E6D9B25D061860057705E /* LoadingView.swift in Sources */,
 				78AC5E3C25D60729005F8D86 /* WalletCardViewCell.swift in Sources */,
@@ -913,6 +916,7 @@
 				78CCA251260AB5ED007060F3 /* EurekaSetup.swift in Sources */,
 				782BBD2925DD89A9007FB112 /* CreateWalletCoordinator.swift in Sources */,
 				78C0909225D083E900C8563B /* SwiftyBeaver.swift in Sources */,
+				F226E1CB2BCB20F400AD0518 /* StatsView.swift in Sources */,
 				78BD8FD525FD6B2D00935915 /* WalletActionViewController.swift in Sources */,
 				F29787F22BA9033C009F23AC /* WalletRemoveViewModel.swift in Sources */,
 				784C345525CF55F600DA24E1 /* WelcomeView.swift in Sources */,

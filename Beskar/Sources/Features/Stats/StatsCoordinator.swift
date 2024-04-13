@@ -7,6 +7,7 @@
 
 import BeskarUI
 import UIKit
+import SwiftUI
 
 final class StatsCoordinator: BaseCoordinator {
 
@@ -16,8 +17,8 @@ final class StatsCoordinator: BaseCoordinator {
 
     // MARK: Private Properties
 
-    private lazy var statsViewController: StatsViewController = {
-        let viewController = StatsViewController()
+    private lazy var statsViewController: UIHostingController = {
+        let viewController = UIHostingController(rootView: StatsView())
         viewController.tabBarItem = tabBarItem
         return viewController
     }()
