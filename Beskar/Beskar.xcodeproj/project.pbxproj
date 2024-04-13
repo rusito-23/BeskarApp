@@ -314,12 +314,6 @@
 				78536BD7260A2F9100E9BA0E /* Cells */,
 				7889476225D9E86C00BB9BEE /* Extensions */,
 				782E6D9625D060C60057705E /* Base */,
-				782BBD2125DD8955007FB112 /* CreateWalletView.swift */,
-				780E98CC25FD870500C8061E /* WalletActionView.swift */,
-				7889475E25D9CB3B00BB9BEE /* WalletListFooterView.swift */,
-				78414A5225D2F48400F9351D /* WalletListView.swift */,
-				784C345425CF55F600DA24E1 /* WelcomeView.swift */,
-				78536BC6260952B900E9BA0E /* WalletDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -380,13 +374,6 @@
 				78438C3A25D5F462003B8A4E /* Extensions */,
 				782E6D9225D060B50057705E /* Common */,
 				78536BF1260A891F00E9BA0E /* BlockScreenViewController.swift */,
-				782BBD2425DD897E007FB112 /* CreateWalletViewController.swift */,
-				78414A5B25D2F50C00F9351D /* SettingsViewController.swift */,
-				78414A5525D2F4AA00F9351D /* StatsViewController.swift */,
-				78414A4E25D2F45D00F9351D /* WalletListViewController.swift */,
-				784C344A25CF342600DA24E1 /* WelcomeViewController.swift */,
-				78BD8FD125FD6AFB00935915 /* WalletDetailViewController.swift */,
-				78BD8FD425FD6B2D00935915 /* WalletActionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -400,6 +387,7 @@
 				782927DC25C50AE300F41574 /* Common */,
 				783222FD25C37A6000D466ED /* Coordinator */,
 				783222F125C3791700D466ED /* Controller */,
+				F226E1BF2BCAFF0300AD0518 /* Features */,
 				782927DB25C50ACF00F41574 /* View */,
 				78ECC27825C6152300880193 /* ViewModel */,
 				7897668E25DB1448000E9552 /* ModelExtensions */,
@@ -436,16 +424,8 @@
 			children = (
 				78536BBE260900CC00E9BA0E /* BaseCoordinator.swift */,
 				7832230225C37BC800D466ED /* AppCoordinator.swift */,
-				782BBD2825DD89A9007FB112 /* CreateWalletCoordinator.swift */,
 				78B4C9D325F671BA005085F5 /* LoginCoordinator.swift */,
 				78B4C9D625F6773D005085F5 /* MainTabBarCoordinator.swift */,
-				78B4C9D925F6789C005085F5 /* StatsCoordinator.swift */,
-				78B4C9DF25F679EA005085F5 /* WalletListCoordinator.swift */,
-				78BD8FD725FD6B5E00935915 /* WalletDetailCoordinator.swift */,
-				78BD8FDA25FD6BC300935915 /* WalletActionCoordinator.swift */,
-				F29787EF2BA9012C009F23AC /* WalletRemoveCoordinator.swift */,
-				78B4C9E225F67A37005085F5 /* SettingsCoordinator.swift */,
-				78536BC92609543600E9BA0E /* WelcomeCoordinator.swift */,
 				78536BCC260956D600E9BA0E /* AuthErrorCoordinator.swift */,
 				78536BDF260A7F3C00E9BA0E /* BlockScreenCoordinator.swift */,
 			);
@@ -555,17 +535,109 @@
 			isa = PBXGroup;
 			children = (
 				7897668325DB00F0000E9552 /* ViewModel.swift */,
-				78B4C9EF25FAB939005085F5 /* CreateWalletViewModel.swift */,
-				7889476B25D9F40200BB9BEE /* WalletListViewModel.swift */,
-				7889477225DA20FB00BB9BEE /* WalletViewModel.swift */,
 				78536BDC260A69A400E9BA0E /* TransactionViewModel.swift */,
 				78B4CA0225FBAFE9005085F5 /* InputFieldViewModel.swift */,
 				78B4CA0625FBD712005085F5 /* PickerInputFieldViewModel.swift */,
 				7895FADB260D012500647E3F /* ConcreteInputFieldViewModels.swift */,
-				784BEF9A26081F1800058A59 /* WalletActionViewModel.swift */,
-				F29787F12BA9033C009F23AC /* WalletRemoveViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F226E1BF2BCAFF0300AD0518 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F226E1C82BCAFF7200AD0518 /* Stats */,
+				F226E1C72BCAFF6900AD0518 /* Welcome */,
+				F226E1C62BCAFF6200AD0518 /* Settings */,
+				F226E1C52BCAFF5400AD0518 /* CreateWallet */,
+				F226E1C42BCAFF3C00AD0518 /* WalletAction */,
+				F226E1C92BCAFFF400AD0518 /* WalletRemove */,
+				F226E1C22BCAFF1F00AD0518 /* WalletDetail */,
+				F226E1C02BCAFF1200AD0518 /* WalletList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		F226E1C02BCAFF1200AD0518 /* WalletList */ = {
+			isa = PBXGroup;
+			children = (
+				78B4C9DF25F679EA005085F5 /* WalletListCoordinator.swift */,
+				78414A4E25D2F45D00F9351D /* WalletListViewController.swift */,
+				7889475E25D9CB3B00BB9BEE /* WalletListFooterView.swift */,
+				78414A5225D2F48400F9351D /* WalletListView.swift */,
+				7889476B25D9F40200BB9BEE /* WalletListViewModel.swift */,
+			);
+			path = WalletList;
+			sourceTree = "<group>";
+		};
+		F226E1C22BCAFF1F00AD0518 /* WalletDetail */ = {
+			isa = PBXGroup;
+			children = (
+				78BD8FD725FD6B5E00935915 /* WalletDetailCoordinator.swift */,
+				78BD8FD125FD6AFB00935915 /* WalletDetailViewController.swift */,
+				78536BC6260952B900E9BA0E /* WalletDetailView.swift */,
+				7889477225DA20FB00BB9BEE /* WalletViewModel.swift */,
+			);
+			path = WalletDetail;
+			sourceTree = "<group>";
+		};
+		F226E1C42BCAFF3C00AD0518 /* WalletAction */ = {
+			isa = PBXGroup;
+			children = (
+				78BD8FDA25FD6BC300935915 /* WalletActionCoordinator.swift */,
+				78BD8FD425FD6B2D00935915 /* WalletActionViewController.swift */,
+				780E98CC25FD870500C8061E /* WalletActionView.swift */,
+				784BEF9A26081F1800058A59 /* WalletActionViewModel.swift */,
+			);
+			path = WalletAction;
+			sourceTree = "<group>";
+		};
+		F226E1C52BCAFF5400AD0518 /* CreateWallet */ = {
+			isa = PBXGroup;
+			children = (
+				782BBD2825DD89A9007FB112 /* CreateWalletCoordinator.swift */,
+				782BBD2425DD897E007FB112 /* CreateWalletViewController.swift */,
+				782BBD2125DD8955007FB112 /* CreateWalletView.swift */,
+				78B4C9EF25FAB939005085F5 /* CreateWalletViewModel.swift */,
+			);
+			path = CreateWallet;
+			sourceTree = "<group>";
+		};
+		F226E1C62BCAFF6200AD0518 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				78B4C9E225F67A37005085F5 /* SettingsCoordinator.swift */,
+				78414A5B25D2F50C00F9351D /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F226E1C72BCAFF6900AD0518 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				78536BC92609543600E9BA0E /* WelcomeCoordinator.swift */,
+				784C344A25CF342600DA24E1 /* WelcomeViewController.swift */,
+				784C345425CF55F600DA24E1 /* WelcomeView.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		F226E1C82BCAFF7200AD0518 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				78414A5525D2F4AA00F9351D /* StatsViewController.swift */,
+				78B4C9D925F6789C005085F5 /* StatsCoordinator.swift */,
+			);
+			path = Stats;
+			sourceTree = "<group>";
+		};
+		F226E1C92BCAFFF400AD0518 /* WalletRemove */ = {
+			isa = PBXGroup;
+			children = (
+				F29787EF2BA9012C009F23AC /* WalletRemoveCoordinator.swift */,
+				F29787F12BA9033C009F23AC /* WalletRemoveViewModel.swift */,
+			);
+			path = WalletRemove;
 			sourceTree = "<group>";
 		};
 		F725179961C53B2A3868E047 /* Pods */ = {
