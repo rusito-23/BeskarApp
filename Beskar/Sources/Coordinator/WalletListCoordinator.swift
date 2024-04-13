@@ -70,6 +70,12 @@ extension WalletListCoordinator: WalletListCoordinatorFlow {
 // MARK: - Coordinator Delegate Conformance
 
 extension WalletListCoordinator: CoordinatorDelegate {
+    func coordinatorDidStart(_ coordinator: Coordinator) {
+        if coordinator is WalletRemoveCoordinator {
+            walletListViewController.clearWallets()
+        }
+    }
+
     /// Every time on of the children stops, we reload the table view
     func coordinatorDidStop(_ coordinator: Coordinator) {
         walletListViewController.reloadWallets()

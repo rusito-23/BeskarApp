@@ -20,6 +20,9 @@ public protocol WalletServiceProtocol {
     /// Saves a wallet
     func write(_ object: Wallet, _ completion: @escaping WriteResult)
 
+    /// Deletes a wallet
+    func remove(_ object: Wallet, _ completion: @escaping WriteResult)
+
     /// Update a wallet
     func update(
         _ object: Wallet,

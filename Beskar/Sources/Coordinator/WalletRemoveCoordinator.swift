@@ -4,11 +4,11 @@ import UIKit
 
 final class WalletRemoveCoordinator: BaseCoordinator {
 
-    // MARK: - Coordinator Properties
+    // MARK: Coordinator Properties
 
     override var presented: UIViewController? { alertController }
 
-    // MARK: - Private Computed Properties
+    // MARK: Private Computed Properties
 
     private lazy var confirmAction = UIAlertAction(
         title: viewModel.confirmTitle,
@@ -16,7 +16,7 @@ final class WalletRemoveCoordinator: BaseCoordinator {
         handler: { [weak self] _ in
             guard let self else { return }
             viewModel.onRemovalConfirmed()
-            onWalletRemoved()
+            stop()
         }
     )
 
@@ -36,22 +36,18 @@ final class WalletRemoveCoordinator: BaseCoordinator {
         return viewController
     }()
 
-    // MARK: - Private Properties
+    // MARK: Private Properties
 
     private let viewModel: WalletRemoveViewModel
-    private let onWalletRemoved: () -> Void
 
-    // MARK: - Initializer
+    // MARK: Initializer
 
-    init(viewModel: WalletRemoveViewModel, onWalletRemoved: @escaping () -> Void) {
+    init(viewModel: WalletRemoveViewModel) {
         self.viewModel = viewModel
-        self.onWalletRemoved = onWalletRemoved
     }
 
-    convenience init(wallet: Wallet, onWalletRemoved: @escaping () -> Void) {
-        self.init(
-            viewModel: WalletRemoveViewModel(wallet: wallet),
-            onWalletRemoved: onWalletRemoved
-        )
+    convenience init(wallet: Wallet, delegate: WalletRemoveDelegate) {
+        let viewModel = WalletRemoveViewModel(wallet: wallet, delegate: delegate)
+        self.init(viewModel: viewModel)
     }
 }

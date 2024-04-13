@@ -37,6 +37,10 @@ final class WalletListViewModel: ViewModel {
 
     // MARK: View Model Conformance
 
+    func clearWallets() {
+        wallets.removeAll()
+    }
+
     /// Entry point to start loading the actual wallets
     /// This method updates the published state and fetches the wallets
     func start(_ completion: @escaping (Result<Bool, DataServiceError>) -> Void) {

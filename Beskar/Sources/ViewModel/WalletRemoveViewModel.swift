@@ -1,5 +1,10 @@
 import BeskarKit
 
+protocol WalletRemoveDelegate: AnyObject {
+    func walletRemovalDidSucceed()
+    func walletRemovalFailed()
+}
+
 final class WalletRemoveViewModel: ViewModel {
 
     // MARK: Properties
@@ -16,16 +21,24 @@ final class WalletRemoveViewModel: ViewModel {
 
     private let wallet: Wallet
     private lazy var walletService: WalletServiceProtocol = resolve()
+    private weak var delegate: WalletRemoveDelegate?
 
     // MARK: Initializer
 
-    init(wallet: Wallet) {
+    init(wallet: Wallet, delegate: WalletRemoveDelegate? = nil) {
         self.wallet = wallet
+        self.delegate = delegate
     }
 
     // MARK: Methods
 
     func onRemovalConfirmed() {
-        // TODO: Actually remove the wallet
+        walletService.remove(wallet) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success: delegate?.walletRemovalDidSucceed()
+            case .failure: delegate?.walletRemovalFailed()
+            }
+        }
     }
 }

@@ -74,17 +74,41 @@ private extension WalletDetailCoordinator {
     }
 
     func startRemoveWalletFlow() {
-        // TODO: Create Remove Wallet Flow
-        Loaf("SOON: Remove Wallet Flow", location: .bottom, sender: walletDetailViewController).show()
+        let coordinator = WalletRemoveCoordinator(wallet: wallet, delegate: self)
+        coordinator.presenter = .presentation(presented)
+        coordinator.delegate = self
+        start(child: coordinator)
     }
 }
 
 // MARK: - Coordinator Delegate Conformance
 
 extension WalletDetailCoordinator: CoordinatorDelegate {
+    func coordinatorDidStart(_ coordinator: Coordinator) {
+        if coordinator is WalletRemoveCoordinator {
+            delegate?.coordinatorDidStart(coordinator)
+        }
+    }
+
     func coordinatorDidStop(_ coordinator: Coordinator) {
         // Trigger a manual refresh to ensure we show the latest transactions
         wallet.realm?.refresh()
         walletViewModel.wallet = wallet
+    }
+}
+
+// MARK: - Removal Delegate Conformance
+
+extension WalletDetailCoordinator: WalletRemoveDelegate {
+    func walletRemovalDidSucceed() {
+        stop()
+    }
+
+    func walletRemovalFailed() {
+        Loaf(
+            "WALLET_REMOVE_ERROR_MESSAGE".localized,
+            location: .bottom,
+            sender: walletDetailViewController
+        ).show()
     }
 }

@@ -34,15 +34,18 @@ final class WalletListViewController: ViewController<WalletListView> {
 
     // MARK: Methods
 
+    func clearWallets() {
+        viewModel.clearWallets()
+    }
+
     func reloadWallets() {
         startLoadingAndHideFooter()
         viewModel.start { [weak self] result in
-            guard let self = self else { return }
-            self.stopLoadingAndShowFooter()
+            guard let self else { return }
+            stopLoadingAndShowFooter()
 
-            switch result {
-            case .failure: self.showLoadError()
-            case .success: break
+            if case .failure = result {
+                showLoadError()
             }
         }
     }
