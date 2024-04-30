@@ -59,15 +59,15 @@ public final class MockWalletService: WalletServiceProtocol {
     public func fetch(_ completion: @escaping FetchResult) {
         completion(fetchResult)
     }
-    
+
     public func write(_ object: Wallet, _ completion: @escaping WriteResult) {
         // no-op
     }
-    
+
     public func remove(_ object: Wallet, _ completion: @escaping WriteResult) {
         // no-op
     }
-    
+
     public func update(
         _ object: Wallet,
         _ action: @escaping UpdateAction,

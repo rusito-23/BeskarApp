@@ -31,7 +31,7 @@ struct StatsView: View {
         Chart {
             ForEach(viewModel.wallets, id: \.self) { wallet in
                 BarMark(
-                    x: .value(Content.currency.localized,  wallet.currency.displayName),
+                    x: .value(Content.currency.localized, wallet.currency.displayName),
                     y: .value(Content.amount.localized, wallet.amount)
                 )
                 .foregroundStyle(by: .value(Content.name.localized, wallet.name))
