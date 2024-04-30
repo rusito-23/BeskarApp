@@ -105,3 +105,10 @@ This transaction can't be removed later so please enter the information carefull
 "SETTINGS_BLOCK_SCREEN_DETAIL" = "When enabled, this preference will block the screen whenever the app is in background";
 "SETTINGS_AUTH_TIMEOUT" = "Auth Timeout";
 "SETTINGS_AUTH_TIMEOUT_DETAIL" = "The number of minutes that you authentication session will stay active when the app is in background";
+
+// MARK: - Stats
+
+"WALLET_NAME" = "Name";
+"CURRENCY" = "Currency";
+"AMOUNT" = "Amount";
+

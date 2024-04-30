@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Wallet Service
+
 /// Re-writes the DataService Protocol exclusively for Wallets
 public protocol WalletServiceProtocol {
     typealias FetchResult = (Result<[Wallet], DataServiceError>) -> Void
@@ -43,3 +45,35 @@ extension WalletService: WalletServiceProtocol {
 
 /// Use default Data Service implementation
 extension WalletService: DataService {}
+
+// MARK: - Mock Wallet Service
+
+#if DEBUG
+public final class MockWalletService: WalletServiceProtocol {
+    public let fetchResult: Result<[Wallet], DataServiceError>
+
+    public init(fetchResult: Result<[Wallet], DataServiceError>) {
+        self.fetchResult = fetchResult
+    }
+
+    public func fetch(_ completion: @escaping FetchResult) {
+        completion(fetchResult)
+    }
+    
+    public func write(_ object: Wallet, _ completion: @escaping WriteResult) {
+        // no-op
+    }
+    
+    public func remove(_ object: Wallet, _ completion: @escaping WriteResult) {
+        // no-op
+    }
+    
+    public func update(
+        _ object: Wallet,
+        _ action: @escaping UpdateAction,
+        _ completion: @escaping UpdateResult
+    ) {
+        // no-op
+    }
+}
+#endif

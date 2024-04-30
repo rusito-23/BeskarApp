@@ -49,7 +49,6 @@ struct Swinject {
     }
 
     private static func registerViewModels() {
-        container.register(StatsViewModel.self) { _ in StatsViewModel() }
         container.register(WalletViewModel.self) { _ in WalletViewModel() }
         container.register(CreateWalletViewModel.self) { _ in CreateWalletViewModel() }
         container.register(TransactionViewModel.self) { _ in TransactionViewModel() }
@@ -57,6 +56,10 @@ struct Swinject {
         container.register(
             WalletListViewModel.self
         ) { r in WalletListViewModel(walletService: r.resolve(WalletServiceProtocol.self))}
+
+        container.register(
+            StatsViewModel.self
+        ) { r in StatsViewModel(walletService: r.resolve(WalletServiceProtocol.self))}
 
         container.register(
             InputFieldViewModelProtocol.self

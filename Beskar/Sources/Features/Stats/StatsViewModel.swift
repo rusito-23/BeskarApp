@@ -5,6 +5,7 @@
 //  Created by Rusito on 13/04/2024.
 //
 
+import BeskarKit
 import Combine
 
 /// Statistics view model.
@@ -14,20 +15,32 @@ import Combine
 /// consisting of the important statistics on the usage of each wallet.
 final class StatsViewModel: ViewModel {
 
+    // MARK: Published Properties
+
+    @Published private(set) var wallets: [Wallet] = []
+
     // MARK: Private Properties
 
-    private let walletListViewModel: WalletListViewModel = resolve()
+    private let walletService: WalletServiceProtocol?
     private var cancellables = Set<AnyCancellable>()
 
     // MARK: Initializer
 
-    init() {
-        setUpBindings()
+    init(walletService: WalletServiceProtocol?) {
+        self.walletService = walletService
     }
 
     // MARK: Methods
 
-    private func setUpBindings() {
-        // TODO: Set up bindings to expose the data.
+    func start() {
+        walletService?.fetch { result in
+            switch result {
+            case .failure:
+                // TODO: Handle failure!
+                self.wallets = []
+            case let .success(wallets):
+                self.wallets = wallets
+            }
+        }
     }
 }

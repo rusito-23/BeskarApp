@@ -19,6 +19,7 @@ final class StatsCoordinator: BaseCoordinator {
 
     private lazy var statsViewController: UIHostingController = {
         let viewController = UIHostingController(rootView: StatsView())
+        viewController.view.backgroundColor = UIColor.beskar.base
         viewController.tabBarItem = tabBarItem
         return viewController
     }()

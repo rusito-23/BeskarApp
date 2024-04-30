@@ -59,6 +59,23 @@ public class Wallet: Object {
         self.currency = currency
     }
 
+    #if DEBUG
+    public convenience init(
+        name: String,
+        summary: String? = nil,
+        creationDate: Date,
+        currency: Currency,
+        transactions: [Transaction]
+    ) {
+        self.init()
+        self.name = name
+        self.summary = summary
+        self.creationDate = creationDate
+        self.currency = currency
+        self.transactions.append(objectsIn: transactions)
+    }
+    #endif
+
     // MARK: Object Overrides
 
     override public static func primaryKey() -> String { PropertiesNames.key }
