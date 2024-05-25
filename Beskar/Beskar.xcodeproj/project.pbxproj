@@ -103,6 +103,8 @@
 		CE020F6AFEB27F18DE74CCD8 /* Pods_Beskar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C3279EEF1BA662A2067AC4 /* Pods_Beskar.framework */; };
 		F226E1CB2BCB20F400AD0518 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226E1CA2BCB20F400AD0518 /* StatsView.swift */; };
 		F226E1CD2BCB21D600AD0518 /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226E1CC2BCB21D600AD0518 /* StatsViewModel.swift */; };
+		F2550CBA2C026D2400F85F29 /* TransactionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2550CB92C026D2400F85F29 /* TransactionExtensions.swift */; };
+		F2550CBC2C026E8000F85F29 /* TransactionKindExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2550CBB2C026E8000F85F29 /* TransactionKindExtensions.swift */; };
 		F29010172C02343A007C39F2 /* TransactionDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29010162C02343A007C39F2 /* TransactionDetailCoordinator.swift */; };
 		F29010192C023521007C39F2 /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29010182C023521007C39F2 /* TransactionDetailViewController.swift */; };
 		F290101B2C023535007C39F2 /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F290101A2C023535007C39F2 /* TransactionDetailView.swift */; };
@@ -244,6 +246,8 @@
 		D6347332EB1C6A3C14EC6866 /* Pods-BeskarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.debug.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F226E1CA2BCB20F400AD0518 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		F226E1CC2BCB21D600AD0518 /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
+		F2550CB92C026D2400F85F29 /* TransactionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionExtensions.swift; sourceTree = "<group>"; };
+		F2550CBB2C026E8000F85F29 /* TransactionKindExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionKindExtensions.swift; sourceTree = "<group>"; };
 		F29010162C02343A007C39F2 /* TransactionDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailCoordinator.swift; sourceTree = "<group>"; };
 		F29010182C023521007C39F2 /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
 		F290101A2C023535007C39F2 /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
@@ -535,6 +539,8 @@
 				78B4C9FF25FBA71D005085F5 /* CurrencyExtensions.swift */,
 				78ED93832698F75600A25562 /* WalletAction.swift */,
 				7897668F25DB1460000E9552 /* WalletExtensions.swift */,
+				F2550CB92C026D2400F85F29 /* TransactionExtensions.swift */,
+				F2550CBB2C026E8000F85F29 /* TransactionKindExtensions.swift */,
 			);
 			path = ModelExtensions;
 			sourceTree = "<group>";
@@ -904,6 +910,7 @@
 				78B4C9E025F679EA005085F5 /* WalletListCoordinator.swift in Sources */,
 				78B4CA0725FBD712005085F5 /* PickerInputFieldViewModel.swift in Sources */,
 				78854C64260F9A51008C7A5A /* Date+Helpers.swift in Sources */,
+				F2550CBC2C026E8000F85F29 /* TransactionKindExtensions.swift in Sources */,
 				7889476825D9E8BD00BB9BEE /* UITableViewExtensions.swift in Sources */,
 				F226E1CD2BCB21D600AD0518 /* StatsViewModel.swift in Sources */,
 				78BD8FDB25FD6BC300935915 /* WalletActionCoordinator.swift in Sources */,
@@ -923,6 +930,7 @@
 				78414A5325D2F48400F9351D /* WalletListView.swift in Sources */,
 				7897669025DB1460000E9552 /* WalletExtensions.swift in Sources */,
 				7897668425DB00F0000E9552 /* ViewModel.swift in Sources */,
+				F2550CBA2C026D2400F85F29 /* TransactionExtensions.swift in Sources */,
 				782E6D9B25D061860057705E /* LoadingView.swift in Sources */,
 				78AC5E3C25D60729005F8D86 /* WalletCardViewCell.swift in Sources */,
 				78536BF2260A891F00E9BA0E /* BlockScreenViewController.swift in Sources */,

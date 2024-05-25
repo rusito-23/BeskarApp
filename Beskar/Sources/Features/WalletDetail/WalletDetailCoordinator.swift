@@ -64,7 +64,7 @@ extension WalletDetailCoordinator: WalletDetailCoordinatorFlow {
     }
 
     func startTransactionDetailFlow(_ transaction: Transaction) {
-        let coordinator = TransactionDetailCoordinator(transaction: transaction)
+        let coordinator = TransactionDetailCoordinator(transaction: transaction, wallet: wallet)
         coordinator.presenter = .navigation(presented?.navigationController)
         start(child: coordinator)
     }

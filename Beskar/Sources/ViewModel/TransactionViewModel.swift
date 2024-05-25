@@ -22,9 +22,18 @@ final class TransactionViewModel: ViewModel {
 
     // MARK: Publishers
 
+    private(set) lazy var walletName: AnyPublisher<String?, Never> = $wallet
+        .map(\.?.name)
+        .eraseToAnyPublisher()
+
     /// The name of the wallet as a published string
     private(set) lazy var summaryPublisher: AnyPublisher<String?, Never> = $transaction
-        .map { $0?.summary }
+        .map(\.?.summary)
+        .eraseToAnyPublisher()
+
+    /// The amount of the transaction, with currency info as formatted string.
+    private(set) lazy var amountPublisher: AnyPublisher<String?, Never> = $transaction
+        .map { $0?.amountFormatted(for: self.wallet?.currency) }
         .eraseToAnyPublisher()
 
     /// The compact amount of the transaction with currency info as a published string

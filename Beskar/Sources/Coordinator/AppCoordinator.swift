@@ -93,16 +93,17 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorFlow {
         }
 
         // Check if login flow should start
-        if sessionDidExpire || Preferences.shouldForceLogin {
-            // Prevent force login when coordinator starts
-            Preferences.shouldForceLogin = false
+        // if sessionDidExpire || Preferences.shouldForceLogin {
+        //     // Prevent force login when coordinator starts
+        //     Preferences.shouldForceLogin = false
 
-            // Stop current flows
-            children.forEach { $0.stop() }
+        //     // Stop current flows
+        //     children.forEach { $0.stop() }
 
-            // Start login flow all over
-            startLoginFlow()
-        }
+        //     // Start login flow all over
+        //     startLoginFlow()
+        // }
+        startMainFlow()
     }
 
     override func stop() {

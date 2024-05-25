@@ -33,6 +33,7 @@
 		78BD8FDE25FD7F7000935915 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BD8FDD25FD7F7000935915 /* ModalViewController.swift */; };
 		78DAF05925DD95FB00060CBF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DAF05825DD95FB00060CBF /* Coordinator.swift */; };
 		AB50CF4EE3EDC4B875B12313 /* Pods_BeskarUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92F30FF3342836F778B0437 /* Pods_BeskarUI.framework */; };
+		F2550CBE2C0288A700F85F29 /* View+Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2550CBD2C0288A700F85F29 /* View+Spacer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		78BD8FDD25FD7F7000935915 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		78DAF05825DD95FB00060CBF /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E92F30FF3342836F778B0437 /* Pods_BeskarUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeskarUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2550CBD2C0288A700F85F29 /* View+Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Spacer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				784BEF96260817D400058A59 /* String+Helpers.swift */,
+				F2550CBD2C0288A700F85F29 /* View+Spacer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				780770E625C74A3B00071EF3 /* MessageView.swift in Sources */,
 				7890564B25D0ADE70027493F /* UIImage+Beskar.swift in Sources */,
 				78414A6A25D3493A00F9351D /* NavigationController.swift in Sources */,
+				F2550CBE2C0288A700F85F29 /* View+Spacer.swift in Sources */,
 				7889475725D9A62F00BB9BEE /* ActionButton.swift in Sources */,
 				78DAF05925DD95FB00060CBF /* Coordinator.swift in Sources */,
 				7889475B25D9C32F00BB9BEE /* Separator.swift in Sources */,

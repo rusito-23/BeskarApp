@@ -12,51 +12,69 @@ final class TransactionDetailView: UIView {
 
     // MARK: Subviews
 
-    private(set) lazy var summaryLabel = Label(
-        size: .small,
-        color: UIColor.beskar.secondary,
-        alignment: .left,
-        identifier: A.TransactionDetailView.summary
+    private(set) lazy var amountValue = Label(
+        size: .large,
+        color: .beskar.primary
     )
 
-    private (set) lazy var dateLabel = Label(
-        size: .extraSmall,
-        color: UIColor.beskar.secondary,
-        alignment: .left,
-        identifier: A.TransactionDetailView.date
+    private(set) lazy var walletValue = Label(
+        size: .medium,
+        color: .beskar.secondary,
+        alignment: .right
     )
 
-    private(set) lazy var amountLabel = Label(
-        size: .small,
-        color: UIColor.beskar.basic,
-        alignment: .left,
-        identifier: A.TransactionDetailView.amount
+    private(set) lazy var summaryValue = Label(
+        size: .medium,
+        color: .beskar.secondary,
+        alignment: .right
+    )
+
+    private(set) lazy var dateValue = Label(
+        size: .typeMedium,
+        color: .beskar.secondary,
+        alignment: .right
+    )
+
+    private(set) lazy var kindValue = Label(
+        size: .typeMedium,
+        color: .beskar.secondary,
+        alignment: .right
     )
 
     private(set) lazy var kindIconView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.size(Size.typeMedium.size)
+        imageView.size(Size.medium.size)
         return imageView
     }()
 
     // MARK: Private Subviews
 
-    private lazy var contentStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            amountLabel,
-            summaryLabel,
-            dateLabel,
+    private lazy var labelValueStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [
+            makeLabelValueRow(.kindLabel, kindValue),
+            makeLabelValueRow(.summaryLabel, summaryValue),
+            makeLabelValueRow(.dateLabel, dateValue),
+            makeLabelValueRow(.walletLabel, walletValue),
         ])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.distribution = .fill
-        stackView.alignment = .fill
-        stackView.spacing = Spacing.small.rawValue
-        stackView.setCustomSpacing(Spacing.extraSmall.rawValue, after: summaryLabel)
-        stackView.setCompressionResistance(.required, for: .vertical)
-        return stackView
+        stack.axis = .vertical
+        stack.spacing = Spacing.medium.rawValue
+        return stack
+    }()
+
+    private lazy var contentStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [
+            kindIconView,
+            amountValue,
+            labelValueStack,
+            .spacer,
+        ])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.alignment = .center
+        stack.spacing = Spacing.large.rawValue
+        return stack
     }()
 
     // MARK: Initializer
@@ -74,14 +92,37 @@ final class TransactionDetailView: UIView {
     // MARK: Private Methods
 
     private func setUpViews() {
-        addSubviews(kindIconView, contentStack)
-
-        kindIconView.leadingToSuperview(offset: Spacing.medium.rawValue)
-        kindIconView.centerYToSuperview()
-
-        contentStack.leadingToTrailing(of: kindIconView, offset: Spacing.medium.rawValue)
-        contentStack.trailingToSuperview(offset: Spacing.small.rawValue)
-        contentStack.topToSuperview(offset: Spacing.small.rawValue)
-        contentStack.bottomToSuperview(offset: -Spacing.small.rawValue)
+        addSubviews(contentStack)
+        contentStack.edgesToSuperview(
+            insets: .horizontal(Spacing.medium.rawValue),
+            usingSafeArea: true
+        )
     }
+
+    private func makeLabelValueRow(_ label: String, _ value: Label) -> UIStackView {
+        let label = makeLabel(label)
+        let stack = UIStackView(arrangedSubviews: [label, value])
+        stack.axis = .horizontal
+        stack.spacing = Spacing.medium.rawValue
+        stack.alignment = .fill
+        return stack
+    }
+
+    private func makeLabel(_ label: String) -> Label {
+        Label(
+            size: .small,
+            color: .beskar.primary,
+            alignment: .left,
+            text: label
+        )
+    }
+}
+
+// MARK: - Strings
+
+private extension String {
+    static let summaryLabel = "TRANSACTION_DETAIL_SUMMARY".localized
+    static let walletLabel = "TRANSACTION_DETAIL_WALLET".localized
+    static let kindLabel = "TRANSACTION_DETAIL_KIND".localized
+    static let dateLabel = "TRANSACTION_DETAIL_DATE".localized
 }

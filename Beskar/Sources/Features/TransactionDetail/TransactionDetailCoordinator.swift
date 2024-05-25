@@ -24,6 +24,7 @@ final class TransactionDetailCoordinator: BaseCoordinator {
     // MARK: Private Properties
 
     private let transaction: Transaction
+    private let wallet: Wallet
 
     private lazy var viewController = TransactionDetailViewController(
         viewModel: transactionViewModel
@@ -32,12 +33,14 @@ final class TransactionDetailCoordinator: BaseCoordinator {
     private lazy var transactionViewModel: TransactionViewModel = {
         let viewModel = TransactionViewModel()
         viewModel.transaction = transaction
+        viewModel.wallet = wallet
         return viewModel
     }()
 
     // MARK: Initializer
 
-    init(transaction: Transaction) {
+    init(transaction: Transaction, wallet: Wallet) {
         self.transaction = transaction
+        self.wallet = wallet
     }
 }

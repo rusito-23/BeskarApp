@@ -21,6 +21,9 @@
 "DEPOSIT" = "Deposit";
 "WITHDRAW" = "Withdraw";
 
+"DEPOSIT_NOUN" = "Deposit";
+"WITHDRAW_NOUN" = "Withdrawal";
+
 // MARK: - Tab Items
 
 "STATS" = "STATS";
@@ -91,6 +94,13 @@ Please make sure you have set your passcode and configured biometrics in your de
 "TRANSACTION_SAVE_ERROR" = "We failed to save your transaction";
 "WALLET_ACTION_DISCLAIMER" = "All of this data will be stored locally and won't be shared.
 This transaction can't be removed later so please enter the information carefully.";
+
+// MARK: - Transaction Detail View
+
+"TRANSACTION_DETAIL_SUMMARY" = "Summary";
+"TRANSACTION_DETAIL_WALLET" = "Wallet";
+"TRANSACTION_DETAIL_KIND" = "Kind";
+"TRANSACTION_DETAIL_DATE" = "Date";
 
 // MARK: - Wallet Removal
 

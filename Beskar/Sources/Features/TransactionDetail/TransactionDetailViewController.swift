@@ -37,30 +37,26 @@ final class TransactionDetailViewController: ViewController<TransactionDetailVie
     // MARK: Private Methods
 
     private func setUpBindings() {
-        viewModel.summaryPublisher.assign(
-            to: \.text, on: ui.summaryLabel
-        ).store(in: &subscriptions)
+        viewModel.walletName
+            .assign(to: \.text, on: ui.walletValue)
+            .store(in: &subscriptions)
 
-        viewModel.datePublisher.assign(
-            to: \.text, on: ui.dateLabel
-        ).store(in: &subscriptions)
+        viewModel.summaryPublisher
+            .assign(to: \.text, on: ui.summaryValue)
+            .store(in: &subscriptions)
 
-        viewModel.compactAmountPublisher.assign(
-            to: \.text, on: ui.amountLabel
-        ).store(in: &subscriptions)
+        viewModel.datePublisher
+            .assign(to: \.text, on: ui.dateValue)
+            .store(in: &subscriptions)
+
+        viewModel.amountPublisher
+            .assign(to: \.text, on: ui.amountValue)
+            .store(in: &subscriptions)
 
         viewModel.kindPublisher.sink { kind in
-            switch kind {
-            case .deposit:
-                self.ui.kindIconView.image = UIImage.beskar.create(.deposit)
-                self.ui.kindIconView.tintColor = UIColor.beskar.positive
-            case .withdraw:
-                self.ui.kindIconView.image = UIImage.beskar.create(.withdraw)
-                self.ui.kindIconView.tintColor = UIColor.beskar.negative
-            default:
-                self.ui.kindIconView.image = nil
-                self.ui.kindIconView.tintColor = nil
-            }
+            self.ui.kindIconView.image = kind?.image
+            self.ui.kindIconView.tintColor = kind?.tintColor
+            self.ui.kindValue.text = kind?.noun
         }.store(in: &subscriptions)
     }
 }

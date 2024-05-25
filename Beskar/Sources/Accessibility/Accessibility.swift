@@ -96,11 +96,3 @@ extension A {
         static let table = "WalletDetailView.table"
     }
 }
-
-extension A {
-    struct TransactionDetailView {
-        static let summary = "TransactionDetailView.summary"
-        static let date = "TransactionDetailView.date"
-        static let amount = "TransactionDetailView.amount"
-    }
-}
