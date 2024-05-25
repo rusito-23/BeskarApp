@@ -103,6 +103,9 @@
 		CE020F6AFEB27F18DE74CCD8 /* Pods_Beskar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C3279EEF1BA662A2067AC4 /* Pods_Beskar.framework */; };
 		F226E1CB2BCB20F400AD0518 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226E1CA2BCB20F400AD0518 /* StatsView.swift */; };
 		F226E1CD2BCB21D600AD0518 /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F226E1CC2BCB21D600AD0518 /* StatsViewModel.swift */; };
+		F29010172C02343A007C39F2 /* TransactionDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29010162C02343A007C39F2 /* TransactionDetailCoordinator.swift */; };
+		F29010192C023521007C39F2 /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29010182C023521007C39F2 /* TransactionDetailViewController.swift */; };
+		F290101B2C023535007C39F2 /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F290101A2C023535007C39F2 /* TransactionDetailView.swift */; };
 		F29787F02BA9012C009F23AC /* WalletRemoveCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29787EF2BA9012C009F23AC /* WalletRemoveCoordinator.swift */; };
 		F29787F22BA9033C009F23AC /* WalletRemoveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29787F12BA9033C009F23AC /* WalletRemoveViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -241,6 +244,9 @@
 		D6347332EB1C6A3C14EC6866 /* Pods-BeskarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeskarTests.debug.xcconfig"; path = "Target Support Files/Pods-BeskarTests/Pods-BeskarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F226E1CA2BCB20F400AD0518 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		F226E1CC2BCB21D600AD0518 /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
+		F29010162C02343A007C39F2 /* TransactionDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailCoordinator.swift; sourceTree = "<group>"; };
+		F29010182C023521007C39F2 /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
+		F290101A2C023535007C39F2 /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
 		F29787EF2BA9012C009F23AC /* WalletRemoveCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRemoveCoordinator.swift; sourceTree = "<group>"; };
 		F29787F12BA9033C009F23AC /* WalletRemoveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletRemoveViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,9 +319,9 @@
 		782927DB25C50ACF00F41574 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				782E6D9625D060C60057705E /* Base */,
 				78536BD7260A2F9100E9BA0E /* Cells */,
 				7889476225D9E86C00BB9BEE /* Extensions */,
-				782E6D9625D060C60057705E /* Base */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,8 +330,8 @@
 			isa = PBXGroup;
 			children = (
 				7897668725DB0AD1000E9552 /* CompactAmountFormatter.swift */,
-				782927DD25C50AF800F41574 /* Preferences.swift */,
 				780770F025C769E300071EF3 /* FieldValidation.swift */,
+				782927DD25C50AF800F41574 /* Preferences.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -343,8 +349,8 @@
 			children = (
 				7824688525CF78EE00B1B9E4 /* ErrorView.swift */,
 				782E6D9725D060EE0057705E /* LoadingView.swift */,
-				78438C4025D5F69D003B8A4E /* WorkInProgressView.swift */,
 				78536BEE260A888200E9BA0E /* SplashView.swift */,
+				78438C4025D5F69D003B8A4E /* WorkInProgressView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -373,9 +379,9 @@
 		783222F125C3791700D466ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				78438C3A25D5F462003B8A4E /* Extensions */,
-				782E6D9225D060B50057705E /* Common */,
 				78536BF1260A891F00E9BA0E /* BlockScreenViewController.swift */,
+				782E6D9225D060B50057705E /* Common */,
+				78438C3A25D5F462003B8A4E /* Extensions */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -413,10 +419,10 @@
 			isa = PBXGroup;
 			children = (
 				783222DB25C378EF00D466ED /* AppDelegate.swift */,
-				7897667B25DAF0F6000E9552 /* Swinject.swift */,
-				78C0909125D083E900C8563B /* SwiftyBeaver.swift */,
-				78536BBB2608DDC300E9BA0E /* IQKeyboardManager.swift */,
 				78CCA250260AB5ED007060F3 /* EurekaSetup.swift */,
+				78536BBB2608DDC300E9BA0E /* IQKeyboardManager.swift */,
+				78C0909125D083E900C8563B /* SwiftyBeaver.swift */,
+				7897667B25DAF0F6000E9552 /* Swinject.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -424,12 +430,12 @@
 		783222FD25C37A6000D466ED /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				78536BBE260900CC00E9BA0E /* BaseCoordinator.swift */,
 				7832230225C37BC800D466ED /* AppCoordinator.swift */,
+				78536BCC260956D600E9BA0E /* AuthErrorCoordinator.swift */,
+				78536BBE260900CC00E9BA0E /* BaseCoordinator.swift */,
+				78536BDF260A7F3C00E9BA0E /* BlockScreenCoordinator.swift */,
 				78B4C9D325F671BA005085F5 /* LoginCoordinator.swift */,
 				78B4C9D625F6773D005085F5 /* MainTabBarCoordinator.swift */,
-				78536BCC260956D600E9BA0E /* AuthErrorCoordinator.swift */,
-				78536BDF260A7F3C00E9BA0E /* BlockScreenCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -516,9 +522,9 @@
 			isa = PBXGroup;
 			children = (
 				780770EC25C75C0400071EF3 /* Collection+Helpers.swift */,
+				78854C63260F9A51008C7A5A /* Date+Helpers.swift */,
 				78DB116225C6375100335F7B /* String+Helpers.swift */,
 				7829281E25C5C15700F41574 /* UIView+Helpers.swift */,
-				78854C63260F9A51008C7A5A /* Date+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -526,9 +532,9 @@
 		7897668E25DB1448000E9552 /* ModelExtensions */ = {
 			isa = PBXGroup;
 			children = (
-				7897668F25DB1460000E9552 /* WalletExtensions.swift */,
 				78B4C9FF25FBA71D005085F5 /* CurrencyExtensions.swift */,
 				78ED93832698F75600A25562 /* WalletAction.swift */,
+				7897668F25DB1460000E9552 /* WalletExtensions.swift */,
 			);
 			path = ModelExtensions;
 			sourceTree = "<group>";
@@ -536,11 +542,11 @@
 		78ECC27825C6152300880193 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				7897668325DB00F0000E9552 /* ViewModel.swift */,
-				78536BDC260A69A400E9BA0E /* TransactionViewModel.swift */,
+				7895FADB260D012500647E3F /* ConcreteInputFieldViewModels.swift */,
 				78B4CA0225FBAFE9005085F5 /* InputFieldViewModel.swift */,
 				78B4CA0625FBD712005085F5 /* PickerInputFieldViewModel.swift */,
-				7895FADB260D012500647E3F /* ConcreteInputFieldViewModels.swift */,
+				78536BDC260A69A400E9BA0E /* TransactionViewModel.swift */,
+				7897668325DB00F0000E9552 /* ViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -548,14 +554,15 @@
 		F226E1BF2BCAFF0300AD0518 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				F226E1C82BCAFF7200AD0518 /* Stats */,
-				F226E1C72BCAFF6900AD0518 /* Welcome */,
-				F226E1C62BCAFF6200AD0518 /* Settings */,
 				F226E1C52BCAFF5400AD0518 /* CreateWallet */,
+				F226E1C62BCAFF6200AD0518 /* Settings */,
+				F226E1C82BCAFF7200AD0518 /* Stats */,
+				F29010152C0233D4007C39F2 /* TransactionDetail */,
 				F226E1C42BCAFF3C00AD0518 /* WalletAction */,
-				F226E1C92BCAFFF400AD0518 /* WalletRemove */,
 				F226E1C22BCAFF1F00AD0518 /* WalletDetail */,
 				F226E1C02BCAFF1200AD0518 /* WalletList */,
+				F226E1C92BCAFFF400AD0518 /* WalletRemove */,
+				F226E1C72BCAFF6900AD0518 /* Welcome */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -641,6 +648,16 @@
 				F29787F12BA9033C009F23AC /* WalletRemoveViewModel.swift */,
 			);
 			path = WalletRemove;
+			sourceTree = "<group>";
+		};
+		F29010152C0233D4007C39F2 /* TransactionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F29010162C02343A007C39F2 /* TransactionDetailCoordinator.swift */,
+				F29010182C023521007C39F2 /* TransactionDetailViewController.swift */,
+				F290101A2C023535007C39F2 /* TransactionDetailView.swift */,
+			);
+			path = TransactionDetail;
 			sourceTree = "<group>";
 		};
 		F725179961C53B2A3868E047 /* Pods */ = {
@@ -891,6 +908,7 @@
 				F226E1CD2BCB21D600AD0518 /* StatsViewModel.swift in Sources */,
 				78BD8FDB25FD6BC300935915 /* WalletActionCoordinator.swift in Sources */,
 				7897668825DB0AD1000E9552 /* CompactAmountFormatter.swift in Sources */,
+				F29010172C02343A007C39F2 /* TransactionDetailCoordinator.swift in Sources */,
 				78BD8FD225FD6AFB00935915 /* WalletDetailViewController.swift in Sources */,
 				F29787F02BA9012C009F23AC /* WalletRemoveCoordinator.swift in Sources */,
 				78536BBF260900CC00E9BA0E /* BaseCoordinator.swift in Sources */,
@@ -913,12 +931,14 @@
 				780770F125C769E300071EF3 /* FieldValidation.swift in Sources */,
 				78536BD9260A2FA700E9BA0E /* TransactionCell.swift in Sources */,
 				7889477325DA20FB00BB9BEE /* WalletViewModel.swift in Sources */,
+				F290101B2C023535007C39F2 /* TransactionDetailView.swift in Sources */,
 				78CCA251260AB5ED007060F3 /* EurekaSetup.swift in Sources */,
 				782BBD2925DD89A9007FB112 /* CreateWalletCoordinator.swift in Sources */,
 				78C0909225D083E900C8563B /* SwiftyBeaver.swift in Sources */,
 				F226E1CB2BCB20F400AD0518 /* StatsView.swift in Sources */,
 				78BD8FD525FD6B2D00935915 /* WalletActionViewController.swift in Sources */,
 				F29787F22BA9033C009F23AC /* WalletRemoveViewModel.swift in Sources */,
+				F29010192C023521007C39F2 /* TransactionDetailViewController.swift in Sources */,
 				784C345525CF55F600DA24E1 /* WelcomeView.swift in Sources */,
 				78536BCD260956D600E9BA0E /* AuthErrorCoordinator.swift in Sources */,
 				78438C4125D5F69D003B8A4E /* WorkInProgressView.swift in Sources */,

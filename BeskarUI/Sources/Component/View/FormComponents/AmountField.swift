@@ -47,15 +47,6 @@ public class AmountField: UITextField {
         set { numberFormatter.currencySymbol = newValue }
     }
 
-    /// Text Field Publisher to be used with Combine, triggered on textDidChangeNotification
-    public var textPublisher: AnyPublisher<String?, Never> {
-        NotificationCenter.default
-            .publisher(for: UITextField.textDidChangeNotification, object: self)
-            .compactMap { $0.object as? UITextField }
-            .map { $0.text }
-            .eraseToAnyPublisher()
-    }
-
     // MARK: Private properties
 
     private lazy var numberFormatter: NumberFormatter = {

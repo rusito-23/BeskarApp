@@ -1,41 +1,36 @@
 //
-//  TransactionCell.swift
+//  TransactionDetailView.swift
 //  Beskar
 //
-//  Created by Igor on 23/03/2021.
+//  Created by Rusito on 25/05/2024.
 //
 
 import BeskarUI
-import BeskarKit
-import Combine
 import UIKit
 
-final class TransactionCell: UITableViewCell {
-
-    // MARK: Properties
-
-    private var viewModel: TransactionViewModel = resolve()
-
-    private lazy var subscriptions = Set<AnyCancellable>()
+final class TransactionDetailView: UIView {
 
     // MARK: Subviews
 
     private(set) lazy var summaryLabel = Label(
         size: .small,
         color: UIColor.beskar.secondary,
-        alignment: .left
+        alignment: .left,
+        identifier: A.TransactionDetailView.summary
     )
 
     private (set) lazy var dateLabel = Label(
         size: .extraSmall,
         color: UIColor.beskar.secondary,
-        alignment: .left
+        alignment: .left,
+        identifier: A.TransactionDetailView.date
     )
 
     private(set) lazy var amountLabel = Label(
         size: .small,
         color: UIColor.beskar.basic,
-        alignment: .left
+        alignment: .left,
+        identifier: A.TransactionDetailView.amount
     )
 
     private(set) lazy var kindIconView: UIImageView = {
@@ -66,14 +61,9 @@ final class TransactionCell: UITableViewCell {
 
     // MARK: Initializer
 
-    override init(
-        style: UITableViewCell.CellStyle,
-        reuseIdentifier: String?
-    ) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setUpStyle()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setUpViews()
-        setUpBindings()
     }
 
     @available(*, unavailable)
@@ -81,23 +71,10 @@ final class TransactionCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: Methods
-
-    func configure(wallet: Wallet?, transaction: Transaction) {
-        viewModel.wallet = wallet
-        viewModel.transaction = transaction
-    }
-
     // MARK: Private Methods
 
-    private func setUpStyle() {
-        backgroundColor = .clear
-        contentView.backgroundColor = .clear
-    }
-
     private func setUpViews() {
-        translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubviews(kindIconView, contentStack)
+        addSubviews(kindIconView, contentStack)
 
         kindIconView.leadingToSuperview(offset: Spacing.medium.rawValue)
         kindIconView.centerYToSuperview()
@@ -106,33 +83,5 @@ final class TransactionCell: UITableViewCell {
         contentStack.trailingToSuperview(offset: Spacing.small.rawValue)
         contentStack.topToSuperview(offset: Spacing.small.rawValue)
         contentStack.bottomToSuperview(offset: -Spacing.small.rawValue)
-    }
-
-    private func setUpBindings() {
-        viewModel.summaryPublisher.assign(
-            to: \.text, on: summaryLabel
-        ).store(in: &subscriptions)
-
-        viewModel.datePublisher.assign(
-            to: \.text, on: dateLabel
-        ).store(in: &subscriptions)
-
-        viewModel.compactAmountPublisher.assign(
-            to: \.text, on: amountLabel
-        ).store(in: &subscriptions)
-
-        viewModel.kindPublisher.sink { kind in
-            switch kind {
-            case .deposit:
-                self.kindIconView.image = UIImage.beskar.create(.deposit)
-                self.kindIconView.tintColor = UIColor.beskar.positive
-            case .withdraw:
-                self.kindIconView.image = UIImage.beskar.create(.withdraw)
-                self.kindIconView.tintColor = UIColor.beskar.negative
-            default:
-                self.kindIconView.image = nil
-                self.kindIconView.tintColor = nil
-            }
-        }.store(in: &subscriptions)
     }
 }

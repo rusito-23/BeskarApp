@@ -6,6 +6,8 @@
 //
 
 import BeskarUI
+import BeskarKit
+import CombineCocoa
 import CombineDataSources
 import Loaf
 import UIKit
@@ -59,17 +61,39 @@ final class WalletDetailViewController: ViewController<WalletDetailView> {
             to: \.text, on: ui.amountLabel
         ).store(in: &subscriptions)
 
-        viewModel.transactionsPublisher.bind(subscriber: ui.transactionsTableView.rowsSubscriber(
-            cellIdentifier: TransactionCell.identifier,
-            cellType: TransactionCell.self,
-            cellConfig: { $0.configure(wallet: self.viewModel.wallet, transaction: $2)}
-        )).store(in: &subscriptions)
-
         viewModel.actionsPublisher.bind(subscriber: ui.actionsCollection.itemsSubscriber(
             cellIdentifier: WalletActionItemViewCell.identifier,
             cellType: WalletActionItemViewCell.self,
-            cellConfig: { cell, _, action in cell.configure(with: action, delegate: self) }
+            cellConfig: configureActionItemCell
         )).store(in: &subscriptions)
+
+        viewModel.transactionsPublisher.bind(subscriber: ui.transactionsTableView.rowsSubscriber(
+            cellIdentifier: TransactionCell.identifier,
+            cellType: TransactionCell.self,
+            cellConfig: configureTransactionCell
+        )).store(in: &subscriptions)
+
+        ui.transactionsTableView.didSelectRowPublisher
+            .combineLatest(viewModel.transactionsPublisher)
+            .map { indexPath, transactions in transactions[indexPath.row] }
+            .sink { self.coordinator?.startTransactionDetailFlow($0) }
+            .store(in: &subscriptions)
+    }
+
+    private func configureTransactionCell(
+        cell: TransactionCell,
+        indexPath: IndexPath,
+        transaction: Transaction
+    ) {
+        cell.configure(wallet: viewModel.wallet, transaction: transaction)
+    }
+
+    private func configureActionItemCell(
+        cell: WalletActionItemViewCell,
+        indexPath: IndexPath,
+        action: WalletAction
+    ) {
+        cell.configure(with: action, delegate: self)
     }
 }
 

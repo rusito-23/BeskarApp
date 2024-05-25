@@ -15,19 +15,19 @@ final class WalletDetailView: UIView {
 
     private(set) lazy var nameLabel = Label(
         size: .typeLarge,
-        color: UIColor.beskar.primary,
+        color: .beskar.primary,
         identifier: A.WalletDetailView.name
     )
 
     private(set) lazy var summaryLabel = Label(
         size: .small,
-        color: UIColor.beskar.secondary,
+        color: .beskar.secondary,
         identifier: A.WalletDetailView.summary
     )
 
     private(set) lazy var amountLabel = Label(
         size: .large,
-        color: UIColor.beskar.primary,
+        color: .beskar.primary,
         text: "WALLET_DETAIL_AMOUNT_HEADER".localized,
         identifier: A.WalletDetailView.amountHeader
     )

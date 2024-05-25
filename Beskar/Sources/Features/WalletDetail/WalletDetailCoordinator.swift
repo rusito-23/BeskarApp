@@ -14,6 +14,7 @@ import UIKit
 
 protocol WalletDetailCoordinatorFlow: AnyObject {
     func startWalletActionFlow(_ action: WalletAction)
+    func startTransactionDetailFlow(_ transaction: Transaction)
 }
 
 // MARK: - Coordinator Implementation
@@ -60,6 +61,12 @@ extension WalletDetailCoordinator: WalletDetailCoordinatorFlow {
         default:
             break
         }
+    }
+
+    func startTransactionDetailFlow(_ transaction: Transaction) {
+        let coordinator = TransactionDetailCoordinator(transaction: transaction)
+        coordinator.presenter = .navigation(presented?.navigationController)
+        start(child: coordinator)
     }
 }
 

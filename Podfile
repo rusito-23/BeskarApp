@@ -14,6 +14,7 @@ target 'Beskar' do
     pod 'IQKeyboardManagerSwift'
     pod 'Eureka'
     pod 'Loaf'
+    pod 'CombineCocoa'
 end
 
 target 'BeskarTests' do

@@ -1,4 +1,5 @@
 PODS:
+  - CombineCocoa (0.4.1)
   - CombineDataSources (0.2.5)
   - Eureka (5.3.3)
   - IQKeyboardManagerSwift (6.5.6)
@@ -15,6 +16,7 @@ PODS:
   - TinyConstraints (4.0.1)
 
 DEPENDENCIES:
+  - CombineCocoa
   - CombineDataSources
   - Eureka
   - IQKeyboardManagerSwift
@@ -29,6 +31,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - CombineCocoa
     - CombineDataSources
     - Eureka
     - IQKeyboardManagerSwift
@@ -42,6 +45,7 @@ SPEC REPOS:
     - TinyConstraints
 
 SPEC CHECKSUMS:
+  CombineCocoa: e5210dbfb480ff251078929459ac17e750e7af1d
   CombineDataSources: dcbc3b06a038ffdf620b3b4533d3ecaf76ca6a2e
   Eureka: e6d720290c56bb23333ad1a0e020b2a98a0e9a43
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
@@ -54,6 +58,6 @@ SPEC CHECKSUMS:
   Swinject: ddf78b8486dd9b71a667b852cad919ab4484478e
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: ed2a82088dd926c75fe1c098630720300ee015a1
+PODFILE CHECKSUM: ca42f737661dab57cf19c14d53a46f81787df35a
 
 COCOAPODS: 1.15.2
