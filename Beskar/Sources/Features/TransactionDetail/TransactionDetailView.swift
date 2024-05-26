@@ -18,13 +18,13 @@ final class TransactionDetailView: UIView {
     )
 
     private(set) lazy var walletValue = Label(
-        size: .medium,
+        size: .typeMedium,
         color: .beskar.secondary,
         alignment: .right
     )
 
     private(set) lazy var summaryValue = Label(
-        size: .medium,
+        size: .typeMedium,
         color: .beskar.secondary,
         alignment: .right
     )

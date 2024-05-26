@@ -92,6 +92,9 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorFlow {
             return
         }
 
+        #if targetEnvironment(simulator)
+        startMainFlow()
+        #else
         // Check if login flow should start
         if sessionDidExpire || Preferences.shouldForceLogin {
             // Prevent force login when coordinator starts
@@ -103,6 +106,7 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorFlow {
             // Start login flow all over
             startLoginFlow()
         }
+        #endif
     }
 
     override func stop() {
